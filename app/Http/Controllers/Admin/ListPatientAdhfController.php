@@ -240,6 +240,7 @@ class ListPatientAdhfController extends Controller
 		$Outcomes->vulnerablePhaseDeath = $request->vulnerablePhaseDeath;
 		$Outcomes->vulnerablePhaseRehospitalization = $request->vulnerablePhaseRehospitalization;
 		$Outcomes->dateofDeath = $request->dateofDeath;
+		$Outcomes->additional_notes = $request->additional_notes;
 		$Outcomes->save();
 
 		$data = [
@@ -257,8 +258,10 @@ class ListPatientAdhfController extends Controller
 
 		];
 		// return view('admin.listpatientadhf.index', compact('patient'));
+		return route('admin.listpatientadhf.index ');
 
-		return response()->json($data);
+
+		// return response()->json($data);
 		// return 1;
 	}
 
@@ -281,5 +284,25 @@ class ListPatientAdhfController extends Controller
 
 		// return response()->json($data);
 		return view('admin.listpatientadhf.show', compact('data'));
+	}
+	public function edit($id)
+	{
+		$patient = DB::table('patient')
+			->join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
+			->join('adhfechocardiography', 'patient.id', '=', 'adhfechocardiography.patient_id')
+			->join('adhfbloodgasanalysis', 'patient.id', '=', 'adhfbloodgasanalysis.patient_id')
+			->join('adhfetiology', 'patient.id', '=', 'adhfetiology.patient_id')
+			->join('adhfmedication', 'patient.id', '=', 'adhfmedication.patient_id')
+			->join('adhfoutcomes', 'patient.id', '=', 'adhfoutcomes.patient_id')
+			->join('adhfriskfactors', 'patient.id', '=', 'adhfriskfactors.patient_id')
+			->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id')
+			->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
+			->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
+			->where('patient.id', $id)
+			->get();
+		$data = $patient[0];
+		$rumahsakit = RumahSakit::pluck('name_of_rs', 'id');
+
+		return view('admin.listpatientadhf.edit', compact('data', 'rumahsakit'));
 	}
 }

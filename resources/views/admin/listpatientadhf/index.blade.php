@@ -64,8 +64,10 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                     <td>
                         {!! link_to_route('admin.listpatientadhf.show', trans('View'),
                         array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
-                        {!! link_to_route('admin.listpatientadhf.edit', trans('Update'),
+                        {!! link_to_route('admin.listpatientadhf.edit', trans('Edit'), 
                         array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
+                        {{-- {!! link_to_route('admin.listpatientadhf.edit', trans('Update'),
+                        array($row->id), array('class' => 'btn btn-xs btn-info')) !!} --}}
                         {{-- {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array(config('quickadmin.route').'.patient.destroy', $row->id))) !!}
                                 {!! Form::submit(trans('quickadmin::templates.templates-view_index-delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                                 {!! Form::close() !!} --}}
@@ -95,6 +97,16 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 @endsection
 
 @section('javascript')
+<script>
+//     $(document).ready(function() {
+//     $('#datatable2').DataTable( {
+//         dom: 'Bfrtip',
+//         buttons: [
+//             'copy', 'csv', 'excel', 'pdf', 'print'
+//         ]
+//     } );
+// } );
+</script>
 <script>
     $(document).ready(function () {
         $('#delete').click(function () {

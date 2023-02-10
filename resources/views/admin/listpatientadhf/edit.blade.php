@@ -463,7 +463,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                         </ul>
                     </div>
                     {!! Form::open(array('route' => 'admin.listpatientadhf.store', 'id' => 'dataForm', 'class' => 'form-horizontal', 'method' => 'post')) !!}
-                    
+                
                         <div class="tab-content" id="main_form">
                             {{-- Patient Identity --}}
                             <div class="tab-pane active" role="tabpanel" id="step1">
@@ -473,7 +473,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>NIK *</label>
 
                                         <div class="input-group">
-                                            <input class="form-control" type="number" name="nik" placeholder="" required>
+                                            <input class="form-control" type="number" name="nik" placeholder="" value="{{ $data->nik }}" required>
                                             
                                         </div>
                                     </div>
@@ -481,7 +481,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>Name *</label>
 
                                         <div class="input-group">
-                                            <input class="form-control" type="text" name="name" placeholder="" required>
+                                            <input class="form-control" type="text" name="name" value="{{ $data->name }}" placeholder="" required>
                                        
                                         </div>
                                     </div>
@@ -489,7 +489,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>Date of birth *</label>
 
                                         <div class="input-group">
-                                            <input id="datebirth" onchange="countAge()" class="form-control" type="date" name="dateOfBirth" placeholder="" required>
+                                            <input id="datebirth" onchange="countAge()" class="form-control" type="date" value="{{ $data->dateOfBirth }}" name="dateOfBirth" placeholder="" required>
                                         
                                         </div>
                                     </div>
@@ -498,7 +498,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>Age *</label>
 
                                         <div class="input-group">
-                                            <input id="age" class="form-control" type="text" name="age" placeholder="" readonly required>
+                                            <input id="age" class="form-control" type="text" value="{{ $data->age }}" name="age" placeholder="" readonly required>
                                         
                                         </div>
                                     </div>
@@ -507,10 +507,10 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                         <div class="input-group">
                                             <div class="radio">
-                                                <label><input id="sex" onchange="countBmi()" type="radio" name="gender" value="Male" required>Male</label>
+                                                <label><input id="sex"  {{ $data->gender == 'Male' ? 'checked' : ''}} onchange="countBmi()" type="radio" name="gender" value="Male" required>Male</label>
                                             </div>
                                             <div class="radio">
-                                                <label><input id="sex" onchange="countBmi()" type="radio" name="gender" value="Female" required>Female</label>
+                                                <label><input id="sex" {{ $data->gender == 'Female' ? 'checked' : ''}} onchange="countBmi()" type="radio" name="gender" value="Female" required>Female</label>
                                             </div>
                                         </div>
                                     </div>
@@ -518,7 +518,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>Phone *</label>
 
                                         <div class="input-group">
-                                            <input class="form-control" type="number" name="phone"
+                                            <input class="form-control" type="number" value="{{ $data->phone }}" name="phone"
                                                 placeholder="6280000000" required>
                                         
                                             </div>
@@ -527,7 +527,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>Date of Admission *</label>
 
                                         <div class="input-group">
-                                            <input id="dateadmission" onchange="countAge()" class="form-control" type="date" name="dateOfAdmission"
+                                            <input id="dateadmission" onchange="countAge()" class="form-control" type="date" value="{{ $data->dateOfAdmission }}" name="dateOfAdmission"
                                                 placeholder="" required>
                                         
                                             </div>
@@ -536,7 +536,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>Date of discharge *</label>
 
                                         <div class="input-group">
-                                            <input class="form-control" type="date" name="dateOfDischarge"
+                                            <input class="form-control" type="date" value="{{ $data->dateOfDischarge }}" name="dateOfDischarge"
                                                 placeholder="">
                                         
                                             </div>
@@ -545,9 +545,9 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>Insurance *</label>
                                         <div class="input-group">
                                             <select class="form-control" name="insurance"  required>
-                                                <option>Government Insurance (BPJS)</option>
-                                                <option>Private Insurance (Swasta)</option>
-                                                <option>Personal Payment</option>
+                                                <option {{ $data->insurance == 'Government Insurance (BPJS)' ? 'selected' : ''}} value="Government Insurance (BPJS)">Government Insurance (BPJS)</option>
+                                                <option {{ $data->insurance == 'Private Insurance (Swasta)' ? 'selected' : ''}} value="Private Insurance (Swasta)">Private Insurance (Swasta)</option>
+                                                <option {{ $data->insurance == 'Personal Payment' ? 'selected' : ''}} value="Personal Payment">Personal Payment</option>
                                             </select>
                                             {{-- <input class="form-control" type="text" name="insurance" placeholder="" required> --}}
                                         
@@ -558,11 +558,11 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>Education *</label>
                                             {{-- <input class="form-control" type="text" name="education" placeholder="" > --}}
                                             <select class="form-control" name="education"required>
-                                                <option>Not going to school/not graduated from elementary school</option>
-                                                <option>Graduated from elementary school</option>
-                                                <option>Graduated from Junior High School</option>
-                                                <option>Graduated from Senior High School</option>
-                                                <option>Bachelor/Magister/Doctor</option>
+                                                <option {{ $data->insurance == 'Government Insurance (BPJS)' ? 'selected' : ''}} value="Not going to school/not graduated from elementary school">Not going to school/not graduated from elementary school</option>
+                                                <option {{ $data->insurance == 'Graduated from elementary school' ? 'selected' : ''}} value="Graduated from elementary school">Graduated from elementary school</option>
+                                                <option {{ $data->insurance == 'Graduated from Junior High School' ? 'selected' : ''}} value="Graduated from Junior High School">Graduated from Junior High School</option>
+                                                <option {{ $data->insurance == 'Graduated from Senior High School' ? 'selected' : ''}} value=">Graduated from Senior High School">Graduated from Senior High School</option>
+                                                <option {{ $data->insurance == 'Bachelor/Magister/Doctor' ? 'selected' : ''}} value="Bachelor/Magister/Doctor">Bachelor/Magister/Doctor</option>
                                             </select>
                                         </div>
                                     </div>
@@ -580,14 +580,14 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                 <div class="col-md-6">
                                         <label>Height *</label>
                                     <div class="input-group">
-                                        <input type="number" id="height" onkeyup="countBmi()" type="number" name="height" class="form-control">
+                                        <input type="number" id="height" {{ $data->height }} onkeyup="countBmi()" type="number" name="height" class="form-control">
                                         <span class="input-group-addon">.Cm</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Weight *</label>
                                         <div class="input-group">
-                                        <input type="number" id="weight" onkeyup="countBmi()" type="number" name="weight" class="form-control" >
+                                        <input type="number" id="weight" {{ $data->weight }} onkeyup="countBmi()" type="number" name="weight" class="form-control" >
                                         <span class="input-group-addon">.Kg</span>
                                         </div>
                                         {{-- <input onkeyup="countBmi()" id="weight" class="form-control" type="number" name="weight" placeholder=""> --}}
@@ -595,7 +595,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                 <div class="col-md-6">
                                         <label>BMI</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="text" id="bmi" name="bmi" placeholder="" readonly>
+                                        <input class="form-control" type="text" id="bmi" {{ $data->bmi }} name="bmi" placeholder="" readonly>
                                         {{-- <span class="input-group-addon">.Kg/m2</span> --}}
                                     </div>
                                 </div>
@@ -603,7 +603,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>Systolic Blood Pressure  </label>
 
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="sbp" placeholder="" >
+                                        <input class="form-control" {{ $data->sbp }} type="number" name="sbp" placeholder="" >
                                         <span class="input-group-addon">.mmHg</span>
                                     
                                     </div>
@@ -611,7 +611,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                 <div class="col-md-6">
                                         <label>Diastolic Blood Pressure</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="dbp" placeholder="" >
+                                        <input class="form-control" {{ $data->dbp }} type="number" name="dbp" placeholder="" >
                                         <span class="input-group-addon">.mmHg</span>
                                         
                                     </div>
@@ -619,7 +619,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                 <div class="col-md-6">
                                         <label>Heart Rate</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="hr" placeholder="" >
+                                        <input class="form-control" {{ $data->hr }} type="number" name="hr" placeholder="" >
                                         <span class="input-group-addon">.bpm</span>
                                         
                                     </div>
@@ -628,10 +628,10 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>Dyspnoea at rest</label>
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input type="radio" name="dyspnoea_at_rest" value="Yes">Yes</label>
+                                            <label><input {{ $data->dyspnoea_at_rest == 'Yes' ? 'checked' : ''}} type="radio" name="dyspnoea_at_rest" value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="dyspnoea_at_rest" value="No">No</label>
+                                            <label><input {{ $data->dyspnoea_at_rest == 'No' ? 'checked' : ''}} type="radio" name="dyspnoea_at_rest" value="No">No</label>
                                         </div>
                                     </div>
                                 </div>
