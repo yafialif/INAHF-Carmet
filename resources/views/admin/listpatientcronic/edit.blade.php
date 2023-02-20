@@ -1004,15 +1004,17 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Diastolic function</label>
+                                        <label>E/A</label>
 
                                     <div class="input-group">
-                                        <select class="form-control" name="diastolicFunction">
+                                        <input value="{{ $data->diastolicFunction }}" class="form-control" type="number" name="diastolicFunction" placeholder="">
+
+                                        {{-- <select class="form-control" name="diastolicFunction">
                                                 <option {{ $data->diastolicFunction == 'Normal' ? 'selected' : ''}} value="Normal">Normal</option>
                                                 <option {{ $data->diastolicFunction == 'Pseudonormal' ? 'selected' : ''}} value="Pseudonormal">Pseudonormal</option>
                                                 <option {{ $data->diastolicFunction == 'Relaxation Disorder' ? 'selected' : ''}} value="Relaxation Disorder">Relaxation Disorder</option>
                                                 <option {{ $data->diastolicFunction == 'Restrictive' ? 'selected' : ''}} value="Restrictive">Restrictive</option>
-                                            </select>
+                                            </select> --}}
                                         {{-- <input class="form-control" type="text" name="diastolic_function" placeholder=""> --}}
                                     </div>
                                 </div>

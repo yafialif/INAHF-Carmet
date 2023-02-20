@@ -270,7 +270,7 @@ class ListPatientCronicController extends Controller
 		// ];
 		// return view('admin.listpatientadhf.index', compact('patient'));
 
-		return redirect()->route('admin.listpatientcronic.index ');
+		return redirect()->route('admin.listpatientcronic.index');
 
 
 		// return response()->json($request);
@@ -318,6 +318,6 @@ class ListPatientCronicController extends Controller
 	public function update($id, Request $request)
 	{
 		// return response()->json($request);
-		return redirect()->route('admin.listpatientcronic.index ');
+		return redirect()->route('admin.listpatientcronic.index');
 	}
 }

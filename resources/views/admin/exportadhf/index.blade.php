@@ -80,7 +80,7 @@
                         <td>edd</td>
                         <td>esd</td>
                         <td>sign mr</td>
-                        <td>diastolic function</td>
+                        <td>E/A</td>
                         {{-- Blood Laboratory Test --}}
                         <td>hemoglobin</td>
                         <td>hematocrite</td>

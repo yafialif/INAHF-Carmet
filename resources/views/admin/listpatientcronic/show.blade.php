@@ -614,10 +614,7 @@
                                         <label>CKD</label>
 <p>{{ $data->ckd }}</p>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>Valvular heart disease</label>
-<p>{{ $data->valvularHeartDisease }}</p>
-                                </div>
+                                
                                 <div class="col-md-6">
                                         <label>Atrial fibrillation</label>
 <p>{{ $data->atrialFibrillation }}</p>
@@ -684,7 +681,7 @@
                                     <p>{{ $data->signMr }}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Diastolic function</label>
+                                        <label>E/A</label>
                                     <p>{{ $data->diastolicFunction }}</p>
                                 </div>
 

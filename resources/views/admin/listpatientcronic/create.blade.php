@@ -1009,16 +1009,16 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Diastolic function</label>
+                                        <label>E/A</label>
 
                                     <div class="input-group">
-                                        <select class="form-control" name="diastolicFunction">
+                                        {{-- <select class="form-control" name="diastolicFunction">
                                                 <option value="Normal">Normal</option>
                                                 <option value="Pseudonormal">Pseudonormal</option>
                                                 <option value="Relaxation Disorder">Relaxation Disorder</option>
                                                 <option value="Restrictive">Restrictive</option>
-                                            </select>
-                                        {{-- <input class="form-control" type="text" name="diastolic_function" placeholder=""> --}}
+                                            </select> --}}
+                                        <input class="form-control" type="text" name="diastolicFunction" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-12">

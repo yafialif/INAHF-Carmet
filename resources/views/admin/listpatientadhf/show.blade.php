@@ -815,7 +815,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Diastolic function</label>
+                                        <label>E/A</label>
                                         <p>{{ $data->diastolic_function }}</p>
                                     </div>
                                 </div>
