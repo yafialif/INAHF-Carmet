@@ -324,7 +324,6 @@ class ListPatientCronicController extends Controller
 		// Patient
 		$patient = Patient::where('id', $id)->update(array(
 			'categorytreatment_id' => $categorytreatment_id,
-			'rs_id' => $request->rs_id,
 			'nik' => $request->nik,
 			'name' => $request->name,
 			'dateOfBirth' => $request->dateOfBirth,
