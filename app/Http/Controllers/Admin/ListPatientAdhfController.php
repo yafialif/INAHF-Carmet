@@ -308,7 +308,7 @@ class ListPatientAdhfController extends Controller
 		// ];
 		// return view('admin.listpatientadhf.index', compact('patient'));
 
-		return redirect()->route('admin.listpatientadhf.index ');
+		return redirect()->route('admin.listpatientadhf.index');
 
 
 		// return response()->json($data);
@@ -527,6 +527,6 @@ class ListPatientAdhfController extends Controller
 		));
 
 		// return response()->json($id);
-		return redirect()->route('admin.listpatientadhf.index ');
+		return redirect()->route('admin.listpatientadhf.index');
 	}
 }
