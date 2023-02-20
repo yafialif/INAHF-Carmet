@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Eloquent\Model;
 
-class CreateAdhfMedicationTable extends Migration {
+class CreateAdhfMedicationTable extends Migration
+{
 
     /**
      * Run the migrations.
@@ -14,42 +15,42 @@ class CreateAdhfMedicationTable extends Migration {
     public function up()
     {
         Model::unguard();
-        Schema::create('adhfmedication',function(Blueprint $table){
+        Schema::create('adhfmedication', function (Blueprint $table) {
             $table->increments("id");
             $table->integer("patient_id")->references("id")->on("patient");
             $table->integer("categorytreatment_id")->references("id")->on("categorytreatment");
-            $table->string("DopaminDose");
-            $table->string("DopaminDuration");
-            $table->string("DobutaminDose");
-            $table->string("DobutaminDuration");
-            $table->string("NorepinephrineDose");
-            $table->string("NorepinephrineDuration");
-            $table->string("EpinephrinDose");
-            $table->string("EpinephrinDuration");
-            $table->string("acei");
-            $table->string("aceiDoseatAdmission");
-            $table->string("aceiDoseatPredischarge");
-            $table->string("arb");
-            $table->string("arbDoseatAdmission");
-            $table->string("arbDoseatPredischarge");
-            $table->string("arniDoseatAdmission");
-            $table->string("arniDoseatPredischarge");
-            $table->string("mraDoseatAdmission");
-            $table->string("mraDoseatPredischarge");
-            $table->string("BetaBlocker");
-            $table->string("BetaBlockerDoseatAdmission");
-            $table->string("BetaBlockerDoseatPredischarge");
-            $table->string("LoopDiureticDoseatAdmission");
-            $table->string("LoopDiureticDoseatPredischarge");
-            $table->string("sglt2i");
-            $table->string("sglt2iDoseatAdmission");
-            $table->string("sglt2iDoseatPredischarge");
-            $table->string("ivabradineDoseatAdmission");
-            $table->string("ivabradineDoseatPredischarge");
-            $table->string("TolvaptanTotalDose");
-            $table->string("insulin");
-            $table->string("insulinDose");
-            $table->string("otherOAD");
+            $table->string("DopaminDose")->nullable();
+            $table->string("DopaminDuration")->nullable();
+            $table->string("DobutaminDose")->nullable();
+            $table->string("DobutaminDuration")->nullable();
+            $table->string("NorepinephrineDose")->nullable();
+            $table->string("NorepinephrineDuration")->nullable();
+            $table->string("EpinephrinDose")->nullable();
+            $table->string("EpinephrinDuration")->nullable();
+            $table->string("acei")->nullable();
+            $table->string("aceiDoseatAdmission")->nullable();
+            $table->string("aceiDoseatPredischarge")->nullable();
+            $table->string("arb")->nullable();
+            $table->string("arbDoseatAdmission")->nullable();
+            $table->string("arbDoseatPredischarge")->nullable();
+            $table->string("arniDoseatAdmission")->nullable();
+            $table->string("arniDoseatPredischarge")->nullable();
+            $table->string("mraDoseatAdmission")->nullable();
+            $table->string("mraDoseatPredischarge")->nullable();
+            $table->string("BetaBlocker")->nullable();
+            $table->string("BetaBlockerDoseatAdmission")->nullable();
+            $table->string("BetaBlockerDoseatPredischarge")->nullable();
+            $table->string("LoopDiureticDoseatAdmission")->nullable();
+            $table->string("LoopDiureticDoseatPredischarge")->nullable();
+            $table->string("sglt2i")->nullable();
+            $table->string("sglt2iDoseatAdmission")->nullable();
+            $table->string("sglt2iDoseatPredischarge")->nullable();
+            $table->string("ivabradineDoseatAdmission")->nullable();
+            $table->string("ivabradineDoseatPredischarge")->nullable();
+            $table->string("TolvaptanTotalDose")->nullable();
+            $table->string("insulin")->nullable();
+            $table->string("insulinDose")->nullable();
+            $table->string("otherOAD")->nullable();
             $table->timestamps();
         });
     }
@@ -63,5 +64,4 @@ class CreateAdhfMedicationTable extends Migration {
     {
         Schema::drop('adhfmedication');
     }
-
 }

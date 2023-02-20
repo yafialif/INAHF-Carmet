@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Eloquent\Model;
 
-class CreateChronicEchocardiographyTable extends Migration {
+class CreateChronicEchocardiographyTable extends Migration
+{
 
     /**
      * Run the migrations.
@@ -14,18 +15,18 @@ class CreateChronicEchocardiographyTable extends Migration {
     public function up()
     {
         Model::unguard();
-        Schema::create('chronicechocardiography',function(Blueprint $table){
+        Schema::create('chronicechocardiography', function (Blueprint $table) {
             $table->increments("id");
             $table->integer("patient_id")->references("id")->on("patient");
             $table->integer("categorytreatment_id")->references("id")->on("categorytreatment");
-            $table->string("ef");
-            $table->string("tapse");
-            $table->string("edv");
-            $table->string("esv");
-            $table->string("edd");
-            $table->string("esd");
-            $table->string("signMr");
-            $table->string("diastolicFunction");
+            $table->string("ef")->nullable();
+            $table->string("tapse")->nullable();
+            $table->string("edv")->nullable();
+            $table->string("esv")->nullable();
+            $table->string("edd")->nullable();
+            $table->string("esd")->nullable();
+            $table->string("signMr")->nullable();
+            $table->string("diastolicFunction")->nullable();
             $table->timestamps();
         });
     }
@@ -39,5 +40,4 @@ class CreateChronicEchocardiographyTable extends Migration {
     {
         Schema::drop('chronicechocardiography');
     }
-
 }

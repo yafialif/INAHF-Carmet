@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Eloquent\Model;
 
-class CreateChronicRoThoraxTable extends Migration {
+class CreateChronicRoThoraxTable extends Migration
+{
 
     /**
      * Run the migrations.
@@ -14,11 +15,11 @@ class CreateChronicRoThoraxTable extends Migration {
     public function up()
     {
         Model::unguard();
-        Schema::create('chronicrothorax',function(Blueprint $table){
+        Schema::create('chronicrothorax', function (Blueprint $table) {
             $table->increments("id");
             $table->integer("patient_id")->references("id")->on("patient");
             $table->integer("categorytreatment_id")->references("id")->on("categorytreatment");
-            $table->string("roThorax");
+            $table->string("roThorax")->nullable();
             $table->timestamps();
         });
     }
@@ -32,5 +33,4 @@ class CreateChronicRoThoraxTable extends Migration {
     {
         Schema::drop('chronicrothorax');
     }
-
 }

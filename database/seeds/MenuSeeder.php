@@ -16,7 +16,7 @@ class MenuSeeder extends Seeder
         Menu::insert(array(
             [
                 "id" => 1,
-                "position" => null,
+                "position" => 0,
                 "menu_type" => 0,
                 "icon" => null,
                 "name" => "User",
@@ -38,40 +38,40 @@ class MenuSeeder extends Seeder
             ],
             [
                 "id" => 4,
-                "position" => 1,
+                "position" => 10,
                 "menu_type" => 1,
                 "icon" => "fa-database",
                 "name" => "Patient",
                 "title" => "Patient",
                 "parent_id" => null,
-                "created_at" => "2023-01-28 08:12:37",
-                "updated_at" => "2023-01-28 08:12:37"
+                "created_at" => null,
+                "updated_at" => null
             ],
             [
                 "id" => 5,
-                "position" => 0,
+                "position" => 2,
                 "menu_type" => 2,
                 "icon" => "fa-database",
                 "name" => "ITreatHF(ADHF)",
                 "title" => "I-Treat HF (ADHF)",
                 "parent_id" => null,
-                "created_at" => "2023-01-28 14:00:47",
-                "updated_at" => "2023-01-28 14:00:47"
+                "created_at" => null,
+                "updated_at" => null
             ],
             [
                 "id" => 6,
-                "position" => 0,
+                "position" => 3,
                 "menu_type" => 2,
                 "icon" => "fa-database",
                 "name" => "ITreatHF(Chronic)",
                 "title" => "I-Treat HF (Chronic)",
                 "parent_id" => null,
-                "created_at" => "2023-01-28 14:03:21",
-                "updated_at" => "2023-01-28 14:03:21"
+                "created_at" => null,
+                "updated_at" => null
             ],
             [
                 "id" => 7,
-                "position" => 1,
+                "position" => 6,
                 "menu_type" => 1,
                 "icon" => null,
                 "name" => "ListPatientAdhf",
@@ -82,7 +82,7 @@ class MenuSeeder extends Seeder
             ],
             [
                 "id" => 8,
-                "position" => 1,
+                "position" => 4,
                 "menu_type" => 1,
                 "icon" => null,
                 "name" => "ListPatientCronic",
@@ -299,7 +299,85 @@ class MenuSeeder extends Seeder
                 "parent_id" => null,
                 "created_at" => null,
                 "updated_at" => null
+            ],
+            [
+                "id" => 28,
+                "position" => 9,
+                "menu_type" => 1,
+                "icon" => "fa-database",
+                "name" => "RumahSakit",
+                "title" => "Rumah Sakit",
+                "parent_id" => null,
+                "created_at" => null,
+                "updated_at" => null
+            ],
+            [
+                "id" => 29,
+                "position" => 7,
+                "menu_type" => 1,
+                "icon" => "fa-database",
+                "name" => "ManageDokter",
+                "title" => "Manage Dokter",
+                "parent_id" => null,
+                "created_at" => null,
+                "updated_at" => null
+            ],
+            [
+                "id" => 30,
+                "position" => 0,
+                "menu_type" => 3,
+                "icon" => null,
+                "name" => "ExportAdhf",
+                "title" => "Export Data Patient Adhf",
+                "parent_id" => 5,
+                "created_at" => null,
+                "updated_at" => null
+            ],
+            [
+                "id" => 32,
+                "position" => 0,
+                "menu_type" => 1,
+                "icon" => null,
+                "name" => "ChronicPatientMonthFollowUp",
+                "title" => "Patient Month Followup",
+                "parent_id" => 6,
+                "created_at" => null,
+                "updated_at" => null
+            ],
+            [
+                "id" => 33,
+                "position" => 1,
+                "menu_type" => 3,
+                "icon" => "fa-database",
+                "name" => "Dashboard",
+                "title" => "Dashboard",
+                "parent_id" => null,
+                "created_at" => null,
+                "updated_at" => null
+            ],
+            [
+                "id" => 34,
+                "position" => 0,
+                "menu_type" => 3,
+                "icon" => null,
+                "name" => "Chartadhf",
+                "title" => "Chart Adhf",
+                "parent_id" => 5,
+                "created_at" => null,
+                "updated_at" => null
+            ],
+            [
+                "id" => 35,
+                "position" => 0,
+                "menu_type" => 3,
+                "icon" => null,
+                "name" => "Chartchronic",
+                "title" => "Chart Chronic",
+                "parent_id" => 6,
+                "created_at" => null,
+                "updated_at" => null
             ]
+
 
 
         ));

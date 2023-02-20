@@ -15,20 +15,25 @@ class rolesSeeder extends Seeder
         //
         Role::insert(array(
             [
-                'title' => 'Administrator',
-                'created_at' => date(now())
-
+                "id" => 1,
+                "title" => "Administrator",
             ],
             [
-                'title' => 'Admin',
-                'created_at' => date(now())
-
+                "id" => 2,
+                "title" => "Admin",
             ],
             [
-                'title' => 'Dokter',
-                'created_at' => date(now())
-
+                "id" => 3,
+                "title" => "Dokter ADHF",
             ],
+            [
+                "id" => 4,
+                "title" => "Dokter Chronic",
+            ],
+            [
+                "id" => 5,
+                "title" => "Dokter ADHF & Chronic",
+            ]
 
 
         ));

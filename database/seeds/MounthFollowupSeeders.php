@@ -16,13 +16,13 @@ class MounthFollowupSeeders extends Seeder
         MonthFollowUp::insert(array(
             [
                 "id" => 1,
-                "mount" => "6th Month Follow Up",
+                "mount" => "6 Month Follow Up",
                 "created_at" => "2023-01-28 14:28:18",
                 "updated_at" => "2023-01-28 14:28:18"
             ],
             [
                 "id" => 2,
-                "mount" => "12th Month Follow Up",
+                "mount" => "12 Month Follow Up",
                 "created_at" => "2023-01-28 14:28:28",
                 "updated_at" => "2023-01-28 14:28:28"
             ],

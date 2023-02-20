@@ -16,11 +16,14 @@ use App\Http\Controllers\Admin\ListPatientCronicController;
 use App\Http\Controllers\Admin\ManageDokterController;
 use App\Http\Controllers\Admin\ChronicPatientMonthFollowUpController;
 use App\Http\Controllers\ApiTokenController;
+use App\Http\Controllers\GenerateDbandSeederController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/seeders', [GenerateDbandSeederController::class, 'index']);
+
 
 Route::group(['middleware' => 'auth'], function () {
     // User needs to be authenticated to enter here.

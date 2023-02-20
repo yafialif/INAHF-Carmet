@@ -478,7 +478,7 @@ class ListPatientAdhfController extends Controller
 			'be' => $request->be,
 		));
 		// Medication
-		$medication = AdhfMedication::where('patient_id', $patient->id)->update(array(
+		$medication = AdhfMedication::where('patient_id', $id)->update(array(
 			'patient_id' => $patient->id,
 			'categorytreatment_id' => $categorytreatment_id,
 			'DopaminDose' => $request->DopaminDose,
@@ -515,7 +515,7 @@ class ListPatientAdhfController extends Controller
 			'otherOAD' => $request->otherOAD,
 		));
 		// Hospitalization
-		$hospitalization = AdhfHospitalization::where('patient_id', $patient->id)->update(array(
+		$hospitalization = AdhfHospitalization::where('patient_id', $id)->update(array(
 			'patient_id' => $patient->id,
 			'categorytreatment_id' => $categorytreatment_id,
 			'iccu' => $request->iccu,
@@ -525,7 +525,7 @@ class ListPatientAdhfController extends Controller
 		));
 		// Outcomes
 		$Outcomes = AdhfOutcomes::where('patient_id', $patient->id)->update(array(
-			'patient_id' => $patient->id,
+			'patient_id' => $id,
 			'categorytreatment_id' => $categorytreatment_id,
 			'inhospitalDeath' => $request->inhospitalDeath,
 			'vulnerablePhaseDeath' => $request->vulnerablePhaseDeath,

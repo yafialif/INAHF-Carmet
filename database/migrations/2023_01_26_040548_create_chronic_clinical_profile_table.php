@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Eloquent\Model;
 
-class CreateChronicClinicalProfileTable extends Migration {
+class CreateChronicClinicalProfileTable extends Migration
+{
 
     /**
      * Run the migrations.
@@ -14,25 +15,25 @@ class CreateChronicClinicalProfileTable extends Migration {
     public function up()
     {
         Model::unguard();
-        Schema::create('chronicclinicalprofile',function(Blueprint $table){
+        Schema::create('chronicclinicalprofile', function (Blueprint $table) {
             $table->increments("id");
             $table->integer("patient_id")->references("id")->on("patient");
             $table->integer("categorytreatment_id")->references("id")->on("categorytreatment");
-            $table->string("height");
-            $table->string("weight");
-            $table->string("bmi");
-            $table->string("sbp");
-            $table->string("dbp");
-            $table->string("hr");
-            $table->string("dyspnoeaOnExertion");
-            $table->string("orthopnea");
-            $table->string("pnd");
-            $table->string("peripheralOedema");
-            $table->string("pulmonaryRales");
-            $table->string("jvp");
-            $table->string("ahaStaging");
-            $table->string("nyhaClass");
-            $table->string("etiology");
+            $table->string("height")->nullable();
+            $table->string("weight")->nullable();
+            $table->string("bmi")->nullable();
+            $table->string("sbp")->nullable();
+            $table->string("dbp")->nullable();
+            $table->string("hr")->nullable();
+            $table->string("dyspnoeaOnExertion")->nullable();
+            $table->string("orthopnea")->nullable();
+            $table->string("pnd")->nullable();
+            $table->string("peripheralOedema")->nullable();
+            $table->string("pulmonaryRales")->nullable();
+            $table->string("jvp")->nullable();
+            $table->string("ahaStaging")->nullable();
+            $table->string("nyhaClass")->nullable();
+            $table->string("etiology")->nullable();
             $table->timestamps();
         });
     }
@@ -46,5 +47,4 @@ class CreateChronicClinicalProfileTable extends Migration {
     {
         Schema::drop('chronicclinicalprofile');
     }
-
 }

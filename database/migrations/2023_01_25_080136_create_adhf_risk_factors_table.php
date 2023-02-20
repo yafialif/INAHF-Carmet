@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Eloquent\Model;
 
-class CreateAdhfRiskFactorsTable extends Migration {
+class CreateAdhfRiskFactorsTable extends Migration
+{
 
     /**
      * Run the migrations.
@@ -14,22 +15,22 @@ class CreateAdhfRiskFactorsTable extends Migration {
     public function up()
     {
         Model::unguard();
-        Schema::create('adhfriskfactors',function(Blueprint $table){
+        Schema::create('adhfriskfactors', function (Blueprint $table) {
             $table->increments("id");
             $table->integer("patient_id")->references("id")->on("patient");
             $table->integer("categorytreatment_id")->references("id")->on("categorytreatment");
-            $table->string("hypertension");
-            $table->string("diabetes_or_prediabetes");
-            $table->string("dislipidemia");
-            $table->string("alcohol");
-            $table->string("smoker");
-            $table->string("ckd");
-            $table->string("valvular_heart_disease");
-            $table->string("atrial_fibrillation");
-            $table->string("history_of_hf");
-            $table->string("history_of_pci_or_cabg");
-            $table->string("historyof_heart_valve_surgery");
-            $table->string("omi_or_cad");
+            $table->string("hypertension")->nullable();
+            $table->string("diabetes_or_prediabetes")->nullable();
+            $table->string("dislipidemia")->nullable();
+            $table->string("alcohol")->nullable();
+            $table->string("smoker")->nullable();
+            $table->string("ckd")->nullable();
+            $table->string("valvular_heart_disease")->nullable();
+            $table->string("atrial_fibrillation")->nullable();
+            $table->string("history_of_hf")->nullable();
+            $table->string("history_of_pci_or_cabg")->nullable();
+            $table->string("historyof_heart_valve_surgery")->nullable();
+            $table->string("omi_or_cad")->nullable();
             $table->timestamps();
         });
     }
@@ -43,5 +44,4 @@ class CreateAdhfRiskFactorsTable extends Migration {
     {
         Schema::drop('adhfriskfactors');
     }
-
 }

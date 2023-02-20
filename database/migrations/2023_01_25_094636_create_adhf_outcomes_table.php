@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Eloquent\Model;
 
-class CreateAdhfOutcomesTable extends Migration {
+class CreateAdhfOutcomesTable extends Migration
+{
 
     /**
      * Run the migrations.
@@ -14,14 +15,15 @@ class CreateAdhfOutcomesTable extends Migration {
     public function up()
     {
         Model::unguard();
-        Schema::create('adhfoutcomes',function(Blueprint $table){
+        Schema::create('adhfoutcomes', function (Blueprint $table) {
             $table->increments("id");
             $table->integer("patient_id")->references("id")->on("patient");
             $table->integer("categorytreatment_id")->references("id")->on("categorytreatment");
-            $table->string("inhospitalDeath");
-            $table->string("vulnerablePhaseDeath");
-            $table->string("vulnerablePhaseRehospitalization");
-            $table->date("dateofDeath");
+            $table->string("inhospitalDeath")->nullable();
+            $table->string("vulnerablePhaseDeath")->nullable();
+            $table->string("vulnerablePhaseRehospitalization")->nullable();
+            $table->date("dateofDeath")->nullable();
+            $table->text("additional_notes")->nullable();
             $table->timestamps();
         });
     }
@@ -35,5 +37,4 @@ class CreateAdhfOutcomesTable extends Migration {
     {
         Schema::drop('adhfoutcomes');
     }
-
 }

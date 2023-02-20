@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Eloquent\Model;
 
-class CreateCronicRiskFactorsTable extends Migration {
+class CreateCronicRiskFactorsTable extends Migration
+{
 
     /**
      * Run the migrations.
@@ -14,21 +15,21 @@ class CreateCronicRiskFactorsTable extends Migration {
     public function up()
     {
         Model::unguard();
-        Schema::create('cronicriskfactors',function(Blueprint $table){
+        Schema::create('cronicriskfactors', function (Blueprint $table) {
             $table->increments("id");
             $table->integer("patient_id")->references("id")->on("patient");
             $table->integer("categorytreatment_id")->references("id")->on("categorytreatment");
-            $table->string("hypertension");
-            $table->string("diabetesorPrediabetes");
-            $table->string("dislipidemia");
-            $table->string("alcohol");
-            $table->string("smoker");
-            $table->string("ckd");
-            $table->string("atrialFibrillation");
-            $table->string("bundleBranchBlock");
-            $table->string("historyofCad");
-            $table->string("historyofHf");
-            $table->string("historyofPciorCabg");
+            $table->string("hypertension")->nullable();
+            $table->string("diabetesorPrediabetes")->nullable();
+            $table->string("dislipidemia")->nullable();
+            $table->string("alcohol")->nullable();
+            $table->string("smoker")->nullable();
+            $table->string("ckd")->nullable();
+            $table->string("atrialFibrillation")->nullable();
+            $table->string("bundleBranchBlock")->nullable();
+            $table->string("historyofCad")->nullable();
+            $table->string("historyofHf")->nullable();
+            $table->string("historyofPciorCabg")->nullable();
             $table->timestamps();
         });
     }
@@ -42,5 +43,4 @@ class CreateCronicRiskFactorsTable extends Migration {
     {
         Schema::drop('cronicriskfactors');
     }
-
 }
