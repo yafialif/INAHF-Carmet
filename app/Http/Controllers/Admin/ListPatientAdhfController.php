@@ -527,6 +527,6 @@ class ListPatientAdhfController extends Controller
 		));
 
 		// return response()->json($id);
-		return redirect()->route('admin.listpatientcronic.index ');
+		return redirect()->route('admin.listpatientadhf.index ');
 	}
 }
