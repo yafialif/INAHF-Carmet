@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>I-TREAT HF (Indonesian Trial and Registry About Heart Failure)</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -67,8 +67,12 @@
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
+                        <a href="https://inahfcarmet.org">Inahf Carmet</a>
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        {{-- {!! Form::open(['url' => 'logout']) !!}
+                                        <a type="submit">Logout</a>
+                        {!! Form::close() !!} --}}
+                        <a href="https://registry.inahfcarmet.org/admin/">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -81,8 +85,10 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    INAHF Carmet
+                    I-TREAT HF 
                 </div>
+                    <p style="font-size: 48px;">(Indonesian Trial and Registry About Heart Failure)</p>
+
 
                 
             </div>

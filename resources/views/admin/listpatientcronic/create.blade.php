@@ -388,7 +388,7 @@
 
 @endsection
 @section('pagetitle')
-I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Project
+1-TREAT HF (Indonesian Trial and Registrx About Heart Failure)
 @endsection
 @section('content')
 <div id="savelocal" class="alert alert-info" role="alert">
