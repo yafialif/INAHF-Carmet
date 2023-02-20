@@ -75,7 +75,7 @@ class ListPatientAdhfController extends Controller
 					$arraysnull[] = $object;
 				}
 			}
-			$persentasi = round(count($arrays) / count($array_data) * 100);
+			$persentasi = round(count($arrays) / (count($array_data) - 2) * 100);
 			array_push($patient, (object) array(
 				'id' => $value->id,
 				'user_id' => $value->user_id,

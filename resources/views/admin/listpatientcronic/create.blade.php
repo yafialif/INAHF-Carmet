@@ -457,6 +457,15 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                             <div class="tab-pane active" role="tabpanel" id="step1">
                                 <h4 class="text-center">Patient Identity</h4>
                                 <div class="row">
+                                    <div class="row">
+                                    <div class="col-md-6">
+                                        <label>RS</label>
+
+                                    <div class="input-group">
+                                            {!! Form::select('rs_id', $rumahsakit, old('id'), array('class'=>'form-control')) !!}
+                                        {{-- <input class="form-control" type="number" name="iccu" placeholder=""> --}}
+                                    </div>
+                                </div>
                                     <div class="col-md-6">
                                             <label>NIK *</label>
 
