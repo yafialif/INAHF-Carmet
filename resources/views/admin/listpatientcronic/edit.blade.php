@@ -986,18 +986,18 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->signMr == 'No' ? 'checked' : ''}} type="radio" name="sign_mr" value="No">No</label>
+                                            <label><input {{ $data->signMr == 'No' ? 'checked' : ''}} type="radio" name="signMr" value="No">No</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->signMr == 'Midle MR' ? 'checked' : ''}} type="radio" name="sign_mr"
+                                            <label><input {{ $data->signMr == 'Midle MR' ? 'checked' : ''}} type="radio" name="signMr"
                                                     value="Midle MR">Midle MR</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->signMr == 'Moderate MR' ? 'checked' : ''}} type="radio" name="sign_mr"
+                                            <label><input {{ $data->signMr == 'Moderate MR' ? 'checked' : ''}} type="radio" name="signMr"
                                                     value="Moderate MR">Moderate MR</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->signMr == 'Severe MR' ? 'checked' : ''}} type="radio" name="sign_mr"
+                                            <label><input {{ $data->signMr == 'Severe MR' ? 'checked' : ''}} type="radio" name="signMr"
                                                     value="Severe MR">Severe MR</label>
                                         </div>
                                         {{-- <input class="form-control" type="text" name="sign_mr" placeholder=""> --}}
@@ -1069,7 +1069,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>Fasting Blood Glucose</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->fastingBloodGlucose}}" class="form-control" type="number" name="fasting_blood_glucose"
+                                        <input value="{{ $data->fastingBloodGlucose}}" class="form-control" type="number" name="fastingBloodGlucose"
                                             placeholder="">
                                         <span class="input-group-addon">gr/dL</span>
                                     </div>
@@ -1296,7 +1296,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>MRA Dose</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->mraDose}}" class="form-control" type="number" name="mraDoseatAdmission"
+                                        <input value="{{ $data->mraDose}}" class="form-control" type="number" name="mraDose"
                                             placeholder="">
                                         <span class="input-group-addon">mg/day</span>
 

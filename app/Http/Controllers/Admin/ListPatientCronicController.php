@@ -209,6 +209,7 @@ class ListPatientCronicController extends Controller
 		$BloodLaboratoryTest->categorytreatment_id = $categorytreatment_id;
 		$BloodLaboratoryTest->hemoglobin = $request->hemoglobin;
 		$BloodLaboratoryTest->hematocrite = $request->hematocrite;
+		$BloodLaboratoryTest->erythrocyte = $request->erythrocyte;
 		$BloodLaboratoryTest->hbA1C = $request->hbA1C;
 		$BloodLaboratoryTest->fastingBloodGlucose = $request->fastingBloodGlucose;
 		$BloodLaboratoryTest->twoHoursPostPrandialBloodGlucose = $request->twoHoursPostPrandialBloodGlucose;
@@ -230,7 +231,7 @@ class ListPatientCronicController extends Controller
 		$medication->arb = $request->arb;
 		$medication->arbDose = $request->arbDose;
 		$medication->arniDose = $request->arniDose;
-		$medication->BetaBlocker = $request->BetaBlocker;
+		$medication->betaBlocker = $request->betaBlocker;
 		$medication->betaBlockerDose = $request->betaBlockerDose;
 		$medication->betaBlockerIntolerance = $request->betaBlockerIntolerance;
 		$medication->mraDose = $request->mraDose;
@@ -392,6 +393,7 @@ class ListPatientCronicController extends Controller
 			'categorytreatment_id' => $categorytreatment_id,
 			'hemoglobin' => $request->hemoglobin,
 			'hematocrite' => $request->hematocrite,
+			'hematocrite' => $request->erythrocyte,
 			'hbA1C' => $request->hbA1C,
 			'fastingBloodGlucose' => $request->fastingBloodGlucose,
 			'twoHoursPostPrandialBloodGlucose' => $request->twoHoursPostPrandialBloodGlucose,
