@@ -129,6 +129,7 @@ class ListPatientCronicController extends Controller
 		$patient = new Patient();
 		$patient->user_id = $user_id;
 		$patient->categorytreatment_id = $categorytreatment_id;
+		$patient->rs_id = $request->rs_id;
 		$patient->nik = $request->nik;
 		$patient->name = $request->name;
 		$patient->dateOfBirth = $request->dateOfBirth;
