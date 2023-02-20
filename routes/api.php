@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 // use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +21,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')->get('/cekauth', function () {
-    $auth = Auth::check();
-    $data = [
-        'data' => $auth
 
-    ];
-    return response()->json($data);
-    // return strval(Auth::check());
+Route::get('/coba', function () {
+    return 1;
 });
+
+// Route::get('chartadhf', [DashboardController::class, 'chartAdhf']);
+Route::get('chartadhf', 'Admin\DashboardController@chartAdhf');

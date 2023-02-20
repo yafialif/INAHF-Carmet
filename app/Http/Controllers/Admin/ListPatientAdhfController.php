@@ -40,18 +40,68 @@ class ListPatientAdhfController extends Controller
 		$role_id = Auth::user()->role_id;
 		$menu = MonthFollowUp::get();
 		if ($role_id != 3) {
-			$patient = Patient::with("user")
+			$patients = Patient::with("user")
 				->where('categorytreatment_id', 1)
 				->get();
 		} else {
-			$patient = Patient::with("user")
+			$patients = Patient::with("user")
 				->where('user_id', $user_id)
 				->where('categorytreatment_id', 1)
 				->get();
 		}
+		$patient = array();
+		foreach ($patients as $key => $value) {
+
+			$percentage = DB::table('patient')
+				->join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
+				->join('adhfechocardiography', 'patient.id', '=', 'adhfechocardiography.patient_id')
+				->join('adhfbloodgasanalysis', 'patient.id', '=', 'adhfbloodgasanalysis.patient_id')
+				->join('adhfetiology', 'patient.id', '=', 'adhfetiology.patient_id')
+				->join('adhfmedication', 'patient.id', '=', 'adhfmedication.patient_id')
+				->join('adhfoutcomes', 'patient.id', '=', 'adhfoutcomes.patient_id')
+				->join('adhfriskfactors', 'patient.id', '=', 'adhfriskfactors.patient_id')
+				->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id')
+				->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
+				->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
+				->where('patient.id', $value->id)
+				->where('patient.categorytreatment_id', 1)
+				->get();
+			$data = $percentage[0];
+			foreach ($data as $object) {
+				$array_data[] = $object;
+				if (!empty($object)) {
+					$arrays[] = $object;
+				} else {
+					$arraysnull[] = $object;
+				}
+			}
+			$persentasi = round(count($arrays) / count($array_data) * 100);
+			array_push($patient, (object) array(
+				'id' => $value->id,
+				'user_id' => $value->user_id,
+				'categorytreatment' => $value->treatment->treatmentName,
+				'nik' => $value->nik,
+				'name' => $value->name,
+				'dateOfBirth' => $value->dateOfBirth,
+				'age' => $value->age,
+				'gender' => $value->gender,
+				'phone' => $value->phone,
+				'dateOfAdmission' => $value->dateOfAdmission,
+				'insurance' => $value->insurance,
+				'education' => $value->education,
+				'dateOfDischarge' => $value->dateOfDischarge,
+				'created_at' => $value->created_at,
+				'updated_at' => $value->updated_at,
+				'user' => $value->user,
+				'percent' => $persentasi,
+
+			));
+		}
+		// return response()->json(count($patient));
 
 		return view('admin.listpatientadhf.index', compact('patient'));
 	}
+
 	public function create()
 	{
 		// return 1;
@@ -61,13 +111,13 @@ class ListPatientAdhfController extends Controller
 	}
 	public function store(Request $request)
 	{
-
 		$user_id = Auth::user()->id;
 		$categorytreatment_id = 1;
 		// Patient
 		$patient = new Patient();
 		$patient->user_id = $user_id;
 		$patient->categorytreatment_id = $categorytreatment_id;
+		$patient->rs_id = $request->rs_id;
 		$patient->nik = $request->nik;
 		$patient->name = $request->name;
 		$patient->dateOfBirth = $request->dateOfBirth;
@@ -226,7 +276,6 @@ class ListPatientAdhfController extends Controller
 		$hospitalization = new AdhfHospitalization();
 		$hospitalization->patient_id = $patient->id;
 		$hospitalization->categorytreatment_id = $categorytreatment_id;
-		$hospitalization->rs_id = $request->rs_id;
 		$hospitalization->iccu = $request->iccu;
 		$hospitalization->ward = $request->ward;
 		$hospitalization->totalLoS = $request->totalLoS;
@@ -243,22 +292,23 @@ class ListPatientAdhfController extends Controller
 		$Outcomes->additional_notes = $request->additional_notes;
 		$Outcomes->save();
 
-		$data = [
-			'patient' => $patient,
-			'clinicalProfile' => $clinicalProfile,
-			'riskFactor' => $riskFactor,
-			'Etiology' => $Etiology,
-			'RoThorax' => $RoThorax,
-			'Echocardiography' => $Echocardiography,
-			'BloodLaboratoryTest' => $BloodLaboratoryTest,
-			'BloodGasAnalysis' => $BloodGasAnalysis,
-			'medication' => $medication,
-			'hospitalization' => $hospitalization,
-			'Outcomes' => $Outcomes
+		// $data = [
+		// 	'patient' => $patient,
+		// 	'clinicalProfile' => $clinicalProfile,
+		// 	'riskFactor' => $riskFactor,
+		// 	'Etiology' => $Etiology,
+		// 	'RoThorax' => $RoThorax,
+		// 	'Echocardiography' => $Echocardiography,
+		// 	'BloodLaboratoryTest' => $BloodLaboratoryTest,
+		// 	'BloodGasAnalysis' => $BloodGasAnalysis,
+		// 	'medication' => $medication,
+		// 	'hospitalization' => $hospitalization,
+		// 	'Outcomes' => $Outcomes
 
-		];
+		// ];
 		// return view('admin.listpatientadhf.index', compact('patient'));
-		return route('admin.listpatientadhf.index ');
+
+		return redirect()->route('admin.listpatientadhf.index ');
 
 
 		// return response()->json($data);
@@ -302,7 +352,189 @@ class ListPatientAdhfController extends Controller
 			->get();
 		$data = $patient[0];
 		$rumahsakit = RumahSakit::pluck('name_of_rs', 'id');
+		// return response()->json($data);
 
 		return view('admin.listpatientadhf.edit', compact('data', 'rumahsakit'));
+	}
+	public function update($id, Request $request)
+	{
+		// $user_id = Auth::user()->id;
+		$categorytreatment_id = 1;
+		// Patient
+		$patient = Patient::where('id', $id)->update(array(
+			'categorytreatment_id' => $categorytreatment_id,
+			'rs_id' => $request->rs_id,
+			'nik' => $request->nik,
+			'name' => $request->name,
+			'dateOfBirth' => $request->dateOfBirth,
+			'age' => $request->age,
+			'gender' => $request->gender,
+			'phone' => $request->phone,
+			'dateOfAdmission' => $request->dateOfAdmission,
+			'insurance' => $request->insurance,
+			'education' => $request->education,
+		));
+
+		// Clinical Profile
+		$clinicalProfile = ClinicalProfile::where('user_id', $id)->update(array(
+			'categorytreatment_id' => $categorytreatment_id,
+			'height' => $request->height,
+			'weight' => $request->weight,
+			'bmi' => $request->bmi,
+			'sbp' => $request->sbp,
+			'dbp' => $request->dbp,
+			'hr' => $request->hr,
+			'dyspnoea_at_rest' => $request->dyspnoea_at_rest,
+			'orthopnea' => $request->orthopnea,
+			'pnd' => $request->pnd,
+			'peripheral_oedema' => $request->peripheral_oedema,
+			'pulmonary_rales' => $request->pulmonary_rales,
+			'jvp' => $request->jvp,
+			'type_of_acute_HF' => $request->type_of_acute_HF,
+			'nyha_class' => $request->nyha_class,
+			'cardiogenic_shock' => $request->cardiogenic_shock,
+			'respiratory_failure' => $request->respiratory_failure,
+		));
+
+		// Risk Factor
+		$riskFactor = AdhfRiskFactors::where('patient_id', $id)->update(array(
+			'categorytreatment_id' => $categorytreatment_id,
+			'hypertension' => $request->hypertension,
+			'diabetes_or_prediabetes' => $request->diabetes_or_prediabetes,
+			'dislipidemia' => $request->dislipidemia,
+			'alcohol' => $request->alcohol,
+			'smoker' => $request->smoker,
+			'ckd' => $request->ckd,
+			'valvular_heart_disease' => $request->valvular_heart_disease,
+			'atrial_fibrillation' => $request->atrial_fibrillation,
+			'history_of_hf' => $request->history_of_hf,
+			'history_of_pci_or_cabg' => $request->history_of_pci_or_cabg,
+			'historyof_heart_valve_surgery' => $request->historyof_heart_valve_surgery,
+			'omi_or_cad' => $request->omi_or_cad,
+		));
+
+		// Etiology
+		$Etiology = AdhfEtiology::where('patient_id', $id)->update(array(
+			'patient_id' => $patient->id,
+			'categorytreatment_id' =>  $categorytreatment_id,
+			'acs' => $request->acs,
+			'hypertension_emergency' =>  $request->hypertension_emergency,
+			'arrhytmia' =>  $request->arrhytmia,
+			'acute_nechanical_cause' =>  $request->acute_nechanical_cause,
+			'pulmonary_embolism' =>  $request->pulmonary_embolism,
+			'infections' =>  $request->infections,
+			'tamponade' => $request->tamponade,
+		));
+
+		// Ro Thorax
+		$RoThorax = AdhfRoThorax::where('patient_id', $id)->update(array(
+			'patient_id' => $patient->id,
+			'categorytreatment_id' => $categorytreatment_id,
+			'ro_thorax' => $request->ro_thorax,
+		));
+
+		// Echocardiography
+		$Echocardiography = AdhfEchocardiography::where('patient_id', $id)->update(array(
+			'patient_id' => $patient->id,
+			'categorytreatment_id' => $categorytreatment_id,
+			'ef' => $request->ef,
+			'tapse' => $request->tapse,
+			'edv' => $request->edv,
+			'esv' => $request->esv,
+			'edd' => $request->edd,
+			'esd' => $request->esd,
+			'sign_mr' => $request->sign_mr,
+			'diastolic_function' => $request->diastolic_function,
+		));
+		// Blood Laboratory Test
+		$BloodLaboratoryTest = AdhfBloodLaboratoryTest::where('patient_id', $id)->update(array(
+			'patient_id' => $patient->id,
+			'categorytreatment_id' => $categorytreatment_id,
+			'hemoglobin' => $request->hemoglobin,
+			'hematocrite' => $request->hematocrite,
+			'erythrocyte' => $request->erythrocyte,
+			'random_blood_glucose' => $request->random_blood_glucose,
+			'fasting_blood_glucose' => $request->fasting_blood_glucose,
+			'twoHoursPostPrandialBloodGlucose' => $request->twoHoursPostPrandialBloodGlucose,
+			'natrium' => $request->natrium,
+			'kalium' => $request->kalium,
+			'ureum' => $request->ureum,
+			'bun' => $request->bun,
+			'serum_creatinine' => $request->serum_creatinine,
+			'gfr' => $request->gfr,
+			'uric_acid' => $request->uric_acid,
+			'NT_ProBNP_at_admission' => $request->NT_ProBNP_at_admission,
+			'NT_ProBNP_at_discharge' => $request->NT_ProBNP_at_discharge,
+		));
+		// Blood Gas Analysis
+		$BloodGasAnalysis = AdhfBloodGasAnalysis::where('patient_id', $id)->update(array(
+			'patient_id' => $patient->id,
+			'categorytreatment_id' => $categorytreatment_id,
+			'pH' => $request->pH,
+			'pco2' => $request->pco2,
+			'hco3' => $request->hco3,
+			'po2' => $request->po2,
+			'lactate' => $request->lactate,
+			'be' => $request->be,
+		));
+		// Medication
+		$medication = AdhfMedication::where('patient_id', $patient->id)->update(array(
+			'patient_id' => $patient->id,
+			'categorytreatment_id' => $categorytreatment_id,
+			'DopaminDose' => $request->DopaminDose,
+			'DopaminDuration' => $request->DopaminDuration,
+			'DobutaminDose' => $request->DobutaminDose,
+			'DobutaminDuration' => $request->DobutaminDuration,
+			'NorepinephrineDose' => $request->NorepinephrineDose,
+			'NorepinephrineDuration' => $request->NorepinephrineDuration,
+			'EpinephrinDose' => $request->EpinephrinDose,
+			'EpinephrinDuration' => $request->EpinephrinDuration,
+			'acei' => $request->acei,
+			'aceiDoseatAdmission' => $request->aceiDoseatAdmission,
+			'aceiDoseatPredischarge' => $request->aceiDoseatPredischarge,
+			'arb' => $request->arb,
+			'arbDoseatAdmission' => $request->arbDoseatAdmission,
+			'arbDoseatPredischarge' => $request->arbDoseatPredischarge,
+			'arniDoseatAdmission' => $request->arniDoseatAdmission,
+			'arniDoseatPredischarge' => $request->arniDoseatPredischarge,
+			'mraDoseatAdmission' => $request->mraDoseatAdmission,
+			'mraDoseatPredischarge' => $request->mraDoseatPredischarge,
+			'BetaBlocker' => $request->BetaBlocker,
+			'BetaBlockerDoseatAdmission' => $request->BetaBlockerDoseatAdmission,
+			'BetaBlockerDoseatPredischarge' => $request->BetaBlockerDoseatPredischarge,
+			'LoopDiureticDoseatAdmission' => $request->LoopDiureticDoseatAdmission,
+			'LoopDiureticDoseatPredischarge' => $request->LoopDiureticDoseatPredischarge,
+			'sglt2i' => $request->sglt2i,
+			'sglt2iDoseatAdmission' => $request->sglt2iDoseatAdmission,
+			'sglt2iDoseatPredischarge' => $request->sglt2iDoseatPredischarge,
+			'ivabradineDoseatAdmission' => $request->ivabradineDoseatAdmission,
+			'ivabradineDoseatPredischarge' => $request->ivabradineDoseatPredischarge,
+			'TolvaptanTotalDose' => $request->TolvaptanTotalDose,
+			'insulin' => $request->insulin,
+			'insulinDose' => $request->insulinDose,
+			'otherOAD' => $request->otherOAD,
+		));
+		// Hospitalization
+		$hospitalization = AdhfHospitalization::where('patient_id', $patient->id)->update(array(
+			'patient_id' => $patient->id,
+			'categorytreatment_id' => $categorytreatment_id,
+			'iccu' => $request->iccu,
+			'ward' => $request->ward,
+			'totalLoS' => $request->totalLoS,
+			'hospitalizationCost' => $request->hospitalizationCost,
+		));
+		// Outcomes
+		$Outcomes = AdhfOutcomes::where('patient_id', $patient->id)->update(array(
+			'patient_id' => $patient->id,
+			'categorytreatment_id' => $categorytreatment_id,
+			'inhospitalDeath' => $request->inhospitalDeath,
+			'vulnerablePhaseDeath' => $request->vulnerablePhaseDeath,
+			'vulnerablePhaseRehospitalization' => $request->vulnerablePhaseRehospitalization,
+			'dateofDeath' => $request->dateofDeath,
+			'additional_notes' => $request->additional_notes,
+		));
+
+		return response()->json($id);
+		return redirect()->route('admin.listpatientcronic.index ');
 	}
 }

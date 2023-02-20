@@ -118,7 +118,7 @@
     }
 
     .wizard .nav-tabs>li {
-        width: 9%;
+        width: 12%;
     }
 
     .wizard li:after {
@@ -388,7 +388,7 @@
 
 @endsection
 @section('pagetitle')
-I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
+I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Project
 @endsection
 @section('content')
 <div id="savelocal" class="alert alert-info" role="alert">
@@ -427,43 +427,31 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         class="round-tab">3</span> <i>Risk Factors</i></a>
                             </li>
                             <li role="presentation" class="">
-                                <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab"><span
-                                        class="round-tab">4</span> <i>Etiology</i></a>
+                                <a href="#step4" data-toggle="tab" aria-controls="step5" role="tab"><span
+                                        class="round-tab">4</span> <i>Ro thorax</i></a>
                             </li>
                             <li role="presentation" class="">
-                                <a href="#step5" data-toggle="tab" aria-controls="step4" role="tab"><span
-                                        class="round-tab">5</span> <i>Ro thorax</i></a>
+                                <a href="#step5" data-toggle="tab" aria-controls="step6" role="tab"><span
+                                        class="round-tab">5</span> <i>Echocardiography</i></a>
                             </li>
                             <li role="presentation" class="">
-                                <a href="#step6" data-toggle="tab" aria-controls="step5" role="tab"><span
-                                        class="round-tab">6</span> <i>Echocardiography</i></a>
+                                <a href="#step6" data-toggle="tab" aria-controls="step7" role="tab"><span
+                                        class="round-tab">6</span> <i>Blood Laboratory Test</i></a>
                             </li>
+                           
                             <li role="presentation" class="">
-                                <a href="#step7" data-toggle="tab" aria-controls="step6" role="tab"><span
-                                        class="round-tab">7</span> <i>Blood Laboratory Test</i></a>
+                                <a href="#step7" data-toggle="tab" aria-controls="step8" role="tab"><span
+                                        class="round-tab">7</span> <i>Medication</i></a>
                             </li>
+                          
                             <li role="presentation" class="">
-                                <a href="#step8" data-toggle="tab" aria-controls="step7" role="tab"><span
-                                        class="round-tab">8</span> <i>Blood Gas Analysis</i></a>
+                                <a href="#step8" data-toggle="tab" aria-controls="step9" role="tab"><span
+                                        class="round-tab">8</span> <i>Outcomes</i></a>
                             </li>
-                            <li role="presentation" class="">
-                                <a href="#step9" data-toggle="tab" aria-controls="step8" role="tab"><span
-                                        class="round-tab">9</span> <i>Medication</i></a>
-                            </li>
-                            <li role="presentation" class="">
-                                <a href="#step10" data-toggle="tab" aria-controls="step9" role="tab"><span
-                                        class="round-tab">10</span> <i>Hospitalization</i></a>
-                            </li>
-                            <li role="presentation" class="">
-                                <a href="#step11" data-toggle="tab" aria-controls="step10" role="tab"><span
-                                        class="round-tab">11</span> <i>Outcomes</i></a>
-                            </li>
-
-
                         </ul>
                     </div>
-                    {!! Form::open(array('route' => array('admin.listpatientadhf.update',$data->patient_id)  , 'id' => 'dataForm', 'class' => 'form-horizontal', 'method' => 'PATCH')) !!}
-                
+                    {!! Form::open(array('route' => 'admin.listpatientcronic.store', 'id' => 'dataForm', 'class' => 'form-horizontal', 'method' => 'post')) !!}
+                    
                         <div class="tab-content" id="main_form">
                             {{-- Patient Identity --}}
                             <div class="tab-pane active" role="tabpanel" id="step1">
@@ -473,7 +461,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>NIK *</label>
 
                                         <div class="input-group">
-                                            <input class="form-control" type="number" name="nik" placeholder="" value="{{ $data->nik }}" required>
+                                            <input class="form-control" type="number" name="nik" placeholder="" required>
                                             
                                         </div>
                                     </div>
@@ -481,7 +469,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>Name *</label>
 
                                         <div class="input-group">
-                                            <input class="form-control" type="text" name="name" value="{{ $data->name }}" placeholder="" required>
+                                            <input class="form-control" type="text" name="name" placeholder="" required>
                                        
                                         </div>
                                     </div>
@@ -489,16 +477,25 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>Date of birth *</label>
 
                                         <div class="input-group">
-                                            <input id="datebirth" onchange="countAge()" class="form-control" type="date" value="{{ $data->dateOfBirth }}" name="dateOfBirth" placeholder="" required>
+                                            <input id="datebirth" onchange="countAge()" class="form-control" type="date" name="dateOfBirth" placeholder="" required>
                                         
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                            <label>Date of Admission *</label>
 
+                                        <div class="input-group">
+                                            <input id="dateadmission" onchange="countAge()" class="form-control" type="date" name="dateOfAdmission"
+                                                placeholder="" required>
+                                        
+                                            </div>
+                                    </div>
                                     <div class="col-md-6">
                                             <label>Age *</label>
 
                                         <div class="input-group">
-                                            <input id="age" class="form-control" type="text" value="{{ $data->age }}" name="age" placeholder="" readonly required>
+                                            <input id="age" class="form-control" type="text" name="age" placeholder="" readonly required>
+                                        <span class="input-group-addon">Year old</span>
                                         
                                         </div>
                                     </div>
@@ -507,10 +504,10 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                         <div class="input-group">
                                             <div class="radio">
-                                                <label><input id="sex"  {{ $data->gender == 'Male' ? 'checked' : ''}} onchange="countBmi()" type="radio" name="gender" value="Male" required>Male</label>
+                                                <label><input id="sex" onchange="countBmi()" type="radio" name="gender" value="Male" required>Male</label>
                                             </div>
                                             <div class="radio">
-                                                <label><input id="sex" {{ $data->gender == 'Female' ? 'checked' : ''}} onchange="countBmi()" type="radio" name="gender" value="Female" required>Female</label>
+                                                <label><input id="sex" onchange="countBmi()" type="radio" name="gender" value="Female" required>Female</label>
                                             </div>
                                         </div>
                                     </div>
@@ -518,25 +515,17 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>Phone *</label>
 
                                         <div class="input-group">
-                                            <input class="form-control" type="number" value="{{ $data->phone }}" name="phone"
+                                            <input class="form-control" type="number" name="phone"
                                                 placeholder="6280000000" required>
                                         
                                             </div>
                                     </div>
-                                    <div class="col-md-6">
-                                            <label>Date of Admission *</label>
-
-                                        <div class="input-group">
-                                            <input id="dateadmission" onchange="countAge()" class="form-control" type="date" value="{{ $data->dateOfAdmission }}" name="dateOfAdmission"
-                                                placeholder="" required>
-                                        
-                                            </div>
-                                    </div>
+                                    
                                     <div class="col-md-6">
                                             <label>Date of discharge *</label>
 
                                         <div class="input-group">
-                                            <input class="form-control" type="date" value="{{ $data->dateOfDischarge }}" name="dateOfDischarge"
+                                            <input class="form-control" type="date" name="dateOfDischarge"
                                                 placeholder="">
                                         
                                             </div>
@@ -545,12 +534,11 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>Insurance *</label>
                                         <div class="input-group">
                                             <select class="form-control" name="insurance"  required>
-                                                <option {{ $data->insurance == 'Government Insurance (BPJS)' ? 'selected' : ''}} value="Government Insurance (BPJS)">Government Insurance (BPJS)</option>
-                                                <option {{ $data->insurance == 'Private Insurance (Swasta)' ? 'selected' : ''}} value="Private Insurance (Swasta)">Private Insurance (Swasta)</option>
-                                                <option {{ $data->insurance == 'Personal Payment' ? 'selected' : ''}} value="Personal Payment">Personal Payment</option>
+                                                <option value="Government Insurance (BPJS)">Government Insurance (BPJS)</option>
+                                                <option value="Private Insurance (Swasta)">Private Insurance (Swasta)</option>
+                                                <option value="Personal Payment">Personal Payment</option>
                                             </select>
                                             {{-- <input class="form-control" type="text" name="insurance" placeholder="" required> --}}
-                                        
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -558,11 +546,11 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>Education *</label>
                                             {{-- <input class="form-control" type="text" name="education" placeholder="" > --}}
                                             <select class="form-control" name="education"required>
-                                                <option {{ $data->education == 'Government Insurance (BPJS)' ? 'selected' : ''}} value="Not going to school/not graduated from elementary school">Not going to school/not graduated from elementary school</option>
-                                                <option {{ $data->education == 'Graduated from elementary school' ? 'selected' : ''}} value="Graduated from elementary school">Graduated from elementary school</option>
-                                                <option {{ $data->education == 'Graduated from Junior High School' ? 'selected' : ''}} value="Graduated from Junior High School">Graduated from Junior High School</option>
-                                                <option {{ $data->education == 'Graduated from Senior High School' ? 'selected' : ''}} value=">Graduated from Senior High School">Graduated from Senior High School</option>
-                                                <option {{ $data->education == 'Bachelor/Magister/Doctor' ? 'selected' : ''}} value="Bachelor/Magister/Doctor">Bachelor/Magister/Doctor</option>
+                                                <option value="Not going to school/not graduated from elementary school">Not going to school/not graduated from elementary school</option>
+                                                <option value="Graduated from elementary school">Graduated from elementary school</option>
+                                                <option value="Graduated from Junior High School">Graduated from Junior High School</option>
+                                                <option value="Graduated from Senior High School">Graduated from Senior High School</option>
+                                                <option value="Bachelor/Magister/Doctor">Bachelor/Magister/Doctor</option>
                                             </select>
                                         </div>
                                     </div>
@@ -580,14 +568,14 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                 <div class="col-md-6">
                                         <label>Height *</label>
                                     <div class="input-group">
-                                        <input type="number" id="height" value="{{$data->height }}"  onkeyup="countBmi()" type="number" name="height" class="form-control">
+                                        <input type="number" id="height" onkeyup="countBmi()" type="number" name="height" class="form-control">
                                         <span class="input-group-addon">.Cm</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Weight *</label>
                                         <div class="input-group">
-                                        <input type="number" id="weight" value="{{ $data->weight }}"  onkeyup="countBmi()" type="number" name="weight" class="form-control" >
+                                        <input type="number" id="weight" onkeyup="countBmi()" type="number" name="weight" class="form-control" >
                                         <span class="input-group-addon">.Kg</span>
                                         </div>
                                         {{-- <input onkeyup="countBmi()" id="weight" class="form-control" type="number" name="weight" placeholder=""> --}}
@@ -595,7 +583,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                 <div class="col-md-6">
                                         <label>BMI</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="text" id="bmi" value="{{ $data->bmi }}"  name="bmi" placeholder="" readonly>
+                                        <input class="form-control" type="text" id="bmi" name="bmi" placeholder="" readonly>
                                         {{-- <span class="input-group-addon">.Kg/m2</span> --}}
                                     </div>
                                 </div>
@@ -603,7 +591,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>Systolic Blood Pressure  </label>
 
                                     <div class="input-group">
-                                        <input class="form-control" value="{{ $data->sbp }}"  type="number" name="sbp" placeholder="" >
+                                        <input class="form-control" type="number" name="sbp" placeholder="" >
                                         <span class="input-group-addon">.mmHg</span>
                                     
                                     </div>
@@ -611,7 +599,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                 <div class="col-md-6">
                                         <label>Diastolic Blood Pressure</label>
                                     <div class="input-group">
-                                        <input class="form-control" value="{{ $data->dbp }}"  type="number" name="dbp" placeholder="" >
+                                        <input class="form-control" type="number" name="dbp" placeholder="" >
                                         <span class="input-group-addon">.mmHg</span>
                                         
                                     </div>
@@ -619,19 +607,19 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                 <div class="col-md-6">
                                         <label>Heart Rate</label>
                                     <div class="input-group">
-                                        <input class="form-control" value="{{ $data->hr }}"  type="number" name="hr" placeholder="" >
+                                        <input class="form-control" type="number" name="hr" placeholder="" >
                                         <span class="input-group-addon">.bpm</span>
                                         
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Dyspnoea at rest</label>
+                                        <label>Dyspnoea on exertion</label>
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->dyspnoea_at_rest == 'Yes' ? 'checked' : ''}} type="radio" name="dyspnoea_at_rest" value="Yes">Yes</label>
+                                            <label><input type="radio" name="dyspnoeaOnExertion" value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->dyspnoea_at_rest == 'No' ? 'checked' : ''}} type="radio" name="dyspnoea_at_rest" value="No">No</label>
+                                            <label><input type="radio" name="dyspnoeaOnExertion" value="No">No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -639,10 +627,10 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>Orthopnea</label>
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->orthopnea == 'Yes' ? 'checked' : ''}} type="radio" name="orthopnea" value="Yes">Yes</label>
+                                            <label><input type="radio" name="orthopnea" value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->orthopnea == 'No' ? 'checked' : ''}} type="radio" name="orthopnea" value="No">No</label>
+                                            <label><input type="radio" name="orthopnea" value="No">No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -651,10 +639,10 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->pnd == 'Yes' ? 'checked' : ''}} type="radio" name="pnd" value="Yes">Yes</label>
+                                            <label><input type="radio" name="pnd" value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->pnd == 'No' ? 'checked' : ''}} type="radio" name="pnd" value="No">No</label>
+                                            <label><input type="radio" name="pnd" value="No">No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -663,10 +651,10 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->peripheral_oedema == 'Yes' ? 'checked' : ''}} type="radio" name="peripheral_oedema" value="Yes">Yes</label>
+                                            <label><input type="radio" name="peripheralOedema" value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->peripheral_oedema == 'No' ? 'checked' : ''}} type="radio" name="peripheral_oedema" value="No">No</label>
+                                            <label><input type="radio" name="peripheralOedema" value="No">No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -675,10 +663,10 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->pulmonary_rales == 'Yes' ? 'checked' : ''}} type="radio" name="pulmonary_rales" value="Yes">Yes</label>
+                                            <label><input type="radio" name="pulmonaryRales" value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->pulmonary_rales == 'No' ? 'checked' : ''}} type="radio" name="pulmonary_rales" value="No">No</label>
+                                            <label><input type="radio" name="pulmonaryRales" value="No">No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -688,60 +676,51 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                     <div class="input-group">
                                         
                                         <select class="form-control" name="jvp">
-                                                <option {{ $data->jvp == 'Normal' ? 'selected' : ''}} value="Normal">Normal</option>
-                                                <option {{ $data->jvp == 'Increase' ? 'selected' : ''}} value="Increase">Increase</option>
+                                                <option value="Normal">Normal</option>
+                                                <option value="Increase">Increase</option>
                                             </select>
                                         {{-- <input class="form-control" type="text" name="jvp" placeholder="" > --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Type of acute HF </label>
+                                        <label>AHA Staging</label>
 
                                     <div class="input-group">
-                                        <select class="form-control" name="type_of_acute_HF">
-                                                <option {{ $data->type_of_acute_HF == 'De Novo' ? 'selected' : ''}} value="De Novo">De Novo</option>
-                                                <option {{ $data->type_of_acute_HF == 'ADHF' ? 'selected' : ''}} value="ADHF">ADHF</option>
+                                        <select class="form-control" name="ahaStaging">
+                                                <option value="Stage A">Stage A</option>
+                                                <option value="Stage B">Stage B</option>
+                                                <option value="Stage C">Stage C</option>
+                                                <option value="Stage D">Stage D</option>
                                             </select>
                                         {{-- <input class="form-control" type="text" name="type_of_acute_HF" placeholder=""> --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>NYHA Class </label>
+
                                     <div class="input-group">
-                                        <select class="form-control" name="nyha_class">
-                                                <option {{ $data->nyha_class == 'Class I' ? 'selected' : ''}}>Class I</option>
-                                                <option {{ $data->nyha_class == 'Class II' ? 'selected' : ''}}>Class II</option>
-                                                <option {{ $data->nyha_class == 'Class III' ? 'selected' : ''}}>Class III</option>
-                                                <option {{ $data->nyha_class == 'Class IV' ? 'selected' : ''}}>Class IV</option>
+                                        <select class="form-control" name="nyhaClass">
+                                                <option value="Class I">Class I</option>
+                                                <option value="Class II">Class II</option>
+                                                <option value="Class III">Class III</option>
+                                                <option value="Class IV">Class IV</option>
                                             </select>
                                         {{-- <input class="form-control" type="text" name="nyha_class" placeholder=""> --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Cardiogenic shock</label>
+                                        <label>Etiology</label>
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->cardiogenic_shock == 'Yes' ? 'checked' : ''}} type="radio" name="cardiogenic_shock" value="Yes">Yes</label>
+                                            <label><input type="radio" name="etiology" value="ICM">ICM</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->cardiogenic_shock == 'No' ? 'checked' : ''}} type="radio" name="cardiogenic_shock" value="No">No</label>
+                                            <label><input type="radio" name="etiology" value="NICM">NICM</label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>Respiratory failure</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->respiratory_failure == 'Yes' ? 'checked' : ''}} type="radio" name="respiratory_failure"
-                                                    value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->respiratory_failure == 'No' ? 'checked' : ''}} type="radio" name="respiratory_failure" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
+                               
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" class="default-btn prev-step">Back</button></li>
@@ -758,11 +737,11 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->hypertension == 'Yes' ? 'checked' : ''}} type="radio" name="hypertension"
+                                            <label><input type="radio" name="hypertension"
                                                     value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->hypertension == 'No' ? 'checked' : ''}} type="radio" name="hypertension" value="No">No</label>
+                                            <label><input type="radio" name="hypertension" value="No">No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -771,14 +750,14 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->diabetes_or_prediabetes == 'No' ? 'checked' : ''}} type="radio" name="diabetes_or_prediabetes" value="No">No</label>
+                                            <label><input type="radio" name="diabetesorPrediabetes" value="No">No</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->diabetes_or_prediabetes == 'Prediabetes' ? 'checked' : ''}} type="radio" name="diabetes_or_prediabetes"
+                                            <label><input type="radio" name="diabetesorPrediabetes"
                                                     value="Prediabetes">Prediabetes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->diabetes_or_prediabetes == 'Diabetes' ? 'checked' : ''}} type="radio" name="diabetes_or_prediabetes"
+                                            <label><input type="radio" name="diabetesorPrediabetes"
                                                     value="Diabetes">Diabetes</label>
                                         </div>
                                     </div>
@@ -788,11 +767,11 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->dislipidemia == 'Yes' ? 'checked' : ''}} type="radio" name="dislipidemia"
+                                            <label><input type="radio" name="dislipidemia"
                                                     value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->dislipidemia == 'No' ? 'checked' : ''}} type="radio" name="dislipidemia" value="No">No</label>
+                                            <label><input type="radio" name="dislipidemia" value="No">No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -801,11 +780,11 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->alcohol == 'Yes' ? 'checked' : ''}} type="radio" name="alcohol"
+                                            <label><input type="radio" name="alcohol"
                                                     value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->alcohol == 'Abstainers' ? 'checked' : ''}} type="radio" name="alcohol"
+                                            <label><input type="radio" name="alcohol"
                                                     value="Abstainers">Abstainers</label>
                                         </div>
                                     </div>
@@ -815,15 +794,15 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->smoker == 'Never smoked' ? 'checked' : ''}} type="radio" name="smoker"
+                                            <label><input type="radio" name="smoker"
                                                     value="Never smoked">Never smoked</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->smoker == 'Former Smoking' ? 'checked' : ''}} type="radio" name="smoker"
+                                            <label><input type="radio" name="smoker"
                                                     value="Former Smoking">Former Smoking</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->smoker == 'Current smoking' ? 'checked' : ''}} type="radio" name="smoker"
+                                            <label><input type="radio" name="smoker"
                                                     value="Current smoking">Current smoking</label>
                                         </div>
                                     </div>
@@ -833,40 +812,54 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->ckd == 'Yes' ? 'checked' : ''}} type="radio" name="ckd"
+                                            <label><input type="radio" name="ckd"
                                                     value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->ckd == 'No' ? 'checked' : ''}} type="radio" name="ckd"
+                                            <label><input type="radio" name="ckd"
                                                     value="No">No</label>
                                         </div>
                                         
                                         {{-- <input class="form-control" type="text" name="ckd" placeholder=""> --}}
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>Valvular heart disease</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->valvular_heart_disease == 'Yes' ? 'checked' : ''}} type="radio" name="valvular_heart_disease"
-                                                    value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->valvular_heart_disease == 'No' ? 'checked' : ''}} type="radio" name="valvular_heart_disease" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-6">
                                         <label>Atrial fibrillation</label>
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->atrial_fibrillation == 'Yes' ? 'checked' : ''}} type="radio" name="atrial_fibrillation"
+                                            <label><input type="radio" name="atrialFibrillation"
                                                     value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->atrial_fibrillation == 'No' ? 'checked' : ''}} type="radio" name="atrial_fibrillation" value="No">No</label>
+                                            <label><input type="radio" name="atrialFibrillation" value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Bundle Branch Block</label>
+
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input type="radio" name="bundleBranchBlock"
+                                                    value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="bundleBranchBlock" value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>History of CAD</label>
+
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input type="radio" name="historyofCad"
+                                                    value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="historyofCad" value="No">No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -875,11 +868,11 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->history_of_hf == 'Yes' ? 'checked' : ''}} type="radio" name="history_of_hf"
+                                            <label><input type="radio" name="historyofHf"
                                                     value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->history_of_hf == 'No' ? 'checked' : ''}} type="radio" name="history_of_hf" value="No">No</label>
+                                            <label><input type="radio" name="historyofHf" value="No">No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -888,136 +881,11 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->history_of_pci_or_cabg == 'Yes' ? 'checked' : ''}} type="radio" name="history_of_pci_or_cabg"
+                                            <label><input type="radio" name="historyofPciorCabg"
                                                     value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->history_of_pci_or_cabg == 'No' ? 'checked' : ''}} type="radio" name="history_of_pci_or_cabg" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>History of heart valve surgery</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->historyof_heart_valve_surgery == 'Yes' ? 'checked' : ''}} type="radio" name="historyof_heart_valve_surgery"
-                                                    value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->historyof_heart_valve_surgery == 'No' ? 'checked' : ''}} type="radio" name="historyof_heart_valve_surgery" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>OMI or CAD</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->omi_or_cad == 'Yes' ? 'checked' : ''}} type="radio" name="omi_or_cad"
-                                                    value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->omi_or_cad == 'No' ? 'checked' : ''}} type="radio" name="omi_or_cad" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
-                                        {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane" role="tabpanel" id="step4">
-                                <h4 class="text-center">Etiologi</h4>
-                                <div class="col-md-6">
-                                        <label>ACS</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->acs == 'Yes' ? 'checked' : ''}} type="radio" name="acs" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" {{ $data->acs == 'No' ? 'checked' : ''}} name="acs" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Hypertension Emergency</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->hypertension_emergency == 'Yes' ? 'checked' : ''}} type="radio" name="hypertension_emergency"
-                                                    value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->hypertension_emergency == 'No' ? 'checked' : ''}} type="radio" name="hypertension_emergency"
-                                                    value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Arrhytmia</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->arrhytmia == 'Yes' ? 'checked' : ''}} type="radio" name="arrhytmia" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->arrhytmia == 'No' ? 'checked' : ''}} type="radio" name="arrhytmia" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Acute Mechanical Cause</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->acute_nechanical_cause == 'Yes' ? 'checked' : ''}} type="radio" name="acute_nechanical_cause"
-                                                    value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->acute_nechanical_cause == 'No' ? 'checked' : ''}} type="radio" name="acute_nechanical_cause"
-                                                    value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Pulmonary Embolism</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->pulmonary_embolism == 'Yes' ? 'checked' : ''}} type="radio" name="pulmonary_embolism" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->pulmonary_embolism == 'No' ? 'checked' : ''}} type="radio" name="pulmonary_embolism" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Infections</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->infections == 'Yes' ? 'checked' : ''}} type="radio" name="infections" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->infections == 'No' ? 'checked' : ''}} type="radio" name="infections" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Tamponade</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->tamponade == 'Yes' ? 'checked' : ''}} type="radio" name="tamponade" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->tamponade == 'No' ? 'checked' : ''}} type="radio" name="tamponade" value="No">No</label>
+                                            <label><input type="radio" name="historyofPciorCabg" value="No">No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -1030,17 +898,18 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                 </div>
                             </div>
                             {{-- Ro thorax --}}
-                            <div class="tab-pane" role="tabpanel" id="step5">
+                            <div class="tab-pane" role="tabpanel" id="step4">
                                 <h4 class="text-center">Ro thorax</h4>
                                 <div class="col-md-6">
                                         <label>Ro thorax Value</label>
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->ro_thorax == 'Normal Cardiac Size' ? 'checked' : ''}} type="radio" name="ro_thorax" value="Normal Cardiac Size">Normal Cardiac Size</label>
+                                            <label><input type="radio" name="roThorax" value="Normal Cardiac Size">Normal
+                                                Cardiac Size</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->ro_thorax == 'Cardiomegaly' ? 'checked' : ''}} type="radio" name="ro_thorax"value="Cardiomegaly">Cardiomegaly</label>
+                                            <label><input type="radio" name="roThorax"value="Cardiomegaly">Cardiomegaly</label>
                                         </div>
                                     </div>
                                 </div>
@@ -1053,13 +922,13 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                 </div>
                             </div>
                             {{-- Echocardiography --}}
-                            <div class="tab-pane" role="tabpanel" id="step6">
+                            <div class="tab-pane" role="tabpanel" id="step5">
                                 <h4 class="text-center">Echocardiography</h4>
                                 <div class="col-md-6">
                                         <label>EF</label>
 
                                     <div class="input-group">
-                                        <input  value="{{ $data->ef }}" class="form-control" type="number" name="ef" placeholder="">
+                                        <input class="form-control" type="number" name="ef" placeholder="">
                                         <span class="input-group-addon">%</span>
                                     
                                     </div>
@@ -1068,7 +937,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>TAPSE</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->tapse }}" class="form-control" type="number" name="tapse" placeholder="">
+                                        <input class="form-control" type="number" name="tapse" placeholder="">
                                         <span class="input-group-addon">.mm</span>
                                     
                                     </div>
@@ -1077,7 +946,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>EDV</label>
                                     
                                     <div class="input-group">
-                                        <input value="{{ $data->edv }}" class="form-control" type="number" name="edv" placeholder="">
+                                        <input class="form-control" type="number" name="edv" placeholder="">
                                         <span class="input-group-addon">.mL</span>
                                     
                                     </div>
@@ -1086,7 +955,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>ESV</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->esv }}" class="form-control" type="number" name="esv" placeholder="">
+                                        <input class="form-control" type="number" name="esv" placeholder="">
                                         <span class="input-group-addon">.mm</span>
                                         
                                     </div>
@@ -1095,7 +964,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>EDD</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->edd }}" class="form-control" type="number" name="edd" placeholder="">
+                                        <input class="form-control" type="number" name="edd" placeholder="">
                                         <span class="input-group-addon">.mL</span>
                                         
                                     </div>
@@ -1104,7 +973,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>ESD</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->esd }}" class="form-control" type="number" name="esd" placeholder="">
+                                        <input class="form-control" type="number" name="esd" placeholder="">
                                         <span class="input-group-addon">.mm</span>
                                         
                                     </div>
@@ -1114,18 +983,18 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->sign_mr == 'No' ? 'checked' : ''}} type="radio" name="sign_mr" value="No">No</label>
+                                            <label><input type="radio" name="signMr" value="No">No</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->sign_mr == 'Midle MR' ? 'checked' : ''}} type="radio" name="sign_mr"
+                                            <label><input type="radio" name="signMr"
                                                     value="Midle MR">Midle MR</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->sign_mr == 'Moderate MR' ? 'checked' : ''}} type="radio" name="sign_mr"
+                                            <label><input type="radio" name="signMr"
                                                     value="Moderate MR">Moderate MR</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->sign_mr == 'Severe MR' ? 'checked' : ''}} type="radio" name="sign_mr"
+                                            <label><input type="radio" name="signMr"
                                                     value="Severe MR">Severe MR</label>
                                         </div>
                                         {{-- <input class="form-control" type="text" name="sign_mr" placeholder=""> --}}
@@ -1135,11 +1004,11 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>Diastolic function</label>
 
                                     <div class="input-group">
-                                        <select class="form-control" name="diastolic_function">
-                                                <option {{ $data->diastolic_function == 'Normal' ? 'selected' : ''}} value="Normal">Normal</option>
-                                                <option {{ $data->diastolic_function == 'Pseudonormal' ? 'selected' : ''}} value="Pseudonormal">Pseudonormal</option>
-                                                <option {{ $data->diastolic_function == 'Relaxation Disorder' ? 'selected' : ''}} value="Relaxation Disorder">Relaxation Disorder</option>
-                                                <option {{ $data->diastolic_function == 'Restrictive' ? 'selected' : ''}} value="Restrictive">Restrictive</option>
+                                        <select class="form-control" name="diastolicFunction">
+                                                <option value="Normal">Normal</option>
+                                                <option value="Pseudonormal">Pseudonormal</option>
+                                                <option value="Relaxation Disorder">Relaxation Disorder</option>
+                                                <option value="Restrictive">Restrictive</option>
                                             </select>
                                         {{-- <input class="form-control" type="text" name="diastolic_function" placeholder=""> --}}
                                     </div>
@@ -1153,13 +1022,13 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                 </div>
                             </div>
                             {{-- Blood Laboratory Test --}}
-                            <div class="tab-pane" role="tabpanel" id="step7">
+                            <div class="tab-pane" role="tabpanel" id="step6">
                                 <h4 class="text-center">Blood Laboratory Test</h4>
                                 <div class="col-md-6">
                                         <label>Hemoglobin</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->hemoglobin}}" class="form-control" type="number" name="hemoglobin" placeholder="">
+                                        <input class="form-control" type="number" name="hemoglobin" placeholder="">
                                         <span class="input-group-addon">.gr/dL</span>
                                         
                                     </div>
@@ -1168,7 +1037,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>Hematocrite</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->hematocrite}}" class="form-control" type="number" name="hematocrite" placeholder="">
+                                        <input class="form-control" type="number" name="hematocrite" placeholder="">
                                         <span class="input-group-addon">%</span>
                                     
                                     </div>
@@ -1177,26 +1046,26 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>Erythrocyte</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->erythrocyte}}" class="form-control" type="number" name="erythrocyte" placeholder="">
-                                        <span class="input-group-addon">10^6/uL</span>
-                                        
+                                        <input class="form-control" type="number" name="erythrocyte" placeholder="">
+                                        <span class="input-group-addon">.10^6/uL</span>
+                                    
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Random Blood Glucose</label>
+                                        <label>HbA1C</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->random_blood_glucose}}" class="form-control" type="number" name="random_blood_glucose"
-                                            placeholder="">
+                                        <input class="form-control" type="number" name="hbA1C" placeholder="">
                                         <span class="input-group-addon">gr/dL</span>
-
+                                    
                                     </div>
                                 </div>
+                                
                                 <div class="col-md-6">
                                         <label>Fasting Blood Glucose</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->fasting_blood_glucose}}" class="form-control" type="number" name="fasting_blood_glucose"
+                                        <input class="form-control" type="number" name="fastingBloodGlucose"
                                             placeholder="">
                                         <span class="input-group-addon">gr/dL</span>
                                     </div>
@@ -1205,7 +1074,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>2 Hours Post Prandial Blood Glucose</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->twoHoursPostPrandialBloodGlucose}}" class="form-control" type="number"
+                                        <input class="form-control" type="number"
                                             name="twoHoursPostPrandialBloodGlucose" placeholder="">
                                         <span class="input-group-addon">gr/dL</span>
 
@@ -1215,7 +1084,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>Natrium</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->natrium}}" class="form-control" type="number" name="natrium" placeholder="">
+                                        <input class="form-control" type="number" name="natrium" placeholder="">
                                         <span class="input-group-addon">.mEq/L</span>
 
                                     </div>
@@ -1224,7 +1093,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>Kalium</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->kalium}}" class="form-control" type="number" name="kalium" placeholder="">
+                                        <input class="form-control" type="number" name="kalium" placeholder="">
                                         <span class="input-group-addon">.mEq/L</span>
 
                                     </div>
@@ -1233,7 +1102,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>Ureum</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->ureum}}" class="form-control" type="number" name="ureum" placeholder="">
+                                        <input class="form-control" type="number" name="ureum" placeholder="">
                                         <span class="input-group-addon">gr/dL</span>
 
                                     </div>
@@ -1242,7 +1111,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>BUN</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->bun}}" class="form-control" type="number" name="bun" placeholder="">
+                                        <input class="form-control" type="number" name="bun" placeholder="">
                                         <span class="input-group-addon">gr/dL</span>
 
                                     </div>
@@ -1251,7 +1120,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>Serum Creatinine (Scr)</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->serum_creatinine}}" onkeyup="countGfr()" id="scr" class="form-control" type="number" name="serum_creatinine"
+                                        <input onkeyup="countGfr()" id="scr" class="form-control" type="number" name="serumCreatinine"
                                             placeholder="">
                                         <span class="input-group-addon">mg/dL</span>
 
@@ -1261,39 +1130,23 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>GFR</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->gfr}}" id="gfr" class="form-control" type="number" name="gfr" placeholder="" readonly>
+                                        <input id="gfr" class="form-control" type="number" name="gfr" placeholder="" readonly>
                                         <span class="input-group-addon">mL/min/1.73 m2</span>
                                         
                                     </div>
                                 </div>
+                            
                                 <div class="col-md-6">
-                                        <label>Uric Acid</label>
+                                        <label>NT-ProBNP</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->uric_acid}}" class="form-control" type="number" name="uric_acid" placeholder="">
-                                        <span class="input-group-addon">mg/dL</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>NT-ProBNP at admission</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->NT_ProBNP_at_admission}}" class="form-control" type="number" name="NT_ProBNP_at_admission"
+                                        <input class="form-control" type="number" name="nt_ProBnp"
                                             placeholder="">
                                         <span class="input-group-addon">pg/mL</span>
                                         
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>NT-ProBNP at discharge</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->NT_ProBNP_at_discharge}}" class="form-control" type="number" name="NT_ProBNP_at_discharge"
-                                            placeholder="">
-                                        <span class="input-group-addon">pg/mL</span>
-
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" class="default-btn prev-step">Back</button></li>
@@ -1302,161 +1155,26 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                     </ul>
                                 </div>
                             </div>
-                            {{-- Blood Gas Analysis --}}
-                            <div class="tab-pane" role="tabpanel" id="step8">
-                                <h4 class="text-center">Blood Gas Analysis</h4>
-                                <div class="col-md-6">
-                                        <label>pH</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->pH}}" class="form-control" type="number" name="pH" placeholder="">
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>PCO2</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->pco2}}" class="form-control" type="number" name="pco2" placeholder="">
-                                        <span class="input-group-addon">mmHg</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>HCO3</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->hco3}}" class="form-control" type="number" name="hco3" placeholder="">
-                                        <span class="input-group-addon">mEq/L</span>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>PO2</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->po2}}" class="form-control" type="number" name="po2" placeholder="">
-                                        <span class="input-group-addon">mmHg</span>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Lactate</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->lactate}}" class="form-control" type="number" name="lactate" placeholder="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>BE</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->be}}" class="form-control" type="number" name="be" placeholder="">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
-                                        {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
-                                    </ul>
-                                </div>
-                            </div>
+                            
                             {{-- Medication --}}
-                            <div class="tab-pane" role="tabpanel" id="step9">
+                            <div class="tab-pane" role="tabpanel" id="step7">
                                 <h4 class="text-center">Medication</h4>
-                                <div class="col-md-6">
-                                        <label>Dopamin Dose</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->DopaminDose}}" class="form-control" type="number" name="DopaminDose" placeholder="">
-                                        <span class="input-group-addon">mcg/kg/jam</span>
-                                    
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Dopamin Duration</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->DopaminDuration}}" class="form-control" type="number" name="DopaminDuration" placeholder="">
-                                        <span class="input-group-addon">day</span>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Dobutamin Dose</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->DobutaminDose}}" class="form-control" type="number" name="DobutaminDose" placeholder="">
-                                        <span class="input-group-addon">mcg/kg/jam</span>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Dobutamin Duration</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->DobutaminDuration}}" class="form-control" type="number" name="DobutaminDuration"
-                                            placeholder="">
-                                        <span class="input-group-addon">day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Norepinephrine Dose</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->NorepinephrineDose}}" class="form-control" type="number" name="NorepinephrineDose"
-                                            placeholder="">
-                                        <span class="input-group-addon">mcg/kg/jam</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Norepinephrine Duration</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->NorepinephrineDuration}}" class="form-control" type="number" name="NorepinephrineDuration"
-                                            placeholder="">
-                                        <span class="input-group-addon">day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Epinephrin Dose</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->EpinephrinDose}}" class="form-control" type="number" name="EpinephrinDose" placeholder="">
-                                        <span class="input-group-addon">mcg/kg/jam</span>
-                                    
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Epinephrin Duration</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->EpinephrinDuration}}" class="form-control" type="number" name="EpinephrinDuration"
-                                            placeholder="">
-                                        <span class="input-group-addon">day</span>
-
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-6">
                                         <label>ACEi</label>
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->acei == 'None' ? 'checked' : ''}} type="radio" name="acei" value="None">None</label>
+                                            <label><input type="radio" name="acei" value="None">None</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->acei == 'Ramipril' ? 'checked' : ''}} type="radio" name="acei" value="Ramipril">Ramipril</label>
+                                            <label><input type="radio" name="acei" value="Ramipril">Ramipril</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->acei == 'Captopril' ? 'checked' : ''}} type="radio" name="acei" value="Captopril">Captopril</label>
+                                            <label><input type="radio" name="acei" value="Captopril">Captopril</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->acei == 'Lisinopril' ? 'checked' : ''}} type="radio" name="acei" value="Lisinopril">Lisinopril</label>
+                                            <label><input type="radio" name="acei" value="Lisinopril">Lisinopril</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="acei"
@@ -1465,23 +1183,30 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>ACEi Dose at Admission</label>
+                                        <label>ACEi Dose</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->aceiDoseatAdmission}}" class="form-control" type="number" name="aceiDoseatAdmission"
+                                        <input class="form-control" type="number" name="aceiDose"
                                             placeholder="">
                                         <span class="input-group-addon">mg/day</span>
 
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>ACEi Dose at Predischarge</label>
+                                        <label>ACEi intolerance</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->aceiDoseatPredischarge}}" class="form-control" type="number" name="aceiDoseatPredischarge"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
+                                        <div class="radio">
+                                            <label><input type="radio" name="aceiIntolerance" value="None">None</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="aceiIntolerance" value="dry cough">dry cough</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="aceiIntolerance"
+                                                    value="angioedema">angioedema</label>
+                                        </div>
+                                       
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -1489,154 +1214,119 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->arb == 'None' ? 'checked' : ''}} type="radio" name="arb" value="None">None</label>
+                                            <label><input type="radio" name="arb" value="None">None</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->arb == 'Valsartan' ? 'checked' : ''}} type="radio" name="arb" value="Valsartan">Valsartan</label>
+                                            <label><input type="radio" name="arb" value="Valsartan">Valsartan</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->arb == 'Candesartan' ? 'checked' : ''}} type="radio" name="arb"
+                                            <label><input type="radio" name="arb"
                                                     value="Candesartan">Candesartan</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->arb == 'Losartan' ? 'checked' : ''}} type="radio" name="arb" value="Losartan">Losartan</label>
+                                            <label><input type="radio" name="arb" value="Losartan">Losartan</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>ARB Dose at Admission</label>
+                                        <label>ARB Dose</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->arbDoseatAdmission}}" class="form-control" type="number" name="arbDoseatAdmission"
+                                        <input class="form-control" type="number" name="arbDose"
                                             placeholder="">
                                         <span class="input-group-addon">mg/day</span>
 
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>ARB Dose at Predischarge</label>
+                                        <label>ARNI Dose</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->arbDoseatPredischarge}}" class="form-control" type="number" name="arbDoseatPredischarge"
+                                        <input class="form-control" type="number" name="arniDose"
                                             placeholder="">
                                         <span class="input-group-addon">mg/day</span>
 
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>ARNI Dose at Admission</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->arniDoseatAdmission}}" class="form-control" type="number" name="arniDoseatAdmission"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ARNI Dose at Predischarge</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->arniDoseatPredischarge}}" class="form-control" type="number" name="arniDoseatPredischarge"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>MRA Dose at Admission</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->mraDoseatAdmission}}" class="form-control" type="number" name="mraDoseatAdmission"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>MRA Dose at Predischarge</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->mraDoseatPredischarge}}" class="form-control" type="number" name="mraDoseatPredischarge"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-6">
                                         <label>Beta Blocker</label>
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->BetaBlocker == 'None' ? 'checked' : ''}} type="radio" name="BetaBlocker" value="None">None</label>
+                                            <label><input type="radio" name="betaBlocker" value="None">None</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->BetaBlocker == 'Bisoprolol' ? 'checked' : ''}} type="radio" name="BetaBlocker"
+                                            <label><input type="radio" name="betaBlocker"
                                                     value="Bisoprolol">Bisoprolol</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->BetaBlocker == 'Carvedilol' ? 'checked' : ''}} type="radio" name="BetaBlocker"
+                                            <label><input type="radio" name="betaBlocker"
                                                     value="Carvedilol">Carvedilol</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->BetaBlocker == 'Nebivolol' ? 'checked' : ''}} type="radio" name="BetaBlocker"
+                                            <label><input type="radio" name="betaBlocker"
                                                     value="Nebivolol">Nebivolol</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Beta Blocker Dose at Admission</label>
+                                        <label>Beta Blocker Dose</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->BetaBlockerDoseatAdmission}}" class="form-control" type="number" name="BetaBlockerDoseatAdmission"
+                                        <input class="form-control" type="number" name="betaBlockerDose"
                                             placeholder="">
                                         <span class="input-group-addon">mg/day</span>
 
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Beta Blocker Dose at Predischarge</label>
+                                        <label>Beta Blocker Intolerance</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->BetaBlockerDoseatPredischarge}}" class="form-control" type="number" name="BetaBlockerDoseatPredischarge"
+                                        <input class="form-control" type="number" name="betaBlockerIntolerance"
                                             placeholder="">
                                         <span class="input-group-addon">mg/day</span>
 
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Loop Diuretic Dose at Admission</label>
+                                        <label>MRA Dose</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->LoopDiureticDoseatAdmission}}" class="form-control" type="number" name="LoopDiureticDoseatAdmission"
+                                        <input class="form-control" type="number" name="mraDose"
                                             placeholder="">
                                         <span class="input-group-addon">mg/day</span>
 
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Loop Diuretic Dose at Predischarge</label>
+                                        <label>MRA Intolerance</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->LoopDiureticDoseatPredischarge}}" class="form-control" type="number" name="LoopDiureticDoseatPredischarge"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
+                                        <div class="radio">
+                                            <label><input type="radio" name="mraIntolerance" value="None">None</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="mraIntolerance"
+                                                    value="ginecomastia">ginecomastia</label>
+                                        </div>
+                                        
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                               <div class="col-md-6">
                                         <label>SGLT2i</label>
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->sglt2i == 'None' ? 'checked' : ''}} type="radio" name="sglt2i" value="None">None</label>
+                                            <label><input type="radio" name="sglt2i" value="None">None</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->sglt2i == 'Empagliflozin' ? 'checked' : ''}} type="radio" name="sglt2i"
+                                            <label><input type="radio" name="sglt2i"
                                                     value="Empagliflozin">Empagliflozin</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->sglt2i == 'Dapagliflozin' ? 'checked' : ''}} type="radio" name="sglt2i"
+                                            <label><input type="radio" name="sglt2i"
                                                     value="Dapagliflozin">Dapagliflozin</label>
                                         </div>
                                         
@@ -1644,57 +1334,49 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                     </div>
                                     
                                 </div>
+                               <div class="col-md-6">
+                                        <label>SGLT2i Dose</label>
+
+                                    <div class="input-group">
+                                        <input class="form-control" type="number" name="sglt2iDose"
+                                            placeholder="">
+                                        <span class="input-group-addon">mg/day</span>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Loop Diuretic</label>
+
+                                    <div class="input-group">
+                                        <input class="form-control" type="number" name="loopDiuretic"
+                                            placeholder="">
+                                        <span class="input-group-addon">mg/day</span>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Loop Diuretic Dose</label>
+
+                                    <div class="input-group">
+                                        <input class="form-control" type="number" name="loopDiureticDose"
+                                            placeholder="">
+                                        <span class="input-group-addon">mg/day</span>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Ivabradine Dose</label>
+
+                                    <div class="input-group">
+                                        <input class="form-control" type="number" name="ivabradineDose"
+                                            placeholder="">
+                                        <span class="input-group-addon">mg/day</span>
+
+                                    </div>
+                                </div>
+                                
                                
-                                <div class="col-md-6">
-                                        <label>SGLT2i Dose at Admission</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->sglt2iDoseatAdmission}}" class="form-control" type="number" name="sglt2iDoseatAdmission"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>SGLT2i Dose at Predischarge</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->sglt2iDoseatPredischarge}}" class="form-control" type="number" name="sglt2iDoseatPredischarge"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Ivabradine Dose at admission</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->ivabradineDoseatAdmission}}" class="form-control" type="number" name="ivabradineDoseatAdmission"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Ivabradine Dose at predischarge</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->ivabradineDoseatPredischarge}}" class="form-control" type="number" name="ivabradineDoseatPredischarge"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Tolvaptan Total Dose </label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->TolvaptanTotalDose}}" class="form-control" type="number" name="TolvaptanTotalDose"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-6">
                                         <label>Insulin</label>
 
@@ -1702,10 +1384,10 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         {{-- <input class="form-control" type="number" name="insulin" placeholder=""> --}}
                                         {{-- <span class="input-group-addon">IU</span> --}}
                                         <div class="radio">
-                                            <label><input {{ $data->insulin == 'Yes' ? 'checked' : ''}} type="radio" name="insulin" value="Yes">Yes</label>
+                                            <label><input type="radio" name="insulin" value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->insulin == 'No' ? 'checked' : ''}} type="radio" name="insulin"
+                                            <label><input type="radio" name="insulin"
                                                     value="No">No</label>
                                         </div>
                                         
@@ -1721,17 +1403,29 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                     </div>
                                 </div> --}}
                                 <div class="col-md-6">
-                                        <label>Other OAD</label>
+                                        <label>Devices</label>
 
                                     <div class="input-group">
                                         {{-- <input class="form-control" type="number" name="otherOAD" placeholder="">
                                         <span class="input-group-addon">mg/day</span> --}}
                                         <div class="radio">
-                                            <label><input {{ $data->otherOAD == 'Yes' ? 'checked' : ''}} type="radio" name="otherOAD" value="Yes">Yes</label>
+                                            <label><input type="radio" name="devices" value="PPM">PPM</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->otherOAD == 'No' ? 'checked' : ''}} type="radio" name="otherOAD"
-                                                    value="No">No</label>
+                                            <label><input type="radio" name="devices"
+                                                    value="ICD">ICD</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="devices"
+                                                    value="CRTP">CRTP</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="devices"
+                                                    value="CRTD">CRTD</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="devices"
+                                                    value="CSP">CSP</label>
                                         </div>
 
                                     </div>
@@ -1745,99 +1439,45 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                     </ul>
                                 </div>
                             </div>
-                            {{-- Hospitalization --}}
-                            <div class="tab-pane" role="tabpanel" id="step10">
-                                <h4 class="text-center">Hospitalization</h4>
-                                <div class="col-md-6">
-                                        <label>RS</label>
-                                    <div class="input-group">
-                                            {!! Form::select('rs_id', $rumahsakit, old('id'), array('class'=>'form-control')) !!}
-                                        {{-- <input {{ $data->rs_id ? 'selected' : ''}} class="form-control" type="number" name="rs_id" placeholder=""> --}}
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ICCU</label>
-                                    <div class="input-group">
-                                        <input value="{{ $data->iccu}}" class="form-control" type="number" name="iccu" placeholder="">
-                                        <span class="input-group-addon">days</span>
-                                    
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Ward</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->ward}}" class="form-control" type="number" name="ward" placeholder="">
-                                        <span class="input-group-addon">days</span>
-                                    
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Total LoS</label>
-
-                                    <div class="input-group">
-                                        <input value="{{ $data->totalLoS}}" class="form-control" type="number" name="totalLoS" placeholder="">
-                                        <span class="input-group-addon">days</span>
-                                    
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Hospitalization cost</label>
-
-                                    <div class="input-group">
-                                        <span class="input-group-addon">Rp.</span>
-
-                                        <input value="{{ $data->hospitalizationCost}}" class="form-control" type="number" name="hospitalizationCost"
-                                            placeholder="">
-                                    
-                                        </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
-                                        {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
-                                    </ul>
-                                </div>
-                            </div>
+                          
                             {{-- Outcomes --}}
-                            <div class="tab-pane" role="tabpanel" id="step11">
+                            <div class="tab-pane" role="tabpanel" id="step8">
                                 <h4 class="text-center">Outcomes</h4>
                                 <div class="col-md-6">
-                                        <label>Inhospital Death</label>
+                                        <label>Total Rehospitalization</label>
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->inhospitalDeath == 'Yes' ? 'checked' : ''}} type="radio" name="inhospitalDeath" value="Yes">Yes</label>
+                                            <label><input type="radio" name="totalRehospitalization" value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->inhospitalDeath == 'No' ? 'checked' : ''}} type="radio" name="inhospitalDeath" value="No">No</label>
+                                            <label><input type="radio" name="totalRehospitalization" value="No">No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Vulnerable phase death</label>
+                                        <label>All cause death</label>
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->vulnerablePhaseDeath == 'Yes' ? 'checked' : ''}} type="radio" name="vulnerablePhaseDeath"
+                                            <label><input type="radio" name="allCauseDeath"
                                                     value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->vulnerablePhaseDeath == 'No' ? 'checked' : ''}} type="radio" name="vulnerablePhaseDeath" value="No">No</label>
+                                            <label><input type="radio" name="allCauseDeath" value="No">No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Vulnerable phase rehospitalization</label>
+                                        <label>Cardiac related death</label>
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->vulnerablePhaseRehospitalization == 'Yes' ? 'checked' : ''}} type="radio" name="vulnerablePhaseRehospitalization"
+                                            <label><input type="radio" name="cardiacRelatedDeath"
                                                     value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->vulnerablePhaseRehospitalization == 'No' ? 'checked' : ''}} type="radio" name="vulnerablePhaseRehospitalization"
+                                            <label><input type="radio" name="cardiacRelatedDeath"
                                                     value="No">No</label>
                                         </div>
                                     </div>
@@ -1846,15 +1486,13 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>Date of death</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->dateofDeath}}" class="form-control" type="date" name="dateofDeath" placeholder="">
+                                        <input class="form-control" type="date" name="dateofDeath" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                         <label>Additional Notes</label>
-
                                     <div class="input-group">
-                                        <textarea class="form-control " name="additional_notes" cols="50" rows="10" id="editor"></textarea>
-                                   
+                                        <textarea class="form-control " id="editor" name="additional_notes" cols="50" rows="10" id="detail"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -1910,15 +1548,13 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                 .catch( error => {
                                         console.error( error );
                                 } );
-                                 
-                                 
                 </script>
 <script>
     function finish(){
     document.getElementById("dataForm").submit();
 
     }
-    var data = localStorage.getItem("edit_form_adhf");
+    var data = localStorage.getItem("form_chronic");
     var internet_status;
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -2078,8 +1714,8 @@ else if(sex == "Female"){
 document.getElementById('bmi').value = bmi+' : '+imt+' Kg/m2';
 }
 function removelocal() {
-        localStorage.removeItem("form_adhf");
-        localStorage.removeItem("form_adhf_select");
+        localStorage.removeItem("form_chronic");
+        localStorage.removeItem("form_chronic_select");
         $("#getlocal").hide();
         notification('Local storage deleted');
 
@@ -2088,10 +1724,10 @@ function removelocal() {
     function retrivedata() {
         var input = document.getElementsByTagName("form")[1].getElementsByTagName("input");
         var select = document.getElementsByTagName("form")[1].getElementsByTagName("select");
-        let text = localStorage.getItem("edit_form_adhf");
+        let text = localStorage.getItem("form_chronic");
         let obj = text.split(",");
-        let text2 = localStorage.getItem("edit_form_adhf_select");
-        let text3 = localStorage.getItem("edit_form_adhf_textarea");
+        let text2 = localStorage.getItem("form_chronic_select");
+        let text3 = localStorage.getItem("form_chronic_textarea");
         let obj2 = text2.split(",");
         // var i = 0;
         for (i = 1; i < input.length; i++) {
@@ -2139,9 +1775,9 @@ function removelocal() {
             data2.push(select[parseInt(i)].value);
 
         }
-        localStorage.setItem("edit_form_adhf", data);
-        localStorage.setItem("edit_form_adhf_select", data2);
-        localStorage.setItem("edit_form_adhf_textarea", data3);
+        localStorage.setItem("form_chronic", data);
+        localStorage.setItem("form_chronic_select", data2);
+        localStorage.setItem("form_chronic_textarea", data3);
         $("#getlocal").show();
         notification('data stored locally');
 
@@ -2228,8 +1864,7 @@ function removelocal() {
 </script>
 <script>
     $(document).ready(function () {
-        var additional_notes = {!! json_encode($data->additional_notes) !!} ;
-        editor.setData(additional_notes );
+
     });
 
 </script>

@@ -20,8 +20,9 @@ class Patient extends Model
 
     protected $fillable = [
         'user_id',
-        'nik',
         'categorytreatment_id',
+        'rs_id',
+        'nik',
         'name',
         'dateOfBirth',
         'age',

@@ -8,48 +8,50 @@ use Laraveldaily\Quickadmin\Observers\UserActionsObserver;
 
 
 
-class ChronicPatientMonthFollowUp extends Model {
+class ChronicPatientMonthFollowUp extends Model
+{
 
-    
 
-    
+
+
 
     protected $table    = 'chronicpatientmonthfollowup';
-    
+
     protected $fillable = [
-          'patient_id',
-          'categorytreatment_id',
-          'monthfollowup_id',
-          'peripheralOedema',
-          'nyhaClass',
-          'sbp',
-          'dbp',
-          'hr',
-          'echoEf',
-          'echoTapse',
-          'echoEdv',
-          'echoEdd',
-          'echoEsd',
-          'echoSignMr',
-          'echoDiastolicFunction',
-          'acei',
-          'aceiDose',
-          'aceiIntolerance',
-          'arb',
-          'arbDose',
-          'arniDose',
-          'betaBlocker',
-          'betaBlockerDose',
-          'betaBlockerIntolerance',
-          'mraDose',
-          'mraIntolerance',
-          'sglt2i',
-          'sglt2iDose',
-          'loopDiureticDose',
-          'ivabradineDose',
-          'insulin'
+        'patient_id',
+        'categorytreatment_id',
+        'monthfollowup_id',
+        'peripheralOedema',
+        'nyhaClass',
+        'sbp',
+        'dbp',
+        'hr',
+        'echoEf',
+        'echoTapse',
+        'echoEdv',
+        'echoEsv',
+        'echoEdd',
+        'echoEsd',
+        'echoSignMr',
+        'echoDiastolicFunction',
+        'acei',
+        'aceiDose',
+        'aceiIntolerance',
+        'arb',
+        'arbDose',
+        'arniDose',
+        'betaBlocker',
+        'betaBlockerDose',
+        'betaBlockerIntolerance',
+        'mraDose',
+        'mraIntolerance',
+        'sglt2i',
+        'sglt2iDose',
+        'loopDiureticDose',
+        'ivabradineDose',
+        'insulin'
     ];
-    
+
 
     public static function boot()
     {
@@ -57,7 +59,7 @@ class ChronicPatientMonthFollowUp extends Model {
 
         ChronicPatientMonthFollowUp::observe(new UserActionsObserver);
     }
-    
+
     public function patient()
     {
         return $this->hasOne('App\Patient', 'id', 'patient_id');
@@ -74,9 +76,4 @@ class ChronicPatientMonthFollowUp extends Model {
     {
         return $this->hasOne('App\MonthFollowUp', 'id', 'monthfollowup_id');
     }
-
-
-    
-    
-    
 }

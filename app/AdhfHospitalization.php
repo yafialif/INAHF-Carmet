@@ -17,7 +17,6 @@ class AdhfHospitalization extends Model
     protected $fillable = [
         'patient_id',
         'categorytreatment_id',
-        'rs_id',
         'iccu',
         'ward',
         'totalLoS',

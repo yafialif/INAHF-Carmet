@@ -16,12 +16,14 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
     {{-- link_to_route(config('quickadmin.route').'.patient.create', --}}
     {{-- trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p> --}}
 
-@if ($patient->count())
+@if (count($patient))
 <div class="portlet box green">
     <div class="portlet-title">
         <div class="caption">{{ trans('quickadmin::templates.templates-view_index-list') }}</div>
     </div>
     <div class="portlet-body">
+        <div class="table-responsive">
+
         <table class="table table-striped table-hover table-responsive datatable" id="datatable">
             <thead>
                 <tr>
@@ -31,6 +33,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                     <th>Dokter</th>
                     <th>Category treatment</th>
                     <th>NIK</th>
+                    <th>Name</th>
                     <th>Date Of Birth</th>
                     <th>Age</th>
                     <th>Gender</th>
@@ -39,7 +42,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                     <th>Insurance</th>
                     <th>Education</th>
                     <th>Date of Discharge</th>
-
+                    <th>Progress</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -51,8 +54,9 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                         {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
                     </td>
                     <td>{{ isset($row->user->name) ? $row->user->name : '' }}</td>
-                    <td>{{ isset($row->treatment->treatmentName) ? $row->treatment->treatmentName : '' }}</td>
+                    <td>{{ isset($row->categorytreatment) ? $row->categorytreatment : '' }}</td>
                     <td>{{ $row->nik }}</td>
+                    <td>{{ $row->name }}</td>
                     <td>{{ $row->dateOfBirth }}</td>
                     <td>{{ $row->age }}</td>
                     <td>{{ $row->gender }}</td>
@@ -61,6 +65,13 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                     <td>{{ $row->insurance }}</td>
                     <td>{{ $row->education }}</td>
                     <td style="color: red;">{{ $row->dateOfDischarge }}</td>
+                    @if($row->percent < 98)
+                    <td style="color: red;" >{{ $row->percent }} %</td>
+                    @else
+                    <td>{{ $row->percent }} %</td>
+                    @endif
+
+
                     <td>
                         {!! link_to_route('admin.listpatientadhf.show', trans('View'),
                         array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
@@ -77,6 +88,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                 @endforeach
             </tbody>
         </table>
+        </div>
         <div class="row">
             <div class="col-xs-12">
                 <button class="btn btn-danger" id="delete">

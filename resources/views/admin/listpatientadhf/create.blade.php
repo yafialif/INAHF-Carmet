@@ -470,6 +470,14 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                 <h4 class="text-center">Patient Identity</h4>
                                 <div class="row">
                                     <div class="col-md-6">
+                                        <label>RS</label>
+
+                                    <div class="input-group">
+                                            {!! Form::select('rs_id', $rumahsakit, old('id'), array('class'=>'form-control')) !!}
+                                        {{-- <input class="form-control" type="number" name="iccu" placeholder=""> --}}
+                                    </div>
+                                </div>
+                                    <div class="col-md-6">
                                             <label>NIK *</label>
 
                                         <div class="input-group">
@@ -493,12 +501,21 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                            <label>Date of Admission *</label>
 
+                                        <div class="input-group">
+                                            <input id="dateadmission" onchange="countAge()" class="form-control" type="date" name="dateOfAdmission"
+                                                placeholder="" required>
+                                        
+                                            </div>
+                                    </div>
                                     <div class="col-md-6">
                                             <label>Age *</label>
 
                                         <div class="input-group">
                                             <input id="age" class="form-control" type="text" name="age" placeholder="" readonly required>
+                                        <span class="input-group-addon">Year old</span>
                                         
                                         </div>
                                     </div>
@@ -523,15 +540,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         
                                             </div>
                                     </div>
-                                    <div class="col-md-6">
-                                            <label>Date of Admission *</label>
-
-                                        <div class="input-group">
-                                            <input id="dateadmission" onchange="countAge()" class="form-control" type="date" name="dateOfAdmission"
-                                                placeholder="" required>
-                                        
-                                            </div>
-                                    </div>
+                                    
                                     <div class="col-md-6">
                                             <label>Date of discharge *</label>
 
@@ -545,12 +554,11 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>Insurance *</label>
                                         <div class="input-group">
                                             <select class="form-control" name="insurance"  required>
-                                                <option>Government Insurance (BPJS)</option>
-                                                <option>Private Insurance (Swasta)</option>
-                                                <option>Personal Payment</option>
+                                                <option value="Government Insurance (BPJS)">Government Insurance (BPJS)</option>
+                                                <option value="Private Insurance (Swasta)">Private Insurance (Swasta)</option>
+                                                <option value="Personal Payment">Personal Payment</option>
                                             </select>
                                             {{-- <input class="form-control" type="text" name="insurance" placeholder="" required> --}}
-                                        
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -558,11 +566,11 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                             <label>Education *</label>
                                             {{-- <input class="form-control" type="text" name="education" placeholder="" > --}}
                                             <select class="form-control" name="education"required>
-                                                <option>Not going to school/not graduated from elementary school</option>
-                                                <option>Graduated from elementary school</option>
-                                                <option>Graduated from Junior High School</option>
-                                                <option>Graduated from Senior High School</option>
-                                                <option>Bachelor/Magister/Doctor</option>
+                                                <option value="Not going to school/not graduated from elementary school">Not going to school/not graduated from elementary school</option>
+                                                <option value="Graduated from elementary school">Graduated from elementary school</option>
+                                                <option value="Graduated from Junior High School">Graduated from Junior High School</option>
+                                                <option value="Graduated from Senior High School">Graduated from Senior High School</option>
+                                                <option value="Bachelor/Magister/Doctor">Bachelor/Magister/Doctor</option>
                                             </select>
                                         </div>
                                     </div>
@@ -688,8 +696,8 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                     <div class="input-group">
                                         
                                         <select class="form-control" name="jvp">
-                                                <option>Normal</option>
-                                                <option>Increase</option>
+                                                <option value="Normal">Normal</option>
+                                                <option value="Increase">Increase</option>
                                             </select>
                                         {{-- <input class="form-control" type="text" name="jvp" placeholder="" > --}}
                                     </div>
@@ -699,8 +707,8 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <select class="form-control" name="type_of_acute_HF">
-                                                <option>De Novo</option>
-                                                <option>ADHF</option>
+                                                <option value="De Novo">De Novo</option>
+                                                <option value="ADHF">ADHF</option>
                                             </select>
                                         {{-- <input class="form-control" type="text" name="type_of_acute_HF" placeholder=""> --}}
                                     </div>
@@ -710,10 +718,10 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <select class="form-control" name="nyha_class">
-                                                <option>Class I</option>
-                                                <option>Class II</option>
-                                                <option>Class III</option>
-                                                <option>Class IV</option>
+                                                <option value="Class I">Class I</option>
+                                                <option value="Class II">Class II</option>
+                                                <option value="Class III">Class III</option>
+                                                <option value="Class IV">Class IV</option>
                                             </select>
                                         {{-- <input class="form-control" type="text" name="nyha_class" placeholder=""> --}}
                                     </div>
@@ -821,11 +829,11 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="smoker"
-                                                    value="Former Smoking">Former Smoking</label>
+                                                    value="Former Smoker">Former Smoker</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="smoker"
-                                                    value="Current smoking">Current smoking</label>
+                                                    value="Current Smoker">Current Smoker</label>
                                         </div>
                                     </div>
                                 </div>
@@ -947,7 +955,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Hypertension Emergency</label>
+                                        <label>Hypertensive Emergency</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -961,7 +969,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Arrhytmia</label>
+                                        <label>Arrhythmia</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -1042,8 +1050,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                                 Cardiac Size</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="ro_thorax  "
-                                                    value="Cardiomegaly">Cardiomegaly</label>
+                                            <label><input type="radio" name="ro_thorax"value="Cardiomegaly">Cardiomegaly</label>
                                         </div>
                                     </div>
                                 </div>
@@ -1090,7 +1097,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="esv" placeholder="">
-                                        <span class="input-group-addon">.mm</span>
+                                        <span class="input-group-addon">.mL</span>
                                         
                                     </div>
                                 </div>
@@ -1099,7 +1106,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="edd" placeholder="">
-                                        <span class="input-group-addon">.mL</span>
+                                        <span class="input-group-addon">.mm</span>
                                         
                                     </div>
                                 </div>
@@ -1121,7 +1128,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="sign_mr"
-                                                    value="Midle MR">Midle MR</label>
+                                                    value="Midle MR">Mild MR</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="sign_mr"
@@ -1135,16 +1142,16 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Diastolic function</label>
+                                        <label>E/A</label>
 
                                     <div class="input-group">
-                                        <select class="form-control" name="diastolic_function">
+                                        {{-- <select class="form-control" name="diastolic_function">
                                                 <option value="Normal">Normal</option>
                                                 <option value="Pseudonormal">Pseudonormal</option>
                                                 <option value="Relaxation Disorder">Relaxation Disorder</option>
                                                 <option value="Restrictive">Restrictive</option>
-                                            </select>
-                                        {{-- <input class="form-control" type="text" name="diastolic_function" placeholder=""> --}}
+                                            </select> --}}
+                                        <input class="form-control" type="number" name="diastolic_function" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -1751,14 +1758,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                             {{-- Hospitalization --}}
                             <div class="tab-pane" role="tabpanel" id="step10">
                                 <h4 class="text-center">Hospitalization</h4>
-                                <div class="col-md-6">
-                                        <label>RS</label>
-
-                                    <div class="input-group">
-                                            {!! Form::select('rs_id', $rumahsakit, old('id'), array('class'=>'form-control')) !!}
-                                        {{-- <input class="form-control" type="number" name="iccu" placeholder=""> --}}
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-6">
                                         <label>ICCU</label>
 
@@ -1778,7 +1778,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Total LoS</label>
+                                        <label>Total Length of Stay</label>
 
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="totalLoS" placeholder="">
@@ -1858,7 +1858,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
                                         <label>Additional Notes</label>
 
                                     <div class="input-group">
-                                        <textarea class="form-control ckeditor" name="additional_notes" cols="50" rows="10" id="detail"></textarea>
+                                        <textarea class="form-control " id="editor" name="additional_notes" cols="50" rows="10" id="detail"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -1905,6 +1905,17 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
 
 @section('javascript')
 <script>
+    let editor;
+                        ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( newEditor => {
+                                    editor = newEditor;
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script>
+<script>
     function finish(){
     document.getElementById("dataForm").submit();
 
@@ -1931,12 +1942,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
         }, 4000);
     }
 
-    function removelocal() {
-        localStorage.removeItem("form_adhf");
-        $("#getlocal").hide();
-        notification('Local storage deleted');
-
-    }
+    
 
     function review_data() {
         var dataForm = new FormData(document.getElementById("dataForm"));
@@ -1984,7 +1990,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 ADHF Project
         if(age < 0){
             age = 0;
         }
-        document.getElementById('age').value = age+' year old';
+        document.getElementById('age').value = age;
     }
     function countGfr(){
         var dataForm = new FormData(document.getElementById("dataForm"));
@@ -2073,14 +2079,25 @@ else if(sex == "Female"){
 }
 document.getElementById('bmi').value = bmi+' : '+imt+' Kg/m2';
 }
+function removelocal() {
+        localStorage.removeItem("form_adhf");
+        localStorage.removeItem("form_adhf_select");
+        $("#getlocal").hide();
+        notification('Local storage deleted');
+
+    }
 
     function retrivedata() {
         var input = document.getElementsByTagName("form")[1].getElementsByTagName("input");
+        var select = document.getElementsByTagName("form")[1].getElementsByTagName("select");
         let text = localStorage.getItem("form_adhf");
         let obj = text.split(",");
-        var i = 0;
-        for (i = 0; i < input.length; i++) {
-              console.log(input[parseInt(i)].name);
+        let text2 = localStorage.getItem("form_adhf_select");
+        let text3 = localStorage.getItem("form_adhf_textarea");
+        let obj2 = text2.split(",");
+        // var i = 0;
+        for (i = 1; i < input.length; i++) {
+              console.log(parseInt(i));
             var variable = input[parseInt(i)].type;
             if (variable == "radio") {
                 if (obj[parseInt(i)] == "true") {
@@ -2091,14 +2108,24 @@ document.getElementById('bmi').value = bmi+' : '+imt+' Kg/m2';
                 input[parseInt(i)].value = obj[parseInt(i)];
             }
         }
+        for (i = 0; i < select.length; i++) {
+            select[parseInt(i)].value=obj2[parseInt(i)];
+
+        }
+        if(text3){
+        editor.setData( text3 );
+        }
         notification('Data retrived');
 
     }
 
     function savelocal() {
         var input = document.getElementsByTagName("form")[1].getElementsByTagName("input");
+        var select = document.getElementsByTagName("form")[1].getElementsByTagName("select");
         var data = Array();
-        var i = 0;
+        var data2 = Array();
+        var data3 = editor.getData();
+        // var i = 0;
         for (i = 0; i < input.length; i++) {
             //   console.log(input[parseInt(i)].name);
             var variable = input[parseInt(i)].type;
@@ -2109,7 +2136,14 @@ document.getElementById('bmi').value = bmi+' : '+imt+' Kg/m2';
                 data.push(input[parseInt(i)].value);
             }
         }
+        for (i = 0; i < select.length; i++) {
+            // select.value = 'Personal Payment';
+            data2.push(select[parseInt(i)].value);
+
+        }
         localStorage.setItem("form_adhf", data);
+        localStorage.setItem("form_adhf_select", data2);
+        localStorage.setItem("form_adhf_textarea", data3);
         $("#getlocal").show();
         notification('data stored locally');
 

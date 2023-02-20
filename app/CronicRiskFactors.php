@@ -8,30 +8,32 @@ use Laraveldaily\Quickadmin\Observers\UserActionsObserver;
 
 
 
-class CronicRiskFactors extends Model {
+class CronicRiskFactors extends Model
+{
 
-    
 
-    
+
+
 
     protected $table    = 'cronicriskfactors';
-    
+
     protected $fillable = [
-          'patient_id',
-          'categorytreatment_id',
-          'hypertension',
-          'diabetesorPrediabetes',
-          'dislipidemia',
-          'alcohol',
-          'smoker',
-          'ckd',
-          'atrialFibrillation',
-          'bundleBranchBlock',
-          'historyofCad',
-          'historyofHf',
-          'historyofPciorCabg'
+        'patient_id',
+        'categorytreatment_id',
+        'hypertension',
+        'diabetesorPrediabetes',
+        'dislipidemia',
+        'alcohol',
+        'smoker',
+        'ckd',
+        'valvularHeartDisease',
+        'atrialFibrillation',
+        'bundleBranchBlock',
+        'historyofCad',
+        'historyofHf',
+        'historyofPciorCabg'
     ];
-    
+
 
     public static function boot()
     {
@@ -39,7 +41,7 @@ class CronicRiskFactors extends Model {
 
         CronicRiskFactors::observe(new UserActionsObserver);
     }
-    
+
     public function patient()
     {
         return $this->hasOne('App\Patient', 'id', 'patient_id');
@@ -50,9 +52,4 @@ class CronicRiskFactors extends Model {
     {
         return $this->hasOne('App\CategoryTreatment', 'id', 'categorytreatment_id');
     }
-
-
-    
-    
-    
 }
