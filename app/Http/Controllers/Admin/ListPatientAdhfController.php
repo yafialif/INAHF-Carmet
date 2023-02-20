@@ -105,12 +105,22 @@ class ListPatientAdhfController extends Controller
 	public function create()
 	{
 		// return 1;
+		$role_id = Auth::user()->role_id;
+		$menu = MonthFollowUp::get();
 		$user_id = Auth::user()->id;
-		$rumahsakit = RumahSakit::pluck('name_of_rs', 'id');
+
+		if (
+			$role_id != 3
+		) {
+			$rumahsakit = RumahSakit::pluck('name_of_rs', 'id');
+		} else {
+			$rumahsakit = RumahSakit::where('user_id', $user_id)->pluck('name_of_rs', 'id');
+		}
 		return view('admin.listpatientadhf.create', compact('rumahsakit'));
 	}
 	public function store(Request $request)
 	{
+
 		$user_id = Auth::user()->id;
 		$categorytreatment_id = 1;
 		// Patient
