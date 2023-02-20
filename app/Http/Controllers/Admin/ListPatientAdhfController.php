@@ -39,7 +39,7 @@ class ListPatientAdhfController extends Controller
 		$user_id = Auth::user()->id;
 		$role_id = Auth::user()->role_id;
 		$menu = MonthFollowUp::get();
-		if ($role_id != 3) {
+		if ($role_id >= 3) {
 			$patients = Patient::with("user")
 				->where('categorytreatment_id', 1)
 				->get();
@@ -110,7 +110,7 @@ class ListPatientAdhfController extends Controller
 		$user_id = Auth::user()->id;
 
 		if (
-			$role_id != 3
+			$role_id >= 3
 		) {
 			$rumahsakit = RumahSakit::pluck('name_of_rs', 'id');
 		} else {
