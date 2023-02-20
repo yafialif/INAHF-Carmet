@@ -337,7 +337,7 @@ class ListPatientCronicController extends Controller
 
 
 		// Clinical Profile
-		$clinicalProfile = ChronicClinicalProfile::where('id', $id)->update(array(
+		$clinicalProfile = ChronicClinicalProfile::where('patient_id', $id)->update(array(
 			'categorytreatment_id' => $categorytreatment_id,
 			'height' => $request->height,
 			'weight' => $request->weight,
@@ -356,7 +356,7 @@ class ListPatientCronicController extends Controller
 			'etiology' => $request->etiology,
 		));
 		// Risk Factor
-		$riskFactor = CronicRiskFactors::where('id', $id)->update(array(
+		$riskFactor = CronicRiskFactors::where('patient_id', $id)->update(array(
 			'categorytreatment_id' => $categorytreatment_id,
 			'hypertension' => $request->hypertension,
 			'diabetesorPrediabetes' => $request->diabetesorPrediabetes,
@@ -371,12 +371,12 @@ class ListPatientCronicController extends Controller
 			'historyofPciorCabg' => $request->historyofPciorCabg,
 		));
 		// Ro Thorax
-		$RoThorax = ChronicRoThorax::where('id', $id)->update(array(
+		$RoThorax = ChronicRoThorax::where('patient_id', $id)->update(array(
 			'categorytreatment_id' => $categorytreatment_id,
 			'roThorax' => $request->roThorax,
 		));
 		// Echocardiography
-		$Echocardiography = ChronicEchocardiography::where('id', $id)->update(array(
+		$Echocardiography = ChronicEchocardiography::where('patient_id', $id)->update(array(
 			'categorytreatment_id' => $categorytreatment_id,
 			'ef' => $request->ef,
 			'tapse' => $request->tapse,
@@ -388,8 +388,7 @@ class ListPatientCronicController extends Controller
 			'diastolicFunction' => $request->diastolicFunction,
 		));
 		// Blood Laboratory Test
-		$BloodLaboratoryTest = ChronicBloodLaboratoryTest::where('id', $id)->update(array(
-			'patient_id' => $patient->id,
+		$BloodLaboratoryTest = ChronicBloodLaboratoryTest::where('patient_id', $id)->update(array(
 			'categorytreatment_id' => $categorytreatment_id,
 			'hemoglobin' => $request->hemoglobin,
 			'hematocrite' => $request->hematocrite,
@@ -405,8 +404,7 @@ class ListPatientCronicController extends Controller
 			'nt_ProBnp' => $request->nt_ProBnp,
 		));
 		// Medication
-		$medication = ChronicMedication::where('id', $id)->update(array(
-			'patient_id' => $patient->id,
+		$medication = ChronicMedication::where('patient_id', $id)->update(array(
 			'categorytreatment_id' => $categorytreatment_id,
 			'acei' => $request->acei,
 			'aceiDose' => $request->aceiDose,
@@ -428,8 +426,7 @@ class ListPatientCronicController extends Controller
 			'devices' => $request->devices,
 		));
 		// Outcomes
-		$Outcomes = ChronicOutcomes::where('id', $id)->update(array(
-			'patient_id' => $patient->id,
+		$Outcomes = ChronicOutcomes::where('patient_id', $id)->update(array(
 			'categorytreatment_id' => $categorytreatment_id,
 			'totalRehospitalization' => $request->totalRehospitalization,
 			'allCauseDeath' => $request->allCauseDeath,
