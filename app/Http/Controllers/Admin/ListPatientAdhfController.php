@@ -415,7 +415,6 @@ class ListPatientAdhfController extends Controller
 
 		// Etiology
 		$Etiology = AdhfEtiology::where('patient_id', $id)->update(array(
-			// 'patient_id' => $patient->id,
 			'categorytreatment_id' =>  $categorytreatment_id,
 			'acs' => $request->acs,
 			'hypertension_emergency' =>  $request->hypertension_emergency,
@@ -428,14 +427,12 @@ class ListPatientAdhfController extends Controller
 
 		// Ro Thorax
 		$RoThorax = AdhfRoThorax::where('patient_id', $id)->update(array(
-			// 'patient_id' => $patient->id,
 			'categorytreatment_id' => $categorytreatment_id,
 			'ro_thorax' => $request->ro_thorax,
 		));
 
 		// Echocardiography
 		$Echocardiography = AdhfEchocardiography::where('patient_id', $id)->update(array(
-			// 'patient_id' => $patient->id,
 			'categorytreatment_id' => $categorytreatment_id,
 			'ef' => $request->ef,
 			'tapse' => $request->tapse,
@@ -448,7 +445,6 @@ class ListPatientAdhfController extends Controller
 		));
 		// Blood Laboratory Test
 		$BloodLaboratoryTest = AdhfBloodLaboratoryTest::where('patient_id', $id)->update(array(
-			// 'patient_id' => $patient->id,
 			'categorytreatment_id' => $categorytreatment_id,
 			'hemoglobin' => $request->hemoglobin,
 			'hematocrite' => $request->hematocrite,
@@ -530,7 +526,7 @@ class ListPatientAdhfController extends Controller
 			'additional_notes' => $request->additional_notes,
 		));
 
-		return response()->json($id);
+		// return response()->json($id);
 		return redirect()->route('admin.listpatientcronic.index ');
 	}
 }
