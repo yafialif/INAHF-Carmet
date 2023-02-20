@@ -517,7 +517,7 @@ class ListPatientAdhfController extends Controller
 			'hospitalizationCost' => $request->hospitalizationCost,
 		));
 		// Outcomes
-		$Outcomes = AdhfOutcomes::where('patient_id', $patient->id)->update(array(
+		$Outcomes = AdhfOutcomes::where('patient_id', $id)->update(array(
 			'categorytreatment_id' => $categorytreatment_id,
 			'inhospitalDeath' => $request->inhospitalDeath,
 			'vulnerablePhaseDeath' => $request->vulnerablePhaseDeath,
