@@ -106,7 +106,9 @@ class ChronicPatientMonthFollowUpController extends Controller
 		$ChronicPatientMonthFollowUp->insulin = $request->insulin;
 		$ChronicPatientMonthFollowUp->save();
 
-		return response()->json($request);
+		// return response()->json($request);
+		return redirect()->route('admin.listpatientcronic.index');
+
 		// return redirect()->route(config('quickadmin.route') . '.chronicpatientmonthfollowup.index');
 	}
 

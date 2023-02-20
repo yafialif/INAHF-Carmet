@@ -318,6 +318,126 @@ class ListPatientCronicController extends Controller
 	public function update($id, Request $request)
 	{
 		// return response()->json($request);
+
+		$user_id = Auth::user()->id;
+		$categorytreatment_id = 2;
+		// Patient
+		$patient = Patient::where('id', $id)->update(array(
+			'categorytreatment_id' => $categorytreatment_id,
+			'rs_id' => $request->rs_id,
+			'nik' => $request->nik,
+			'name' => $request->name,
+			'dateOfBirth' => $request->dateOfBirth,
+			'age' => $request->age,
+			'gender' => $request->gender,
+			'phone' => $request->phone,
+			'dateOfAdmission' => $request->dateOfAdmission,
+			'insurance' => $request->insurance,
+			'education' => $request->education,
+		));
+
+
+		// Clinical Profile
+		$clinicalProfile = ChronicClinicalProfile::where('id', $id)->update(array(
+			'categorytreatment_id' => $categorytreatment_id,
+			'height' => $request->height,
+			'weight' => $request->weight,
+			'bmi' => $request->bmi,
+			'sbp' => $request->sbp,
+			'dbp' => $request->dbp,
+			'hr' => $request->hr,
+			'dyspnoeaOnExertion' => $request->dyspnoeaOnExertion,
+			'orthopnea' => $request->orthopnea,
+			'pnd' => $request->pnd,
+			'peripheralOedema' => $request->peripheralOedema,
+			'pulmonaryRales' => $request->pulmonaryRales,
+			'jvp' => $request->jvp,
+			'ahaStaging' => $request->ahaStaging,
+			'nyhaClass' => $request->nyhaClass,
+			'etiology' => $request->etiology,
+		));
+		// Risk Factor
+		$riskFactor = CronicRiskFactors::where('id', $id)->update(array(
+			'categorytreatment_id' => $categorytreatment_id,
+			'hypertension' => $request->hypertension,
+			'diabetesorPrediabetes' => $request->diabetesorPrediabetes,
+			'dislipidemia' => $request->dislipidemia,
+			'alcohol' => $request->alcohol,
+			'smoker' => $request->smoker,
+			'ckd' => $request->ckd,
+			'atrialFibrillation' => $request->atrialFibrillation,
+			'bundleBranchBlock' => $request->bundleBranchBlock,
+			'historyofCad' => $request->historyofCad,
+			'historyofHf' => $request->historyofHf,
+			'historyofPciorCabg' => $request->historyofPciorCabg,
+		));
+		// Ro Thorax
+		$RoThorax = ChronicRoThorax::where('id', $id)->update(array(
+			'categorytreatment_id' => $categorytreatment_id,
+			'roThorax' => $request->roThorax,
+		));
+		// Echocardiography
+		$Echocardiography = ChronicEchocardiography::where('id', $id)->update(array(
+			'categorytreatment_id' => $categorytreatment_id,
+			'ef' => $request->ef,
+			'tapse' => $request->tapse,
+			'edv' => $request->edv,
+			'esv' => $request->esv,
+			'edd' => $request->edd,
+			'esd' => $request->esd,
+			'signMr' => $request->signMr,
+			'diastolicFunction' => $request->diastolicFunction,
+		));
+		// Blood Laboratory Test
+		$BloodLaboratoryTest = ChronicBloodLaboratoryTest::where('id', $id)->update(array(
+			'patient_id' => $patient->id,
+			'categorytreatment_id' => $categorytreatment_id,
+			'hemoglobin' => $request->hemoglobin,
+			'hematocrite' => $request->hematocrite,
+			'hbA1C' => $request->hbA1C,
+			'fastingBloodGlucose' => $request->fastingBloodGlucose,
+			'twoHoursPostPrandialBloodGlucose' => $request->twoHoursPostPrandialBloodGlucose,
+			'natrium' => $request->natrium,
+			'kalium' => $request->kalium,
+			'ureum' => $request->ureum,
+			'bun' => $request->bun,
+			'serumCreatinine' => $request->serumCreatinine,
+			'gfr' => $request->gfr,
+			'nt_ProBnp' => $request->nt_ProBnp,
+		));
+		// Medication
+		$medication = ChronicMedication::where('id', $id)->update(array(
+			'patient_id' => $patient->id,
+			'categorytreatment_id' => $categorytreatment_id,
+			'acei' => $request->acei,
+			'aceiDose' => $request->aceiDose,
+			'aceiIntolerance' => $request->aceiIntolerance,
+			'arb' => $request->arb,
+			'arbDose' => $request->arbDose,
+			'arniDose' => $request->arniDose,
+			'BetaBlocker' => $request->BetaBlocker,
+			'betaBlockerDose' => $request->betaBlockerDose,
+			'betaBlockerIntolerance' => $request->betaBlockerIntolerance,
+			'mraDose' => $request->mraDose,
+			'mraIntolerance' => $request->mraIntolerance,
+			'sglt2i' => $request->sglt2i,
+			'sglt2iDose' => $request->sglt2iDose,
+			'loopDiuretic' => $request->loopDiuretic,
+			'loopDiureticDose' => $request->loopDiureticDose,
+			'ivabradineDose' => $request->ivabradineDose,
+			'insulin' => $request->insulin,
+			'devices' => $request->devices,
+		));
+		// Outcomes
+		$Outcomes = ChronicOutcomes::where('id', $id)->update(array(
+			'patient_id' => $patient->id,
+			'categorytreatment_id' => $categorytreatment_id,
+			'totalRehospitalization' => $request->totalRehospitalization,
+			'allCauseDeath' => $request->allCauseDeath,
+			'cardiacRelatedDeath' => $request->cardiacRelatedDeath,
+			'dateofDeath' => $request->dateofDeath,
+			'additional_notes' => $request->additional_notes,
+		));
 		return redirect()->route('admin.listpatientcronic.index');
 	}
 }
