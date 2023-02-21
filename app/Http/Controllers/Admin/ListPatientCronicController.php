@@ -38,7 +38,7 @@ class ListPatientCronicController extends Controller
 		$user_id = Auth::user()->id;
 		$role_id = Auth::user()->role_id;
 		$menu = MonthFollowUp::get();
-		if ($role_id != 3) {
+		if ($role_id <= 2) {
 			$patients = Patient::with("user")
 				->where('categorytreatment_id', 2)
 				->get();

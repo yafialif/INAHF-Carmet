@@ -28,3 +28,4 @@ Route::get('/coba', function () {
 
 // Route::get('chartadhf', [DashboardController::class, 'chartAdhf']);
 Route::get('chartadhf', 'Admin\ChartadhfController@chartAdhf');
+Route::get('notifmonthfollowup', 'Admin\DashboardController@notifMonthFollowUp');

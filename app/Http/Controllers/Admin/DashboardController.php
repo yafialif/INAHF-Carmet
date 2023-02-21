@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\ChronicPatientMonthFollowUp;
 use App\Http\Controllers\Controller;
 use App\Patient;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
@@ -36,5 +38,18 @@ class DashboardController extends Controller
 
 		$data = array($datagender, $datars);
 		return response()->json($data);
+	}
+	public function notifMonthFollowUp()
+	{
+		// $user_id = Auth::user()->id;
+		$patient = Patient::select('user_id')
+			->where('user_id', '=', 5)
+			->get();
+		$MonthFollowUp = ChronicPatientMonthFollowUp::join('patient', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
+			->select('patient.name', 'patient.dateOfAdmission', 'chronicpatientmonthfollowup.created_at As MonthFollowUpDate')
+			->where('patient.user_id', '=', 5)
+			->get();
+		// if()
+		return response()->json($MonthFollowUp);
 	}
 }

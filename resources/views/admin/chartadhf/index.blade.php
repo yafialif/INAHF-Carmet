@@ -15,6 +15,9 @@
             <canvas id="adhfRs" style="width:100%;"></canvas>
             </div>
             <div class="col-md-6" id="">
+            <canvas id="age" style="width:100%;"></canvas>
+            </div>
+            <div class="col-md-6" id="">
             <canvas id="insurance" style="width:100%;"></canvas>
             </div>
             <div class="col-md-6" id="">
@@ -97,6 +100,37 @@ new Chart(
   },
     }
   );
+//   Age
+const age = response[2];
+new Chart(
+    document.getElementById('age'),
+    {
+      type: 'line',
+      data: {
+        labels: age.map(row => row.age),
+        datasets: [
+          {
+            label: 'age',
+            data: age.map(row => row.age),
+            // borderColor: '#FF6384',
+            // backgroundColor: [
+            //             '#ff6384','#36a2eb'
+            // ]
+          }
+        ]
+      },
+      options: {
+    scales: {
+     yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    }
+  },
+    }
+  );
+
 //   Insurance
 const insurance = response[3];
 new Chart(
