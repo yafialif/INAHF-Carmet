@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Patient;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class ChartchronicController extends Controller
@@ -18,6 +20,19 @@ class ChartchronicController extends Controller
 	 */
 	public function index()
 	{
+
+		$user_id = Auth::user()->id;
+		$role_id = Auth::user()->role_id;
+		if ($role_id <= 2) {
+			$patients = Patient::with("user")
+				->where('categorytreatment_id', 1)
+				->get();
+		} else {
+			$patients = Patient::with("user")
+				->where('user_id', $user_id)
+				->where('categorytreatment_id', 1)
+				->get();
+		}
 		$datagender = Patient::selectRaw('gender, count(*) AS total')
 			->where('categorytreatment_id', 2)
 			->groupBy('gender')
