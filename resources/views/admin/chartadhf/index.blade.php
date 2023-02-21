@@ -98,7 +98,7 @@ new Chart(
     }
   );
 //   Insurance
-const insurance = response[2];
+const insurance = response[3];
 new Chart(
     document.getElementById('insurance'),
     {
@@ -128,7 +128,7 @@ new Chart(
     }
   );
 //   Education
-const education = response[3];
+const education = response[4];
 
   new Chart(
     document.getElementById('education'),
