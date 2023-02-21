@@ -298,7 +298,12 @@ class ListPatientAdhfController extends Controller
 		$Outcomes->inhospitalDeath = $request->inhospitalDeath;
 		$Outcomes->vulnerablePhaseDeath = $request->vulnerablePhaseDeath;
 		$Outcomes->vulnerablePhaseRehospitalization = $request->vulnerablePhaseRehospitalization;
-		$Outcomes->dateofDeath = $request->dateofDeath;
+		// $Outcomes->dateofDeath = $request->dateofDeath;
+		if ($request->dateofDeath) {
+			$Outcomes->dateofDeath = $request->dateofDeath;
+		} else {
+			$Outcomes->dateofDeath = "0000-00-00";
+		}
 		$Outcomes->additional_notes = $request->additional_notes;
 		$Outcomes->save();
 

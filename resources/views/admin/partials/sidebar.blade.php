@@ -4,6 +4,8 @@
             data-keep-expanded="false"
             data-auto-scroll="true"
             data-slide-speed="200">
+            <h4 style="margin: 5px; color:aliceblue;" class="title">{!! Auth::user()->name !!}</h4>
+            <p style="margin: 5px; color:aliceblue;">{!! Auth::user()->email !!}</p>
             @if(Auth::user()->role_id == config('quickadmin.defaultRole'))
                 <li @if(Request::path() == config('quickadmin.route').'/menu') class="active" @endif>
                     <a href="{{ url(config('quickadmin.route').'/menu') }}">

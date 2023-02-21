@@ -251,7 +251,12 @@ class ListPatientCronicController extends Controller
 		$Outcomes->totalRehospitalization = $request->totalRehospitalization;
 		$Outcomes->allCauseDeath = $request->allCauseDeath;
 		$Outcomes->cardiacRelatedDeath = $request->cardiacRelatedDeath;
-		$Outcomes->dateofDeath = $request->dateofDeath;
+		// $Outcomes->dateofDeath = $request->dateofDeath;
+		if ($request->dateofDeath) {
+			$Outcomes->dateofDeath = $request->dateofDeath;
+		} else {
+			$Outcomes->dateofDeath = "0000-00-00";
+		}
 		$Outcomes->additional_notes = $request->additional_notes;
 		$Outcomes->save();
 

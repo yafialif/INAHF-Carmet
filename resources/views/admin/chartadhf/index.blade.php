@@ -48,9 +48,9 @@ var settings = {
   },
 };
 
-$.ajax(settings).done(function (response) {
-  console.log(response);
-  const dataAdhfGender = response[0];
+// $.ajax(settings).done(function (response) {
+//   console.log(response);
+  const dataAdhfGender = {!! $data[0] !!};
 
   new Chart(
     document.getElementById('adhf_gender'),
@@ -71,7 +71,7 @@ $.ajax(settings).done(function (response) {
       }
     }
   );
-  const dataRs = response[1];
+  const dataRs = {!! $data[1] !!};
 new Chart(
     document.getElementById('adhfRs'),
     {
@@ -101,7 +101,7 @@ new Chart(
     }
   );
 //   Age
-const age = response[2];
+const age = {!! $data[2] !!};
 new Chart(
     document.getElementById('age'),
     {
@@ -132,7 +132,7 @@ new Chart(
   );
 
 //   Insurance
-const insurance = response[3];
+const insurance = {!! $data[3] !!};
 new Chart(
     document.getElementById('insurance'),
     {
@@ -162,7 +162,7 @@ new Chart(
     }
   );
 //   Education
-const education = response[4];
+const education = {!! $data[4] !!};
 
   new Chart(
     document.getElementById('education'),
@@ -184,7 +184,7 @@ const education = response[4];
     }
   );
 
-});
+// });
   
 
 </script>
