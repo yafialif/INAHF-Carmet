@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Patient;
 use App\CategoryTreatment;
 use App\MonthFollowUp;
+use Illuminate\Support\Facades\Auth;
 
 
 class ChronicPatientMonthFollowUpController extends Controller
@@ -27,8 +28,21 @@ class ChronicPatientMonthFollowUpController extends Controller
 	 */
 	public function index(Request $request)
 	{
-		$chronicpatientmonthfollowup = ChronicPatientMonthFollowUp::with("patient")->with("categorytreatment")->with("monthfollowup")->get();
-
+		// $user_id = 5;
+		$user_id = Auth::user()->id;
+		$role_id = Auth::user()->role_id;
+		if ($role_id <= 2) {
+			$chronicpatientmonthfollowup = ChronicPatientMonthFollowUp::join('patient', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
+				->join('monthfollowup', 'monthfollowup.id', '=', 'chronicpatientmonthfollowup.monthfollowup_id')
+				// ->where('patient.user_id', '=', $user_id)
+				->get();
+		} else {
+			$chronicpatientmonthfollowup = ChronicPatientMonthFollowUp::join('patient', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
+				->join('monthfollowup', 'monthfollowup.id', '=', 'chronicpatientmonthfollowup.monthfollowup_id')
+				->where('patient.user_id', '=', $user_id)
+				->get();
+		}
+		// return response()->json($chronicpatientmonthfollowup);
 		return view('admin.chronicpatientmonthfollowup.index', compact('chronicpatientmonthfollowup'));
 	}
 

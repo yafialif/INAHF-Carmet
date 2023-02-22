@@ -2,14 +2,15 @@
 
 @section('content')
 
-<p>{!! link_to_route(config('quickadmin.route').'.chronicpatientmonthfollowup.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p>
-
+{{-- <p>{!! link_to_route(config('quickadmin.route').'.chronicpatientmonthfollowup.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p> --}}
 @if ($chronicpatientmonthfollowup->count())
     <div class="portlet box green">
         <div class="portlet-title">
             <div class="caption">{{ trans('quickadmin::templates.templates-view_index-list') }}</div>
         </div>
         <div class="portlet-body">
+        <div class="table-responsive">
+
             <table class="table table-striped table-hover table-responsive datatable" id="datatable">
                 <thead>
                     <tr>
@@ -17,7 +18,7 @@
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
                         <th>Name</th>
-<th>Treatment Name</th>
+{{-- <th>Treatment Name</th> --}}
 <th>Mount Name</th>
 <th>Peripheral Oedema</th>
 <th>nyhaClass</th>
@@ -58,9 +59,9 @@
                             <td>
                                 {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
                             </td>
-                            <td>{{ isset($row->patient->name) ? $row->patient->name : '' }}</td>
-<td>{{ isset($row->categorytreatment->treatmentName) ? $row->categorytreatment->treatmentName : '' }}</td>
-<td>{{ isset($row->monthfollowup->mount) ? $row->monthfollowup->mount : '' }}</td>
+                            <td>{{ $row->name }}</td>
+{{-- <td>{{ isset($row->categorytreatment->treatmentName) ? $row->categorytreatment->treatmentName : '' }}</td> --}}
+<td>{{ $row->mount }}</td>
 <td>{{ $row->peripheralOedema }}</td>
 <td>{{ $row->nyhaClass }}</td>
 <td>{{ $row->sbp }}</td>
@@ -100,6 +101,7 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
             <div class="row">
                 <div class="col-xs-12">
                     <button class="btn btn-danger" id="delete">

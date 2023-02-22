@@ -70,8 +70,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                     @else
                     <td>{{ $row->percent }} %</td>
                     @endif
-
-
                     <td>
                         {!! link_to_route('admin.listpatientadhf.show', trans('View'),
                         array($row->id), array('class' => 'btn btn-xs btn-info')) !!}

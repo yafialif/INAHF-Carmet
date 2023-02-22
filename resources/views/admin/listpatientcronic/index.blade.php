@@ -15,7 +15,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 <p><a href="/admin/listpatientcronic/create"><button class="btn btn-success">Add New</button></a> 
     {{-- link_to_route(config('quickadmin.route').'.patient.create', --}}
     {{-- trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p> --}}
-
 @if (count($patient))
 <div class="portlet box green">
     <div class="portlet-title">
