@@ -44,7 +44,7 @@
                         <td>pulmonary rales</td>
                         <td>jvp</td>
                         <td>type of acute HF</td>
-                        <td>nyha class</td>
+                        <td>NYHA Class</td>
                         <td>cardiogenic shock</td>
                         <td>respiratory failure</td>
                         {{-- risk Factor --}}

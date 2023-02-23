@@ -19,7 +19,7 @@
 {!! Form::model($rumahsakit, array('class' => 'form-horizontal', 'id' => 'form-with-validation', 'method' => 'PATCH', 'route' => array(config('quickadmin.route').'.rumahsakit.update', $rumahsakit->id))) !!}
 
 <div class="form-group">
-    {!! Form::label('user_id', 'Nama*', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('user_id', 'Nama Dokter*', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::select('user_id', $user, old('user_id',$rumahsakit->user_id), array('class'=>'form-control')) !!}
         

@@ -1452,7 +1452,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             <div class="tab-pane" role="tabpanel" id="step8">
                                 <h4 class="text-center">Outcomes</h4>
                                 <div class="col-md-6">
-                                        <label>Total Rehospitalization</label>
+                                        <label>Total Rehospitalization *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -1464,7 +1464,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>All cause death</label>
+                                        <label>All cause death *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -1477,7 +1477,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Cardiac related death</label>
+                                        <label>Cardiac related death *</label>
 
                                     <div class="input-group">
                                         <div class="radio">

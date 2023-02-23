@@ -23,7 +23,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
     </div>
     <div class="portlet-body">
         <div class="table-responsive">
-
         <table class="table table-striped table-hover table-responsive datatable" id="datatable">
             <thead>
                 <tr>
@@ -31,7 +30,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                         {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                     </th>
                     <th>Dokter</th>
-                    <th>Category treatment</th>
+                    <th>Project</th>
                     <th>NIK</th>
                     <th>Name</th>
                     <th>Date Of Birth</th>
@@ -46,7 +45,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                     <th>Action</th>
                 </tr>
             </thead>
-
             <tbody>
                 @foreach ($patient as $row)
                 <tr>

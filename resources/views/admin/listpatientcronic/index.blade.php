@@ -29,7 +29,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                         {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                     </th>
                     <th>Dokter</th>
-                    <th>Category treatment</th>
+                    <th>Project</th>
                     <th>NIK</th>
                     <th>Name</th>
                     <th>Date Of Birth</th>
@@ -41,7 +41,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                     <th>Education</th>
                     <th>Date of Discharge</th>
                     <th>Progress</th>
-                    <th>Fount Follow Up</th>
+                    <th>Month Follow Up</th>
                     <th>Action</th>
                 </tr>
             </thead>

@@ -22,7 +22,8 @@ class DashboardController extends Controller
 	 */
 	public function index()
 	{
-		return view('admin.dashboard.index');
+		return redirect('/admin');
+		// return view('admin.dashboard.index');
 	}
 	public function chartAdhf()
 	{
@@ -42,12 +43,12 @@ class DashboardController extends Controller
 	}
 	public function notifMonthFollowUp()
 	{
-		// $user_id = Auth::user()->id;
+		$user_id = Auth::user()->id;
 		$datenow =  date("Y-m-d H:i:s");
 
 		$MonthFollowUp = ChronicPatientMonthFollowUp::join('patient', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
 			->select('chronicpatientmonthfollowup.id', 'chronicpatientmonthfollowup.monthfollowup_id', 'patient.name', 'patient.dateOfAdmission', 'chronicpatientmonthfollowup.created_at As MonthFollowUpDate')
-			->where('patient.user_id', '=', 6)
+			->where('patient.user_id', '=', $user_id)
 			->orderBy('chronicpatientmonthfollowup.id', 'desc')
 			->get();
 		if ($MonthFollowUp[0]) {
@@ -64,7 +65,7 @@ class DashboardController extends Controller
 			}
 		} else {
 			$patient = Patient::select('user_id', 'name', 'dateOfAdmission')
-				->where('user_id', '=', 6)
+				->where('user_id', '=', $user_id)
 				->where('categorytreatment_id', '=', 2)
 				->get();
 			$date1 = new DateTime($patient[0]->dateOfAdmission);
@@ -78,6 +79,7 @@ class DashboardController extends Controller
 				$swal = false;
 			}
 		}
-		return response()->json($swal);
+		return response()->json($user_id);
+		// return response()->json($swal);
 	}
 }

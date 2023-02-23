@@ -16,7 +16,7 @@
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
-                        <th>Nama</th>
+                        <th>Nama Dokter</th>
 <th>Nama Rumah Sakit</th>
 
                         <th>&nbsp;</th>

@@ -22,7 +22,9 @@ class ManageDokterController extends Controller
 	public function index()
 	{
 		// $users = User::all();
-		$users = DB::table('users')->where('role_id', '>', 2)->get();
+		$users = DB::table('users')
+			->join('roles', 'roles.id', '=', 'users.role_id')
+			->where('role_id', '>', 2)->get();
 		return view('admin.managedokter.index', compact('users'));
 	}
 

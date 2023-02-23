@@ -14,6 +14,8 @@
                     <thead>
                     <tr>
                         <th>{{ trans('quickadmin::admin.users-index-name') }}</th>
+                        <th>Email</th>
+                        <th>Role</th>
                         <th>&nbsp;</th>
                     </tr>
                     </thead>
@@ -22,6 +24,8 @@
                     @foreach ($users as $user)
                         <tr>
                             <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->title }}</td>
                             <td>
                                 {!! link_to_route('admin.managedokter.edit', trans('quickadmin::admin.users-index-edit'), [$user->id], ['class' => 'btn btn-xs btn-info']) !!}
                                 {!! Form::open(['style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => 'return confirm(\'' . trans('quickadmin::admin.users-index-are_you_sure') . '\');',  'route' => array('admin.managedokter.destroy', $user->id)]) !!}

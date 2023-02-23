@@ -21,8 +21,8 @@ class QuickadminController extends Controller
     public function index()
     {
         $datenow =  date("Y-m-d H:i:s");
-        // $id_user = Auth::user()->id;
-        $id_user = 6;
+        $id_user = Auth::user()->id;
+        // $id_user = 6;
         $data_followup = array();
         $patient = Patient::select('user_id', 'name', 'dateOfAdmission')
             ->where('user_id', '=', $id_user)

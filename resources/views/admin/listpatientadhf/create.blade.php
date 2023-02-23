@@ -1809,7 +1809,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             <div class="tab-pane" role="tabpanel" id="step11">
                                 <h4 class="text-center">Outcomes</h4>
                                 <div class="col-md-6">
-                                        <label>Inhospital Death</label>
+                                        <label>Inhospital Death *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -1821,7 +1821,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Vulnerable phase death</label>
+                                        <label>Vulnerable phase death *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -1834,7 +1834,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Vulnerable phase rehospitalization</label>
+                                        <label>Vulnerable phase rehospitalization *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -1858,7 +1858,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>Additional Notes</label>
 
                                     <div class="input-group">
-                                        <textarea class="form-control " id="editor" name="additional_notes" cols="50" rows="10" id="detail"></textarea>
+                                        <textarea class="form-control " id="editor2" name="additional_notes" cols="50" rows="10" id="detail"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -1905,15 +1905,15 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
 @section('javascript')
 <script>
-    let editor;
-                        ClassicEditor
-                                .create( document.querySelector( '#editor' ) )
-                                .then( newEditor => {
-                                    editor = newEditor;
-                                } )
-                                .catch( error => {
-                                        console.error( error );
-                                } );
+    var editor2;
+                        // ClassicEditor
+                        //         .create( document.querySelector( '#editor2' ) )
+                        //         .then( newEditor => {
+                        //             editor2 = newEditor;
+                        //         } )
+                        //         .catch( error => {
+                        //                 console.error( error );
+                        //         } );
                 </script>
 <script>
     function finish(){
@@ -2113,7 +2113,7 @@ function removelocal() {
 
         }
         if(text3){
-        editor.setData( text3 );
+        editor2.setData( text3 );
         }
         notification('Data retrived');
 
@@ -2124,7 +2124,7 @@ function removelocal() {
         var select = document.getElementsByTagName("form")[1].getElementsByTagName("select");
         var data = Array();
         var data2 = Array();
-        var data3 = editor.getData();
+        var data3 = editor2.getData();
         // var i = 0;
         for (i = 0; i < input.length; i++) {
             //   console.log(input[parseInt(i)].name);
@@ -2206,8 +2206,10 @@ function removelocal() {
         $(".next-step").click(function (e) {
 
             var $active = $('.wizard .nav-tabs li.active');
-            $active.next().removeClass('disabled');
+            // $active.next().removeClass('disabled');
             nextTab($active);
+            console.log('next');
+
 
         });
         $(".prev-step").click(function (e) {
@@ -2219,7 +2221,8 @@ function removelocal() {
     });
 
     function nextTab(elem) {
-        $(elem).next().find('a[data-toggle="tab"]').click();
+        var cova = $(elem).next().find('a[data-toggle="tab"]').click();
+        console.log(cova);
     }
 
     function prevTab(elem) {

@@ -545,14 +545,16 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                     </div>
                                 </div>
                                  <div class="col-md-6">
-                                        <label>Echo Diastolic function</label>
+                                        <label>E/A</label>
                                         <div class="input-group">
-                                        <select class="form-control" name="echoDiastolicFunction">
+                                            <input id="echoEsd" class="form-control" type="text" name="echoDiastolicFunction" placeholder="" >
+
+                                        {{-- <select class="form-control" name="echoDiastolicFunction">
                                             <option {{ $chronicpatientmonthfollowup->echoDiastolicFunction == 'Normal' ? 'selected' : ''}} value="Normal">Normal</option>
                                             <option {{ $chronicpatientmonthfollowup->echoDiastolicFunction == 'Pseudonormal' ? 'selected' : ''}} value="Pseudonormal">Pseudonormal</option>
                                             <option {{ $chronicpatientmonthfollowup->echoDiastolicFunction == 'Relaxation disorder' ? 'selected' : ''}} value="Relaxation disorder">Relaxation disorder</option>
                                             <option {{ $chronicpatientmonthfollowup->echoDiastolicFunction == 'Restrictive' ? 'selected' : ''}} value="Restrictive">Restrictive</option>
-                                        </select>
+                                        </select> --}}
                                     </div>
                                 </div>
                                  <div class="col-md-6">

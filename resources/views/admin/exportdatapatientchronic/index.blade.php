@@ -43,7 +43,7 @@
                         <td>pulmonary rales</td>
                         <td>jvp</td>
                         <td>AhaStaging</td>
-                        <td>nyha class</td>
+                        <td>NYHA Class</td>
                         <td>Etiology</td>
                         {{-- risk Factor --}}
 

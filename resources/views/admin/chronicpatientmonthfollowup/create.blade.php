@@ -514,7 +514,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                 <div class="col-md-6">
                                         <label>Echo EDD</label>
                                     <div class="input-group">
-                                            <input id="age" class="form-control" type="text" name="age" placeholder="" >
+                                            <input id="age" class="form-control" type="text" name="echoEdd" placeholder="" >
                                         <span class="input-group-addon">.mm</span>
                                         </div>
                                 </div>
@@ -537,14 +537,16 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                     </div>
                                 </div>
                                  <div class="col-md-6">
-                                        <label>Echo Diastolic function</label>
+                                        <label>E/A</label>
                                         <div class="input-group">
-                                        <select class="form-control" name="echoDiastolicFunction">
+                                            <input id="echoEsd" class="form-control" type="text" name="echoDiastolicFunction" placeholder="" >
+
+                                        {{-- <select class="form-control" name="echoDiastolicFunction">
                                             <option value="Normal">Normal</option>
                                             <option value="Pseudonormal">Pseudonormal</option>
                                             <option value="Relaxation disorder">Relaxation disorder</option>
                                             <option value="Restrictive">Restrictive</option>
-                                        </select>
+                                        </select> --}}
                                     </div>
                                 </div>
                                  <div class="col-md-6">
