@@ -402,6 +402,13 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
     Your internet connection is lost, data is automatically stored locally, click save again to update data on local
     storage.
 </div>
+@if ($errors->any())
+        	<div class="alert alert-danger">
+        	    <ul>
+                    {!! implode('', $errors->all('<li class="error">:message</li>')) !!}
+                </ul>
+        	</div>
+        @endif
 <div id="notification" class="alert alert-success" role="alert">
 </div>
 
@@ -577,8 +584,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn next-step">Continue to next
-                                                step</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue to next step</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -753,9 +759,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -933,9 +939,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1032,9 +1038,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1056,9 +1062,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1156,9 +1162,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1306,9 +1312,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1367,9 +1373,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1749,9 +1755,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1799,9 +1805,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1858,12 +1864,12 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>Additional Notes</label>
 
                                     <div class="input-group">
-                                        <textarea class="form-control " id="editor2" name="additional_notes" cols="50" rows="10" id="detail"></textarea>
+                                        <textarea class="form-control " id="editor" name="additional_notes" cols="50" rows="10" id="detail"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         <li><button type="button" onclick="finish()" type="submit" class="default-btn next-step">Finish</button></li>
                                     </ul>
                                 </div>
@@ -1905,16 +1911,16 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
 @section('javascript')
 <script>
-    var editor2;
-                        // ClassicEditor
-                        //         .create( document.querySelector( '#editor2' ) )
-                        //         .then( newEditor => {
-                        //             editor2 = newEditor;
-                        //         } )
-                        //         .catch( error => {
-                        //                 console.error( error );
-                        //         } );
-                </script>
+    // let editor;
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .then( newEditor => {
+            editor = newEditor;
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 <script>
     function finish(){
     document.getElementById("dataForm").submit();
@@ -1941,8 +1947,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
             $("#notification").hide();
         }, 4000);
     }
-
-    
 
     function review_data() {
         var dataForm = new FormData(document.getElementById("dataForm"));
@@ -2113,7 +2117,7 @@ function removelocal() {
 
         }
         if(text3){
-        editor2.setData( text3 );
+        editor.setData( text3 );
         }
         notification('Data retrived');
 
@@ -2124,7 +2128,7 @@ function removelocal() {
         var select = document.getElementsByTagName("form")[1].getElementsByTagName("select");
         var data = Array();
         var data2 = Array();
-        var data3 = editor2.getData();
+        var data3 = editor.getData();
         // var i = 0;
         for (i = 0; i < input.length; i++) {
             //   console.log(input[parseInt(i)].name);
@@ -2189,6 +2193,16 @@ function removelocal() {
 
 </script>
 <script>
+    function next(){
+            // console.log('next');
+            var $active = $('.wizard .nav-tabs li.active');
+            // $active.next().removeClass('disabled');
+            nextTab($active);
+        }
+    function prev(){
+         var $active = $('.wizard .nav-tabs li.active');
+            prevTab($active);
+    }
     // ------------step-wizard-------------
     $(document).ready(function () {
         $('.nav-tabs > li a[title]').tooltip();
@@ -2202,39 +2216,28 @@ function removelocal() {
                 return false;
             }
         });
+       
+        
+        // $(".next-step").click(function (e) {
+            
 
-        $(".next-step").click(function (e) {
+        // });
+        // $(".prev-step").click(function (e) {
 
-            var $active = $('.wizard .nav-tabs li.active');
-            // $active.next().removeClass('disabled');
-            nextTab($active);
-            console.log('next');
+           
 
-
-        });
-        $(".prev-step").click(function (e) {
-
-            var $active = $('.wizard .nav-tabs li.active');
-            prevTab($active);
-
-        });
+        // });
     });
 
     function nextTab(elem) {
         var cova = $(elem).next().find('a[data-toggle="tab"]').click();
-        console.log(cova);
+        // console.log(cova);
     }
 
     function prevTab(elem) {
         $(elem).prev().find('a[data-toggle="tab"]').click();
     }
     // get data to array
-
-</script>
-<script>
-    $(document).ready(function () {
-
-    });
 
 </script>
 @stop

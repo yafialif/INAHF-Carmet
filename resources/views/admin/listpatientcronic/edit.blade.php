@@ -558,7 +558,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn next-step">Continue to next
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue to next
                                                 step</button></li>
                                     </ul>
                                 </div>
@@ -724,9 +724,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -893,9 +893,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -918,9 +918,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1020,9 +1020,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1152,9 +1152,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1435,9 +1435,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1501,7 +1501,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         <li><button type="button" onclick="finish()" type="submit" class="default-btn next-step">Finish</button></li>
                                     </ul>
                                 </div>

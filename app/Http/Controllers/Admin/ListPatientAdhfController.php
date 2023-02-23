@@ -13,6 +13,7 @@ use App\AdhfRiskFactors;
 use App\AdhfRoThorax;
 use App\ClinicalProfile;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateAdhf;
 use App\Patient;
 use Illuminate\Support\Facades\Auth;
 use App\MenuRole;
@@ -118,9 +119,9 @@ class ListPatientAdhfController extends Controller
 		}
 		return view('admin.listpatientadhf.create', compact('rumahsakit'));
 	}
-	public function store(Request $request)
+	// public function store(CreateAdhf $request)
+	public function store(CreateAdhf $request)
 	{
-
 		$user_id = Auth::user()->id;
 		$categorytreatment_id = 1;
 		// Patient
@@ -140,7 +141,7 @@ class ListPatientAdhfController extends Controller
 		if ($request->dateOfDischarge) {
 			$patient->dateOfDischarge = $request->dateOfDischarge;
 		} else {
-			$patient->dateOfDischarge = "0000-00-00";
+			$patient->dateOfDischarge = date("0000-00-00");
 		}
 		$patient->save();
 
@@ -302,7 +303,7 @@ class ListPatientAdhfController extends Controller
 		if ($request->dateofDeath) {
 			$Outcomes->dateofDeath = $request->dateofDeath;
 		} else {
-			$Outcomes->dateofDeath = "0000-00-00";
+			$Outcomes->dateofDeath = date("0000-00-00");
 		}
 		$Outcomes->additional_notes = $request->additional_notes;
 		$Outcomes->save();

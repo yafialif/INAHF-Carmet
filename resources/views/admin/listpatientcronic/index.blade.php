@@ -130,8 +130,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 <script>
     $(document).ready(function () {
         $('#delete').click(function () {
-            if (window.confirm('{{ trans('
-                    quickadmin::templates.templates - view_index - are_you_sure ') }}')) {
+            if (window.confirm('{{ trans('quickadmin::templates.templates - view_index - are_you_sure') }}')) {
                 var send = $('#send');
                 var mass = $('.mass').is(":checked");
                 if (mass == true) {

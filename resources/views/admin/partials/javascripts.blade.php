@@ -1,4 +1,3 @@
-
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 {{-- <script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script> --}}
@@ -7,7 +6,7 @@
 <script src="{{ url('quickadmin/js') }}/timepicker.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.js"></script>
 {{-- <script src="//cdn.ckeditor.com/4.5.4/full/ckeditor.js"></script> --}}
-{{-- <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script> --}}
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 <script src="{{ url('quickadmin/js') }}/bootstrap.min.js"></script>
 {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script> --}}
 <script src="{{ url('quickadmin/js') }}/main.js"></script>
@@ -35,7 +34,7 @@
     //         "url": "{{ trans('quickadmin::strings.datatable_url_language') }}"
     //     }
     // });
-        // $(document).ready(function() {
+    // $(document).ready(function() {
     $('#datatable').DataTable( {
         dom: 'Bfrtip',
         buttons: [

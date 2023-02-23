@@ -15,6 +15,7 @@ use App\MonthFollowUp;
 use App\ChronicOutcomes;
 use App\ChronicPatientFollowup;
 use App\ChronicPatientMonthFollowUp;
+use App\Http\Requests\CreateChronic;
 use Illuminate\Support\Facades\Auth;
 use App\MenuRole;
 use App\RumahSakit;
@@ -121,7 +122,7 @@ class ListPatientCronicController extends Controller
 		}
 		return view('admin.listpatientcronic.create', compact('rumahsakit'));
 	}
-	public function store(Request $request)
+	public function store(CreateChronic $request)
 	{
 		$user_id = Auth::user()->id;
 		$categorytreatment_id = 2;
@@ -142,7 +143,7 @@ class ListPatientCronicController extends Controller
 		if ($request->dateOfDischarge) {
 			$patient->dateOfDischarge = $request->dateOfDischarge;
 		} else {
-			$patient->dateOfDischarge = "0000-00-00";
+			$patient->dateOfDischarge = date("0000-00-00");
 		}
 		$patient->save();
 
@@ -255,7 +256,7 @@ class ListPatientCronicController extends Controller
 		if ($request->dateofDeath) {
 			$Outcomes->dateofDeath = $request->dateofDeath;
 		} else {
-			$Outcomes->dateofDeath = "0000-00-00";
+			$Outcomes->dateofDeath = date("0000-00-00");
 		}
 		$Outcomes->additional_notes = $request->additional_notes;
 		$Outcomes->save();
