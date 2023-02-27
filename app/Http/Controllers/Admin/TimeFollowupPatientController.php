@@ -51,7 +51,10 @@ class TimeFollowupPatientController extends Controller
 					// $interval = $date1->diff($date2);
 					// $jumlahBulan = ($interval->y * 12) + $interval->m;
 					if ($jumlahHari >= 130) {
-						array_push($data_followup, $key->name);
+						array_push($data_followup, [
+							'name' => $key->name
+
+						]);
 					}
 				} else {
 
@@ -81,7 +84,7 @@ class TimeFollowupPatientController extends Controller
 		// 	);
 		// }
 		// $data = json_decode(json_encode($swal), false);
-		return response()->json($data_followup);
+		return response()->json($MonthFollowUp[0]);
 		// return view('admin.dashboard', compact('data'));
 		// return view('admin.timefollowuppatient.index', compact('data'));
 	}

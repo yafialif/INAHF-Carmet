@@ -86,7 +86,7 @@ class ManageDokterController extends Controller
 		$input['password'] = Hash::make($input['password']);
 		$user->update($input);
 
-		return redirect()->route('admin.managedokter.index ')->withMessage(trans('quickadmin::admin.users-controller-successfully_updated'));
+		return redirect()->route('admin.managedokter.index')->withMessage(trans('quickadmin::admin.users-controller-successfully_updated'));
 	}
 
 	/**
@@ -101,6 +101,6 @@ class ManageDokterController extends Controller
 		$user = User::findOrFail($id);
 		User::destroy($id);
 
-		return redirect()->route('admin.managedokter.index ')->withMessage(trans('quickadmin::admin.users-controller-successfully_deleted'));
+		return redirect()->route('admin.managedokter.index')->withMessage(trans('quickadmin::admin.users-controller-successfully_deleted'));
 	}
 }
