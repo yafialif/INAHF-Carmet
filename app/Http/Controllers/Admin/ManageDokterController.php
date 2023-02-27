@@ -23,6 +23,7 @@ class ManageDokterController extends Controller
 	{
 		// $users = User::all();
 		$users = DB::table('users')
+			->select('users.id As id', 'users.name', 'users.email', 'roles.title')
 			->join('roles', 'roles.id', '=', 'users.role_id')
 			->where('role_id', '>', 2)->get();
 		return view('admin.managedokter.index', compact('users'));
@@ -66,9 +67,10 @@ class ManageDokterController extends Controller
 	public function edit($id)
 	{
 		$user  = User::findOrFail($id);
-		$roles = Role::pluck('title', 'id');
-
+		// $roles = Role::pluck('title', 'id');
+		$roles = Role::where('id', '>', 2)->pluck('title', 'id');
 		return view('admin.managedokter.edit', compact('user', 'roles'));
+		// return response()->jso
 	}
 
 	/**
