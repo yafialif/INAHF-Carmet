@@ -795,16 +795,16 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->smoker == 'Never smoked' ? 'checked' : ''}} type="radio" name="smoker"
-                                                    value="Never smoked">Never smoked</label>
+                                            <label><input {{ $data->smoker == 'Never Smoked' ? 'checked' : ''}} type="radio" name="smoker"
+                                                    value="Never Smoked">Never Smoked</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->smoker == 'Former Smoking' ? 'checked' : ''}} type="radio" name="smoker"
-                                                    value="Former Smoking">Former Smoking</label>
+                                            <label><input {{ $data->smoker == 'Former Smoker' ? 'checked' : ''}} type="radio" name="smoker"
+                                                    value="Former Smoker">Former Smoker</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->smoker == 'Current smoking' ? 'checked' : ''}} type="radio" name="smoker"
-                                                    value="Current smoking">Current smoking</label>
+                                            <label><input {{ $data->smoker == 'Current Smoker' ? 'checked' : ''}} type="radio" name="smoker"
+                                                    value="Current Smoker">Current Smoker</label>
                                         </div>
                                     </div>
                                 </div>
@@ -959,7 +959,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     <div class="input-group">
                                         <input value="{{ $data->esv }}" class="form-control" type="number" name="esv" placeholder="">
-                                        <span class="input-group-addon">.mm</span>
+                                        <span class="input-group-addon">.mL</span>
                                         
                                     </div>
                                 </div>
@@ -968,7 +968,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     <div class="input-group">
                                         <input value="{{ $data->edd }}" class="form-control" type="number" name="edd" placeholder="">
-                                        <span class="input-group-addon">.mL</span>
+                                        <span class="input-group-addon">.mm</span>
                                         
                                     </div>
                                 </div>
@@ -989,8 +989,8 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                             <label><input {{ $data->signMr == 'No' ? 'checked' : ''}} type="radio" name="signMr" value="No">No</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->signMr == 'Midle MR' ? 'checked' : ''}} type="radio" name="signMr"
-                                                    value="Midle MR">Midle MR</label>
+                                            <label><input {{ $data->signMr == 'Mild MR' ? 'checked' : ''}} type="radio" name="signMr"
+                                                    value="Mild MR">Mild MR</label>
                                         </div>
                                         <div class="radio">
                                             <label><input {{ $data->signMr == 'Moderate MR' ? 'checked' : ''}} type="radio" name="signMr"
@@ -1285,10 +1285,28 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>Beta Blocker Intolerance</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->betaBlockerIntolerance}}" class="form-control" type="number" name="betaBlockerIntolerance"
+                                        {{-- <input value="{{ $data->betaBlockerIntolerance}}" class="form-control" type="number" name="betaBlockerIntolerance"
                                             placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
+                                        <span class="input-group-addon">mg/day</span> --}}
+                                         <div class="radio">
+                                            <label><input {{ $data->betaBlockerIntolerance == 'None' ? 'checked' : ''}} type="radio" name="betaBlockerIntolerance" value="None">None</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input {{ $data->betaBlockerIntolerance == 'Bradycardia' ? 'checked' : ''}} type="radio" name="betaBlockerIntolerance"
+                                                    value="Bradycardia">Bradycardia</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input {{ $data->betaBlockerIntolerance == 'Hypotension' ? 'checked' : ''}} type="radio" name="betaBlockerIntolerance"
+                                                    value="Hypotension">Hypotension</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input {{ $data->betaBlockerIntolerance == 'AV Block' ? 'checked' : ''}} type="radio" name="betaBlockerIntolerance"
+                                                    value="AV Block">AV Block</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input {{ $data->betaBlockerIntolerance == 'Ventricular Dysfunction' ? 'checked' : ''}} type="radio" name="betaBlockerIntolerance"
+                                                    value="Ventricular Dysfunction">Ventricular Dysfunction</label>
+                                        </div>
                                     </div>
                                 </div>
                                
@@ -1717,7 +1735,7 @@ else if(sex == "Female"){
   }
   
 }
-document.getElementById('bmi').value = bmi+' : '+imt+' Kg/m2';
+document.getElementById('bmi').value = bmi+' Kg/m2';
 }
 function removelocal() {
         localStorage.removeItem("form_adhf");

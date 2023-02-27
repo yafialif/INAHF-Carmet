@@ -831,7 +831,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="smoker"
-                                                    value="Never smoked">Never smoked</label>
+                                                    value="Never Smoked">Never Smoked</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="smoker"
@@ -1134,7 +1134,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="sign_mr"
-                                                    value="Midle MR">Mild MR</label>
+                                                    value="Mild MR">Mild MR</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="sign_mr"
@@ -1911,7 +1911,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
 @section('javascript')
 <script>
-    // let editor;
+    let editor;
     ClassicEditor
         .create( document.querySelector( '#editor' ) )
         .then( newEditor => {
@@ -2081,7 +2081,7 @@ else if(sex == "Female"){
   }
   
 }
-document.getElementById('bmi').value = bmi+' : '+imt+' Kg/m2';
+document.getElementById('bmi').value = bmi+' Kg/m2';
 }
 function removelocal() {
         localStorage.removeItem("form_adhf");

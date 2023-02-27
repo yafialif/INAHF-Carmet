@@ -803,15 +803,15 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="smoker"
-                                                    value="Never smoked">Never smoked</label>
+                                                    value="Never Smoked">Never Smoked</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="smoker"
-                                                    value="Former Smoking">Former Smoking</label>
+                                                    value="Former Smoker">Former Smoker</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="smoker"
-                                                    value="Current smoking">Current smoking</label>
+                                                    value="Current Smoker">Current Smoker</label>
                                         </div>
                                     </div>
                                 </div>
@@ -964,7 +964,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="esv" placeholder="">
-                                        <span class="input-group-addon">.mm</span>
+                                        <span class="input-group-addon">.mL</span>
                                         
                                     </div>
                                 </div>
@@ -973,7 +973,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="edd" placeholder="">
-                                        <span class="input-group-addon">.mL</span>
+                                        <span class="input-group-addon">.mm</span>
                                         
                                     </div>
                                 </div>
@@ -995,7 +995,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="signMr"
-                                                    value="Midle MR">Midle MR</label>
+                                                    value="Mild MR">Mild MR</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="signMr"
@@ -1292,9 +1292,28 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>Beta Blocker Intolerance</label>
 
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="betaBlockerIntolerance"
+                                        {{-- <input class="form-control" type="number" name="betaBlockerIntolerance"
                                             placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
+                                        <span class="input-group-addon">mg/day</span> --}}
+                                        <div class="radio">
+                                            <label><input type="radio" name="betaBlockerIntolerance" value="None">None</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="betaBlockerIntolerance"
+                                                    value="Bradycardia">Bradycardia</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="betaBlockerIntolerance"
+                                                    value="Hypotension">Hypotension</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="betaBlockerIntolerance"
+                                                    value="AV Block">AV Block</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="betaBlockerIntolerance"
+                                                    value="Ventricular Dysfunction">Ventricular Dysfunction</label>
+                                        </div>
 
                                     </div>
                                 </div>
@@ -1500,7 +1519,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="col-md-12">
                                         <label>Additional Notes</label>
                                     <div class="input-group">
-                                        <textarea class="form-control " id="editor" name="additional_notes" cols="50" rows="10" id="detail"></textarea>
+                                        <textarea class="form-control " id="editor2" name="additional_notes" cols="50" rows="10" id="detail"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -1547,9 +1566,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
 @section('javascript')
 <script>
-    // let editor;
+    let editor;
                         ClassicEditor
-                                .create( document.querySelector( '#editor' ) )
+                                .create( document.querySelector( '#editor2' ) )
                                 .then( newEditor => {
                                     editor = newEditor;
                                 } )
@@ -1719,7 +1738,7 @@ else if(sex == "Female"){
   }
   
 }
-document.getElementById('bmi').value = bmi+' : '+imt+' Kg/m2';
+document.getElementById('bmi').value = bmi+' Kg/m2';
 }
 function removelocal() {
         localStorage.removeItem("form_chronic");

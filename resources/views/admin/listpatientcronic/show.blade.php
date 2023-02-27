@@ -664,12 +664,12 @@
                                 </div>
                                 <div class="col-md-6">
                                         <label>ESV</label>
-                                        <p>{{ $data->esv }} .mm</p>
+                                        <p>{{ $data->esv }} .mL</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>EDD</label>
 
-                                   <p>{{ $data->edd }} .mL</p>
+                                   <p>{{ $data->edd }} .mm</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>ESD</label>
@@ -691,69 +691,69 @@
                                 <h4 class="text-center">Blood Laboratory Test</h4>
                                 <div class="col-md-6">
                                         <label>Hemoglobin</label>
-                                                                        <p>{{ $data->hemoglobin }}</p>
+                                                                        <p>{{ $data->hemoglobin }} .gr/dL</p>
 
                                 </div>
                                 <div class="col-md-6">
                                         <label>Hematocrite</label>
-                                    <p>{{ $data->hematocrite }}</p>
+                                    <p>{{ $data->hematocrite }} %</p>
 
                                 </div>
                                 <div class="col-md-6">
                                         <label>Erythrocyte</label>
-                                    <p>{{ $data->erythrocyte }}</p>
+                                    <p>{{ $data->erythrocyte }} .10^6/uL</p>
 
                                 </div>
                                 <div class="col-md-6">
                                         <label>HbA1C</label>
-                                    <p>{{ $data->hbA1C }}</p>
+                                    <p>{{ $data->hbA1C }} gr/dL</p>
 
                                 </div>
                                 
                                 <div class="col-md-6">
                                         <label>Fasting Blood Glucose</label>
-                                    <p>{{ $data->fastingBloodGlucose }}</p>
+                                    <p>{{ $data->fastingBloodGlucose }} gr/dL</p>
 
                                 </div>
                                 <div class="col-md-6">
                                         <label>2 Hours Post Prandial Blood Glucose</label>
-                                    <p>{{ $data->twoHoursPostPrandialBloodGlucose }}</p>
+                                    <p>{{ $data->twoHoursPostPrandialBloodGlucose }} gr/dL</p>
 
                                 </div>
                                 <div class="col-md-6">
                                         <label>Natrium</label>
-                                    <p>{{ $data->natrium }}</p>
+                                    <p>{{ $data->natrium }} mEq/L</p>
 
                                 </div>
                                 <div class="col-md-6">
                                         <label>Kalium</label>
-                                    <p>{{ $data->kalium }}</p>
+                                    <p>{{ $data->kalium }} mEq/L</p>
 
                                 </div>
                                 <div class="col-md-6">
                                         <label>Ureum</label>
-                                    <p>{{ $data->ureum }}</p>
+                                    <p>{{ $data->ureum }} gr/dL</p>
 
                                 </div>
                                 <div class="col-md-6">
                                         <label>BUN</label>
-                                    <p>{{ $data->bun }}</p>
+                                    <p>{{ $data->bun }} gr/dL</p>
 
                                 </div>
                                 <div class="col-md-6">
                                         <label>Serum Creatinine (Scr)</label>
-                                    <p>{{ $data->serumCreatinine }}</p>
+                                    <p>{{ $data->serumCreatinine }} mg/dL</p>
 
                                 </div>
                                 <div class="col-md-6">
                                         <label>GFR</label>
-                                    <p>{{ $data->gfr }}</p>
+                                    <p>{{ $data->gfr }} mL/min/1.73 m2</p>
 
                                 </div>
                             
                                 <div class="col-md-6">
                                         <label>NT-ProBNP</label>
-                                    <p>{{ $data->nt_ProBnp }}</p>
+                                    <p>{{ $data->nt_ProBnp }} pg/mL</p>
 
                                 </div>
                                 <div class="col-md-12">
@@ -937,39 +937,39 @@
                                 </div>
                                 <div class="col-md-6">
                                         <label>Systolic Blood Pressure</label>
-                                    <p>{{$row2->sbp}}</p>
+                                    <p>{{$row2->sbp}} .mmHg</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Diastolic Blood Pressure</label>
-                                    <p>{{$row2->dbp}}</p>
+                                    <p>{{$row2->dbp}} .mmHg</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Heart rate</label>
-                                    <p>{{$row2->hr}}</p>
+                                    <p>{{$row2->hr}} .bpm</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Echo EF</label>
-                                    <p>{{$row2->echoEf}}</p>
+                                    <p>{{$row2->echoEf}} %</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Echo TAPSE</label>
-                                   <p>{{$row2->echoTapse}}</p>
+                                   <p>{{$row2->echoTapse}} .mm</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Echo EDV</label>
-                                    <p>{{$row2->echoEdv}}</p>
+                                    <p>{{$row2->echoEdv}} .ml</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Echo ESV</label>
-                                    <p>{{$row2->echoEsv}}</p>
+                                    <p>{{$row2->echoEsv}} .ml</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Echo EDD</label>
-                                    <p>{{$row2->echoEdd}}</p>
+                                    <p>{{$row2->echoEdd}} .mm</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Echo ESD</label>
-                                    <p>{{$row2->echoEsd}}</p>
+                                    <p>{{$row2->echoEsd}} .mm</p>
                                 </div>
                                  <div class="col-md-6">
                                         <label>Echo Sign.MR</label>
@@ -985,7 +985,7 @@
                                 </div>
                                 <div class="col-md-6">
                                         <label>ACEi Dose</label>
-                                   <p>{{$row2->aceiDose}}</p>
+                                   <p>{{$row2->aceiDose}} .mg/day</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>ACEi Intolerance</label>
@@ -997,11 +997,11 @@
                                 </div>
                                 <div class="col-md-6">
                                         <label>ARB Dose</label>
-                                    <p>{{$row2->arbDose}}</p>
+                                    <p>{{$row2->arbDose}} .mg/day</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>ARNI Dose</label>
-                                   <p>{{$row2->arniDose}}</p>
+                                   <p>{{$row2->arniDose}} .mg/day</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Beta Blocker</label>
@@ -1009,7 +1009,7 @@
                                 </div>
                                 <div class="col-md-6">
                                         <label>Beta Blocker Dose</label>
-                                   <p>{{$row2->betaBlockerDose}}</p>
+                                   <p>{{$row2->betaBlockerDose}} .mg/day</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Beta Blocker Intolerance</label>
@@ -1017,7 +1017,7 @@
                                 </div>
                                 <div class="col-md-6">
                                         <label>MRA Dose</label>
-                                   <p>{{$row2->mraDose}}</p>
+                                   <p>{{$row2->mraDose}} .mg/day</p>
                                 </div>
                                  <div class="col-md-6">
                                         <label>MRA Intolerance</label>
@@ -1029,15 +1029,15 @@
                                 </div>
                                 <div class="col-md-6">
                                         <label>SGLT2i Dose</label>
-                                   <p>{{$row2->sglt2i}}</p>
+                                   <p>{{$row2->sglt2i}} .mg/day</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Loop Diuretic Dose</label>
-                                    <p>{{$row2->loopDiureticDose}}</p>
+                                    <p>{{$row2->loopDiureticDose}} .mg/day</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Ivabradine Dose</label>
-                                   <p>{{$row2->ivabradineDose}}</p>
+                                   <p>{{$row2->ivabradineDose}} .mg/day</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Insulin</label>

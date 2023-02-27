@@ -815,16 +815,16 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input {{ $data->smoker == 'Never smoked' ? 'checked' : ''}} type="radio" name="smoker"
-                                                    value="Never smoked">Never smoked</label>
+                                            <label><input {{ $data->smoker == 'Never Smoked' ? 'checked' : ''}} type="radio" name="smoker"
+                                                    value="Never Smoked">Never Smoked</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input {{ $data->smoker == 'Former Smoking' ? 'checked' : ''}} type="radio" name="smoker"
-                                                    value="Former Smoking">Former Smoking</label>
+                                            <label><input {{ $data->smoker == 'Former Smoker' ? 'checked' : ''}} type="radio" name="smoker"
+                                                    value="Former Smoker">Former Smoker</label>
                                         </div>
                                         <div class="radio">
                                             <label><input {{ $data->smoker == 'Current smoking' ? 'checked' : ''}} type="radio" name="smoker"
-                                                    value="Current smoking">Current smoking</label>
+                                                    value="Current Smoker">Current Smoker</label>
                                         </div>
                                     </div>
                                 </div>
@@ -1087,7 +1087,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     <div class="input-group">
                                         <input value="{{ $data->esv }}" class="form-control" type="number" name="esv" placeholder="">
-                                        <span class="input-group-addon">.mm</span>
+                                        <span class="input-group-addon">.mL</span>
                                         
                                     </div>
                                 </div>
@@ -1096,7 +1096,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     <div class="input-group">
                                         <input value="{{ $data->edd }}" class="form-control" type="number" name="edd" placeholder="">
-                                        <span class="input-group-addon">.mL</span>
+                                        <span class="input-group-addon">.mm</span>
                                         
                                     </div>
                                 </div>
@@ -1118,7 +1118,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div>
                                         <div class="radio">
                                             <label><input {{ $data->sign_mr == 'Midle MR' ? 'checked' : ''}} type="radio" name="sign_mr"
-                                                    value="Midle MR">Midle MR</label>
+                                                    value="Mild MR">Mild MR</label>
                                         </div>
                                         <div class="radio">
                                             <label><input {{ $data->sign_mr == 'Moderate MR' ? 'checked' : ''}} type="radio" name="sign_mr"
@@ -2075,7 +2075,7 @@ else if(sex == "Female"){
   }
   
 }
-document.getElementById('bmi').value = bmi+' : '+imt+' Kg/m2';
+document.getElementById('bmi').value = bmi+' Kg/m2';
 }
 function removelocal() {
         localStorage.removeItem("form_adhf");
