@@ -416,7 +416,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active">
                                 <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab"
-                                    aria-expanded="true"><span class="round-tab">1 </span> <i>Month Followup</i></a>
+                                    aria-expanded="true"><span class="round-tab">1 </span> <i>Month Follow Up</i></a>
                             </li>
                             
 
@@ -435,7 +435,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                     </div>
                                 </div>
                                  <div class="col-md-6">
-                                        <label>Mount Followup</label>
+                                        <label>Month Follow Up</label>
                                     <div class="input-group">
                                                 {!! Form::select('monthfollowup_id', $monthfollowup, old('monthfollowup_id'), array('class'=>'form-control')) !!}
                                     </div>

@@ -11,10 +11,6 @@ use Laraveldaily\Quickadmin\Observers\UserActionsObserver;
 class AdhfEchocardiography extends Model
 {
 
-
-
-
-
     protected $table    = 'adhfechocardiography';
 
     protected $fillable = [

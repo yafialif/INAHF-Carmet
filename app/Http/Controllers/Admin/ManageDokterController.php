@@ -53,7 +53,7 @@ class ManageDokterController extends Controller
 		$input['password'] = Hash::make($input['password']);
 		$user = User::create($input);
 
-		return redirect()->route('admin.managedokter.index ')->withMessage(trans('quickadmin::admin.users-controller-successfully_created'));
+		return redirect()->route('admin.managedokter.index')->withMessage(trans('quickadmin::admin.users-controller-successfully_created'));
 	}
 
 	/**

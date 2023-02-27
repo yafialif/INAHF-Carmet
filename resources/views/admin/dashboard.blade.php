@@ -4,7 +4,7 @@
     @if ($data->swal == true)
 
      <div id="savelocal" class="alert alert-info" role="alert">
-        {!! $data->message !!}
+        {!! $data->message !!} <a style="color: red;" href="{{ Route('admin.timefollowuppatient.index') }}">View Detail</a>
     </div>  
     @endif
 
