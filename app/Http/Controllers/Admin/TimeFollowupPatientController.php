@@ -22,10 +22,10 @@ class TimeFollowupPatientController extends Controller
 	public function index()
 	{
 		$datenow =  date("Y-m-d H:i:s");
-		// $id_user = Auth::user()->id;
-		$id_user = 6;
+		$id_user = Auth::user()->id;
+		// $id_user = 6;
 		$data_followup = array();
-		$patient = Patient::select('user_id', 'name', 'dateOfAdmission')
+		$patient = Patient::select('id', 'user_id', 'name', 'dateOfAdmission')
 			->where('user_id', '=', $id_user)
 			->where('categorytreatment_id', '=', 2)
 			->get();
@@ -38,8 +38,9 @@ class TimeFollowupPatientController extends Controller
 		} else {
 			foreach ($patient as $key) {
 				$MonthFollowUp = ChronicPatientMonthFollowUp::join('patient', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
-					->select('chronicpatientmonthfollowup.id', 'chronicpatientmonthfollowup.monthfollowup_id', 'patient.name', 'patient.dateOfAdmission', 'chronicpatientmonthfollowup.created_at As MonthFollowUpDate')
+					->select('chronicpatientmonthfollowup.id', 'chronicpatientmonthfollowup.monthfollowup_id', 'monthfollowup.mount', 'patient.name', 'patient.dateOfAdmission', 'chronicpatientmonthfollowup.created_at As MonthFollowUpDate')
 					->where('patient.user_id', '=', $key->user_id)
+					->join('monthfollowup', 'monthfollowup.id', '=', 'chronicpatientmonthfollowup.monthfollowup_id')
 					->orderBy('chronicpatientmonthfollowup.id', 'desc')
 					->get();
 				if ($MonthFollowUp[0]) {
@@ -52,22 +53,29 @@ class TimeFollowupPatientController extends Controller
 					// $jumlahBulan = ($interval->y * 12) + $interval->m;
 					if ($jumlahHari >= 130) {
 						array_push($data_followup, [
-							'name' => $key->name
-
+							'id' => $key->id,
+							'name' => $key->name,
+							'month' => $jumlahHari . ' days of ' . $MonthFollowUp[0]->mount . ' elapsed, preparing for the next Follow-Up Period',
+							'date' => $MonthFollowUp[0]->MonthFollowUpDate,
 						]);
 					}
 				} else {
 
-					$date1 = new DateTime($patient[0]->dateOfAdmission);
+					$date1 = new DateTime($key->dateOfAdmission);
 					$date2 = new DateTime($datenow);
 					// $interval = $date1->diff($date2);
 					// $jumlahBulan = ($interval->y * 12) + $interval->m;
-					$selisih = abs(strtotime($datenow) - strtotime($patient[0]->dateOfAdmission));
+					$selisih = abs(strtotime($datenow) - strtotime($key->dateOfAdmission));
 					$jumlahHari = floor($selisih / (60 * 60 * 24));
 					// $selisih = $date2->diff($date1);
 					// $jumlahHari = intval($selisih->format("%m"));
 					if ($jumlahHari >= 130) {
-						array_push($data_followup, $key->name);
+						array_push($data_followup, [
+							'id' => $key->id,
+							'name' => $key->name,
+							'month' => $jumlahHari . ' days of New Patient to Followup' . ' elapsed, preparing for the next Follow-Up Period',
+							'date' => $key->dateOfAdmission,
+						]);
 					}
 				}
 			}
@@ -83,9 +91,9 @@ class TimeFollowupPatientController extends Controller
 		// 		'message' => '',
 		// 	);
 		// }
-		// $data = json_decode(json_encode($swal), false);
-		return response()->json($MonthFollowUp[0]);
+		$data = json_decode(json_encode($data_followup), false);
+		// return response()->json($data_followup);
 		// return view('admin.dashboard', compact('data'));
-		// return view('admin.timefollowuppatient.index', compact('data'));
+		return view('admin.timefollowuppatient.index', compact('data'));
 	}
 }

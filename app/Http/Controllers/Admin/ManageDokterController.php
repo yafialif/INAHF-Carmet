@@ -87,7 +87,6 @@ class ManageDokterController extends Controller
 		$input = $request->all();
 		$input['password'] = Hash::make($input['password']);
 		$user->update($input);
-
 		return redirect()->route('admin.managedokter.index')->withMessage(trans('quickadmin::admin.users-controller-successfully_updated'));
 	}
 

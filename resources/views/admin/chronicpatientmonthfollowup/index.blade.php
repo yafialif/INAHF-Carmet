@@ -17,6 +17,7 @@
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
+                        <th>day passed</th>
                         <th>Name</th>
 {{-- <th>Treatment Name</th> --}}
 <th>Mount Name</th>
@@ -59,6 +60,21 @@
                             <td>
                                 {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
                             </td>
+                            <?php
+                            $datenow =  date("Y-m-d H:i:s");
+                            $selisih = abs(strtotime($datenow) - strtotime($row->created_at));
+                            $jumlahHari = floor($selisih / (60 * 60 * 24));
+                            // $interval = $date1->diff($date2);
+                            // $jumlahBulan = ($interval->y * 12) + $interval->m;
+
+                            ?>
+                            @if ($jumlahHari >= 130)
+                            <td style="color: red;">{{ $jumlahHari }}</td>
+                                @else
+                            <td>{{ $jumlahHari }}</td>
+
+                            @endif
+                            
                             <td>{{ $row->name }}</td>
 {{-- <td>{{ isset($row->categorytreatment->treatmentName) ? $row->categorytreatment->treatmentName : '' }}</td> --}}
 <td>{{ $row->mount }}</td>
