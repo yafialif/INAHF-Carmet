@@ -82,7 +82,7 @@ class ChronicPatientMonthFollowUpController extends Controller
 	 *
 	 * @param CreateChronicPatientMonthFollowUpRequest|Request $request
 	 */
-	public function store(Request $request)
+	public function store(CreateChronicPatientMonthFollowUpRequest $request)
 	{
 
 		// ChronicPatientMonthFollowUp::create($request->all());
