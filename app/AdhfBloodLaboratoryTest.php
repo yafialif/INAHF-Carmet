@@ -8,34 +8,38 @@ use Laraveldaily\Quickadmin\Observers\UserActionsObserver;
 
 
 
-class AdhfBloodLaboratoryTest extends Model {
+class AdhfBloodLaboratoryTest extends Model
+{
 
-    
 
-    
+
+
 
     protected $table    = 'adhfbloodlaboratorytest';
-    
+
     protected $fillable = [
-          'patient_id',
-          'categorytreatment_id',
-          'hemoglobin',
-          'hematocrite',
-          'erythrocyte',
-          'random_blood_glucose',
-          'fasting_blood_glucose',
-          'twoHoursPostPrandialBloodGlucose',
-          'natrium',
-          'kalium',
-          'ureum',
-          'bun',
-          'serum_creatinine',
-          'gfr',
-          'uric_acid',
-          'NT_ProBNP_at_admission',
-          'NT_ProBNP_at_discharge'
+        'patient_id',
+        'categorytreatment_id',
+        'hemoglobin',
+        'hematocrite',
+        //   'erythrocyte',
+        'random_blood_glucose',
+        //   'fasting_blood_glucose',
+        //   'twoHoursPostPrandialBloodGlucose',
+        'natrium',
+        'kalium ',
+        'ureum',
+        'bun',
+        'serum_creatinine',
+        'serum_iron',
+        'hba1c',
+        'gfr',
+        'uric_acid',
+        'NT_ProBNP',
+        //   'NT_ProBNP_at_admission',
+        //   'NT_ProBNP_at_discharge'
     ];
-    
+
 
     public static function boot()
     {
@@ -43,7 +47,7 @@ class AdhfBloodLaboratoryTest extends Model {
 
         AdhfBloodLaboratoryTest::observe(new UserActionsObserver);
     }
-    
+
     public function patient()
     {
         return $this->hasOne('App\Patient', 'id', 'patient_id');
@@ -54,9 +58,4 @@ class AdhfBloodLaboratoryTest extends Model {
     {
         return $this->hasOne('App\CategoryTreatment', 'id', 'categorytreatment_id');
     }
-
-
-    
-    
-    
 }

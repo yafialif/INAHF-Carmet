@@ -1738,7 +1738,7 @@ else if(sex == "Female"){
   }
   
 }
-document.getElementById('bmi').value = bmi+' Kg/m2';
+document.getElementById('bmi').value = imt+' Kg/m2';
 }
 function removelocal() {
         localStorage.removeItem("form_chronic");

@@ -20,10 +20,12 @@ class AdhfEchocardiography extends Model
         'tapse',
         'edv',
         'esv',
-        'edd',
-        'esd',
+        // 'edd',
+        // 'esd',
         'sign_mr',
-        'diastolic_function'
+        'lv',
+        'ee',
+        // 'diastolic_function'
     ];
 
 

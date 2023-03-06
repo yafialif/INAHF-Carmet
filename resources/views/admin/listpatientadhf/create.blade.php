@@ -435,12 +435,12 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             </li>
                             <li role="presentation" class="">
                                 <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab"><span
-                                        class="round-tab">4</span> <i>Etiology</i></a>
+                                        class="round-tab">4</span> <i>Precipitating Factors</i></a>
                             </li>
-                            <li role="presentation" class="">
+                            {{-- <li role="presentation" class="">
                                 <a href="#step5" data-toggle="tab" aria-controls="step4" role="tab"><span
                                         class="round-tab">5</span> <i>Ro thorax</i></a>
-                            </li>
+                            </li> --}}
                             <li role="presentation" class="">
                                 <a href="#step6" data-toggle="tab" aria-controls="step5" role="tab"><span
                                         class="round-tab">6</span> <i>Echocardiography</i></a>
@@ -504,7 +504,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                             <label>Date of birth *</label>
 
                                         <div class="input-group">
-                                            <input id="datebirth" onchange="countAge()" class="form-control" type="date" name="dateOfBirth" placeholder="" required>
+                                            <input id="dateOfBirth" onchange="countAge()" class="form-control" type="date" name="dateOfBirth" placeholder="" required>
                                         
                                         </div>
                                     </div>
@@ -512,7 +512,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                             <label>Date of Admission *</label>
 
                                         <div class="input-group">
-                                            <input id="dateadmission" onchange="countAge()" class="form-control" type="date" name="dateOfAdmission"
+                                            <input id="dateOfAdmission" onchange="countAge()" class="form-control" type="date" name="dateOfAdmission"
                                                 placeholder="" required>
                                         
                                             </div>
@@ -539,11 +539,11 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                            <label>Phone *</label>
+                                            <label>Phone</label>
 
                                         <div class="input-group">
                                             <input class="form-control" type="number" name="phone"
-                                                placeholder="6280000000" required>
+                                                placeholder="6280000000">
                                         
                                             </div>
                                     </div>
@@ -594,114 +594,114 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="col-md-6">
                                         <label>Height *</label>
                                     <div class="input-group">
-                                        <input type="number" id="height" onkeyup="countBmi()" type="number" name="height" class="form-control">
+                                        <input type="number" id="height" onkeyup="countBmi()" type="number" name="height" class="form-control" required>
                                         <span class="input-group-addon">.Cm</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Weight *</label>
                                         <div class="input-group">
-                                        <input type="number" id="weight" onkeyup="countBmi()" type="number" name="weight" class="form-control" >
+                                        <input type="number" id="weight" onkeyup="countBmi()" type="number" name="weight" class="form-control" required>
                                         <span class="input-group-addon">.Kg</span>
                                         </div>
                                         {{-- <input onkeyup="countBmi()" id="weight" class="form-control" type="number" name="weight" placeholder=""> --}}
                                 </div>
                                 <div class="col-md-6">
-                                        <label>BMI</label>
+                                        <label>BMI *</label>
                                     <div class="input-group">
                                         <input class="form-control" type="text" id="bmi" name="bmi" placeholder="" readonly>
                                         {{-- <span class="input-group-addon">.Kg/m2</span> --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Systolic Blood Pressure  </label>
+                                        <label>Systolic Blood Pressure * </label>
 
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="sbp" placeholder="" >
+                                        <input class="form-control" type="number" name="sbp" placeholder="" required>
                                         <span class="input-group-addon">.mmHg</span>
                                     
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Diastolic Blood Pressure</label>
+                                        <label>Diastolic Blood Pressure *</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="dbp" placeholder="" >
+                                        <input class="form-control" type="number" name="dbp" placeholder="" required>
                                         <span class="input-group-addon">.mmHg</span>
                                         
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Heart Rate</label>
+                                        <label>Heart Rate *</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="hr" placeholder="" >
+                                        <input class="form-control" type="number" name="hr" placeholder="" required>
                                         <span class="input-group-addon">.bpm</span>
                                         
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Dyspnoea at rest</label>
+                                        <label>Dyspnoea at rest *</label>
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input type="radio" name="dyspnoea_at_rest" value="Yes">Yes</label>
+                                            <label><input type="radio" name="dyspnoea_at_rest" value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="dyspnoea_at_rest" value="No">No</label>
+                                            <label><input type="radio" name="dyspnoea_at_rest" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Orthopnea</label>
+                                        <label>Orthopnea *</label>
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input type="radio" name="orthopnea" value="Yes">Yes</label>
+                                            <label><input type="radio" name="orthopnea" value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="orthopnea" value="No">No</label>
+                                            <label><input type="radio" name="orthopnea" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>PND</label>
+                                        <label>PND *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input type="radio" name="pnd" value="Yes">Yes</label>
+                                            <label><input type="radio" name="pnd" value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="pnd" value="No">No</label>
+                                            <label><input type="radio" name="pnd" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Peripheral Oedema</label>
+                                        <label>Peripheral Oedema *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input type="radio" name="peripheral_oedema" value="Yes">Yes</label>
+                                            <label><input type="radio" name="peripheral_oedema" value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="peripheral_oedema" value="No">No</label>
+                                            <label><input type="radio" name="peripheral_oedema" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Pulmonary rales</label>
+                                        <label>Pulmonary rales *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input type="radio" name="pulmonary_rales" value="Yes">Yes</label>
+                                            <label><input type="radio" name="pulmonary_rales" value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="pulmonary_rales" value="No">No</label>
+                                            <label><input type="radio" name="pulmonary_rales" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Jugular Venous Pressure</label>
+                                        <label>Jugular Venous Pressure *</label>
 
                                     <div class="input-group">
                                         
-                                        <select class="form-control" name="jvp">
+                                        <select class="form-control" name="jvp" required>
                                                 <option value="Normal">Normal</option>
                                                 <option value="Increase">Increase</option>
                                             </select>
@@ -709,10 +709,10 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Type of acute HF </label>
+                                        <label>Type of acute HF *</label>
 
                                     <div class="input-group">
-                                        <select class="form-control" name="type_of_acute_HF">
+                                        <select class="form-control" name="type_of_acute_HF" required>
                                                 <option value="De Novo">De Novo</option>
                                                 <option value="ADHF">ADHF</option>
                                             </select>
@@ -720,10 +720,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>NYHA Class </label>
-
+                                        <label>NYHA Class *</label>
                                     <div class="input-group">
-                                        <select class="form-control" name="nyha_class">
+                                        <select class="form-control" name="nyha_class" required>
                                                 <option value="Class I">Class I</option>
                                                 <option value="Class II">Class II</option>
                                                 <option value="Class III">Class III</option>
@@ -733,27 +732,27 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Cardiogenic shock</label>
+                                        <label>Cardiogenic shock *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input type="radio" name="cardiogenic_shock" value="Yes">Yes</label>
+                                            <label><input type="radio" name="cardiogenic_shock" value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="cardiogenic_shock" value="No">No</label>
+                                            <label><input type="radio" name="cardiogenic_shock" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Respiratory failure</label>
+                                        <label>Respiratory failure *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="respiratory_failure"
-                                                    value="Yes">Yes</label>
+                                                    value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="respiratory_failure" value="No">No</label>
+                                            <label><input type="radio" name="respiratory_failure" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -774,7 +773,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="hypertension"
-                                                    value="Yes">Yes</label>
+                                                    value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="hypertension" value="No">No</label>
@@ -782,158 +781,158 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Diabetes or prediabetes</label>
+                                        <label>Diabetes or prediabetes *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input type="radio" name="diabetes_or_prediabetes" value="No">No</label>
+                                            <label><input type="radio" name="diabetes_or_prediabetes" value="No" required>No</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="diabetes_or_prediabetes"
-                                                    value="Prediabetes">Prediabetes</label>
+                                                    value="Prediabetes" required>Prediabetes</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="diabetes_or_prediabetes"
-                                                    value="Diabetes">Diabetes</label>
+                                                    value="Diabetes" required>Diabetes</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Dislipidemia</label>
+                                        <label>Dislipidemia *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="dislipidemia"
-                                                    value="Yes">Yes</label>
+                                                    value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="dislipidemia" value="No">No</label>
+                                            <label><input type="radio" name="dislipidemia" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Alcohol</label>
+                                        <label>Alcohol *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="alcohol"
-                                                    value="Yes">Yes</label>
+                                                    value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="alcohol"
-                                                    value="Abstainers">Abstainers</label>
+                                                    value="Abstainers" required>Abstainers</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Smoker</label>
+                                        <label>Smoker *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="smoker"
-                                                    value="Never Smoked">Never Smoked</label>
+                                                    value="Never Smoked" required>Never Smoked</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="smoker"
-                                                    value="Former Smoker">Former Smoker</label>
+                                                    value="Former Smoker" required>Former Smoker</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="smoker"
-                                                    value="Current Smoker">Current Smoker</label>
+                                                    value="Current Smoker" required>Current Smoker</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>CKD</label>
+                                        <label>CKD *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="ckd"
-                                                    value="Yes">Yes</label>
+                                                    value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="ckd"
-                                                    value="No">No</label>
+                                                    value="No" required>No</label>
                                         </div>
                                         
                                         {{-- <input class="form-control" type="text" name="ckd" placeholder=""> --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Valvular heart disease</label>
+                                        <label>Valvular heart disease *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="valvular_heart_disease"
-                                                    value="Yes">Yes</label>
+                                                    value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="valvular_heart_disease" value="No">No</label>
+                                            <label><input type="radio" name="valvular_heart_disease" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Atrial fibrillation</label>
+                                        <label>Atrial fibrillation *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="atrial_fibrillation"
-                                                    value="Yes">Yes</label>
+                                                    value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="atrial_fibrillation" value="No">No</label>
+                                            <label><input type="radio" name="atrial_fibrillation" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>History of HF</label>
+                                        <label>History of HF *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="history_of_hf"
-                                                    value="Yes">Yes</label>
+                                                    value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="history_of_hf" value="No">No</label>
+                                            <label><input type="radio" name="history_of_hf" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>History of PCI or CABG</label>
+                                        <label>History of PCI or CABG *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="history_of_pci_or_cabg"
-                                                    value="Yes">Yes</label>
+                                                    value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="history_of_pci_or_cabg" value="No">No</label>
+                                            <label><input type="radio" name="history_of_pci_or_cabg" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>History of heart valve surgery</label>
+                                        <label>History of heart valve surgery *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="historyof_heart_valve_surgery"
-                                                    value="Yes">Yes</label>
+                                                    value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="historyof_heart_valve_surgery" value="No">No</label>
+                                            <label><input type="radio" name="historyof_heart_valve_surgery" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>OMI or CAD</label>
+                                        <label>OMI or CAD *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="omi_or_cad"
-                                                    value="Yes">Yes</label>
+                                                    value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="omi_or_cad" value="No">No</label>
+                                            <label><input type="radio" name="omi_or_cad" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -947,7 +946,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             </div>
 
                             <div class="tab-pane" role="tabpanel" id="step4">
-                                <h4 class="text-center">Etiologi</h4>
+                                <h4 class="text-center">Precipitating Factors</h4>
                                 <div class="col-md-6">
                                         <label>ACS</label>
 
@@ -1025,7 +1024,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Tamponade</label>
+                                        <label>Cardiac Tamponade</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -1033,6 +1032,54 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="tamponade" value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Worsening renal function</label>
+
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input type="radio" name="worseningRenalFunction" value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="worseningRenalFunction" value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Hyperglycemia</label>
+
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input type="radio" name="hyperglycemia" value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="hyperglycemia" value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Non compliance</label>
+
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input type="radio" name="nonCompliance" value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="nonCompliance" value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Unknown</label>
+
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input type="radio" name="unkenown" value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="unkenown" value="No">No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -1045,11 +1092,10 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                             </div>
                             {{-- Ro thorax --}}
-                            <div class="tab-pane" role="tabpanel" id="step5">
-                                <h4 class="text-center">Ro thorax</h4>
+                            {{-- <div class="tab-pane" role="tabpanel" id="step5">
+                                <h4 class="text-center">Ro Thorax</h4>
                                 <div class="col-md-6">
                                         <label>Ro thorax Value</label>
-
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="ro_thorax" value="Normal Cardiac Size">Normal
@@ -1063,30 +1109,25 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
-                                        {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
                                         <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- Echocardiography --}}
                             <div class="tab-pane" role="tabpanel" id="step6">
                                 <h4 class="text-center">Echocardiography</h4>
                                 <div class="col-md-6">
-                                        <label>EF</label>
-
+                                        <label>EF *</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="ef" placeholder="">
+                                        <input class="form-control" type="number" name="ef" placeholder="" required>
                                         <span class="input-group-addon">%</span>
-                                    
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>TAPSE</label>
-
+                                        <label>TAPSE *</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="tapse" placeholder="">
+                                        <input class="form-control" type="number" name="tapse" placeholder="" required>
                                         <span class="input-group-addon">.mm</span>
-                                    
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -1107,7 +1148,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                         <label>EDD</label>
 
                                     <div class="input-group">
@@ -1115,8 +1156,8 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <span class="input-group-addon">.mm</span>
                                         
                                     </div>
-                                </div>
-                                <div class="col-md-6">
+                                </div> --}}
+                                {{-- <div class="col-md-6">
                                         <label>ESD</label>
 
                                     <div class="input-group">
@@ -1124,7 +1165,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <span class="input-group-addon">.mm</span>
                                         
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-6">
                                         <label>Sign.MR</label>
 
@@ -1147,9 +1188,21 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         {{-- <input class="form-control" type="text" name="sign_mr" placeholder=""> --}}
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                         <label>E/A</label>
 
+                                    <div class="input-group"> --}}
+                                        {{-- <select class="form-control" name="diastolic_function">
+                                                <option value="Normal">Normal</option>
+                                                <option value="Pseudonormal">Pseudonormal</option>
+                                                <option value="Relaxation Disorder">Relaxation Disorder</option>
+                                                <option value="Restrictive">Restrictive</option>
+                                            </select> --}}
+                                        {{-- <input class="form-control" type="number" name="diastolic_function" placeholder="">
+                                    </div>
+                                </div> --}}
+                                <div class="col-md-6">
+                                        <label>LV max index</label>
                                     <div class="input-group">
                                         {{-- <select class="form-control" name="diastolic_function">
                                                 <option value="Normal">Normal</option>
@@ -1157,7 +1210,32 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                                 <option value="Relaxation Disorder">Relaxation Disorder</option>
                                                 <option value="Restrictive">Restrictive</option>
                                             </select> --}}
-                                        <input class="form-control" type="number" name="diastolic_function" placeholder="">
+                                        <input class="form-control" type="number" name="lv" placeholder="">
+                                        <span class="input-group-addon">.gr/m2</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>E/E</label>
+                                    <div class="input-group">
+                                        {{-- <select class="form-control" name="diastolic_function">
+                                                <option value="Normal">Normal</option>
+                                                <option value="Pseudonormal">Pseudonormal</option>
+                                                <option value="Relaxation Disorder">Relaxation Disorder</option>
+                                                <option value="Restrictive">Restrictive</option>
+                                            </select> --}}
+                                        <input class="form-control" type="number" name="ee" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Avg</label>
+                                    <div class="input-group">
+                                        {{-- <select class="form-control" name="diastolic_function">
+                                                <option value="Normal">Normal</option>
+                                                <option value="Pseudonormal">Pseudonormal</option>
+                                                <option value="Relaxation Disorder">Relaxation Disorder</option>
+                                                <option value="Restrictive">Restrictive</option>
+                                            </select> --}}
+                                        <input class="form-control" type="number" name="avg" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -1172,24 +1250,24 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             <div class="tab-pane" role="tabpanel" id="step7">
                                 <h4 class="text-center">Blood Laboratory Test</h4>
                                 <div class="col-md-6">
-                                        <label>Hemoglobin</label>
+                                        <label>Hemoglobin *</label>
 
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="hemoglobin" placeholder="">
+                                        <input class="form-control" type="number" name="hemoglobin" placeholder="" required>
                                         <span class="input-group-addon">.gr/dL</span>
                                         
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Hematocrite</label>
+                                        <label>Hematocrite *</label>
 
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="hematocrite" placeholder="">
+                                        <input class="form-control" type="number" name="hematocrite" placeholder="" required>
                                         <span class="input-group-addon">%</span>
                                     
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                         <label>Erythrocyte</label>
 
                                     <div class="input-group">
@@ -1197,7 +1275,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <span class="input-group-addon">10^6/uL</span>
                                         
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-6">
                                         <label>Random Blood Glucose</label>
 
@@ -1208,7 +1286,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                         <label>Fasting Blood Glucose</label>
 
                                     <div class="input-group">
@@ -1216,8 +1294,8 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                             placeholder="">
                                         <span class="input-group-addon">gr/dL</span>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
+                                </div> --}}
+                                {{-- <div class="col-md-6">
                                         <label>2 Hours Post Prandial Blood Glucose</label>
 
                                     <div class="input-group">
@@ -1226,7 +1304,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <span class="input-group-addon">gr/dL</span>
 
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-6">
                                         <label>Natrium</label>
 
@@ -1237,7 +1315,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Kalium</label>
+                                        <label>Kalium *</label>
 
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="kalium" placeholder="">
@@ -1246,10 +1324,10 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Ureum</label>
+                                        <label>Ureum *</label>
 
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="ureum" placeholder="">
+                                        <input class="form-control" id="ureum" onkeyup="countBun()" type="number" name="ureum" placeholder="">
                                         <span class="input-group-addon">gr/dL</span>
 
                                     </div>
@@ -1258,13 +1336,34 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>BUN</label>
 
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="bun" placeholder="">
+                                        <input class="form-control" type="number" id="bun" name="bun" placeholder="" readonly>
                                         <span class="input-group-addon">gr/dL</span>
 
                                     </div>
                                 </div>
+                                
                                 <div class="col-md-6">
-                                        <label>Serum Creatinine (Scr)</label>
+                                        <label>Serum Iron</label>
+
+                                    <div class="input-group">
+                                        <input id="si" class="form-control" type="number" name="serum_iron"
+                                            placeholder="">
+                                        <span class="input-group-addon">mcg/dL</span>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>HbA1C</label>
+
+                                    <div class="input-group">
+                                        <input id="si" class="form-control" type="number" name="hba1c"
+                                            placeholder="">
+                                        <span class="input-group-addon">mmol/mol</span>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Serum Creatinine (Scr) *</label>
 
                                     <div class="input-group">
                                         <input onkeyup="countGfr()" id="scr" class="form-control" type="number" name="serum_creatinine"
@@ -1282,34 +1381,29 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                         <label>Uric Acid</label>
-
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="uric_acid" placeholder="">
                                         <span class="input-group-addon">mg/dL</span>
-                                    </div>
-                                </div>
+                                    </div>  
+                                </div> --}}
                                 <div class="col-md-6">
-                                        <label>NT-ProBNP at admission</label>
-
+                                        <label>NT-ProBNP</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="NT_ProBNP_at_admission"
+                                        <input class="form-control" type="number" name="NT_ProBNP"
                                             placeholder="">
                                         <span class="input-group-addon">pg/mL</span>
-                                        
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                         <label>NT-ProBNP at discharge</label>
-
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="NT_ProBNP_at_discharge"
                                             placeholder="">
                                         <span class="input-group-addon">pg/mL</span>
-
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
@@ -1382,82 +1476,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             {{-- Medication --}}
                             <div class="tab-pane" role="tabpanel" id="step9">
                                 <h4 class="text-center">Medication</h4>
-                                <div class="col-md-6">
-                                        <label>Dopamin Dose</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="DopaminDose" placeholder="">
-                                        <span class="input-group-addon">mcg/kg/jam</span>
-                                    
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Dopamin Duration</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="DopaminDuration" placeholder="">
-                                        <span class="input-group-addon">day</span>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Dobutamin Dose</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="DobutaminDose" placeholder="">
-                                        <span class="input-group-addon">mcg/kg/jam</span>
-                                        
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Dobutamin Duration</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="DobutaminDuration"
-                                            placeholder="">
-                                        <span class="input-group-addon">day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Norepinephrine Dose</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="NorepinephrineDose"
-                                            placeholder="">
-                                        <span class="input-group-addon">mcg/kg/jam</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Norepinephrine Duration</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="NorepinephrineDuration"
-                                            placeholder="">
-                                        <span class="input-group-addon">day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Epinephrin Dose</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="EpinephrinDose" placeholder="">
-                                        <span class="input-group-addon">mcg/kg/jam</span>
-                                    
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Epinephrin Duration</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="EpinephrinDuration"
-                                            placeholder="">
-                                        <span class="input-group-addon">day</span>
-
-                                    </div>
-                                </div>
+                              
                                 <div class="col-md-6">
                                         <label>ACEi</label>
 
@@ -1478,18 +1497,12 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                             <label><input type="radio" name="acei"
                                                     value="Perindopril">Perindopril</label>
                                         </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="acei" value="Other">Other</label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>ACEi Dose at Admission</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="aceiDoseatAdmission"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
+                               
                                 <div class="col-md-6">
                                         <label>ACEi Dose at Predischarge</label>
 
@@ -1519,16 +1532,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>ARB Dose at Admission</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="arbDoseatAdmission"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
+                               
                                 <div class="col-md-6">
                                         <label>ARB Dose at Predischarge</label>
 
@@ -1559,16 +1563,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>MRA Dose at Admission</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="mraDoseatAdmission"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
+                               
                                 <div class="col-md-6">
                                         <label>MRA Dose at Predischarge</label>
 
@@ -1600,16 +1595,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>Beta Blocker Dose at Admission</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="BetaBlockerDoseatAdmission"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-6">
                                         <label>Beta Blocker Dose at Predischarge</label>
 
@@ -1642,7 +1628,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 <div class="col-md-6">
                                         <label>SGLT2i</label>
-
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="sglt2i" value="None">None</label>
@@ -1662,36 +1647,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                
                                 <div class="col-md-6">
-                                        <label>SGLT2i Dose at Admission</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="sglt2iDoseatAdmission"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>SGLT2i Dose at Predischarge</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="sglt2iDoseatPredischarge"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Ivabradine Dose at admission</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="ivabradineDoseatAdmission"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
                                         <label>Ivabradine Dose at predischarge</label>
 
                                     <div class="input-group">
@@ -1702,26 +1657,62 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Tolvaptan Total Dose </label>
-
+                                        <label>Tolvaptan</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="TolvaptanTotalDose"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
+                                        {{-- <input class="form-control" type="number" name="insulin" placeholder=""> --}}
+                                        {{-- <span class="input-group-addon">IU</span> --}}
+                                        <div class="radio">
+                                            <label><input type="radio" name="Tolvaptan" value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="Tolvaptan"
+                                                    value="No">No</label>
+                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Insulin</label>
+                                        <label>Statin</label>
+                                    <div class="input-group">
+                                        {{-- <input class="form-control" type="number" name="insulin" placeholder=""> --}}
+                                        {{-- <span class="input-group-addon">IU</span> --}}
+                                        <div class="radio">
+                                            <label><input type="radio" name="statin" value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="statin"
+                                                    value="No">No</label>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Inotropic </label>
 
                                     <div class="input-group">
                                         {{-- <input class="form-control" type="number" name="insulin" placeholder=""> --}}
                                         {{-- <span class="input-group-addon">IU</span> --}}
                                         <div class="radio">
-                                            <label><input type="radio" name="insulin" value="Yes">Yes</label>
+                                            <label><input type="radio" name="inotropic" value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="insulin"
+                                            <label><input type="radio" name="inotropic"
+                                                    value="No">No</label>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Vasoconstrictor</label>
+
+                                    <div class="input-group">
+                                        {{-- <input class="form-control" type="number" name="insulin" placeholder=""> --}}
+                                        {{-- <span class="input-group-addon">IU</span> --}}
+                                        <div class="radio">
+                                            <label><input type="radio" name="vasoconstrictor" value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="vasoconstrictor"
                                                     value="No">No</label>
                                         </div>
                                         
@@ -1736,22 +1727,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     
                                     </div>
                                 </div> --}}
-                                <div class="col-md-6">
-                                        <label>Other OAD</label>
-
-                                    <div class="input-group">
-                                        {{-- <input class="form-control" type="number" name="otherOAD" placeholder="">
-                                        <span class="input-group-addon">mg/day</span> --}}
-                                        <div class="radio">
-                                            <label><input type="radio" name="otherOAD" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="otherOAD"
-                                                    value="No">No</label>
-                                        </div>
-
-                                    </div>
-                                </div>
 
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
@@ -1827,7 +1802,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Vulnerable phase death *</label>
+                                        <label>Mortality within 3 months *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -1840,7 +1815,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Vulnerable phase rehospitalization *</label>
+                                        <label>Rehospitalization within 3 months *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -1978,6 +1953,12 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
         // console.log(data_html);
         $('#tesModal').modal('show');
     }
+function countBun(){
+    var ureum = document.getElementById('ureum').value;
+    var bun = parseInt(ureum)/2.1;
+    document.getElementById('bun').value=bun.toFixed(2);
+}
+
     function countAge(){
         // var age = document.getElementById('age').value;
         var datebirth = document.getElementById('datebirth').value;
@@ -2081,7 +2062,7 @@ else if(sex == "Female"){
   }
   
 }
-document.getElementById('bmi').value = bmi+' Kg/m2';
+document.getElementById('bmi').value = imt+' Kg/m2';
 }
 function removelocal() {
         localStorage.removeItem("form_adhf");
