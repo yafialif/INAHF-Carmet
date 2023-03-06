@@ -1211,11 +1211,11 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                                 <option value="Restrictive">Restrictive</option>
                                             </select> --}}
                                         <input class="form-control" type="number" name="lv" placeholder="">
-                                        <span class="input-group-addon">.gr/m2</span>
+                                        <span class="input-group-addon">.gr/m<sup>2</sup></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>E/E</label>
+                                        <label>E/e' average</label>
                                     <div class="input-group">
                                         {{-- <select class="form-control" name="diastolic_function">
                                                 <option value="Normal">Normal</option>
@@ -1224,18 +1224,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                                 <option value="Restrictive">Restrictive</option>
                                             </select> --}}
                                         <input class="form-control" type="number" name="ee" placeholder="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Avg</label>
-                                    <div class="input-group">
-                                        {{-- <select class="form-control" name="diastolic_function">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Pseudonormal">Pseudonormal</option>
-                                                <option value="Relaxation Disorder">Relaxation Disorder</option>
-                                                <option value="Restrictive">Restrictive</option>
-                                            </select> --}}
-                                        <input class="form-control" type="number" name="avg" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -1277,12 +1265,22 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div> --}}
                                 <div class="col-md-6">
-                                        <label>Random Blood Glucose</label>
+                                        <label>Random Blood Glucose *</label>
 
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="random_blood_glucose"
                                             placeholder="">
                                         <span class="input-group-addon">gr/dL</span>
+
+                                    </div>
+                                </div>
+                                 <div class="col-md-6">
+                                        <label>HbA1C</label>
+
+                                    <div class="input-group">
+                                        <input id="si" class="form-control" type="number" name="hba1c"
+                                            placeholder="">
+                                        <span class="input-group-addon">mmol/mol</span>
 
                                     </div>
                                 </div>
@@ -1342,26 +1340,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 
-                                <div class="col-md-6">
-                                        <label>Serum Iron</label>
-
-                                    <div class="input-group">
-                                        <input id="si" class="form-control" type="number" name="serum_iron"
-                                            placeholder="">
-                                        <span class="input-group-addon">mcg/dL</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>HbA1C</label>
-
-                                    <div class="input-group">
-                                        <input id="si" class="form-control" type="number" name="hba1c"
-                                            placeholder="">
-                                        <span class="input-group-addon">mmol/mol</span>
-
-                                    </div>
-                                </div>
+                              
                                 <div class="col-md-6">
                                         <label>Serum Creatinine (Scr) *</label>
 
@@ -1388,6 +1367,17 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <span class="input-group-addon">mg/dL</span>
                                     </div>  
                                 </div> --}}
+                                  <div class="col-md-6">
+                                        <label>Serum Iron</label>
+
+                                    <div class="input-group">
+                                        <input id="si" class="form-control" type="number" name="serum_iron"
+                                            placeholder="">
+                                        <span class="input-group-addon">mcg/dL</span>
+
+                                    </div>
+                                </div>
+                               
                                 <div class="col-md-6">
                                         <label>NT-ProBNP</label>
                                     <div class="input-group">

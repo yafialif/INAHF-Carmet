@@ -349,7 +349,7 @@ class ListPatientAdhfController extends Controller
 			->join('adhfmedication', 'patient.id', '=', 'adhfmedication.patient_id')
 			->join('adhfoutcomes', 'patient.id', '=', 'adhfoutcomes.patient_id')
 			->join('adhfriskfactors', 'patient.id', '=', 'adhfriskfactors.patient_id')
-			->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id')
+			// ->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id')
 			->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
 			->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 			->where('patient.id', $id)
@@ -450,10 +450,10 @@ class ListPatientAdhfController extends Controller
 		));
 
 		// Ro Thorax
-		$RoThorax = AdhfRoThorax::where('patient_id', $id)->update(array(
-			'categorytreatment_id' => $categorytreatment_id,
-			'ro_thorax' => $request->ro_thorax,
-		));
+		// $RoThorax = AdhfRoThorax::where('patient_id', $id)->update(array(
+		// 	'categorytreatment_id' => $categorytreatment_id,
+		// 	'ro_thorax' => $request->ro_thorax,
+		// ));
 
 		// Echocardiography
 		$Echocardiography = AdhfEchocardiography::where('patient_id', $id)->update(array(

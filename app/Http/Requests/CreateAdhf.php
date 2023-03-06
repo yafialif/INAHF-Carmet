@@ -66,6 +66,7 @@ class CreateAdhf extends FormRequest
             // Echo Cardiography
             'ef' => 'required',
             'tapse' => 'required',
+            'random_blood_glucose' => 'required',
             // Blood Laboratory Test
             'hemoglobin' => 'required',
             'hematocrite' => 'required',
