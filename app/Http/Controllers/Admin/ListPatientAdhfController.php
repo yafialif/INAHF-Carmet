@@ -188,17 +188,17 @@ class ListPatientAdhfController extends Controller
 		$Etiology = new AdhfEtiology();
 		$Etiology->patient_id = $patient->id;
 		$Etiology->categorytreatment_id =  $categorytreatment_id;
-		$Etiology->acs = $request->acs;
-		$Etiology->hypertension_emergency =  $request->hypertension_emergency;
-		$Etiology->arrhytmia =  $request->arrhytmia;
-		$Etiology->acute_nechanical_cause =  $request->acute_nechanical_cause;
-		$Etiology->pulmonary_embolism =  $request->pulmonary_embolism;
-		$Etiology->infections =  $request->infections;
-		$Etiology->tamponade = $request->tamponade;
-		$Etiology->worseningRenalFunction = $request->worseningRenalFunction;
-		$Etiology->hyperglycemia = $request->hyperglycemia;
-		$Etiology->nonCompliance = $request->nonCompliance;
-		$Etiology->unkenown = $request->unkenown;
+		$Etiology->precipitating_factors = $request->precipitating_factors;
+		// $Etiology->hypertension_emergency =  $request->hypertension_emergency;
+		// $Etiology->arrhytmia =  $request->arrhytmia;
+		// $Etiology->acute_nechanical_cause =  $request->acute_nechanical_cause;
+		// $Etiology->pulmonary_embolism =  $request->pulmonary_embolism;
+		// $Etiology->infections =  $request->infections;
+		// $Etiology->tamponade = $request->tamponade;
+		// $Etiology->worseningRenalFunction = $request->worseningRenalFunction;
+		// $Etiology->hyperglycemia = $request->hyperglycemia;
+		// $Etiology->nonCompliance = $request->nonCompliance;
+		// $Etiology->unkenown = $request->unkenown;
 		$Etiology->save();
 		// Ro Thorax
 		// $RoThorax = new AdhfRoThorax();

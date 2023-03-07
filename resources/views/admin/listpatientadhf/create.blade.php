@@ -948,18 +948,29 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             <div class="tab-pane" role="tabpanel" id="step4">
                                 <h4 class="text-center">Precipitating Factors</h4>
                                 <div class="col-md-6">
-                                        <label>ACS</label>
-
+                                        <label>Precipitating Factors</label>
                                     <div class="input-group">
-                                        <div class="radio">
+                                         <select class="form-control" name="precipitating_factors">
+                                                <option value="ACS">ACS</option>
+                                                <option value="Arrhythmia">Arrhythmia</option>
+                                                <option value="Pulmonary Embolism">Pulmonary Embolism</option>
+                                                <option value="Cardiac Tamponade">Cardiac Tamponade</option>
+                                                <option value="Hypertensive Emergency">Hypertensive Emergency</option>
+                                                <option value="Acute Mechanical Cause">Acute Mechanical Cause</option>
+                                                <option value="Worsening renal function">Worsening renal function</option>
+                                                <option value="Hyperglycemia">Hyperglycemia</option>
+                                                <option value="Non compliance">Non compliance</option>
+                                                <option value="Unknown">Unknown</option>
+                                        </select>
+                                        {{-- <div class="radio">
                                             <label><input type="radio" name="acs" value="Yes">Yes</label>
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="acs" value="No">No</label>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                {{-- <div class="col-md-6">
                                         <label>Hypertensive Emergency</label>
 
                                     <div class="input-group">
@@ -1082,7 +1093,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                             <label><input type="radio" name="unkenown" value="No">No</label>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
@@ -1471,60 +1482,41 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>ACEi</label>
 
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="acei" value="None">None</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="acei" value="Ramipril">Ramipril</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="acei" value="Captopril">Captopril</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="acei" value="Lisinopril">Lisinopril</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="acei"
-                                                    value="Perindopril">Perindopril</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="acei" value="Other">Other</label>
-                                        </div>
+                                        <select class="form-control" name="acei" >
+                                                <option value="None">None</option>
+                                                <option value="Ramipril">Ramipril</option>
+                                                <option value="Captopril">Captopril</option>
+                                                <option value="Lisinopril">Lisinopril</option>
+                                                <option value="Perindopril">Perindopril</option>
+                                                <option value="Other">Other</option>
+                                        </select>
+                                      
                                     </div>
                                 </div>
                                
                                 <div class="col-md-6">
-                                        <label>ACEi Dose at Predischarge</label>
-
+                                        <label>ACEi Dose at Discharge</label>
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="aceiDoseatPredischarge"
                                             placeholder="">
                                         <span class="input-group-addon">mg/day</span>
-
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>ARB</label>
-
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="arb" value="None">None</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="arb" value="Valsartan">Valsartan</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="arb"
-                                                    value="Candesartan">Candesartan</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="arb" value="Losartan">Losartan</label>
-                                        </div>
+                                        <select class="form-control" name="arb" >
+                                                <option value="None">None</option>
+                                                <option value="Valsartan">Valsartan</option>
+                                                <option value="Candesartan">Candesartan</option>
+                                                <option value="Losartan">Losartan</option>
+                                                <option value="Other">Other</option>
+                                        </select>
                                     </div>
                                 </div>
                                
                                 <div class="col-md-6">
-                                        <label>ARB Dose at Predischarge</label>
+                                        <label>ARB Dose at Discharge</label>
 
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="arbDoseatPredischarge"
@@ -1534,17 +1526,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>ARNI Dose at Admission</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="arniDoseatAdmission"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ARNI Dose at Predischarge</label>
+                                        <label>ARNI Dose at Discharge</label>
 
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="arniDoseatPredischarge"
@@ -1555,89 +1537,65 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                
                                 <div class="col-md-6">
-                                        <label>MRA Dose at Predischarge</label>
+                                        <label>MRA Dose at Discharge</label>
 
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="mraDoseatPredischarge"
                                             placeholder="">
                                         <span class="input-group-addon">mg/day</span>
-
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Beta Blocker</label>
-
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="BetaBlocker" value="None">None</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="BetaBlocker"
-                                                    value="Bisoprolol">Bisoprolol</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="BetaBlocker"
-                                                    value="Carvedilol">Carvedilol</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="BetaBlocker"
-                                                    value="Nebivolol">Nebivolol</label>
-                                        </div>
+                                         <select class="form-control" name="BetaBlocker" >
+                                                <option value="None">None</option>
+                                                <option value="Bisoprolol">Bisoprolol</option>
+                                                <option value="Carvedilol">Carvedilol</option>
+                                                <option value="Nebivolol">Nebivolol</option>
+                                        </select>
                                     </div>
                                 </div>
                                 
                                 <div class="col-md-6">
-                                        <label>Beta Blocker Dose at Predischarge</label>
-
+                                        <label>Beta Blocker Dose at Discharge</label>
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="BetaBlockerDoseatPredischarge"
                                             placeholder="">
                                         <span class="input-group-addon">mg/day</span>
-
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Loop Diuretic Dose at Admission</label>
-
+                                        <label>First Dose of Loop Diuretic</label>
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="LoopDiureticDoseatAdmission"
                                             placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
+                                        <span class="input-group-addon">mg</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Loop Diuretic Dose at Predischarge</label>
-
+                                        <label>Loop Diuretic Dose at Discharge</label>
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="LoopDiureticDoseatPredischarge"
                                             placeholder="">
                                         <span class="input-group-addon">mg/day</span>
-
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>SGLT2i</label>
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="sglt2i" value="None">None</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="sglt2i"
-                                                    value="Empagliflozin">Empagliflozin</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="sglt2i"
-                                                    value="Dapagliflozin">Dapagliflozin</label>
-                                        </div>
-                                        
+                                        <select class="form-control" name="sglt2i" >
+                                                <option value="None">None</option>
+                                                <option value="Empagliflozin">Empagliflozin</option>
+                                                <option value="Dapagliflozin">Dapagliflozin</option>
+                                        </select>
                                         {{-- <input class="form-control" type="number" name="sglt2i" placeholder=""> --}}
                                     </div>
                                     
                                 </div>
                                
                                 <div class="col-md-6">
-                                        <label>Ivabradine Dose at predischarge</label>
+                                        <label>Ivabradine Dose at Discharge</label>
 
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="ivabradineDoseatPredischarge"

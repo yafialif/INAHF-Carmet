@@ -20,17 +20,8 @@ class AdhfEtiology extends Model
     protected $fillable = [
         'patient_id',
         'categorytreatment_id',
-        'acs',
-        'hypertension_emergency',
-        'arrhytmia',
-        'acute_nechanical_cause',
-        'pulmonary_embolism',
-        'infections',
-        'tamponade',
-        'worseningRenalFunction',
-        'hyperglycemia',
-        'nonCompliance',
-        'unkenown',
+        'precipitating_factors',
+
     ];
 
 
