@@ -484,6 +484,14 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         {{-- <input class="form-control" type="number" name="iccu" placeholder=""> --}}
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                            <label>Name *</label>
+
+                                        <div class="input-group">
+                                            <input class="form-control" type="text" name="name" placeholder="" required>
+                                       
+                                        </div>
+                                    </div>
                                     <div class="col-md-6">
                                             <label>NIK *</label>
 
@@ -493,18 +501,28 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                            <label>Name *</label>
+                                            <label>Phone</label>
 
                                         <div class="input-group">
-                                            <input class="form-control" type="text" name="name" placeholder="" required>
-                                       
-                                        </div>
+                                            <input class="form-control" type="number" name="phone"
+                                                placeholder="6280000000">
+                                        
+                                            </div>
                                     </div>
                                     <div class="col-md-6">
                                             <label>Date of birth *</label>
 
                                         <div class="input-group">
                                             <input id="dateOfBirth" onchange="countAge()" class="form-control" type="date" name="dateOfBirth" placeholder="" required>
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                            <label>Age *</label>
+
+                                        <div class="input-group">
+                                            <input id="age" class="form-control" type="text" name="age" placeholder="" readonly required>
+                                        <span class="input-group-addon">Year old</span>
                                         
                                         </div>
                                     </div>
@@ -518,37 +536,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                             </div>
                                     </div>
                                     <div class="col-md-6">
-                                            <label>Age *</label>
-
-                                        <div class="input-group">
-                                            <input id="age" class="form-control" type="text" name="age" placeholder="" readonly required>
-                                        <span class="input-group-addon">Year old</span>
-                                        
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                            <label>Sex *</label>
-
-                                        <div class="input-group">
-                                            <div class="radio">
-                                                <label><input id="sex" onchange="countBmi()" type="radio" name="gender" value="Male" required>Male</label>
-                                            </div>
-                                            <div class="radio">
-                                                <label><input id="sex" onchange="countBmi()" type="radio" name="gender" value="Female" required>Female</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                            <label>Phone</label>
-
-                                        <div class="input-group">
-                                            <input class="form-control" type="number" name="phone"
-                                                placeholder="6280000000">
-                                        
-                                            </div>
-                                    </div>
-                                    
-                                    <div class="col-md-6">
                                             <label>Date of discharge *</label>
 
                                         <div class="input-group">
@@ -557,6 +544,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         
                                             </div>
                                     </div>
+                                    
+                                    
+                                    
                                     <div class="col-md-6">
                                             <label>Insurance *</label>
                                         <div class="input-group">
@@ -581,6 +571,19 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="col-md-6">
+                                            <label>Sex *</label>
+
+                                        <div class="input-group">
+                                            <div class="radio">
+                                                <label><input id="sex" onchange="countBmi()" type="radio" name="gender" value="Male" required>Male</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input id="sex" onchange="countBmi()" type="radio" name="gender" value="Female" required>Female</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
@@ -614,6 +617,14 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                        <label>Heart Rate *</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="number" name="hr" placeholder="" required>
+                                        <span class="input-group-addon">.bpm</span>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
                                         <label>Systolic Blood Pressure * </label>
 
                                     <div class="input-group">
@@ -630,14 +641,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>Heart Rate *</label>
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="hr" placeholder="" required>
-                                        <span class="input-group-addon">.bpm</span>
-                                        
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-6">
                                         <label>Dyspnoea at rest *</label>
                                     <div class="input-group">
@@ -709,17 +713,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Type of acute HF *</label>
-
-                                    <div class="input-group">
-                                        <select class="form-control" name="type_of_acute_HF" required>
-                                                <option value="De Novo">De Novo</option>
-                                                <option value="ADHF">ADHF</option>
-                                            </select>
-                                        {{-- <input class="form-control" type="text" name="type_of_acute_HF" placeholder=""> --}}
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
                                         <label>NYHA Class *</label>
                                     <div class="input-group">
                                         <select class="form-control" name="nyha_class" required>
@@ -732,17 +725,18 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Cardiogenic shock *</label>
+                                        <label>Type of acute HF *</label>
 
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="cardiogenic_shock" value="Yes" required>Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="cardiogenic_shock" value="No" required>No</label>
-                                        </div>
+                                        <select class="form-control" name="type_of_acute_HF" required>
+                                                <option value="De Novo">De Novo</option>
+                                                <option value="ADHF">ADHF</option>
+                                            </select>
+                                        {{-- <input class="form-control" type="text" name="type_of_acute_HF" placeholder=""> --}}
                                     </div>
                                 </div>
+                                
+                                
                                 <div class="col-md-6">
                                         <label>Respiratory failure *</label>
 
@@ -753,6 +747,18 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="respiratory_failure" value="No" required>No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Cardiogenic shock *</label>
+
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input type="radio" name="cardiogenic_shock" value="Yes" required>Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="cardiogenic_shock" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
