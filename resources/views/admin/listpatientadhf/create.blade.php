@@ -478,7 +478,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>RS</label>
-
                                     <div class="input-group">
                                             {!! Form::select('rs_id', $rumahsakit, old('id'), array('class'=>'form-control')) !!}
                                         {{-- <input class="form-control" type="number" name="iccu" placeholder=""> --}}
@@ -486,32 +485,25 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 <div class="col-md-6">
                                             <label>Name *</label>
-
                                         <div class="input-group">
                                             <input class="form-control" type="text" name="name" placeholder="" required>
-                                       
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                             <label>NIK *</label>
-
                                         <div class="input-group">
                                             <input class="form-control" type="number" name="nik" placeholder="" required>
-                                            
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                             <label>Phone</label>
-
                                         <div class="input-group">
                                             <input class="form-control" type="number" name="phone"
                                                 placeholder="6280000000">
-                                        
                                             </div>
                                     </div>
                                     <div class="col-md-6">
                                             <label>Date of birth *</label>
-
                                         <div class="input-group">
                                             <input id="dateOfBirth" onchange="countAge()" class="form-control" type="date" name="dateOfBirth" placeholder="" required>
                                         
@@ -519,7 +511,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                     <div class="col-md-6">
                                             <label>Age *</label>
-
                                         <div class="input-group">
                                             <input id="age" class="form-control" type="text" name="age" placeholder="" readonly required>
                                         <span class="input-group-addon">Year old</span>
@@ -528,20 +519,16 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                     <div class="col-md-6">
                                             <label>Date of Admission *</label>
-
                                         <div class="input-group">
                                             <input id="dateOfAdmission" onchange="countAge()" class="form-control" type="date" name="dateOfAdmission"
                                                 placeholder="" required>
-                                        
                                             </div>
                                     </div>
                                     <div class="col-md-6">
                                             <label>Date of discharge *</label>
-
                                         <div class="input-group">
                                             <input class="form-control" type="date" name="dateOfDischarge"
                                                 placeholder="">
-                                        
                                             </div>
                                     </div>
                                     
@@ -1729,7 +1716,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                         <input class="form-control" type="number" name="hospitalizationCost"
                                             placeholder="">
-                                    
                                         </div>
                                 </div>
                                 <div class="col-md-12">

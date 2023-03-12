@@ -23,7 +23,7 @@ use Laraveldaily\Quickadmin\Models\Menu;
 use Illuminate\Http\Request;
 use convertObjectClass;
 use Illuminate\Support\Facades\DB;
-
+use Carbon\Carbon;
 
 class ListPatientAdhfController extends Controller
 {
@@ -60,8 +60,8 @@ class ListPatientAdhfController extends Controller
 				->join('adhfetiology', 'patient.id', '=', 'adhfetiology.patient_id')
 				->join('adhfmedication', 'patient.id', '=', 'adhfmedication.patient_id')
 				->join('adhfoutcomes', 'patient.id', '=', 'adhfoutcomes.patient_id')
-				->join('adhfriskfactors', 'patient.id', '=', 'adhfriskfactors.patient_id')
-				// ->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id')
+				// ->join('adhfriskfactors', 'patient.id', '=', 'adhfriskfactors.patient_id')
+				// dihapus  ->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id')
 				->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
 				->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->where('patient.id', $value->id)
@@ -122,8 +122,10 @@ class ListPatientAdhfController extends Controller
 	// public function store(CreateAdhf $request)
 	public function store(CreateAdhf $request)
 	{
+
 		$user_id = Auth::user()->id;
 		$categorytreatment_id = 1;
+
 		// Patient
 		$patient = new Patient();
 		$patient->user_id = $user_id;
@@ -131,20 +133,24 @@ class ListPatientAdhfController extends Controller
 		$patient->rs_id = $request->rs_id;
 		$patient->nik = $request->nik;
 		$patient->name = $request->name;
-		$patient->dateOfBirth = $request->dateOfBirth;
+		if ($request->dateOfBirth) {
+			$patient->dateOfBirth = $request->dateOfBirth;
+		}
 		$patient->age = $request->age;
 		$patient->gender = $request->gender;
 		$patient->phone = $request->phone;
-		$patient->dateOfAdmission = $request->dateOfAdmission;
+		if ($request->dateOfAdmission) {
+			$patient->dateOfAdmission = $request->dateOfAdmission;
+		}
 		$patient->insurance = $request->insurance;
 		$patient->education = $request->education;
 		if ($request->dateOfDischarge) {
 			$patient->dateOfDischarge = $request->dateOfDischarge;
-		} else {
-			$patient->dateOfDischarge = date("0000-00-00");
 		}
+		// else {
+		// 	$patient->dateOfDischarge = date("0000-00-00");
+		// }
 		$patient->save();
-
 
 		// Clinical Profile
 		$clinicalProfile = new ClinicalProfile();
@@ -167,6 +173,7 @@ class ListPatientAdhfController extends Controller
 		$clinicalProfile->cardiogenic_shock = $request->cardiogenic_shock;
 		$clinicalProfile->respiratory_failure = $request->respiratory_failure;
 		$clinicalProfile->save();
+
 		// Risk Factor
 		$riskFactor = new AdhfRiskFactors();
 		$riskFactor->patient_id = $patient->id;
@@ -184,28 +191,13 @@ class ListPatientAdhfController extends Controller
 		$riskFactor->historyof_heart_valve_surgery = $request->historyof_heart_valve_surgery;
 		$riskFactor->omi_or_cad = $request->omi_or_cad;
 		$riskFactor->save();
+
 		// Etiology
 		$Etiology = new AdhfEtiology();
 		$Etiology->patient_id = $patient->id;
 		$Etiology->categorytreatment_id =  $categorytreatment_id;
 		$Etiology->precipitating_factors = $request->precipitating_factors;
-		// $Etiology->hypertension_emergency =  $request->hypertension_emergency;
-		// $Etiology->arrhytmia =  $request->arrhytmia;
-		// $Etiology->acute_nechanical_cause =  $request->acute_nechanical_cause;
-		// $Etiology->pulmonary_embolism =  $request->pulmonary_embolism;
-		// $Etiology->infections =  $request->infections;
-		// $Etiology->tamponade = $request->tamponade;
-		// $Etiology->worseningRenalFunction = $request->worseningRenalFunction;
-		// $Etiology->hyperglycemia = $request->hyperglycemia;
-		// $Etiology->nonCompliance = $request->nonCompliance;
-		// $Etiology->unkenown = $request->unkenown;
 		$Etiology->save();
-		// Ro Thorax
-		// $RoThorax = new AdhfRoThorax();
-		// $RoThorax->patient_id = $patient->id;
-		// $RoThorax->categorytreatment_id = $categorytreatment_id;
-		// $RoThorax->ro_thorax = $request->ro_thorax;
-		// $RoThorax->save();
 
 		// Echocardiography
 		$Echocardiography = new AdhfEchocardiography();
@@ -215,23 +207,18 @@ class ListPatientAdhfController extends Controller
 		$Echocardiography->tapse = $request->tapse;
 		$Echocardiography->edv = $request->edv;
 		$Echocardiography->esv = $request->esv;
-		// $Echocardiography->edd = $request->edd;
-		// $Echocardiography->esd = $request->esd;
 		$Echocardiography->sign_mr = $request->sign_mr;
-		// $Echocardiography->diastolic_function = $request->diastolic_function;
 		$Echocardiography->lv = $request->lv;
 		$Echocardiography->ee = $request->ee;
 		$Echocardiography->save();
+
 		// Blood Laboratory Test
 		$BloodLaboratoryTest = new AdhfBloodLaboratoryTest();
 		$BloodLaboratoryTest->patient_id = $patient->id;
 		$BloodLaboratoryTest->categorytreatment_id = $categorytreatment_id;
 		$BloodLaboratoryTest->hemoglobin = $request->hemoglobin;
 		$BloodLaboratoryTest->hematocrite = $request->hematocrite;
-		// $BloodLaboratoryTest->erythrocyte = $request->erythrocyte;
 		$BloodLaboratoryTest->random_blood_glucose = $request->random_blood_glucose;
-		// $BloodLaboratoryTest->fasting_blood_glucose = $request->fasting_blood_glucose;
-		// $BloodLaboratoryTest->twoHoursPostPrandialBloodGlucose = $request->twoHoursPostPrandialBloodGlucose;
 		$BloodLaboratoryTest->natrium = $request->natrium;
 		$BloodLaboratoryTest->kalium = $request->kalium;
 		$BloodLaboratoryTest->ureum = $request->ureum;
@@ -240,11 +227,9 @@ class ListPatientAdhfController extends Controller
 		$BloodLaboratoryTest->serum_iron = $request->serum_iron;
 		$BloodLaboratoryTest->hba1c = $request->hba1c;
 		$BloodLaboratoryTest->gfr = $request->gfr;
-		// $BloodLaboratoryTest->uric_acid = $request->uric_acid;
-		// $BloodLaboratoryTest->NT_ProBNP_at_admission = $request->NT_ProBNP_at_admission;
-		// $BloodLaboratoryTest->NT_ProBNP_at_discharge = $request->NT_ProBNP_at_discharge;
 		$BloodLaboratoryTest->NT_ProBNP = $request->NT_ProBNP;
 		$BloodLaboratoryTest->save();
+
 		// Blood Gas Analysis
 		$BloodGasAnalysis = new AdhfBloodGasAnalysis();
 		$BloodGasAnalysis->patient_id = $patient->id;
@@ -256,46 +241,29 @@ class ListPatientAdhfController extends Controller
 		$BloodGasAnalysis->lactate = $request->lactate;
 		$BloodGasAnalysis->be = $request->be;
 		$BloodGasAnalysis->save();
+
 		// Medication
 		$medication = new AdhfMedication();
 		$medication->patient_id = $patient->id;
 		$medication->categorytreatment_id = $categorytreatment_id;
-		// $medication->DopaminDose = $request->DopaminDose;
-		// $medication->DopaminDuration = $request->DopaminDuration;
-		// $medication->DobutaminDose = $request->DobutaminDose;
-		// $medication->DobutaminDuration = $request->DobutaminDuration;
-		// $medication->NorepinephrineDose = $request->NorepinephrineDose;
-		// $medication->NorepinephrineDuration = $request->NorepinephrineDuration;
-		// $medication->EpinephrinDose = $request->EpinephrinDose;
-		// $medication->EpinephrinDuration = $request->EpinephrinDuration;
 		$medication->acei = $request->acei;
-		// $medication->aceiDoseatAdmission = $request->aceiDoseatAdmission;
 		$medication->aceiDoseatPredischarge = $request->aceiDoseatPredischarge;
 		$medication->arb = $request->arb;
-		// $medication->arbDoseatAdmission = $request->arbDoseatAdmission;
 		$medication->arbDoseatPredischarge = $request->arbDoseatPredischarge;
-		// $medication->arniDoseatAdmission = $request->arniDoseatAdmission;
 		$medication->arniDoseatPredischarge = $request->arniDoseatPredischarge;
-		// $medication->mraDoseatAdmission = $request->mraDoseatAdmission;
 		$medication->mraDoseatPredischarge = $request->mraDoseatPredischarge;
 		$medication->BetaBlocker = $request->BetaBlocker;
-		// $medication->BetaBlockerDoseatAdmission = $request->BetaBlockerDoseatAdmission;
 		$medication->BetaBlockerDoseatPredischarge = $request->BetaBlockerDoseatPredischarge;
-		// $medication->LoopDiureticDoseatAdmission = $request->LoopDiureticDoseatAdmission;
 		$medication->LoopDiureticDoseatPredischarge = $request->LoopDiureticDoseatPredischarge;
 		$medication->sglt2i = $request->sglt2i;
-		// $medication->sglt2iDoseatAdmission = $request->sglt2iDoseatAdmission;
-		// $medication->sglt2iDoseatPredischarge = $request->sglt2iDoseatPredischarge;
-		// $medication->ivabradineDoseatAdmission = $request->ivabradineDoseatAdmission;
 		$medication->ivabradineDoseatPredischarge = $request->ivabradineDoseatPredischarge;
 		$medication->Tolvaptan = $request->Tolvaptan;
-		// $medication->insulin = $request->insulin;
 		$medication->insulinDose = $request->insulinDose;
-		// $medication->otherOAD = $request->otherOAD;
 		$medication->inotropic = $request->inotropic;
 		$medication->vasoconstrictor = $request->vasoconstrictor;
 		$medication->statin = $request->statin;
 		$medication->save();
+
 		// Hospitalization
 		$hospitalization = new AdhfHospitalization();
 		$hospitalization->patient_id = $patient->id;
@@ -305,6 +273,7 @@ class ListPatientAdhfController extends Controller
 		$hospitalization->totalLoS = $request->totalLoS;
 		$hospitalization->hospitalizationCost = $request->hospitalizationCost;
 		$hospitalization->save();
+
 		// Outcomes
 		$Outcomes = new AdhfOutcomes();
 		$Outcomes->patient_id = $patient->id;
@@ -315,28 +284,16 @@ class ListPatientAdhfController extends Controller
 		// $Outcomes->dateofDeath = $request->dateofDeath;
 		if ($request->dateofDeath) {
 			$Outcomes->dateofDeath = $request->dateofDeath;
-		} else {
-			$Outcomes->dateofDeath = date("0000-00-00");
 		}
+		// else {
+		// $Outcomes->dateofDeath = date("0000-00-00");
+		// }
 		$Outcomes->additional_notes = $request->additional_notes;
 		$Outcomes->save();
-		// $data = [
-		// 	'patient' => $patient,
-		// 	'clinicalProfile' => $clinicalProfile,
-		// 	'riskFactor' => $riskFactor,
-		// 	'Etiology' => $Etiology,
-		// 	'RoThorax' => $RoThorax,
-		// 	'Echocardiography' => $Echocardiography,
-		// 	'BloodLaboratoryTest' => $BloodLaboratoryTest,
-		// 	'BloodGasAnalysis' => $BloodGasAnalysis,
-		// 	'medication' => $medication,
-		// 	'hospitalization' => $hospitalization,
-		// 	'Outcomes' => $Outcomes
-		// ];
-		// return view('admin.listpatientadhf.index', compact('patient'));
+
+		// return response()->json($request);
+
 		return redirect()->route('admin.listpatientadhf.index');
-		// return response()->json($data);
-		// return 1;
 	}
 
 	public function show($id)
@@ -369,7 +326,6 @@ class ListPatientAdhfController extends Controller
 			->join('adhfmedication', 'patient.id', '=', 'adhfmedication.patient_id')
 			->join('adhfoutcomes', 'patient.id', '=', 'adhfoutcomes.patient_id')
 			->join('adhfriskfactors', 'patient.id', '=', 'adhfriskfactors.patient_id')
-			->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id')
 			->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
 			->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 			->where('patient.id', $id)
@@ -440,13 +396,7 @@ class ListPatientAdhfController extends Controller
 		// Etiology
 		$Etiology = AdhfEtiology::where('patient_id', $id)->update(array(
 			'categorytreatment_id' =>  $categorytreatment_id,
-			'acs' => $request->acs,
-			'hypertension_emergency' =>  $request->hypertension_emergency,
-			'arrhytmia' =>  $request->arrhytmia,
-			'acute_nechanical_cause' =>  $request->acute_nechanical_cause,
-			'pulmonary_embolism' =>  $request->pulmonary_embolism,
-			'infections' =>  $request->infections,
-			'tamponade' => $request->tamponade,
+			'precipitating_factors' => $request->precipitating_factors,
 		));
 
 		// Ro Thorax
@@ -462,29 +412,27 @@ class ListPatientAdhfController extends Controller
 			'tapse' => $request->tapse,
 			'edv' => $request->edv,
 			'esv' => $request->esv,
-			'edd' => $request->edd,
-			'esd' => $request->esd,
+			// 'edd' => $request->edd,
+			// 'esd' => $request->esd,
 			'sign_mr' => $request->sign_mr,
-			'diastolic_function' => $request->diastolic_function,
+			'lv' => $request->lv,
+			'ee' => $request->ee,
 		));
 		// Blood Laboratory Test
 		$BloodLaboratoryTest = AdhfBloodLaboratoryTest::where('patient_id', $id)->update(array(
 			'categorytreatment_id' => $categorytreatment_id,
 			'hemoglobin' => $request->hemoglobin,
 			'hematocrite' => $request->hematocrite,
-			'erythrocyte' => $request->erythrocyte,
 			'random_blood_glucose' => $request->random_blood_glucose,
-			'fasting_blood_glucose' => $request->fasting_blood_glucose,
-			'twoHoursPostPrandialBloodGlucose' => $request->twoHoursPostPrandialBloodGlucose,
 			'natrium' => $request->natrium,
 			'kalium' => $request->kalium,
 			'ureum' => $request->ureum,
 			'bun' => $request->bun,
 			'serum_creatinine' => $request->serum_creatinine,
+			'serum_iron' => $request->serum_iron,
+			'hba1c' => $request->hba1c,
 			'gfr' => $request->gfr,
-			'uric_acid' => $request->uric_acid,
-			'NT_ProBNP_at_admission' => $request->NT_ProBNP_at_admission,
-			'NT_ProBNP_at_discharge' => $request->NT_ProBNP_at_discharge,
+			'NT_ProBNP' => $request->NT_ProBNP,
 		));
 		// Blood Gas Analysis
 		$BloodGasAnalysis = AdhfBloodGasAnalysis::where('patient_id', $id)->update(array(
@@ -499,38 +447,40 @@ class ListPatientAdhfController extends Controller
 		// Medication
 		$medication = AdhfMedication::where('patient_id', $id)->update(array(
 			'categorytreatment_id' => $categorytreatment_id,
-			'DopaminDose' => $request->DopaminDose,
-			'DopaminDuration' => $request->DopaminDuration,
-			'DobutaminDose' => $request->DobutaminDose,
-			'DobutaminDuration' => $request->DobutaminDuration,
-			'NorepinephrineDose' => $request->NorepinephrineDose,
-			'NorepinephrineDuration' => $request->NorepinephrineDuration,
-			'EpinephrinDose' => $request->EpinephrinDose,
-			'EpinephrinDuration' => $request->EpinephrinDuration,
+			// 'DopaminDose' => $request->DopaminDose,
+			// 'DopaminDuration' => $request->DopaminDuration,
+			// 'DobutaminDose' => $request->DobutaminDose,
+			// 'DobutaminDuration' => $request->DobutaminDuration,
+			// 'NorepinephrineDose' => $request->NorepinephrineDose,
+			// 'NorepinephrineDuration' => $request->NorepinephrineDuration,
+			// 'EpinephrinDose' => $request->EpinephrinDose,
+			// 'EpinephrinDuration' => $request->EpinephrinDuration,
 			'acei' => $request->acei,
-			'aceiDoseatAdmission' => $request->aceiDoseatAdmission,
+			// 'aceiDoseatAdmission' => $request->aceiDoseatAdmission,
 			'aceiDoseatPredischarge' => $request->aceiDoseatPredischarge,
 			'arb' => $request->arb,
-			'arbDoseatAdmission' => $request->arbDoseatAdmission,
+			// 'arbDoseatAdmission' => $request->arbDoseatAdmission,
 			'arbDoseatPredischarge' => $request->arbDoseatPredischarge,
-			'arniDoseatAdmission' => $request->arniDoseatAdmission,
+			// 'arniDoseatAdmission' => $request->arniDoseatAdmission,
 			'arniDoseatPredischarge' => $request->arniDoseatPredischarge,
-			'mraDoseatAdmission' => $request->mraDoseatAdmission,
+			// 'mraDoseatAdmission' => $request->mraDoseatAdmission,
 			'mraDoseatPredischarge' => $request->mraDoseatPredischarge,
 			'BetaBlocker' => $request->BetaBlocker,
-			'BetaBlockerDoseatAdmission' => $request->BetaBlockerDoseatAdmission,
+			// 'BetaBlockerDoseatAdmission' => $request->BetaBlockerDoseatAdmission,
 			'BetaBlockerDoseatPredischarge' => $request->BetaBlockerDoseatPredischarge,
-			'LoopDiureticDoseatAdmission' => $request->LoopDiureticDoseatAdmission,
+			// 'LoopDiureticDoseatAdmission' => $request->LoopDiureticDoseatAdmission,
 			'LoopDiureticDoseatPredischarge' => $request->LoopDiureticDoseatPredischarge,
 			'sglt2i' => $request->sglt2i,
-			'sglt2iDoseatAdmission' => $request->sglt2iDoseatAdmission,
-			'sglt2iDoseatPredischarge' => $request->sglt2iDoseatPredischarge,
-			'ivabradineDoseatAdmission' => $request->ivabradineDoseatAdmission,
+			// 'sglt2iDoseatAdmission' => $request->sglt2iDoseatAdmission,
+			// 'sglt2iDoseatPredischarge' => $request->sglt2iDoseatPredischarge,
+			// 'ivabradineDoseatAdmission' => $request->ivabradineDoseatAdmission,
 			'ivabradineDoseatPredischarge' => $request->ivabradineDoseatPredischarge,
-			'TolvaptanTotalDose' => $request->TolvaptanTotalDose,
-			'insulin' => $request->insulin,
+			'Tolvaptan' => $request->Tolvaptan,
+			// 'insulin' => $request->insulin,
 			'insulinDose' => $request->insulinDose,
-			'otherOAD' => $request->otherOAD,
+			'inotropic' => $request->inotropic,
+			'vasoconstrictor' => $request->vasoconstrictor,
+			'statin' => $request->statin,
 		));
 		// Hospitalization
 		$hospitalization = AdhfHospitalization::where('patient_id', $id)->update(array(
