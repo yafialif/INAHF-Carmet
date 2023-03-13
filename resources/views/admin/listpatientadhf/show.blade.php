@@ -403,10 +403,10 @@
                                 <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab"><span
                                         class="round-tab">4</span> <i>Etiology</i></a>
                             </li>
-                            <li role="presentation" class="">
+                            {{-- <li role="presentation" class="">
                                 <a href="#step5" data-toggle="tab" aria-controls="step4" role="tab"><span
                                         class="round-tab">5</span> <i>Ro thorax</i></a>
-                            </li>
+                            </li> --}}
                             <li role="presentation" class="">
                                 <a href="#step6" data-toggle="tab" aria-controls="step5" role="tab"><span
                                         class="round-tab">6</span> <i>Echocardiography</i></a>
@@ -438,64 +438,71 @@
                             <div class="tab-pane active" role="tabpanel" id="step1">
                                 <h4 class="text-center">Patient Identity</h4>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>NIK *</label>
-                                            <p>{{ $data->nik }}</p>
+                                            <label>RS </label>
+                                            <p>{{ $rumahsakit[0]->name_of_rs }}</p>
                                         </div>
                                     </div>
+                                    
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Name *</label>
+                                            <label>Name</label>
                                             <p>{{ $data->name }}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Date of birth *</label>
-                                            <p>{{ $data->dateOfBirth }}</p>
+                                            <label>NIK</label>
+                                            <p>{{ $data->nik }}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Age *</label>
-                                            <p>{{ $data->age }} Year old</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Sex *</label>
-                                            <p>{{ $data->gender }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Phone *</label>
+                                            <label>Phone</label>
                                             <p>{{ $data->phone }}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Date of Admission *</label>
+                                            <label>Date of birth</label>
+                                            <p>{{ $data->dateOfBirth }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Age</label>
+                                            <p>{{ $data->age }} Year old</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Date of Admission</label>
                                             <p>{{ $data->dateOfAdmission }}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Date of discharge *</label>
+                                            <label>Date of discharge</label>
                                            <p>{{ $data->dateOfDischarge }}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Insurance *</label>
+                                            <label>Insurance</label>
                                             <p>{{ $data->insurance }}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Education *</label>
+                                            <label>Education</label>
                                             <p>{{ $data->education }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Sex</label>
+                                            <p>{{ $data->gender }}</p>
                                         </div>
                                     </div>
 
@@ -529,6 +536,12 @@
                                         <p>{{ $data->bmi }}</p>
                                     </div>
                                 </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Heart Rate </label>
+                                        <p>{{ $data->hr }} .bpm</p>
+                                    </div>
+                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Systolic Blood Pressure </label>
@@ -541,12 +554,7 @@
                                         <p>{{ $data->dbp }} .mmHg</p>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Heart Rate </label>
-                                        <p>{{ $data->hr }} .bpm</p>
-                                    </div>
-                                </div>
+                               
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Dyspnoea at rest</label>
@@ -579,14 +587,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>JVP </label>
+                                        <label>Jugular Venous Pressure </label>
                                         <p>{{ $data->jvp }}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Type of acute HF </label>
-                                        <p>{{ $data->type_of_acute_HF }}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -597,8 +599,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Cardiogenic shock</label>
-                                        <p>{{ $data->cardiogenic_shock }}</p>
+                                        <label>Type of acute HF </label>
+                                        <p>{{ $data->type_of_acute_HF }}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -607,6 +609,13 @@
                                         <p>{{ $data->respiratory_failure }}</p>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Cardiogenic shock</label>
+                                        <p>{{ $data->cardiogenic_shock }}</p>
+                                    </div>
+                                </div>
+                                
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" class="default-btn prev-step">Back</button></li>
@@ -698,49 +707,12 @@
                                     </ul>
                                 </div>
                             </div>
-
                             <div class="tab-pane" role="tabpanel" id="step4">
-                                <h4 class="text-center">Etiologi</h4>
+                                <h4 class="text-center">Precipitating Factors</h4>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>ACS</label>
-                                        <p>{{ $data->acs }}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Hypertension Emergency</label>
-                                        <p>{{ $data->hypertension_emergency }}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Arrhytmia</label>
-                                        <p>{{ $data->arrhytmia }}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Acute Mechanical Cause</label>
-                                        <p>{{ $data->acute_nechanical_cause }}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Pulmonary Embolism</label>
-                                       <p>{{ $data->pulmonary_embolism }}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Infections</label>
-                                        <p>{{ $data->infections }}</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Tamponade</label>
-                                        <p>{{ $data->tamponade }}</p>
+                                        <label>Precipitating Factors</label>
+                                        <p>{{ $data->precipitating_factors }}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -752,7 +724,7 @@
                                 </div>
                             </div>
                             {{-- Ro thorax --}}
-                            <div class="tab-pane" role="tabpanel" id="step5">
+                            {{-- <div class="tab-pane" role="tabpanel" id="step5">
                                 <h4 class="text-center">Ro thorax</h4>
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -763,11 +735,11 @@
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" class="default-btn prev-step">Back</button></li>
-                                        {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
+                                        <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li>
                                         <li><button type="button" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- Echocardiography --}}
                             <div class="tab-pane" role="tabpanel" id="step6">
                                 <h4 class="text-center">Echocardiography</h4>
@@ -795,18 +767,7 @@
                                         <p>{{ $data->esv }} .mL</p>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>EDD</label>
-                                        <p>{{ $data->edd }} .mm</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>ESD</label>
-                                        <p>{{ $data->esd }} .mm</p>
-                                    </div>
-                                </div>
+                              
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Sign.MR</label>
@@ -815,10 +776,17 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>E/A</label>
-                                        <p>{{ $data->diastolic_function }}</p>
+                                        <label>LV max index</label>
+                                        <p>{{ $data->lv }}</p>
                                     </div>
                                 </div>
+                                 <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>E/e' average</label>
+                                        <p>{{ $data->ee }}</p>
+                                    </div>
+                                </div>
+                                
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" class="default-btn prev-step">Back</button></li>
@@ -842,28 +810,17 @@
                                         <p>{{ $data->hematocrite }} %</p>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Erythrocyte</label>
-                                        <p>{{ $data->erythrocyte }} 10^6/uL</p>
-                                    </div>
-                                </div>
+                               
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Random Blood Glucose</label>
                                         <p>{{ $data->random_blood_glucose }} gr/dL</p>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                               <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Fasting Blood Glucose</label>
-                                        <p>{{ $data->fasting_blood_glucose }} gr/dL</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>2 Hours Post Prandial Blood Glucose</label>
-                                        <p>{{ $data->twoHoursPostPrandialBloodGlucose }} gr/dL</p>
+                                        <label>HbA1C</label>
+                                        <p>{{ $data->hba1c }} .mmol/mol</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -904,22 +861,17 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Uric Acid</label>
-                                        <p>{{ $data->uric_acid }} mg/dL</p>
+                                        <label>Serum Iron</label>
+                                        <p>{{ $data->serum_iron }} mg/dL</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>NT-ProBNP at admission</label>
-                                        <p>{{ $data->NT_ProBNP_at_admission }} pg/mL</p>
+                                        <label>NT-ProBNP</label>
+                                        <p>{{ $data->NT_ProBNP }} pg/mL</p>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>NT-ProBNP at discharge</label>
-                                        <p>{{ $data->NT_ProBNP_at_discharge }} pg/mL</p>
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" class="default-btn prev-step">Back</button></li>
@@ -979,69 +931,17 @@
                             {{-- Medication --}}
                             <div class="tab-pane" role="tabpanel" id="step9">
                                 <h4 class="text-center">Medication</h4>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Dopamin Dose</label>
-                                        <p>{{ $data->DopaminDose }} mcg/kg/jam</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Dopamin Duration</label>
-                                        <p>{{ $data->DopaminDuration }} day</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Dobutamin Dose</label>
-                                        <p>{{ $data->DobutaminDose }} mcg/kg/jam</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Dobutamin Duration</label>
-                                        <p>{{ $data->DobutaminDuration }} day</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Norepinephrine Dose</label>
-                                        <p>{{ $data->NorepinephrineDose }} mcg/kg/jam</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Norepinephrine Duration</label>
-                                        <p>{{ $data->NorepinephrineDuration }} day</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Epinephrin Dose</label>
-                                        <p>{{ $data->EpinephrinDose }} mcg/kg/jam</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Epinephrin Duration</label>
-                                        <p>{{ $data->EpinephrinDuration }} day</p>
-                                    </div>
-                                </div>
+                               
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>ACEi</label>
                                        <p>{{ $data->acei }}</p>
                                     </div>
                                 </div>
+                               
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>ACEi Dose at Admission</label>
-                                        <p>{{ $data->aceiDoseatAdmission }} mg/day</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>ACEi Dose at Predischarge</label>
+                                        <label>ACEi Dose at Discharge</label>
                                        <p>{{ $data->aceiDoseatPredischarge }} mg/day</p>
                                     </div>
                                 </div>
@@ -1051,39 +951,24 @@
                                         <p>{{ $data->arb }}</p>
                                     </div>
                                 </div>
+                               
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>ARB Dose at Admission</label>
-                                        <p>{{ $data->arbDoseatAdmission }} mg/day</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>ARB Dose at Predischarge</label>
+                                        <label>ARB Dose at Discharge</label>
                                         <p>{{ $data->arbDoseatPredischarge }} mg/day</p>
                                     </div>
                                 </div>
+                               
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>ARNI Dose at Admission</label>
-                                        <p>{{ $data->arniDoseatAdmission }} mg/day</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>ARNI Dose at Predischarge</label>
+                                        <label>ARNI Dose at Discharge</label>
                                         <p>{{ $data->arniDoseatPredischarge }} mg/day</p>
                                     </div>
                                 </div>
+                               
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>MRA Dose at Admission</label>
-                                        <p>{{ $data->mraDoseatAdmission }} mg/day</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>MRA Dose at Predischarge</label>
+                                        <label>MRA Dose at Discharge</label>
                                         <p>{{ $data->mraDoseatPredischarge }} mg/day</p>
                                     </div>
                                 </div>
@@ -1093,27 +978,22 @@
                                         <p>{{ $data->BetaBlocker }}</p>
                                     </div>
                                 </div>
+                                
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Beta Blocker Dose at Admission</label>
-                                        <p>{{ $data->BetaBlockerDoseatAdmission }} mg/day</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Beta Blocker Dose at Predischarge</label>
+                                        <label>Beta Blocker Dose at Discharge</label>
                                         <p>{{ $data->BetaBlockerDoseatPredischarge }} mg/day</p>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Loop Diuretic Dose at Admission</label>
-                                        <p>{{ $data->LoopDiureticDoseatAdmission }} mg/day</p>
+                               <div class="col-md-6">
+                                        <label>First Dose of Loop Diuretic</label>
+                                    <div class="input-group">
+                                       <p>{{ $data->LoopDiureticDoseatAdmission}} .mg</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Loop Diuretic Dose at Predischarge</label>
+                                        <label>Loop Diuretic Dose at Discharge</label>
                                         <p>{{ $data->LoopDiureticDoseatPredischarge }} mg/day</p>
                                     </div>
                                 </div>
@@ -1123,55 +1003,38 @@
                                         <p>{{ $data->sglt2i }}</p>
                                     </div>
                                 </div>
+                                
+                            
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>SGLT2i Dose at Admission</label>
-                                        <p>{{ $data->sglt2iDoseatAdmission }} mg/day</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>SGLT2i Dose at Predischarge</label>
-                                        <p>{{ $data->sglt2iDoseatPredischarge }} mg/day</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Ivabradine Dose at admission</label>
-                                        <p>{{ $data->ivabradineDoseatAdmission }} mg/day</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Ivabradine Dose at predischarge</label>
+                                        <label>Ivabradine Dose at Discharge</label>
                                         <p>{{ $data->ivabradineDoseatPredischarge }} mg/day</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Tolvaptan Total Dose </label>
-                                        <p>{{ $data->TolvaptanTotalDose }} mg/day</p>
+                                        <label>Tolvaptan</label>
+                                        <p>{{ $data->Tolvaptan }} mg/day</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Insulin</label>
-                                        <p>{{ $data->insulin }}</p>
+                                        <label>Statin</label>
+                                        <p>{{ $data->statin }} mg/day</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Insulin Dose</label>
-                                        <p>{{ $data->insulinDose }}</p>
+                                        <label>Inotropic</label>
+                                        <p>{{ $data->inotropic }} mg/day</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Other OAD</label>
-                                        <p>{{ $data->otherOAD }}</p>
+                                        <label>Vasoconstrictor</label>
+                                        <p>{{ $data->vasoconstrictor }}</p>
                                     </div>
                                 </div>
-
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" class="default-btn prev-step">Back</button></li>

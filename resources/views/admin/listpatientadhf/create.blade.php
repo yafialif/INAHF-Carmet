@@ -1567,7 +1567,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Loop Diuretic Dose at Discharge</label>
+                                        <label>Loop Diuretic Dose at Predischarge</label>
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="LoopDiureticDoseatPredischarge"
                                             placeholder="">

@@ -298,6 +298,7 @@ class ListPatientAdhfController extends Controller
 
 	public function show($id)
 	{
+
 		$patient = DB::table('patient')
 			->join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
 			->join('adhfechocardiography', 'patient.id', '=', 'adhfechocardiography.patient_id')
@@ -312,12 +313,14 @@ class ListPatientAdhfController extends Controller
 			->where('patient.id', $id)
 			->get();
 		$data = $patient[0];
+		$rumahsakit = RumahSakit::where('id', $data->rs_id)->get();
 
 		// return response()->json($data);
-		return view('admin.listpatientadhf.show', compact('data'));
+		return view('admin.listpatientadhf.show', compact('data', 'rumahsakit'));
 	}
 	public function edit($id)
 	{
+
 		$patient = DB::table('patient')
 			->join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
 			->join('adhfechocardiography', 'patient.id', '=', 'adhfechocardiography.patient_id')
@@ -331,7 +334,8 @@ class ListPatientAdhfController extends Controller
 			->where('patient.id', $id)
 			->get();
 		$data = $patient[0];
-		$rumahsakit = RumahSakit::pluck('name_of_rs', 'id');
+		// $rumahsakit = RumahSakit::pluck('name_of_rs', 'id');
+		$rumahsakit = RumahSakit::where('id', $data->rs_id)->get();
 		// return response()->json($data);
 
 		return view('admin.listpatientadhf.edit', compact('data', 'rumahsakit'));
