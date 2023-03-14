@@ -1901,8 +1901,8 @@ function countBun(){
 
     function countAge(){
         // var age = document.getElementById('age').value;
-        var datebirth = document.getElementById('datebirth').value;
-        var dateadmission = document.getElementById('dateadmission').value;
+        var datebirth = document.getElementById('dateOfBirth').value;
+        var dateadmission = document.getElementById('dateOfAdmission').value;
         var today = new Date(dateadmission);
         var birthday = new Date(datebirth);
         var year = 0;
@@ -1916,6 +1916,7 @@ function countBun(){
             age = 0;
         }
         document.getElementById('age').value = age;
+        console.log(age);
     }
     function countGfr(){
         var dataForm = new FormData(document.getElementById("dataForm"));
