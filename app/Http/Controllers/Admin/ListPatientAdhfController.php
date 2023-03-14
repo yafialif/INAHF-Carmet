@@ -122,10 +122,8 @@ class ListPatientAdhfController extends Controller
 	// public function store(CreateAdhf $request)
 	public function store(CreateAdhf $request)
 	{
-
 		$user_id = Auth::user()->id;
 		$categorytreatment_id = 1;
-
 		// Patient
 		$patient = new Patient();
 		$patient->user_id = $user_id;
@@ -291,9 +289,8 @@ class ListPatientAdhfController extends Controller
 		$Outcomes->additional_notes = $request->additional_notes;
 		$Outcomes->save();
 
-		// return response()->json($request);
-
-		return redirect()->route('admin.listpatientadhf.index');
+		return response()->json($request);
+		// return redirect()->route('admin.listpatientadhf.index');
 	}
 
 	public function show($id)

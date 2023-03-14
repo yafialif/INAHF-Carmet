@@ -40,7 +40,6 @@ class CreateAdhf extends FormRequest
             'dbp' => 'required',
             'hr' => 'required',
             'dyspnoea_at_rest' => 'required',
-            'dyspnoea_at_rest' => 'required',
             'orthopnea' => 'required',
             'pnd' => 'required',
             'peripheral_oedema' => 'required',

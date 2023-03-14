@@ -411,6 +411,8 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
         @endif
 <div id="notification" class="alert alert-success" role="alert">
 </div>
+<div id="notification2" class="alert alert-danger" role="alert">
+</div>
 
 
 <section class="signup-step-container">
@@ -1273,7 +1275,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="random_blood_glucose"
-                                            placeholder="">
+                                            placeholder="" required>
                                         <span class="input-group-addon">gr/dL</span>
 
                                     </div>
@@ -1284,7 +1286,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     <div class="input-group">
                                         <input id="si" class="form-control" type="number" name="hba1c"
                                             placeholder="">
-                                        <span class="input-group-addon">mmol/mol</span>
+                                        <span class="input-group-addon">%</span>
 
                                     </div>
                                 </div>
@@ -1320,7 +1322,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>Kalium *</label>
 
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="kalium" placeholder="">
+                                        <input class="form-control" type="number" name="kalium" placeholder="" required>
                                         <span class="input-group-addon">.mEq/L</span>
 
                                     </div>
@@ -1329,7 +1331,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>Ureum *</label>
 
                                     <div class="input-group">
-                                        <input class="form-control" id="ureum" onkeyup="countBun()" type="number" name="ureum" placeholder="">
+                                        <input class="form-control" id="ureum" onkeyup="countBun()" type="number" name="ureum" placeholder="" required>
                                         <span class="input-group-addon">gr/dL</span>
 
                                     </div>
@@ -1350,7 +1352,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     <div class="input-group">
                                         <input onkeyup="countGfr()" id="scr" class="form-control" type="number" name="serum_creatinine"
-                                            placeholder="">
+                                            placeholder="" required>
                                         <span class="input-group-addon">mg/dL</span>
 
                                     </div>
@@ -1734,10 +1736,10 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input type="radio" name="inhospitalDeath" value="Yes">Yes</label>
+                                            <label><input type="radio" name="inhospitalDeath" value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="inhospitalDeath" value="No">No</label>
+                                            <label><input type="radio" name="inhospitalDeath" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -1747,10 +1749,10 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="vulnerablePhaseDeath"
-                                                    value="Yes">Yes</label>
+                                                    value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="vulnerablePhaseDeath" value="No">No</label>
+                                            <label><input type="radio" name="vulnerablePhaseDeath" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
@@ -1785,7 +1787,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
-                                        <li><button type="button" onclick="finish()" type="submit" class="default-btn next-step">Finish</button></li>
+                                        <li><button type="button" onclick="finish()" class="default-btn next-step">Finish</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1838,8 +1840,41 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 </script>
 <script>
     function finish(){
-    document.getElementById("dataForm").submit();
+        var input = document.getElementsByTagName("form")[1].getElementsByTagName("input")
+        var data = Array();
+        var data2 = Array();
+        for (i = 0; i < input.length; i++) {
+                if(input[parseInt(i)].required == true){
+                    if(input[parseInt(i)].value == ''){
+                        data.push(input[parseInt(i)].name);
 
+                    }
+                }
+        }
+        var select = document.getElementsByTagName("form")[1].getElementsByTagName("select");
+        for (i = 0; i < select.length; i++) {
+            if(select[parseInt(i)].required == true){
+                if(select[parseInt(i)].value == ''){
+                    data2.push(select[parseInt(i)].name);
+                }
+            }
+        }
+        if(data.length >=1 || data2.length >=1){
+            const msg1 = data.toString();
+            const msg2 = data2.toString();
+            const msg = msg1+msg2+" required to be filled in";
+            // notification(msg);
+            document.getElementById('notification2').innerHTML = msg;
+            $("#notification2").show();
+            setTimeout(function () {
+                $("#notification2").hide();
+            }, 8000);
+            console.log(data.length+' '+data2.length);
+
+        }
+        else{
+            document.getElementById("dataForm").submit();
+        }
     }
     var data = localStorage.getItem("form_adhf");
     var internet_status;
@@ -1851,6 +1886,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
             $("#getlocal").hide();
         }
         $("#notification").hide();
+        $("#notification2").hide();
 
     }, false);
 
@@ -2028,7 +2064,6 @@ function removelocal() {
             if (variable == "radio") {
                 if (obj[parseInt(i)] == "true") {
                     input[parseInt(i)].checked = obj[parseInt(i)];
-                    console.log(input[parseInt(4)].name + " numb " + 4 + " = " + obj[parseInt(4)]);
                 }
             } else {
                 input[parseInt(i)].value = obj[parseInt(i)];
@@ -2095,8 +2130,6 @@ function removelocal() {
         }
     }
 
-
-
     window.addEventListener('load', function (e) {
         if (navigator.onLine) {
             updateConnectionStatus('Online', true);
@@ -2139,18 +2172,13 @@ function removelocal() {
             }
         });
        
-        
         // $(".next-step").click(function (e) {
             
-
         // });
         // $(".prev-step").click(function (e) {
 
-           
-
         // });
     });
-
     function nextTab(elem) {
         var cova = $(elem).next().find('a[data-toggle="tab"]').click();
         // console.log(cova);
