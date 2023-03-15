@@ -472,8 +472,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     <div class="col-md-6">
                                         <label>RS</label>
                                     <div class="input-group">
-                                            <input class="form-control" type="text" name="name" value="{{ $rumahsakit[0]->name_of_rs }}" placeholder="" readonly>
-                                            {{-- {!! Form::select('rs_id', $rumahsakit, old('id'), array('class'=>'form-control')) !!} --}}
+                                            {!! Form::select('rs_id', $rumahsakit, old('id'), array('class'=>'form-control')) !!}
                                         {{-- <input class="form-control" type="number" name="iccu" placeholder=""> --}}
                                     </div>
                                 </div>

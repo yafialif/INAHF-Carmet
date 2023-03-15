@@ -289,8 +289,8 @@ class ListPatientAdhfController extends Controller
 		$Outcomes->additional_notes = $request->additional_notes;
 		$Outcomes->save();
 
-		return response()->json($request);
-		// return redirect()->route('admin.listpatientadhf.index');
+		// return response()->json($request);
+		return redirect()->route('admin.listpatientadhf.index');
 	}
 
 	public function show($id)
@@ -332,8 +332,11 @@ class ListPatientAdhfController extends Controller
 			->get();
 		$data = $patient[0];
 		// $rumahsakit = RumahSakit::pluck('name_of_rs', 'id');
-		$rumahsakit = RumahSakit::where('id', $data->rs_id)->get();
+		// $rumahsakit = RumahSakit::where('id', $data->rs_id)->get();
 		// return response()->json($data);
+
+		$rumahsakit = RumahSakit::where('id', $data->rs_id)->pluck('name_of_rs', 'id');
+		// $rumahsakit = RumahSakit::where('user_id', $user_id)->pluck('name_of_rs', 'id');
 
 		return view('admin.listpatientadhf.edit', compact('data', 'rumahsakit'));
 	}
