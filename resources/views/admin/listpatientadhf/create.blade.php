@@ -440,27 +440,27 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             </li> --}}
                             <li role="presentation" class="">
                                 <a href="#step6" data-toggle="tab" aria-controls="step5" role="tab"><span
-                                        class="round-tab">6</span> <i>Echocardiography</i></a>
+                                        class="round-tab">5</span> <i>Echocardiography</i></a>
                             </li>
                             <li role="presentation" class="">
                                 <a href="#step7" data-toggle="tab" aria-controls="step6" role="tab"><span
-                                        class="round-tab">7</span> <i>Blood Laboratory Test</i></a>
+                                        class="round-tab">6</span> <i>Blood Laboratory Test</i></a>
                             </li>
                             <li role="presentation" class="">
                                 <a href="#step8" data-toggle="tab" aria-controls="step7" role="tab"><span
-                                        class="round-tab">8</span> <i>Blood Gas Analysis</i></a>
+                                        class="round-tab">7</span> <i>Blood Gas Analysis</i></a>
                             </li>
                             <li role="presentation" class="">
                                 <a href="#step9" data-toggle="tab" aria-controls="step8" role="tab"><span
-                                        class="round-tab">9</span> <i>Medication</i></a>
+                                        class="round-tab">8</span> <i>Medication</i></a>
                             </li>
                             <li role="presentation" class="">
                                 <a href="#step10" data-toggle="tab" aria-controls="step9" role="tab"><span
-                                        class="round-tab">10</span> <i>Hospitalization</i></a>
+                                        class="round-tab">9</span> <i>Hospitalization</i></a>
                             </li>
                             <li role="presentation" class="">
                                 <a href="#step11" data-toggle="tab" aria-controls="step10" role="tab"><span
-                                        class="round-tab">11</span> <i>Outcomes</i></a>
+                                        class="round-tab">10</span> <i>Outcomes</i></a>
                             </li>
 
 
@@ -1564,7 +1564,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Loop Diuretic Dose at Predischarge</label>
+                                        <label>Loop Diuretic Dose at Discharge</label>
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="LoopDiureticDoseatPredischarge"
                                             placeholder="">
