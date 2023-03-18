@@ -356,11 +356,6 @@
         border-color: #18ba60;
     }
 
-
-
-
-
-
     @media (max-width: 767px) {
         .sign-content h3 {
             font-size: 40px;
