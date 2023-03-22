@@ -1606,7 +1606,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                             <label><input type="radio" name="Tolvaptan"
                                                     value="No">No</label>
                                         </div>
-                                        
                                     </div>
                                 </div>
                                 <div class="col-md-6">

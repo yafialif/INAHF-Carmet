@@ -1,6 +1,22 @@
 @extends('admin.layouts.master')
 @section('css')
 <style>
+    /* divider */
+    .divider{
+    height: 2px;
+    background: #e0e0e0;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    z-index: 1;
+    }
+    .col-divider{
+        margin: 20px 0px 20px 0px;
+    }
+    /* end divider */
     .input-group{
         width: 100%;
         padding-bottom: 20px;
@@ -452,9 +468,9 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>NYHA Class</label>
+                                        <label>NYHA Class *</label>
                                         <div class="input-group">
-                                        <select class="form-control" name="nyhaClass">
+                                        <select class="form-control" name="nyhaClass" required>
                                                 <option value="Class I">Class I</option>
                                                 <option value="Class II">Class II</option>
                                                 <option value="Class III">Class III</option>
@@ -463,69 +479,82 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Systolic Blood Pressure</label>
+                                        <label>Systolic Blood Pressure *</label>
                                     <div class="input-group">
-                                            <input id="sbp" class="form-control" type="text" name="sbp" placeholder="">
+                                            <input id="sbp" class="form-control" type="text" name="sbp" placeholder="" required>
                                         <span class="input-group-addon">.mmHg</span>
                                         </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Diastolic Blood Pressure</label>
+                                        <label>Diastolic Blood Pressure *</label>
                                     <div class="input-group">
-                                            <input id="dbp" class="form-control" type="text" name="dbp" placeholder="" >
+                                            <input id="dbp" class="form-control" type="text" name="dbp" placeholder="" required>
                                         <span class="input-group-addon">.mmHg</span>
                                         </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Heart rate</label>
+                                        <label>Heart Rate *</label>
                                     <div class="input-group">
-                                            <input id="hr" class="form-control" type="text" name="hr" placeholder="" >
+                                            <input id="hr" class="form-control" type="text" name="hr" placeholder="" required>
                                         <span class="input-group-addon">.bpm</span>
                                         </div>
                                 </div>
+                                <div class="col-md-12 col-divider">
+                                    <div class="divider"></div>
+                                </div>
                                 <div class="col-md-6">
+                                        <label>Is there echo evaluation during the last 6 month? </label>
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input id="echoEvaluation" onchange="IfechoEvaluation()" type="radio" name="echoEvaluation" value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input id="echoEvaluation" onchange="IfechoEvaluation()" type="radio" name="echoEvaluation" value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="echoEf" class="col-md-6">
                                         <label>Echo EF</label>
                                     <div class="input-group">
-                                            <input id="echoEf" class="form-control" type="text" name="echoEf" placeholder="" >
+                                            <input class="form-control" type="text" name="echoEf" placeholder="" >
                                         <span class="input-group-addon">%</span>
                                         </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div id="echoTapse" class="col-md-6">
                                         <label>Echo TAPSE</label>
                                     <div class="input-group">
-                                            <input id="echoTapse" class="form-control" type="text" name="echoTapse" placeholder="" >
+                                            <input class="form-control" type="text" name="echoTapse" placeholder="" >
                                         <span class="input-group-addon">.mm</span>
                                         </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div id="echoEdv" class="col-md-6">
                                         <label>Echo EDV</label>
                                     <div class="input-group">
-                                            <input id="echoEdv" class="form-control" type="text" name="echoEdv" placeholder="" >
+                                            <input class="form-control" type="text" name="echoEdv" placeholder="" >
                                         <span class="input-group-addon">.ml</span>
                                         </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div id="echoEsv" class="col-md-6">
                                         <label>Echo ESV</label>
                                     <div class="input-group">
-                                            <input id="echoEsv" class="form-control" type="text" name="echoEsv" placeholder="" >
+                                            <input class="form-control" type="text" name="echoEsv" placeholder="" >
                                         <span class="input-group-addon">.ml</span>
                                         </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>Echo EDD</label>
+                                <div id="lvMaxIndex" class="col-md-6">
+                                        <label>LV Max Index</label>
                                     <div class="input-group">
-                                            <input id="age" class="form-control" type="text" name="echoEdd" placeholder="" >
-                                        <span class="input-group-addon">.mm</span>
+                                            <input class="form-control" type="text" name="lvMaxIndex" placeholder="" >
+                                        <span class="input-group-addon">.gr/m2</span>
                                         </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>Echo ESD</label>
+                                <div id="ee" class="col-md-6">
+                                        <label>E/e average</label>
                                     <div class="input-group">
-                                            <input id="echoEsd" class="form-control" type="text" name="echoEsd" placeholder="" >
-                                        <span class="input-group-addon">.mm</span>
+                                            <input class="form-control" type="text" name="ee" placeholder="" >
                                         </div>
                                 </div>
-                                 <div class="col-md-6">
+                                 <div id="signMr" class="col-md-6">
                                         <label>Echo Sign.MR</label>
                                         <div class="input-group">
                                         <select class="form-control" name="echoSignMr">
@@ -536,18 +565,14 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                             </select>
                                     </div>
                                 </div>
-                                 <div class="col-md-6">
+                                 {{-- <div class="col-md-6">
                                         <label>E/A</label>
                                         <div class="input-group">
                                             <input id="echoEsd" class="form-control" type="text" name="echoDiastolicFunction" placeholder="" >
-
-                                        {{-- <select class="form-control" name="echoDiastolicFunction">
-                                            <option value="Normal">Normal</option>
-                                            <option value="Pseudonormal">Pseudonormal</option>
-                                            <option value="Relaxation disorder">Relaxation disorder</option>
-                                            <option value="Restrictive">Restrictive</option>
-                                        </select> --}}
                                     </div>
+                                </div> --}}
+                                <div class="col-md-12 col-divider">
+                                    <div class="divider"></div>
                                 </div>
                                  <div class="col-md-6">
                                         <label>ACEi</label>
@@ -577,31 +602,6 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                                 <option value="angioedema">angioedema</option>
                                             </select>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ARB</label>
-                                        <div class="input-group">
-                                        <select class="form-control" name="arb">
-                                                <option value="None">None</option>
-                                                <option value="Candesartan">Candesartan</option>
-                                                <option value="Valsartan">Valsartan</option>
-                                                <option value="Losartan">Losartan</option>
-                                            </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ARB Dose</label>
-                                    <div class="input-group">
-                                            <input id="arbDose" class="form-control" type="text" name="arbDose" placeholder="" >
-                                        <span class="input-group-addon">.mg/day</span>
-                                        </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ARNI Dose</label>
-                                    <div class="input-group">
-                                            <input id="arniDose" class="form-control" type="text" name="arniDose" placeholder="" >
-                                        <span class="input-group-addon">.mg/day</span>
-                                        </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Beta Blocker</label>
@@ -634,21 +634,60 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                        <label>ARB</label>
+                                        <div class="input-group">
+                                        <select class="form-control" name="arb">
+                                                <option value="None">None</option>
+                                                <option value="Candesartan">Candesartan</option>
+                                                <option value="Valsartan">Valsartan</option>
+                                                <option value="Losartan">Losartan</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>ARB Dose</label>
+                                    <div class="input-group">
+                                            <input id="arbDose" class="form-control" type="text" name="arbDose" placeholder="" >
+                                        <span class="input-group-addon">.mg/day</span>
+                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>ARNI Dose</label>
+                                    <div class="input-group">
+                                            <input id="arniDose" class="form-control" type="text" name="arniDose" placeholder="" >
+                                        <span class="input-group-addon">.mg/day</span>
+                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Devices</label>
+                                    <div class="input-group">
+                                        {{-- <input class="form-control" type="number" name="otherOAD" placeholder="">
+                                        <span class="input-group-addon">mg/day</span> --}}
+                                        <select class="form-control" name="devices" >
+                                                <option value="PPM">PPM</option>
+                                                <option value="ICD">ICD</option>
+                                                <option value="CRTP">CRTP</option>
+                                                <option value="CRTD">CRTD</option>
+                                                <option value="CSP">CSP</option>
+                                                <option value="None">None</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
                                         <label>MRA Dose</label>
                                     <div class="input-group">
                                             <input id="mraDose" class="form-control" type="text" name="mraDose" placeholder="" >
                                         <span class="input-group-addon">.mg/day</span>
                                         </div>
                                 </div>
-                                 <div class="col-md-6">
+                                <div class="col-md-6">
                                         <label>MRA Intolerance</label>
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="mraIntolerance" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="mraIntolerance" value="No">No</label>
-                                        </div>
+                                        <div class="input-group">
+                                        <select class="form-control" name="mraIntolerance">
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -660,6 +699,20 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                                 <option value="Dapagliflozin">Dapagliflozin</option>
                                             </select>
                                     </div>
+                                </div>
+                                 <div class="col-md-6">
+                                        <label>SGLT2i</label>
+
+                                    <div class="input-group">
+                                        <select class="form-control" name="sglt2i" >
+                                                <option value="None">None</option>
+                                                <option value="Empagliflozin">Empagliflozin</option>
+                                                <option value="Dapagliflozin">Dapagliflozin</option>
+                                        </select>
+                                        
+                                        {{-- <input class="form-control" type="number" name="sglt2i" placeholder=""> --}}
+                                    </div>
+                                    
                                 </div>
                                 <div class="col-md-6">
                                         <label>SGLT2i Dose</label>
@@ -683,6 +736,18 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                         </div>
                                 </div>
                                 <div class="col-md-6">
+                                        <label>Statin</label>
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input type="radio" name="statin" value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="statin"
+                                                    value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
                                         <label>Insulin</label>
                                     <div class="input-group">
                                         <div class="radio">
@@ -693,13 +758,68 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-12 col-divider">
+                                    <div class="divider"></div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Total Rehospitalization *</label>
+
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input type="radio" name="totalRehospitalization" value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="totalRehospitalization" value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>All cause death *</label>
+
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input type="radio" name="allCauseDeath"
+                                                    value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="allCauseDeath" value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Cardiac related death *</label>
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input type="radio" name="cardiacRelatedDeath"
+                                                    value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="cardiacRelatedDeath"
+                                                    value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Date of death</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="date" name="dateofDeath" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                        <label>Additional Notes</label>
+                                    <div class="input-group">
+                                        <textarea class="form-control " id="editor2" name="additional_notes" cols="50" rows="10" id="detail"></textarea>
+                                    </div>
+                                </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button onclick="finish()" type="submit" class="default-btn next-step">Finish</button></li>
                                     </ul>
                                 </div>
-                            </div>
                             <div class="clearfix"></div>
+                               
+                            </div>
+                            
                             {{-- <input class="btn" type="button" onclick="review_data()" value="Preview Data"> --}}
 
                         </div>
@@ -735,11 +855,42 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
 @endsection
 
 @section('javascript')
-
+<script>
+    let editor;
+                        ClassicEditor
+                                .create( document.querySelector( '#editor2' ) )
+                                .then( newEditor => {
+                                    editor = newEditor;
+                                } )
+                                .catch( error => {
+                                    console.error( error );
+                                } );
+                </script>
 <script>
     function finish(){
     document.getElementById("dataForm").submit();
 
+    }
+    function IfechoEvaluation(){
+        var echoEvaluation = $('input[name="echoEvaluation"]:checked').val();
+        if(echoEvaluation=="Yes"){
+            $("#echoEf").show();
+            $("#echoTapse").show();
+            $("#echoEdv").show();
+            $("#echoEsv").show();
+            $("#lvMaxIndex").show();
+            $("#ee").show();
+            $("#signMr").show();
+        }
+        else{
+             $("#echoEf").hide();
+             $("#echoTapse").hide();
+             $("#echoEdv").hide();
+             $("#echoEsv").hide();
+             $("#lvMaxIndex").hide();
+             $("#ee").hide();
+             $("#signMr").hide();
+        }
     }
     var data = localStorage.getItem("chroni_month");
     var internet_status;
