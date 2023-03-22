@@ -457,7 +457,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             <div class="tab-pane active" role="tabpanel" id="step1">
                                 <h4 class="text-center">Patient Identity</h4>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label>RS *</label>
 
                                     <div class="input-group">
@@ -490,20 +490,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                            <label>Date of clinic visit *</label>
-                                        <div class="input-group">
-                                            <input id="dateadmission" onchange="countAge()" class="form-control" type="date" name="dateOfAdmission"
-                                                placeholder="" required>
-                                            </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Year of admission *</label>
-                                        <div class="input-group">
-                                            <select id="yearOfAdmission" onkeydown="yearOfAdmission()" class="form-control" type="number" name="yearOfAdmission"
-                                                placeholder="" required></select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
                                         <label>Age *</label>
                                         <div class="input-group">
                                             <input id="age" class="form-control" type="text" name="age" placeholder="" readonly required>
@@ -511,26 +497,23 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         
                                         </div>
                                     </div>
+                                    
                                     <div class="col-md-6">
-                                            <label>Sex *</label>
-
+                                        <label>Year of admission *</label>
                                         <div class="input-group">
-                                            <div class="radio">
-                                                <label><input id="sex" onchange="countBmi()" type="radio" name="gender" value="Male" required>Male</label>
-                                            </div>
-                                            <div class="radio">
-                                                <label><input id="sex" onchange="countBmi()" type="radio" name="gender" value="Female" required>Female</label>
-                                            </div>
+                                            <select id="yearOfAdmission" class="form-control" type="number" name="yearOfAdmission"
+                                                placeholder="" required></select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                            <label>Phone</label>
-
+                                            <label>Date of clinic visit *</label>
                                         <div class="input-group">
-                                            <input class="form-control" type="number" name="phone"
-                                                placeholder="6280000000" required>
+                                            <input id="dateadmission" onchange="countAge()" class="form-control" type="date" name="dateOfAdmission"
+                                                placeholder="" required>
                                             </div>
                                     </div>
+                                    
+                                    
                                     {{-- <div class="col-md-6">
                                             <label>Date of discharge *</label>
                                         <div class="input-group">
@@ -561,6 +544,26 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                                 <option value="Bachelor/Magister/Doctor">Bachelor/Magister/Doctor</option>
                                             </select>
                                         </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                            <label>Sex *</label>
+
+                                        <div class="input-group">
+                                            <div class="radio">
+                                                <label><input id="sex" onchange="countBmi()" type="radio" name="gender" value="Male" required>Male</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input id="sex" onchange="countBmi()" type="radio" name="gender" value="Female" required>Female</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                            <label>Phone</label>
+
+                                        <div class="input-group">
+                                            <input class="form-control" type="number" name="phone"
+                                                placeholder="6280000000" required>
+                                            </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -990,6 +993,13 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                        <label>LV max index</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" name="lvMaxIndex" placeholder="">
+                                        <span class="input-group-addon">.gr/m2</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
                                         <label>E/e’ average</label>
                                     <div class="input-group">
                                         <input class="form-control" type="text" name="diastolicFunction" placeholder="">
@@ -1380,16 +1390,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
     var data = localStorage.getItem("form_chronic");
     var internet_status;
 
-    function yearOfAdmission(){
-        const year = new Date().getFullYear();;
-        // console.log(date);
-        for(var i=1980; i<= year; i++){
-        var x = "<option>" + i + "</option>";
-        document.getElementById("yearOfAdmission").innerHTML += x;
-        }
-        // alert(document.getElementById("yearOfAdmission").value);
-    // $('#yearOfAdmission').
-    };
+    
 
     document.addEventListener('DOMContentLoaded', function () {
         if (data) {
@@ -1704,11 +1705,20 @@ function removelocal() {
         $(elem).prev().find('a[data-toggle="tab"]').click();
     }
     // get data to array
-
+function yearOfAdmission(){
+        const year = new Date().getFullYear();;
+        // console.log(date);
+        for(var i=1980; i<= year; i++){
+        var x = "<option>" + i + "</option>";
+        document.getElementById("yearOfAdmission").innerHTML += x;
+        }
+        // alert(document.getElementById("yearOfAdmission").value);
+    // $('#yearOfAdmission').
+    };
 </script>
 <script>
     $(document).ready(function () {
-
+yearOfAdmission();
     });
 
 </script>
