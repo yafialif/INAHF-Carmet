@@ -31,7 +31,9 @@ class Patient extends Model
         'dateOfAdmission',
         'insurance',
         'education',
-        'dateOfDischarge'
+        'dateOfDischarge',
+        'yearOfAdmission',
+        'dateOfClinicVisit',
     ];
 
 

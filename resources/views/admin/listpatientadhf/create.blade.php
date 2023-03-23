@@ -397,6 +397,8 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
     Your internet connection is lost, data is automatically stored locally, click save again to update data on local
     storage.
 </div>
+<div id="notification" class="alert alert-success" role="alert">
+</div>
 @if ($errors->any())
         	<div class="alert alert-danger">
         	    <ul>
@@ -404,8 +406,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                 </ul>
         	</div>
         @endif
-<div id="notification" class="alert alert-success" role="alert">
-</div>
+
 <div id="notification2" class="alert alert-danger" role="alert">
 </div>
 

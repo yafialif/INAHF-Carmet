@@ -32,10 +32,9 @@ class CreateChronic extends FormRequest
             'insurance' => 'required',
             'education' => 'required',
             'dateOfBirth' => 'required',
-            'dateOfAdmission' => 'required',
-            'totalRehospitalization' => 'required',
-            'allCauseDeath' => 'required',
-            'cardiacRelatedDeath' => 'required',
+            'dateOfClinicVisit' => 'required',
+            'yearOfAdmission' => 'required',
+            'phone' => 'required',
 
             //Clinical Profile
             'height' => 'required',
@@ -44,8 +43,13 @@ class CreateChronic extends FormRequest
             'dbp' => 'required',
             'hr' => 'required',
             'bmi' => 'required',
+            'dyspnoeaOnExertion' => 'required',
+            'orthopnea' => 'required',
             'nyhaClass' => 'required',
             'etiology' => 'required',
+            'pnd' => 'required',
+            'peripheralOedema' => 'required',
+            'pulmonaryRales' => 'required',
 
             // Risk Factor
             'smoker' => 'required',
@@ -72,10 +76,8 @@ class CreateChronic extends FormRequest
             'randomBloodGlucose' => 'required',
             'kalium' => 'required',
             'ureum' => 'required',
-            'scr' => 'required',
+            'serumCreatinine' => 'required',
             'gfr' => 'required',
-
-
 
         ];
     }

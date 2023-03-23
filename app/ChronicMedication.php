@@ -8,37 +8,39 @@ use Laraveldaily\Quickadmin\Observers\UserActionsObserver;
 
 
 
-class ChronicMedication extends Model {
+class ChronicMedication extends Model
+{
 
-    
 
-    
+
+
 
     protected $table    = 'chronicmedication';
-    
+
     protected $fillable = [
-          'patient_id',
-          'categorytreatment_id',
-          'acei',
-          'aceiDose',
-          'aceiIntolerance',
-          'arb',
-          'arbDose',
-          'arniDose',
-          'betaBlocker',
-          'betaBlockerDose',
-          'betaBlockerIntolerance',
-          'mraDose',
-          'mraIntolerance',
-          'sglt2i',
-          'sglt2iDose',
-          'loopDiuretic',
-          'loopDiureticDose',
-          'ivabradineDose',
-          'insulin',
-          'devices'
+        'patient_id',
+        'categorytreatment_id',
+        'acei',
+        'aceiDose',
+        'aceiIntolerance',
+        'arb',
+        'arbDose',
+        'arniDose',
+        'betaBlocker',
+        'betaBlockerDose',
+        'betaBlockerIntolerance',
+        'mraDose',
+        'mraIntolerance',
+        'sglt2i',
+        'sglt2iDose',
+        'loopDiuretic',
+        'loopDiureticDose',
+        'ivabradineDose',
+        'statin',
+        'insulin',
+        'devices'
     ];
-    
+
 
     public static function boot()
     {
@@ -46,7 +48,7 @@ class ChronicMedication extends Model {
 
         ChronicMedication::observe(new UserActionsObserver);
     }
-    
+
     public function patient()
     {
         return $this->hasOne('App\Patient', 'id', 'patient_id');
@@ -57,9 +59,4 @@ class ChronicMedication extends Model {
     {
         return $this->hasOne('App\CategoryTreatment', 'id', 'categorytreatment_id');
     }
-
-
-    
-    
-    
 }

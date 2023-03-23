@@ -118,7 +118,7 @@
     }
 
     .wizard .nav-tabs>li {
-        width: 12%;
+        width: 16%;
     }
 
     .wizard li:after {
@@ -402,8 +402,17 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
     Your internet connection is lost, data is automatically stored locally, click save again to update data on local
     storage.
 </div>
+<div id="notification2" class="alert alert-danger" role="alert">
+</div>
 <div id="notification" class="alert alert-success" role="alert">
 </div>
+@if ($errors->any())
+        	<div class="alert alert-danger">
+        	    <ul>
+                    {!! implode('', $errors->all('<li class="error">:message</li>')) !!}
+                </ul>
+        	</div>
+        @endif
 
 
 <section class="signup-step-container">
@@ -426,27 +435,19 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab"><span
                                         class="round-tab">3</span> <i>Risk Factors</i></a>
                             </li>
-                            {{-- <li role="presentation" class="">
-                                <a href="#step4" data-toggle="tab" aria-controls="step5" role="tab"><span
-                                        class="round-tab">4</span> <i>Ro thorax</i></a>
-                            </li> --}}
+                            
                             <li role="presentation" class="">
-                                <a href="#step5" data-toggle="tab" aria-controls="step6" role="tab"><span
+                                <a href="#step4" data-toggle="tab" aria-controls="step6" role="tab"><span
                                         class="round-tab">4</span> <i>Echocardiography</i></a>
                             </li>
                             <li role="presentation" class="">
-                                <a href="#step6" data-toggle="tab" aria-controls="step7" role="tab"><span
+                                <a href="#step5" data-toggle="tab" aria-controls="step7" role="tab"><span
                                         class="round-tab">5</span> <i>Blood Laboratory Test</i></a>
                             </li>
                            
                             <li role="presentation" class="">
-                                <a href="#step7" data-toggle="tab" aria-controls="step8" role="tab"><span
+                                <a href="#step6" data-toggle="tab" aria-controls="step8" role="tab"><span
                                         class="round-tab">6</span> <i>Medication</i></a>
-                            </li>
-                          
-                            <li role="presentation" class="">
-                                <a href="#step8" data-toggle="tab" aria-controls="step9" role="tab"><span
-                                        class="round-tab">7</span> <i>Outcomes</i></a>
                             </li>
                         </ul>
                     </div>
@@ -459,7 +460,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label>RS *</label>
-
                                     <div class="input-group">
                                             {!! Form::select('rs_id', $rumahsakit, old('id'), array('class'=>'form-control')) !!}
                                         {{-- <input class="form-control" type="number" name="iccu" placeholder=""> --}}
@@ -467,26 +467,20 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                     <div class="col-md-6">
                                             <label>NIK *</label>
-
                                         <div class="input-group">
                                             <input class="form-control" type="number" name="nik" placeholder="" required>
-                                            
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                             <label>Name *</label>
-
                                         <div class="input-group">
                                             <input class="form-control" type="text" name="name" placeholder="" required>
-                                       
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                             <label>Date of birth *</label>
-
                                         <div class="input-group">
                                             <input id="datebirth" onchange="countAge()" class="form-control" type="date" name="dateOfBirth" placeholder="" required>
-                                        
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -494,10 +488,8 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <div class="input-group">
                                             <input id="age" class="form-control" type="text" name="age" placeholder="" readonly required>
                                         <span class="input-group-addon">Year old</span>
-                                        
                                         </div>
                                     </div>
-                                    
                                     <div class="col-md-6">
                                         <label>Year of admission *</label>
                                         <div class="input-group">
@@ -508,9 +500,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     <div class="col-md-6">
                                             <label>Date of clinic visit *</label>
                                         <div class="input-group">
-                                            <input id="dateadmission" onchange="countAge()" class="form-control" type="date" name="dateOfAdmission"
+                                            <input id="dateOfClinicVisit" onchange="countAge()" class="form-control" type="date" name="dateOfClinicVisit"
                                                 placeholder="" required>
-                                            </div>
+                                        </div>
                                     </div>
                                     
                                     
@@ -579,7 +571,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="col-md-6">
                                         <label>Height *</label>
                                     <div class="input-group">
-                                        <input type="number" id="height" onkeyup="countBmi()" type="number" name="height" class="form-control" required>
+                                        <input type="number" label="coba lebel" id="height" onkeyup="countBmi()" type="number" name="height" class="form-control" required>
                                         <span class="input-group-addon">.Cm</span>
                                     </div>
                                 </div>
@@ -592,7 +584,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         {{-- <input onkeyup="countBmi()" id="weight" class="form-control" type="number" name="weight" placeholder=""> --}}
                                 </div>
                                 <div class="col-md-6">
-                                        <label>BMI</label>
+                                        <label>BMI *</label>
                                     <div class="input-group">
                                         <input class="form-control" type="text" id="bmi" name="bmi" placeholder="" readonly>
                                         {{-- <span class="input-group-addon">.Kg/m2</span> --}}
@@ -607,14 +599,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 
-                                <div class="col-md-6">
-                                        <label>Diastolic Blood Pressure *</label>
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="dbp" placeholder="" required>
-                                        <span class="input-group-addon">.mmHg</span>
-                                        
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-6">
                                         <label>Systolic Blood Pressure * </label>
 
@@ -625,64 +610,72 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Dyspnoea on exertion</label>
+                                        <label>Diastolic Blood Pressure *</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="number" name="dbp" placeholder="" required>
+                                        <span class="input-group-addon">.mmHg</span>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Dyspnoea on exertion *</label>
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input type="radio" name="dyspnoeaOnExertion" value="Yes">Yes</label>
+                                            <label><input type="radio" name="dyspnoeaOnExertion" value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="dyspnoeaOnExertion" value="No">No</label>
+                                            <label><input type="radio" name="dyspnoeaOnExertion" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Orthopnea</label>
+                                        <label>Orthopnea *</label>
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input type="radio" name="orthopnea" value="Yes">Yes</label>
+                                            <label><input type="radio" name="orthopnea" value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="orthopnea" value="No">No</label>
+                                            <label><input type="radio" name="orthopnea" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Paroxysmal Nocturnal Dyspnoe</label>
+                                        <label>Paroxysmal Nocturnal Dyspnoe *</label>
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input type="radio" name="pnd" value="Yes">Yes</label>
+                                            <label><input type="radio" name="pnd" value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="pnd" value="No">No</label>
+                                            <label><input type="radio" name="pnd" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Peripheral Oedema</label>
+                                        <label>Peripheral Oedema *</label>
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input type="radio" name="peripheralOedema" value="Yes">Yes</label>
+                                            <label><input type="radio" name="peripheralOedema" value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="peripheralOedema" value="No">No</label>
+                                            <label><input type="radio" name="peripheralOedema" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Pulmonary rales</label>
+                                        <label>Pulmonary rales *</label>
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input type="radio" name="pulmonaryRales" value="Yes">Yes</label>
+                                            <label><input type="radio" name="pulmonaryRales" value="Yes" required>Yes</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="pulmonaryRales" value="No">No</label>
+                                            <label><input type="radio" name="pulmonaryRales" value="No" required>No</label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Etiology *</label>
                                     <div class="input-group">
-                                        <select class="form-control" name="etiology">
+                                        <select class="form-control" name="etiology" required>
                                                 <option value="ICM">ICM</option>
                                                 <option value="NICM">NICM</option>
                                                 <option value="Unknown">Unknown</option>
@@ -690,29 +683,19 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Jugular Venous Pressure</label>
+                                        <label>Jugular Venous Pressure *</label>
 
                                     <div class="input-group">
                                         
-                                        <select class="form-control" name="jvp">
+                                        <select class="form-control" name="jvp" required>
                                                 <option value="Normal">Normal</option>
                                                 <option value="Increase">Increase</option>
                                             </select>
                                         {{-- <input class="form-control" type="text" name="jvp" placeholder="" > --}}
                                     </div>
                                 </div>
-                                {{-- <div class="col-md-6">
-                                        <label>AHA Staging</label>
-
-                                    <div class="input-group">
-                                        <select class="form-control" name="ahaStaging">
-                                                <option value="Stage A">Stage A</option>
-                                                <option value="Stage B">Stage B</option>
-                                                <option value="Stage C">Stage C</option>
-                                                <option value="Stage D">Stage D</option>
-                                            </select>
-                                    </div>
-                                </div> --}}
+                                <div class="col-md-6 hidden-sm col-lg-0">
+                                </div>
                                 <div class="col-md-6">
                                         <label>NYHA Class *</label>
                                     <div class="input-group">
@@ -927,7 +910,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                             </div> --}}
                             {{-- Echocardiography --}}
-                            <div class="tab-pane" role="tabpanel" id="step5">
+                            <div class="tab-pane" role="tabpanel" id="step4">
                                 <h4 class="text-center">Echocardiography</h4>
                                 <div class="col-md-6">
                                         <label>EF at first *</label>
@@ -937,7 +920,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>EF at first date *</label>
+                                        <label>Date of first LVEF Examination *</label>
                                     <div class="input-group">
                                         <input class="form-control" type="date" name="efAtFirstDate" placeholder="" required>
                                     </div>
@@ -950,7 +933,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Latest EF date *</label>
+                                        <label>Date of latest LVEF Examination *</label>
                                     <div class="input-group">
                                         <input class="form-control" type="date" name="latestEfDate" placeholder="" required>
                                     </div>
@@ -993,16 +976,16 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>LV max index</label>
+                                        <label>LV mass index</label>
                                     <div class="input-group">
                                         <input class="form-control" type="text" name="lvMaxIndex" placeholder="">
-                                        <span class="input-group-addon">.gr/m2</span>
+                                        <span class="input-group-addon">.gr/m<sup>2</sup></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>E/e’ average</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="text" name="diastolicFunction" placeholder="">
+                                        <input class="form-control" type="text" name="eeAverage" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -1014,7 +997,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                             </div>
                             {{-- Blood Laboratory Test --}}
-                            <div class="tab-pane" role="tabpanel" id="step6">
+                            <div class="tab-pane" role="tabpanel" id="step5">
                                 <h4 class="text-center">Blood Laboratory Test</h4>
                                 <h4 style="font-weight: 200;" class="text-center">(Up to past 6 months)</h4>
                                 <div class="col-md-6">
@@ -1064,14 +1047,14 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="col-md-6">
                                         <label>Ureum *</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="ureum" placeholder="" required>
+                                        <input onkeyup="countBun()" id="ureum" class="form-control" type="number" name="ureum" placeholder="" required>
                                         <span class="input-group-addon">gr/dL</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>BUN</label>
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="bun" placeholder="">
+                                        <input class="form-control" type="number" id="bun" name="bun" placeholder="" readonly>
                                         <span class="input-group-addon">gr/dL</span>
                                     </div>
                                 </div>
@@ -1112,7 +1095,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             </div>
                             
                             {{-- Medication --}}
-                            <div class="tab-pane" role="tabpanel" id="step7">
+                            <div class="tab-pane" role="tabpanel" id="step6">
                                 <h4 class="text-center">Medication</h4>
                                 
                                 <div class="col-md-6">
@@ -1371,20 +1354,44 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 @endsection
 
 @section('javascript')
-<script>
-    // let editor;
-                        ClassicEditor
-                                .create( document.querySelector( '#editor2' ) )
-                                .then( newEditor => {
-                                    editor = newEditor;
-                                } )
-                                .catch( error => {
-                                    console.error( error );
-                                } );
-                </script>
+
 <script>
     function finish(){
-    document.getElementById("dataForm").submit();
+        var input = document.getElementsByTagName("form")[1].getElementsByTagName("input")
+        var data = Array();
+        var data2 = Array();
+        for (i = 0; i < input.length; i++) {
+                if(input[parseInt(i)].required == true){
+                    if(input[parseInt(i)].value == ''){
+                        data.push(input[parseInt(i)].name);
+
+                    }
+                }
+        }
+        var select = document.getElementsByTagName("form")[1].getElementsByTagName("select");
+        for (i = 0; i < select.length; i++) {
+            if(select[parseInt(i)].required == true){
+                if(select[parseInt(i)].value == ''){
+                    data2.push(select[parseInt(i)].name);
+                }
+            }
+        }
+        if(data.length >=1 || data2.length >=1){
+            const msg1 = data.toString();
+            const msg2 = data2.toString();
+            const msg = msg1+msg2+" required to be filled in";
+            // notification(msg);
+            document.getElementById('notification2').innerHTML = msg;
+            $("#notification2").show();
+            setTimeout(function () {
+                $("#notification2").hide();
+            }, 8000);
+            console.log(data.length+' '+data2.length);
+
+        }
+        else{
+            document.getElementById("dataForm").submit();
+        }
 
     }
     var data = localStorage.getItem("form_chronic");
@@ -1399,6 +1406,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
             $("#getlocal").hide();
         }
         $("#notification").hide();
+        $("#notification2").hide();
 
     }, false);
 
@@ -1443,11 +1451,17 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
         // console.log(data_html);
         $('#tesModal').modal('show');
     }
+    function countBun(){
+    var ureum = document.getElementById('ureum').value;
+    var bun = parseInt(ureum)/2.1;
+    document.getElementById('bun').value=bun.toFixed(2);
+}
     function countAge(){
         // var age = document.getElementById('age').value;
         var datebirth = document.getElementById('datebirth').value;
-        var dateadmission = document.getElementById('dateadmission').value;
+        var dateadmission = document.getElementById('dateOfClinicVisit').value;
         var today = new Date(dateadmission);
+        // var today = new Date();
         var birthday = new Date(datebirth);
         var year = 0;
         if (today.getMonth() < birthday.getMonth()) {
@@ -1562,7 +1576,7 @@ function removelocal() {
         let text = localStorage.getItem("form_chronic");
         let obj = text.split(",");
         let text2 = localStorage.getItem("form_chronic_select");
-        let text3 = localStorage.getItem("form_chronic_textarea");
+        // let text3 = localStorage.getItem("form_chronic_textarea");
         let obj2 = text2.split(",");
         // var i = 0;
         for (i = 1; i < input.length; i++) {
@@ -1581,9 +1595,9 @@ function removelocal() {
             select[parseInt(i)].value=obj2[parseInt(i)];
 
         }
-        if(text3){
-        editor.setData( text3 );
-        }
+        // if(text3){
+        // editor.setData( text3 );
+        // }
         notification('Data retrived');
 
     }
@@ -1593,7 +1607,7 @@ function removelocal() {
         var select = document.getElementsByTagName("form")[1].getElementsByTagName("select");
         var data = Array();
         var data2 = Array();
-        var data3 = editor.getData();
+        // var data3 = editor.getData();
         // var i = 0;
         for (i = 0; i < input.length; i++) {
             //   console.log(input[parseInt(i)].name);
@@ -1612,7 +1626,7 @@ function removelocal() {
         }
         localStorage.setItem("form_chronic", data);
         localStorage.setItem("form_chronic_select", data2);
-        localStorage.setItem("form_chronic_textarea", data3);
+        // localStorage.setItem("form_chronic_textarea", data3);
         $("#getlocal").show();
         notification('data stored locally');
 
@@ -1706,9 +1720,9 @@ function removelocal() {
     }
     // get data to array
 function yearOfAdmission(){
-        const year = new Date().getFullYear();;
+        const year = new Date().getFullYear();
         // console.log(date);
-        for(var i=1980; i<= year; i++){
+        for(var i=2000; i<= year; i++){
         var x = "<option>" + i + "</option>";
         document.getElementById("yearOfAdmission").innerHTML += x;
         }

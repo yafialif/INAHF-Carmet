@@ -8,32 +8,33 @@ use Laraveldaily\Quickadmin\Observers\UserActionsObserver;
 
 
 
-class ChronicBloodLaboratoryTest extends Model {
+class ChronicBloodLaboratoryTest extends Model
+{
 
-    
 
-    
+
+
 
     protected $table    = 'chronicbloodlaboratorytest';
-    
+
     protected $fillable = [
-          'patient_id',
-          'categorytreatment_id',
-          'hemoglobin',
-          'hematocrite',
-          'erythrocyte',
-          'hbA1C',
-          'fastingBloodGlucose',
-          'twoHoursPostPrandialBloodGlucose',
-          'natrium',
-          'kalium',
-          'ureum',
-          'bun',
-          'serumCreatinine',
-          'gfr',
-          'nt_ProBnp'
+        'patient_id',
+        'categorytreatment_id',
+        'hemoglobin',
+        'hematocrite',
+        'randomBloodGlucose',
+        'hbA1C',
+        'fastingBloodGlucose',
+        'twoHoursPostPrandialBloodGlucose',
+        'natrium',
+        'kalium',
+        'ureum',
+        'bun',
+        'serumCreatinine',
+        'gfr',
+        'nt_ProBnp'
     ];
-    
+
 
     public static function boot()
     {
@@ -41,7 +42,7 @@ class ChronicBloodLaboratoryTest extends Model {
 
         ChronicBloodLaboratoryTest::observe(new UserActionsObserver);
     }
-    
+
     public function patient()
     {
         return $this->hasOne('App\Patient', 'id', 'patient_id');
@@ -52,9 +53,4 @@ class ChronicBloodLaboratoryTest extends Model {
     {
         return $this->hasOne('App\CategoryTreatment', 'id', 'categorytreatment_id');
     }
-
-
-    
-    
-    
 }

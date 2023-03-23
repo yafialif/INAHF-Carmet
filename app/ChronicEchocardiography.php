@@ -8,27 +8,31 @@ use Laraveldaily\Quickadmin\Observers\UserActionsObserver;
 
 
 
-class ChronicEchocardiography extends Model {
+class ChronicEchocardiography extends Model
+{
 
-    
 
-    
+
+
 
     protected $table    = 'chronicechocardiography';
-    
+
     protected $fillable = [
-          'patient_id',
-          'categorytreatment_id',
-          'ef',
-          'tapse',
-          'edv',
-          'esv',
-          'edd',
-          'esd',
-          'signMr',
-          'diastolicFunction'
+        'patient_id',
+        'categorytreatment_id',
+        'efAtFirst',
+        'efAtFirstDate',
+        'latestEf',
+        'latestEfDate',
+        'tapse',
+        'edv',
+        'esv',
+        'signMr',
+        'lvMaxIndex',
+        'eeAverage',
+        'diastolicFunction'
     ];
-    
+
 
     public static function boot()
     {
@@ -36,7 +40,7 @@ class ChronicEchocardiography extends Model {
 
         ChronicEchocardiography::observe(new UserActionsObserver);
     }
-    
+
     public function patient()
     {
         return $this->hasOne('App\Patient', 'id', 'patient_id');
@@ -47,9 +51,4 @@ class ChronicEchocardiography extends Model {
     {
         return $this->hasOne('App\CategoryTreatment', 'id', 'categorytreatment_id');
     }
-
-
-    
-    
-    
 }

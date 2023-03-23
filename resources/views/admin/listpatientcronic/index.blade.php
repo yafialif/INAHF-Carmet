@@ -36,10 +36,10 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                     <th>Age</th>
                     <th>Gender</th>
                     <th>Phone</th>
-                    <th>Date of Admission</th>
+                    <th>Date of Clinic Visit</th>
                     <th>Insurance</th>
                     <th>Education</th>
-                    <th>Date of Discharge</th>
+                    {{-- <th>Date of Discharge</th> --}}
                     <th>Progress</th>
                     <th>Month Follow Up</th>
                     <th>Action</th>
@@ -60,10 +60,10 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                     <td>{{ $row->age }}</td>
                     <td>{{ $row->gender }}</td>
                     <td>{{ $row->phone }}</td>
-                    <td>{{ $row->dateOfAdmission }}</td>
+                    <td>{{ $row->dateOfClinicVisit }}</td>
                     <td>{{ $row->insurance }}</td>
                     <td>{{ $row->education }}</td>
-                    <td style="color: red;">{{ $row->dateOfDischarge }}</td>
+                    {{-- <td style="color: red;">{{ $row->dateOfDischarge }}</td> --}}
                     @if($row->percent < 98)
                     <td style="color: red;" >{{ $row->percent }} %</td>
                     @else

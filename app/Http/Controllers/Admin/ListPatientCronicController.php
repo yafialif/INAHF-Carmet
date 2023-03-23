@@ -61,11 +61,11 @@ class ListPatientCronicController extends Controller
 			$percentage = DB::table('patient')
 				->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
 				->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
-				->join('chronicrothorax', 'patient.id', '=', 'chronicrothorax.patient_id')
+				// ->join('chronicrothorax', 'patient.id', '=', 'chronicrothorax.patient_id')
 				->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
 				->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
 				->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
-				->join('chronicoutcomes', 'patient.id', '=', 'chronicoutcomes.patient_id')
+				// ->join('chronicoutcomes', 'patient.id', '=', 'chronicoutcomes.patient_id')
 				->where('patient.id', $value->id)
 				->get();
 			$data = $percentage[0];
@@ -89,10 +89,9 @@ class ListPatientCronicController extends Controller
 				'age' => $value->age,
 				'gender' => $value->gender,
 				'phone' => $value->phone,
-				'dateOfAdmission' => $value->dateOfAdmission,
+				'dateOfClinicVisit' => $value->dateOfClinicVisit,
 				'insurance' => $value->insurance,
 				'education' => $value->education,
-				'dateOfDischarge' => $value->dateOfDischarge,
 				'created_at' => $value->created_at,
 				'updated_at' => $value->updated_at,
 				'user' => $value->user,
@@ -137,14 +136,15 @@ class ListPatientCronicController extends Controller
 		$patient->age = $request->age;
 		$patient->gender = $request->gender;
 		$patient->phone = $request->phone;
-		$patient->dateOfAdmission = $request->dateOfAdmission;
+		$patient->yearOfAdmission = $request->yearOfAdmission;
+		$patient->dateOfClinicVisit = $request->dateOfClinicVisit;
 		$patient->insurance = $request->insurance;
 		$patient->education = $request->education;
-		if ($request->dateOfDischarge) {
-			$patient->dateOfDischarge = $request->dateOfDischarge;
-		} else {
-			$patient->dateOfDischarge = date("0000-00-00");
-		}
+		// if ($request->dateOfDischarge) {
+		// 	$patient->dateOfDischarge = $request->dateOfDischarge;
+		// } else {
+		// 	$patient->dateOfDischarge = date("0000-00-00");
+		// }
 		$patient->save();
 
 
@@ -164,7 +164,7 @@ class ListPatientCronicController extends Controller
 		$clinicalProfile->peripheralOedema = $request->peripheralOedema;
 		$clinicalProfile->pulmonaryRales = $request->pulmonaryRales;
 		$clinicalProfile->jvp = $request->jvp;
-		$clinicalProfile->ahaStaging = $request->ahaStaging;
+		// $clinicalProfile->ahaStaging = $request->ahaStaging;
 		$clinicalProfile->nyhaClass = $request->nyhaClass;
 		$clinicalProfile->etiology = $request->etiology;
 		$clinicalProfile->save();
@@ -186,23 +186,27 @@ class ListPatientCronicController extends Controller
 		$riskFactor->save();
 
 		// Ro Thorax
-		$RoThorax = new ChronicRoThorax();
-		$RoThorax->patient_id = $patient->id;
-		$RoThorax->categorytreatment_id = $categorytreatment_id;
-		$RoThorax->roThorax = $request->roThorax;
-		$RoThorax->save();
+		// $RoThorax = new ChronicRoThorax();
+		// $RoThorax->patient_id = $patient->id;
+		// $RoThorax->categorytreatment_id = $categorytreatment_id;
+		// $RoThorax->roThorax = $request->roThorax;
+		// $RoThorax->save();
 		// Echocardiography
 		$Echocardiography = new ChronicEchocardiography();
 		$Echocardiography->patient_id = $patient->id;
 		$Echocardiography->categorytreatment_id = $categorytreatment_id;
-		$Echocardiography->ef = $request->ef;
+		$Echocardiography->efAtFirst = $request->efAtFirst;
+		$Echocardiography->efAtFirstDate = $request->efAtFirstDate;
+		$Echocardiography->latestEf = $request->latestEf;
+		$Echocardiography->latestEfDate = $request->latestEfDate;
 		$Echocardiography->tapse = $request->tapse;
 		$Echocardiography->edv = $request->edv;
 		$Echocardiography->esv = $request->esv;
-		$Echocardiography->edd = $request->edd;
-		$Echocardiography->esd = $request->esd;
+		// $Echocardiography->edd = $request->edd;
+		// $Echocardiography->esd = $request->esd;
 		$Echocardiography->signMr = $request->signMr;
-		$Echocardiography->diastolicFunction = $request->diastolicFunction;
+		$Echocardiography->lvMaxIndex = $request->lvMaxIndex;
+		$Echocardiography->eeAverage = $request->eeAverage;
 		$Echocardiography->save();
 		// Blood Laboratory Test
 		$BloodLaboratoryTest = new ChronicBloodLaboratoryTest();
@@ -210,7 +214,7 @@ class ListPatientCronicController extends Controller
 		$BloodLaboratoryTest->categorytreatment_id = $categorytreatment_id;
 		$BloodLaboratoryTest->hemoglobin = $request->hemoglobin;
 		$BloodLaboratoryTest->hematocrite = $request->hematocrite;
-		$BloodLaboratoryTest->erythrocyte = $request->erythrocyte;
+		$BloodLaboratoryTest->randomBloodGlucose = $request->randomBloodGlucose;
 		$BloodLaboratoryTest->hbA1C = $request->hbA1C;
 		$BloodLaboratoryTest->fastingBloodGlucose = $request->fastingBloodGlucose;
 		$BloodLaboratoryTest->twoHoursPostPrandialBloodGlucose = $request->twoHoursPostPrandialBloodGlucose;
@@ -229,12 +233,12 @@ class ListPatientCronicController extends Controller
 		$medication->acei = $request->acei;
 		$medication->aceiDose = $request->aceiDose;
 		$medication->aceiIntolerance = $request->aceiIntolerance;
-		$medication->arb = $request->arb;
-		$medication->arbDose = $request->arbDose;
-		$medication->arniDose = $request->arniDose;
 		$medication->betaBlocker = $request->betaBlocker;
 		$medication->betaBlockerDose = $request->betaBlockerDose;
 		$medication->betaBlockerIntolerance = $request->betaBlockerIntolerance;
+		$medication->arb = $request->arb;
+		$medication->arbDose = $request->arbDose;
+		$medication->arniDose = $request->arniDose;
 		$medication->mraDose = $request->mraDose;
 		$medication->mraIntolerance = $request->mraIntolerance;
 		$medication->sglt2i = $request->sglt2i;
@@ -242,24 +246,11 @@ class ListPatientCronicController extends Controller
 		$medication->loopDiuretic = $request->loopDiuretic;
 		$medication->loopDiureticDose = $request->loopDiureticDose;
 		$medication->ivabradineDose = $request->ivabradineDose;
+		$medication->statin = $request->statin;
 		$medication->insulin = $request->insulin;
 		$medication->devices = $request->devices;
 		$medication->save();
-		// Outcomes
-		$Outcomes = new ChronicOutcomes();
-		$Outcomes->patient_id = $patient->id;
-		$Outcomes->categorytreatment_id = $categorytreatment_id;
-		$Outcomes->totalRehospitalization = $request->totalRehospitalization;
-		$Outcomes->allCauseDeath = $request->allCauseDeath;
-		$Outcomes->cardiacRelatedDeath = $request->cardiacRelatedDeath;
-		// $Outcomes->dateofDeath = $request->dateofDeath;
-		if ($request->dateofDeath) {
-			$Outcomes->dateofDeath = $request->dateofDeath;
-		} else {
-			$Outcomes->dateofDeath = date("0000-00-00");
-		}
-		$Outcomes->additional_notes = $request->additional_notes;
-		$Outcomes->save();
+
 
 		// $data = [
 		// 	'patient' => $patient,
@@ -293,7 +284,7 @@ class ListPatientCronicController extends Controller
 			->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
 			->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
 			->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
-			->join('chronicoutcomes', 'patient.id', '=', 'chronicoutcomes.patient_id')
+			// ->join('chronicoutcomes', 'patient.id', '=', 'chronicoutcomes.patient_id')
 			->where('patient.id', $id)
 			->get();
 		$data = $patient[0];
@@ -313,7 +304,7 @@ class ListPatientCronicController extends Controller
 			->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
 			->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
 			->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
-			->join('chronicoutcomes', 'patient.id', '=', 'chronicoutcomes.patient_id')
+			// ->join('chronicoutcomes', 'patient.id', '=', 'chronicoutcomes.patient_id')
 			->where('patient.id', $id)
 			->get();
 		$data = $patient[0];
@@ -341,7 +332,6 @@ class ListPatientCronicController extends Controller
 			'insurance' => $request->insurance,
 			'education' => $request->education,
 		));
-
 
 		// Clinical Profile
 		$clinicalProfile = ChronicClinicalProfile::where('patient_id', $id)->update(array(
