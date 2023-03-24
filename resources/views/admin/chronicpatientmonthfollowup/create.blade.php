@@ -424,7 +424,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
 
 <section class="signup-step-container">
     <div class="container">
-        <div class="row d-flex justify-content-center">
+        <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="wizard">
                     <div class="wizard-inner">
@@ -539,7 +539,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                         </div>
                                 </div>
                                 <div id="lvMaxIndex" class="col-md-6">
-                                        <label>LV Max Index</label>
+                                        <label>LV Mass Index</label>
                                     <div class="input-group">
                                             <input class="form-control" type="text" name="lvMaxIndex" placeholder="" >
                                         <span class="input-group-addon">.gr/m2</span>
@@ -580,6 +580,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                                 <option value="Captopril">Captopril</option>
                                                 <option value="Lisinopril">Lisinopril</option>
                                                 <option value="Perindopril">Perindopril</option>
+                                                <option value="Other">Other</option>
                                             </select>
                                     </div>
                                 </div>
@@ -615,6 +616,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                                 <option value="Candesartan">Candesartan</option>
                                                 <option value="Valsartan">Valsartan</option>
                                                 <option value="Losartan">Losartan</option>
+                                                <option value="Other">Other</option>
                                             </select>
                                     </div>
                                 </div>

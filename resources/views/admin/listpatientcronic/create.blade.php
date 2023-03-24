@@ -1023,7 +1023,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>HbA1C</label>
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="hbA1C" placeholder="">
-                                        <span class="input-group-addon">gr/dL</span>
+                                        <span class="input-group-addon">%</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

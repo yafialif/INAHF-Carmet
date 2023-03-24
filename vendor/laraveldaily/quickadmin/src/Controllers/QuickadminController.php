@@ -43,9 +43,9 @@ class QuickadminController extends Controller
                     ->get();
                 if ($MonthFollowUp[0]) {
                     // $result = strtotime($MonthFollowUp[0]->MonthFollowUpDate);
-                    $date1 = new DateTime($MonthFollowUp[0]->MonthFollowUpDate);
+                    $date1 = new DateTime($MonthFollowUp[0]->created_at);
                     $date2 = new DateTime($datenow);
-                    $selisih = abs(strtotime($datenow) - strtotime($MonthFollowUp[0]->MonthFollowUpDate));
+                    $selisih = abs(strtotime($datenow) - strtotime($MonthFollowUp[0]->created_at));
                     $jumlahHari = floor($selisih / (60 * 60 * 24));
                     // $interval = $date1->diff($date2);
                     // $jumlahBulan = ($interval->y * 12) + $interval->m;
@@ -54,11 +54,11 @@ class QuickadminController extends Controller
                     }
                 } else {
 
-                    $date1 = new DateTime($patient[0]->dateOfAdmission);
+                    $date1 = new DateTime($patient[0]->dateOfClinicVisit);
                     $date2 = new DateTime($datenow);
                     // $interval = $date1->diff($date2);
                     // $jumlahBulan = ($interval->y * 12) + $interval->m;
-                    $selisih = abs(strtotime($datenow) - strtotime($patient[0]->dateOfAdmission));
+                    $selisih = abs(strtotime($datenow) - strtotime($patient[0]->dateOfClinicVisit));
                     $jumlahHari = floor($selisih / (60 * 60 * 24));
                     // $selisih = $date2->diff($date1);
                     // $jumlahHari = intval($selisih->format("%m"));
