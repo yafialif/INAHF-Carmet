@@ -243,7 +243,7 @@ class ListPatientCronicController extends Controller
 		$medication->mraIntolerance = $request->mraIntolerance;
 		$medication->sglt2i = $request->sglt2i;
 		$medication->sglt2iDose = $request->sglt2iDose;
-		$medication->loopDiuretic = $request->loopDiuretic;
+		// $medication->loopDiuretic = $request->loopDiuretic;
 		$medication->loopDiureticDose = $request->loopDiureticDose;
 		$medication->ivabradineDose = $request->ivabradineDose;
 		$medication->statin = $request->statin;

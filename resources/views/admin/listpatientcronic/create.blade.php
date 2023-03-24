@@ -620,56 +620,54 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="col-md-6">
                                         <label>Dyspnoea on exertion *</label>
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="dyspnoeaOnExertion" value="Yes" required>Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="dyspnoeaOnExertion" value="No" required>No</label>
-                                        </div>
+                                        <select class="form-control" name="dyspnoeaOnExertion" required>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                        </select>
+                                       
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Orthopnea *</label>
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="orthopnea" value="Yes" required>Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="orthopnea" value="No" required>No</label>
-                                        </div>
+                                        <select class="form-control" name="orthopnea" required>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                        </select>
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Paroxysmal Nocturnal Dyspnoe *</label>
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="pnd" value="Yes" required>Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="pnd" value="No" required>No</label>
-                                        </div>
+                                        <select class="form-control" name="pnd" required>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                        </select>
+                                       
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Peripheral Oedema *</label>
+                                        <label>NYHA Class *</label>
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="peripheralOedema" value="Yes" required>Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="peripheralOedema" value="No" required>No</label>
-                                        </div>
+                                        <select class="form-control" name="nyhaClass" required>
+                                                <option value="Class I">Class I</option>
+                                                <option value="Class II">Class II</option>
+                                                <option value="Class III">Class III</option>
+                                                <option value="Class IV">Class IV</option>
+                                            </select>
+                                        {{-- <input class="form-control" type="text" name="nyha_class" placeholder=""> --}}
                                     </div>
                                 </div>
+                                
                                 <div class="col-md-6">
                                         <label>Pulmonary rales *</label>
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="pulmonaryRales" value="Yes" required>Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="pulmonaryRales" value="No" required>No</label>
-                                        </div>
+                                        <select class="form-control" name="pulmonaryRales" required>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                        </select>
+                                       
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -680,6 +678,16 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                                 <option value="NICM">NICM</option>
                                                 <option value="Unknown">Unknown</option>
                                             </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Peripheral Oedema *</label>
+                                    <div class="input-group">
+                                        <select class="form-control" name="peripheralOedema" required>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                        </select>
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -694,20 +702,8 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         {{-- <input class="form-control" type="text" name="jvp" placeholder="" > --}}
                                     </div>
                                 </div>
-                                <div class="col-md-6 hidden-sm col-lg-0">
-                                </div>
-                                <div class="col-md-6">
-                                        <label>NYHA Class *</label>
-                                    <div class="input-group">
-                                        <select class="form-control" name="nyhaClass" required>
-                                                <option value="Class I">Class I</option>
-                                                <option value="Class II">Class II</option>
-                                                <option value="Class III">Class III</option>
-                                                <option value="Class IV">Class IV</option>
-                                            </select>
-                                        {{-- <input class="form-control" type="text" name="nyha_class" placeholder=""> --}}
-                                    </div>
-                                </div>
+                                
+                                
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
@@ -1131,6 +1127,76 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                        <label>ARNI Dose</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="number" name="arniDose"
+                                            placeholder="">
+                                        <span class="input-group-addon">mg/day</span>
+                                    </div>
+                                </div>
+                               
+                                
+                                <div class="col-md-6">
+                                        <label>ARB</label>
+                                    <div class="input-group">
+                                        <select class="form-control" name="arb" >
+                                                <option value="None">None</option>
+                                                <option value="Valsartan">Valsartan</option>
+                                                <option value="Candesartan">Candesartan</option>
+                                                <option value="Losartan">Losartan</option>
+                                                <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>ARB Dose</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="number" name="arbDose"
+                                            placeholder="">
+                                        <span class="input-group-addon">mg/day</span>
+                                    </div>
+                                </div>
+                                 <div class="col-md-6">
+                                        <label>MRA Intolerance</label>
+                                    <div class="input-group">
+                                        <select class="form-control" name="mraIntolerance" >
+                                                <option value="None">None</option>
+                                                <option value="ginecomastia">ginecomastia</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>MRA Dose</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="number" name="mraDose"
+                                            placeholder="">
+                                        <span class="input-group-addon">mg/day</span>
+                                    </div>
+                                </div>
+                                
+                                 <div class="col-md-6">
+                                        <label>SGLT2i</label>
+
+                                    <div class="input-group">
+                                        <select class="form-control" name="sglt2i" >
+                                                <option value="None">None</option>
+                                                <option value="Empagliflozin">Empagliflozin</option>
+                                                <option value="Dapagliflozin">Dapagliflozin</option>
+                                        </select>
+                                        
+                                        {{-- <input class="form-control" type="number" name="sglt2i" placeholder=""> --}}
+                                    </div>
+                                    
+                                </div>
+                               <div class="col-md-6">
+                                        <label>SGLT2i Dose</label>
+                                    <div class="input-group">
+                                        <input class="form-control" type="number" name="sglt2iDose"
+                                            placeholder="">
+                                        <span class="input-group-addon">mg/day</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
                                         <label>Beta Blocker</label>
                                     <div class="input-group">
                                         <select class="form-control" name="betaBlocker" >
@@ -1163,71 +1229,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>ARB</label>
+                                        <label>Ivabradine Dose</label>
                                     <div class="input-group">
-                                        <select class="form-control" name="arb" >
-                                                <option value="None">None</option>
-                                                <option value="Valsartan">Valsartan</option>
-                                                <option value="Candesartan">Candesartan</option>
-                                                <option value="Losartan">Losartan</option>
-                                                <option value="Other">Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ARB Dose</label>
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="arbDose"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-                                    </div>
-                                </div>
-                               
-                                
-                                
-                                <div class="col-md-6">
-                                        <label>MRA Dose</label>
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="mraDose"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>MRA Intolerance</label>
-                                    <div class="input-group">
-                                        <select class="form-control" name="mraIntolerance" >
-                                                <option value="None">None</option>
-                                                <option value="ginecomastia">ginecomastia</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                 <div class="col-md-6">
-                                        <label>ARNI Dose</label>
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="arniDose"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-                                    </div>
-                                </div>
-                               <div class="col-md-6">
-                                        <label>SGLT2i</label>
-
-                                    <div class="input-group">
-                                        <select class="form-control" name="sglt2i" >
-                                                <option value="None">None</option>
-                                                <option value="Empagliflozin">Empagliflozin</option>
-                                                <option value="Dapagliflozin">Dapagliflozin</option>
-                                        </select>
-                                        
-                                        {{-- <input class="form-control" type="number" name="sglt2i" placeholder=""> --}}
-                                    </div>
-                                    
-                                </div>
-                               <div class="col-md-6">
-                                        <label>SGLT2i Dose</label>
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="sglt2iDose"
+                                        <input class="form-control" type="number" name="ivabradineDose"
                                             placeholder="">
                                         <span class="input-group-addon">mg/day</span>
                                     </div>
@@ -1248,15 +1252,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Loop Diuretic</label>
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="loopDiuretic"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
                                         <label>Loop Diuretic Dose</label>
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="loopDiureticDose"
@@ -1264,27 +1259,8 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <span class="input-group-addon">mg/day</span>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>Ivabradine Dose</label>
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="ivabradineDose"
-                                            placeholder="">
-                                        <span class="input-group-addon">mg/day</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Statin</label>
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="statin" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="statin"
-                                                    value="No">No</label>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
+                                
+                                
                                 <div class="col-md-6">
                                         <label>Insulin</label>
                                     <div class="input-group">
@@ -1295,6 +1271,19 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div>
                                         <div class="radio">
                                             <label><input type="radio" name="insulin"
+                                                    value="No">No</label>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Statin</label>
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input type="radio" name="statin" value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="statin"
                                                     value="No">No</label>
                                         </div>
                                         

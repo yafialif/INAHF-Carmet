@@ -604,6 +604,65 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                        <label>ARNI Dose</label>
+                                    <div class="input-group">
+                                            <input id="arniDose" class="form-control" type="text" name="arniDose" placeholder="" >
+                                        <span class="input-group-addon">.mg/day</span>
+                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>ARB</label>
+                                        <div class="input-group">
+                                        <select class="form-control" name="arb">
+                                                <option value="None">None</option>
+                                                <option value="Candesartan">Candesartan</option>
+                                                <option value="Valsartan">Valsartan</option>
+                                                <option value="Losartan">Losartan</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>ARB Dose</label>
+                                    <div class="input-group">
+                                            <input id="arbDose" class="form-control" type="text" name="arbDose" placeholder="" >
+                                        <span class="input-group-addon">.mg/day</span>
+                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>MRA Intolerance</label>
+                                        <div class="input-group">
+                                        <select class="form-control" name="mraIntolerance">
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>MRA Dose</label>
+                                    <div class="input-group">
+                                            <input id="mraDose" class="form-control" type="text" name="mraDose" placeholder="" >
+                                        <span class="input-group-addon">.mg/day</span>
+                                        </div>
+                                </div>
+                                 <div class="col-md-6">
+                                        <label>SGLT2i</label>
+                                    <div class="input-group">
+                                        <select class="form-control" name="sglt2i" >
+                                                <option value="None">None</option>
+                                                <option value="Empagliflozin">Empagliflozin</option>
+                                                <option value="Dapagliflozin">Dapagliflozin</option>
+                                        </select>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                        <label>SGLT2i Dose</label>
+                                    <div class="input-group">
+                                            <input id="sglt2iDose" class="form-control" type="text" name="sglt2iDose" placeholder="" >
+                                        <span class="input-group-addon">.mg/day</span>
+                                        </div>
+                                </div>
+                                <div class="col-md-6">
                                         <label>Beta Blocker</label>
                                         <div class="input-group">
                                         <select class="form-control" name="betaBlocker">
@@ -634,27 +693,9 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>ARB</label>
-                                        <div class="input-group">
-                                        <select class="form-control" name="arb">
-                                                <option value="None">None</option>
-                                                <option value="Candesartan">Candesartan</option>
-                                                <option value="Valsartan">Valsartan</option>
-                                                <option value="Losartan">Losartan</option>
-                                            </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ARB Dose</label>
+                                        <label>Ivabradine Dose</label>
                                     <div class="input-group">
-                                            <input id="arbDose" class="form-control" type="text" name="arbDose" placeholder="" >
-                                        <span class="input-group-addon">.mg/day</span>
-                                        </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ARNI Dose</label>
-                                    <div class="input-group">
-                                            <input id="arniDose" class="form-control" type="text" name="arniDose" placeholder="" >
+                                            <input id="ivabradineDose" class="form-control" type="text" name="ivabradineDose" placeholder="" >
                                         <span class="input-group-addon">.mg/day</span>
                                         </div>
                                 </div>
@@ -673,54 +714,6 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                         </select>
                                     </div>
                                 </div>
-                                
-                                <div class="col-md-6">
-                                        <label>MRA Dose</label>
-                                    <div class="input-group">
-                                            <input id="mraDose" class="form-control" type="text" name="mraDose" placeholder="" >
-                                        <span class="input-group-addon">.mg/day</span>
-                                        </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>MRA Intolerance</label>
-                                        <div class="input-group">
-                                        <select class="form-control" name="mraIntolerance">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
-                                            </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Beta Blocker Intolerance</label>
-                                        <div class="input-group">
-                                        <select class="form-control" name="sglt2i">
-                                                <option value="None">None</option>
-                                                <option value="Empagliflozin">Empagliflozin</option>
-                                                <option value="Dapagliflozin">Dapagliflozin</option>
-                                            </select>
-                                    </div>
-                                </div>
-                                 <div class="col-md-6">
-                                        <label>SGLT2i</label>
-
-                                    <div class="input-group">
-                                        <select class="form-control" name="sglt2i" >
-                                                <option value="None">None</option>
-                                                <option value="Empagliflozin">Empagliflozin</option>
-                                                <option value="Dapagliflozin">Dapagliflozin</option>
-                                        </select>
-                                        
-                                        {{-- <input class="form-control" type="number" name="sglt2i" placeholder=""> --}}
-                                    </div>
-                                    
-                                </div>
-                                <div class="col-md-6">
-                                        <label>SGLT2i Dose</label>
-                                    <div class="input-group">
-                                            <input id="sglt2iDose" class="form-control" type="text" name="sglt2iDose" placeholder="" >
-                                        <span class="input-group-addon">.mg/day</span>
-                                        </div>
-                                </div>
                                 <div class="col-md-6">
                                         <label>Loop Diuretic Dose</label>
                                     <div class="input-group">
@@ -729,11 +722,15 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                         </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Ivabradine Dose</label>
+                                        <label>Insulin</label>
                                     <div class="input-group">
-                                            <input id="ivabradineDose" class="form-control" type="text" name="ivabradineDose" placeholder="" >
-                                        <span class="input-group-addon">.mg/day</span>
+                                        <div class="radio">
+                                            <label><input type="radio" name="insulin" value="Yes">Yes</label>
                                         </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="insulin" value="No">No</label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Statin</label>
@@ -747,23 +744,11 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>Insulin</label>
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="insulin" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="insulin" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-md-12 col-divider">
                                     <div class="divider"></div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Total Rehospitalization *</label>
-
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="totalRehospitalization" value="Yes">Yes</label>
@@ -775,7 +760,6 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                 </div>
                                 <div class="col-md-6">
                                         <label>All cause death *</label>
-
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="allCauseDeath"

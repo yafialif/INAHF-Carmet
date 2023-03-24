@@ -33,7 +33,6 @@ class ChronicMedication extends Model
         'mraIntolerance',
         'sglt2i',
         'sglt2iDose',
-        'loopDiuretic',
         'loopDiureticDose',
         'ivabradineDose',
         'statin',
