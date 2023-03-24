@@ -1385,9 +1385,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
     }
     var data = localStorage.getItem("form_chronic");
     var internet_status;
-
-    
-
     document.addEventListener('DOMContentLoaded', function () {
         if (data) {
             $("#getlocal").show();

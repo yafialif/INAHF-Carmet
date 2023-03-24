@@ -839,15 +839,16 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
 
 @section('javascript')
 <script>
-    let editor;
-                        ClassicEditor
-                                .create( document.querySelector( '#editor2' ) )
-                                .then( newEditor => {
-                                    editor = newEditor;
-                                } )
-                                .catch( error => {
-                                    console.error( error );
-                                } );
+    // let editor;
+    //                     ClassicEditor
+    //                             .create( document.querySelector( '#editor2' ) )
+    //                             .then( newEditor => {
+    //                                 editor = newEditor;
+    //                             } )
+    //                             .catch( error => {
+    //                                 console.error( error );
+    //                             } );
+                               
                 </script>
 <script>
     function finish(){

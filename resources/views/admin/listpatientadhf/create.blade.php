@@ -630,66 +630,56 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="col-md-6">
                                         <label>Dyspnoea at rest *</label>
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="dyspnoea_at_rest" value="Yes" required>Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="dyspnoea_at_rest" value="No" required>No</label>
-                                        </div>
+                                        <select class="form-control" name="dyspnoea_at_rest" required>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Orthopnea *</label>
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="orthopnea" value="Yes" required>Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="orthopnea" value="No" required>No</label>
-                                        </div>
+                                        <select class="form-control" name="orthopnea" required>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>PND *</label>
 
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="pnd" value="Yes" required>Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="pnd" value="No" required>No</label>
-                                        </div>
+                                        <select class="form-control" name="pnd" required>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Peripheral Oedema *</label>
 
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="peripheral_oedema" value="Yes" required>Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="peripheral_oedema" value="No" required>No</label>
-                                        </div>
+                                         <select class="form-control" name="peripheral_oedema" required>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Pulmonary rales *</label>
 
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="pulmonary_rales" value="Yes" required>Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="pulmonary_rales" value="No" required>No</label>
-                                        </div>
+                                        <select class="form-control" name="pulmonary_rales" required>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Jugular Venous Pressure *</label>
 
                                     <div class="input-group">
-                                        
                                         <select class="form-control" name="jvp" required>
                                                 <option value="Normal">Normal</option>
                                                 <option value="Increase">Increase</option>
@@ -726,25 +716,20 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>Respiratory failure *</label>
 
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="respiratory_failure"
-                                                    value="Yes" required>Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="respiratory_failure" value="No" required>No</label>
-                                        </div>
+                                        <select class="form-control" name="respiratory_failure" required>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Cardiogenic shock *</label>
 
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="cardiogenic_shock" value="Yes" required>Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="cardiogenic_shock" value="No" required>No</label>
-                                        </div>
+                                         <select class="form-control" name="cardiogenic_shock" required>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -759,15 +744,20 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             <div class="tab-pane" role="tabpanel" id="step3">
                                 <h4 class="text-center">Risk Factor</h4>
                                 <div class="col-md-6">
-                                        <label>Hypertension</label>
+                                        <label>Smoker *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
-                                            <label><input type="radio" name="hypertension"
-                                                    value="Yes" required>Yes</label>
+                                            <label><input type="radio" name="smoker"
+                                                    value="Never Smoked" required>Never Smoked</label>
                                         </div>
                                         <div class="radio">
-                                            <label><input type="radio" name="hypertension" value="No">No</label>
+                                            <label><input type="radio" name="smoker"
+                                                    value="Former Smoker" required>Former Smoker</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="smoker"
+                                                    value="Current Smoker" required>Current Smoker</label>
                                         </div>
                                     </div>
                                 </div>
@@ -788,6 +778,20 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                        <label>Hypertension</label>
+
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input type="radio" name="hypertension"
+                                                    value="Yes" required>Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="hypertension" value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 <div class="col-md-6">
                                         <label>Dislipidemia *</label>
 
@@ -815,24 +819,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>Smoker *</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="smoker"
-                                                    value="Never Smoked" required>Never Smoked</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="smoker"
-                                                    value="Former Smoker" required>Former Smoker</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="smoker"
-                                                    value="Current Smoker" required>Current Smoker</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-6">
                                         <label>CKD *</label>
 
@@ -1204,7 +1191,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div> --}}
                                 <div class="col-md-6">
-                                        <label>LV max index</label>
+                                        <label>LV Mass Index</label>
                                     <div class="input-group">
                                         {{-- <select class="form-control" name="diastolic_function">
                                                 <option value="Normal">Normal</option>
@@ -1823,15 +1810,15 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
 @section('javascript')
 <script>
-    let editor;
-    ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .then( newEditor => {
-            editor = newEditor;
-        } )
-        .catch( error => {
-            console.error( error );
-        } );
+    // let editor;
+    // ClassicEditor
+    //     .create( document.querySelector( '#editor' ) )
+    //     .then( newEditor => {
+    //         editor = newEditor;
+    //     } )
+    //     .catch( error => {
+    //         console.error( error );
+    //     } );
 </script>
 <script>
     function finish(){
