@@ -445,7 +445,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                             <div class="tab-pane active" role="tabpanel" id="step1">
                                 <h4 class="text-center">Month Follow Up</h4>
                                 <div class="col-md-6">
-                                        <label>Patient</label>
+                                        <label>Name of patient</label>
                                     <div class="input-group">
                                                 {!! Form::select('patient_id', $patient, old('id'), array('class'=>'form-control')) !!}
                                     </div>
@@ -459,12 +459,11 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                 <div class="col-md-6">
                                         <label>Peripheral Oedema</label>
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="peripheralOedema" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="peripheralOedema" value="No">No</label>
-                                        </div>
+                                        <select class="form-control" name="peripheralOedema">
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                      
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -505,16 +504,14 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                 <div class="col-md-6">
                                         <label>Is there echo evaluation during the last 6 month? </label>
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input id="echoEvaluation" onchange="IfechoEvaluation()" type="radio" name="echoEvaluation" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input id="echoEvaluation" onchange="IfechoEvaluation()" type="radio" name="echoEvaluation" value="No">No</label>
-                                        </div>
+                                        <select onchange="IfechoEvaluation()" class="form-control" name="echoEvaluation">
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div id="echoEf" class="col-md-6">
-                                        <label>Echo EF</label>
+                                        <label>Echo LVEF</label>
                                     <div class="input-group">
                                             <input class="form-control" type="text" name="echoEf" placeholder="" >
                                         <span class="input-group-addon">%</span>
@@ -549,7 +546,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                         </div>
                                 </div>
                                 <div id="ee" class="col-md-6">
-                                        <label>E/e average</label>
+                                        <label>E/e' average</label>
                                     <div class="input-group">
                                             <input class="form-control" type="text" name="ee" placeholder="" >
                                         </div>
@@ -856,7 +853,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
 
     }
     function IfechoEvaluation(){
-        var echoEvaluation = $('input[name="echoEvaluation"]:checked').val();
+        var echoEvaluation = $('[name="echoEvaluation"]').val();
         if(echoEvaluation=="Yes"){
             $("#echoEf").show();
             $("#echoTapse").show();
