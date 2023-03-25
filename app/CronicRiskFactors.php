@@ -26,7 +26,7 @@ class CronicRiskFactors extends Model
         'alcohol',
         'smoker',
         'ckd',
-        // 'valvularHeartDisease',
+        'valvularHeartDiesease',
         'atrialFibrillation',
         'bundleBranchBlock',
         'historyofCad',

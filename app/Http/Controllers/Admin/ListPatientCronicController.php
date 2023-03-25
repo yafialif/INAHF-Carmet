@@ -183,6 +183,7 @@ class ListPatientCronicController extends Controller
 		$riskFactor->historyofCad = $request->historyofCad;
 		$riskFactor->historyofHf = $request->historyofHf;
 		$riskFactor->historyofPciorCabg = $request->historyofPciorCabg;
+		$riskFactor->valvularHeartDiesease = $request->valvularHeartDiesease;
 		$riskFactor->save();
 
 		// Ro Thorax

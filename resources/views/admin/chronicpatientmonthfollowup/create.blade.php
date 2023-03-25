@@ -542,7 +542,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                         <label>LV Mass Index</label>
                                     <div class="input-group">
                                             <input class="form-control" type="text" name="lvMaxIndex" placeholder="" >
-                                        <span class="input-group-addon">.gr/m2</span>
+                                        <span class="input-group-addon">.gr/m<sup>2</sup></span>
                                         </div>
                                 </div>
                                 <div id="ee" class="col-md-6">
@@ -631,8 +631,8 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                         <label>MRA Intolerance</label>
                                         <div class="input-group">
                                         <select class="form-control" name="mraIntolerance">
-                                                <option value="Yes">Yes</option>
-                                                <option value="No">No</option>
+                                                <option value="None">None</option>
+                                                <option value="ginecomastia">ginecomastia</option>
                                             </select>
                                     </div>
                                 </div>

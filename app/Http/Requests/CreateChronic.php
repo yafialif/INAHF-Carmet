@@ -63,6 +63,7 @@ class CreateChronic extends FormRequest
             'historyofCad' => 'required',
             'historyofHf' => 'required',
             'historyofPciorCabg' => 'required',
+            'valvularHeartDiesease' => 'required',
 
             // Echocardiography
             'efAtFirst' => 'required',

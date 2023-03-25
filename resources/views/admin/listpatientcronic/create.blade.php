@@ -873,6 +873,18 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                        <label>Valvular Heart Disease *</label>
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input type="radio" name="valvularHeartDiesease"
+                                                    value="Yes" required>Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input type="radio" name="valvularHeartDiesease" value="No" required>No</label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
@@ -1067,20 +1079,16 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     <div class="input-group">
                                         <input id="gfr" class="form-control" type="number" name="gfr" placeholder="" readonly>
                                         <span class="input-group-addon">mL/min/1.73 m2</span>
-                                        
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>NT-ProBNP</label>
-
                                     <div class="input-group">
                                         <input class="form-control" type="number" name="nt_ProBnp"
                                             placeholder="">
                                         <span class="input-group-addon">pg/mL</span>
-                                        
                                     </div>
                                 </div>
-                                
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
