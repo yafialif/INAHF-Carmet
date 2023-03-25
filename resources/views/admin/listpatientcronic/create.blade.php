@@ -457,7 +457,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             {{-- Patient Identity --}}
                             <div class="tab-pane active" role="tabpanel" id="step1">
                                 <h4 class="text-center">Patient Identity</h4>
-                                <div class="row">
                                     <div class="col-md-12">
                                         <label>RS *</label>
                                     <div class="input-group">
@@ -557,7 +556,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                                 placeholder="6280000000" required>
                                             </div>
                                     </div>
-                                </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" onclick="next()" class="default-btn next-step">Continue to next
@@ -893,30 +891,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </ul>
                                 </div>
                             </div>
-                            {{-- Ro thorax --}}
-                            {{-- <div class="tab-pane" role="tabpanel" id="step4">
-                                <h4 class="text-center">Ro thorax</h4>
-                                <div class="col-md-6">
-                                        <label>Ro thorax Value</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="roThorax" value="Normal Cardiac Size">Normal
-                                                Cardiac Size</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="roThorax"value="Cardiomegaly">Cardiomegaly</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <ul class="list-inline pull-right">
-                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
-                                        <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li>
-                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
-                                    </ul>
-                                </div>
-                            </div> --}}
                             {{-- Echocardiography --}}
                             <div class="tab-pane" role="tabpanel" id="step4">
                                 <h4 class="text-center">Echocardiography</h4>
@@ -1104,7 +1078,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 
                                 <div class="col-md-6">
                                         <label>ACEi</label>
-
                                     <div class="input-group">
                                         <select class="form-control" name="acei" >
                                                 <option value="None">None</option>
@@ -1297,16 +1270,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         
                                     </div>
                                 </div>
-                                {{-- <div class="col-md-6">
-                                        <label>Insulin Dose</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="insulinDose" placeholder="">
-                                        <span class="input-group-addon">IU</span>
-                                    
-                                    </div>
-                                </div> --}}
-                                
 
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
@@ -1712,7 +1675,6 @@ function removelocal() {
     function prevTab(elem) {
         $(elem).prev().find('a[data-toggle="tab"]').click();
     }
-    // get data to array
 function yearOfAdmission(){
         const year = new Date().getFullYear();
         // console.log(date);

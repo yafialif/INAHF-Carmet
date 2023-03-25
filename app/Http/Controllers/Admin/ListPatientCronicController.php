@@ -164,7 +164,6 @@ class ListPatientCronicController extends Controller
 		$clinicalProfile->peripheralOedema = $request->peripheralOedema;
 		$clinicalProfile->pulmonaryRales = $request->pulmonaryRales;
 		$clinicalProfile->jvp = $request->jvp;
-		// $clinicalProfile->ahaStaging = $request->ahaStaging;
 		$clinicalProfile->nyhaClass = $request->nyhaClass;
 		$clinicalProfile->etiology = $request->etiology;
 		$clinicalProfile->save();
@@ -186,12 +185,6 @@ class ListPatientCronicController extends Controller
 		$riskFactor->valvularHeartDiesease = $request->valvularHeartDiesease;
 		$riskFactor->save();
 
-		// Ro Thorax
-		// $RoThorax = new ChronicRoThorax();
-		// $RoThorax->patient_id = $patient->id;
-		// $RoThorax->categorytreatment_id = $categorytreatment_id;
-		// $RoThorax->roThorax = $request->roThorax;
-		// $RoThorax->save();
 		// Echocardiography
 		$Echocardiography = new ChronicEchocardiography();
 		$Echocardiography->patient_id = $patient->id;
@@ -203,8 +196,6 @@ class ListPatientCronicController extends Controller
 		$Echocardiography->tapse = $request->tapse;
 		$Echocardiography->edv = $request->edv;
 		$Echocardiography->esv = $request->esv;
-		// $Echocardiography->edd = $request->edd;
-		// $Echocardiography->esd = $request->esd;
 		$Echocardiography->signMr = $request->signMr;
 		$Echocardiography->lvMaxIndex = $request->lvMaxIndex;
 		$Echocardiography->eeAverage = $request->eeAverage;
@@ -244,7 +235,6 @@ class ListPatientCronicController extends Controller
 		$medication->mraIntolerance = $request->mraIntolerance;
 		$medication->sglt2i = $request->sglt2i;
 		$medication->sglt2iDose = $request->sglt2iDose;
-		// $medication->loopDiuretic = $request->loopDiuretic;
 		$medication->loopDiureticDose = $request->loopDiureticDose;
 		$medication->ivabradineDose = $request->ivabradineDose;
 		$medication->statin = $request->statin;
@@ -252,28 +242,7 @@ class ListPatientCronicController extends Controller
 		$medication->devices = $request->devices;
 		$medication->save();
 
-
-		// $data = [
-		// 	'patient' => $patient,
-		// 	'clinicalProfile' => $clinicalProfile,
-		// 	'riskFactor' => $riskFactor,
-		// 	'Etiology' => $Etiology,
-		// 	'RoThorax' => $RoThorax,
-		// 	'Echocardiography' => $Echocardiography,
-		// 	'BloodLaboratoryTest' => $BloodLaboratoryTest,
-		// 	'BloodGasAnalysis' => $BloodGasAnalysis,
-		// 	'medication' => $medication,
-		// 	'hospitalization' => $hospitalization,
-		// 	'Outcomes' => $Outcomes
-
-		// ];
-		// return view('admin.listpatientadhf.index', compact('patient'));
-
 		return redirect()->route('admin.listpatientcronic.index');
-
-
-		// return response()->json($request);
-		// return 1;
 	}
 
 	public function show($id)
@@ -281,11 +250,9 @@ class ListPatientCronicController extends Controller
 		$patient = DB::table('patient')
 			->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
 			->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
-			->join('chronicrothorax', 'patient.id', '=', 'chronicrothorax.patient_id')
 			->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
 			->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
 			->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
-			// ->join('chronicoutcomes', 'patient.id', '=', 'chronicoutcomes.patient_id')
 			->where('patient.id', $id)
 			->get();
 		$data = $patient[0];
@@ -301,22 +268,17 @@ class ListPatientCronicController extends Controller
 		$patient = DB::table('patient')
 			->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
 			->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
-			->join('chronicrothorax', 'patient.id', '=', 'chronicrothorax.patient_id')
 			->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
 			->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
 			->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
-			// ->join('chronicoutcomes', 'patient.id', '=', 'chronicoutcomes.patient_id')
 			->where('patient.id', $id)
 			->get();
 		$data = $patient[0];
-		$rumahsakit = RumahSakit::pluck('name_of_rs', 'id');
-		// return response()->json($data);
-
+		$rumahsakit = RumahSakit::where('id', $data->rs_id)->pluck('name_of_rs', 'id');
 		return view('admin.listpatientcronic.edit', compact('data', 'rumahsakit'));
 	}
 	public function update($id, Request $request)
 	{
-		// return response()->json($request);
 
 		$user_id = Auth::user()->id;
 		$categorytreatment_id = 2;
@@ -329,7 +291,8 @@ class ListPatientCronicController extends Controller
 			'age' => $request->age,
 			'gender' => $request->gender,
 			'phone' => $request->phone,
-			'dateOfAdmission' => $request->dateOfAdmission,
+			'yearOfAdmission' => $request->yearOfAdmission,
+			'dateOfClinicVisit' => $request->dateOfClinicVisit,
 			'insurance' => $request->insurance,
 			'education' => $request->education,
 		));
@@ -349,7 +312,6 @@ class ListPatientCronicController extends Controller
 			'peripheralOedema' => $request->peripheralOedema,
 			'pulmonaryRales' => $request->pulmonaryRales,
 			'jvp' => $request->jvp,
-			'ahaStaging' => $request->ahaStaging,
 			'nyhaClass' => $request->nyhaClass,
 			'etiology' => $request->etiology,
 		));
@@ -367,30 +329,29 @@ class ListPatientCronicController extends Controller
 			'historyofCad' => $request->historyofCad,
 			'historyofHf' => $request->historyofHf,
 			'historyofPciorCabg' => $request->historyofPciorCabg,
-		));
-		// Ro Thorax
-		$RoThorax = ChronicRoThorax::where('patient_id', $id)->update(array(
-			'categorytreatment_id' => $categorytreatment_id,
-			'roThorax' => $request->roThorax,
+			'valvularHeartDiesease' => $request->historyofPciorCabg,
 		));
 		// Echocardiography
 		$Echocardiography = ChronicEchocardiography::where('patient_id', $id)->update(array(
 			'categorytreatment_id' => $categorytreatment_id,
-			'ef' => $request->ef,
+			'efAtFirst' => $request->efAtFirst,
+			'efAtFirstDate' => $request->efAtFirstDate,
+			'latestEf' => $request->latestEf,
+			'latestEfDate' => $request->latestEfDate,
 			'tapse' => $request->tapse,
 			'edv' => $request->edv,
 			'esv' => $request->esv,
-			'edd' => $request->edd,
-			'esd' => $request->esd,
 			'signMr' => $request->signMr,
 			'diastolicFunction' => $request->diastolicFunction,
+			'lvMaxIndex' => $request->lvMaxIndex,
+			'eeAverage' => $request->eeAverage,
 		));
 		// Blood Laboratory Test
 		$BloodLaboratoryTest = ChronicBloodLaboratoryTest::where('patient_id', $id)->update(array(
 			'categorytreatment_id' => $categorytreatment_id,
 			'hemoglobin' => $request->hemoglobin,
 			'hematocrite' => $request->hematocrite,
-			'hematocrite' => $request->erythrocyte,
+			'randomBloodGlucose' => $request->randomBloodGlucose,
 			'hbA1C' => $request->hbA1C,
 			'fastingBloodGlucose' => $request->fastingBloodGlucose,
 			'twoHoursPostPrandialBloodGlucose' => $request->twoHoursPostPrandialBloodGlucose,
@@ -418,21 +379,13 @@ class ListPatientCronicController extends Controller
 			'mraIntolerance' => $request->mraIntolerance,
 			'sglt2i' => $request->sglt2i,
 			'sglt2iDose' => $request->sglt2iDose,
-			'loopDiuretic' => $request->loopDiuretic,
 			'loopDiureticDose' => $request->loopDiureticDose,
 			'ivabradineDose' => $request->ivabradineDose,
+			'statin' => $request->statin,
 			'insulin' => $request->insulin,
 			'devices' => $request->devices,
 		));
-		// Outcomes
-		$Outcomes = ChronicOutcomes::where('patient_id', $id)->update(array(
-			'categorytreatment_id' => $categorytreatment_id,
-			'totalRehospitalization' => $request->totalRehospitalization,
-			'allCauseDeath' => $request->allCauseDeath,
-			'cardiacRelatedDeath' => $request->cardiacRelatedDeath,
-			'dateofDeath' => $request->dateofDeath,
-			'additional_notes' => $request->additional_notes,
-		));
+
 		return redirect()->route('admin.listpatientcronic.index');
 	}
 }
