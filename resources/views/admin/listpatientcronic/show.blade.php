@@ -1,6 +1,9 @@
 @extends('admin.layouts.master')
 @section('css')
 <style>
+    label{
+        font-weight: 600;
+    }
     input:focus,
     button:focus,
     .form-control:focus {
@@ -111,7 +114,7 @@
     }
 
     .wizard .nav-tabs>li {
-        width: 9%;
+        width: 16%;
     }
 
     .wizard li:after {
@@ -387,7 +390,7 @@
                     <div class="wizard-inner">
                         <div class="connecting-line"></div>
                         <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active">
+                             <li role="presentation" class="active">
                                 <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab"
                                     aria-expanded="true"><span class="round-tab">1 </span> <i>Patient Identity</i></a>
                             </li>
@@ -399,103 +402,85 @@
                                 <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab"><span
                                         class="round-tab">3</span> <i>Risk Factors</i></a>
                             </li>
+                            
                             <li role="presentation" class="">
-                                <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab"><span
-                                        class="round-tab">5</span> <i>Ro thorax</i></a>
-                            </li>
-                            <li role="presentation" class="">
-                                <a href="#step5" data-toggle="tab" aria-controls="step5" role="tab"><span
-                                        class="round-tab">6</span> <i>Echocardiography</i></a>
+                                <a href="#step4" data-toggle="tab" aria-controls="step6" role="tab"><span
+                                        class="round-tab">4</span> <i>Echocardiography</i></a>
                             </li>
                             <li role="presentation" class="">
-                                <a href="#step6" data-toggle="tab" aria-controls="step6" role="tab"><span
-                                        class="round-tab">7</span> <i>Blood Laboratory Test</i></a>
+                                <a href="#step5" data-toggle="tab" aria-controls="step7" role="tab"><span
+                                        class="round-tab">5</span> <i>Blood Laboratory Test</i></a>
                             </li>
+                           
                             <li role="presentation" class="">
-                                <a href="#step7" data-toggle="tab" aria-controls="step7" role="tab"><span
-                                        class="round-tab">9</span> <i>Medication</i></a>
+                                <a href="#step6" data-toggle="tab" aria-controls="step8" role="tab"><span
+                                        class="round-tab">6</span> <i>Medication</i></a>
                             </li>
-                            <li role="presentation" class="">
-                                <a href="#step8" data-toggle="tab" aria-controls="step8" role="tab"><span
-                                        class="round-tab">11</span> <i>Outcomes</i></a>
-                            </li>
-                             <li role="presentation" class="">
-                                <a href="#step9" data-toggle="tab" aria-controls="step8" role="tab"><span
-                                        class="round-tab">12</span> <i>Month Followup</i></a>
-                            </li>
+
                         </ul>
                     </div>
+                
                         <div class="tab-content" id="main_form">
                             {{-- Patient Identity --}}
                             <div class="tab-pane active" role="tabpanel" id="step1">
                                 <h4 class="text-center">Patient Identity</h4>
-                                <div class="row">
+                                    {{--  --}}
+                                    {{-- <div class="col-md-12">
+                                        <label>RS *</label>
+                                    <div class="input-group">
+                                            {!! Form::select('rs_id', $rumahsakit, old('id'), array('class'=>'form-control')) !!}
+                                    </div>
+                                    </div> --}}
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>NIK *</label>
-                                            <p>{{ $data->nik }}</p>
-                                        </div>
+                                            <label>NIK </label>
+                                            <p>{!! $data->nik !!}</p>
+                                            
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Name *</label>
-                                            <p>{{ $data->name }}</p>
-                                        </div>
+                                            <label>Name </label>
+                                            <p>{!! $data->name !!}</p>
+                                        
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Date of birth *</label>
-                                            <p>{{ $data->dateOfBirth }}</p>
-                                        </div>
+                                            <label>Date of birth </label>
+                                            <p>{!! $data->dateOfBirth !!}</p>
+                                       
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Age *</label>
-                                            <p>{{ $data->age }} Year old</p>
-                                        </div>
+                                        <label>Age </label>
+                                        <p>{{ $data->age }}</p>
+                                       
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Sex *</label>
-                                            <p>{{ $data->gender }}</p>
-                                        </div>
+                                        <label>Year of admission </label>
+                                        <p>{{ $data->yearOfAdmission }}</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Phone *</label>
-                                            <p>{{ $data->phone }}</p>
-                                        </div>
+                                            <label>Date of clinic visit </label>
+                                            <p>{{ $data->dateOfClinicVisit }}</p>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                            <label>Insurance </label>
+                                            <p>{{ $data->insurance}}</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Date of Admission *</label>
-                                            <p>{{ $data->dateOfAdmission }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Date of discharge *</label>
-                                           <p>{{ $data->dateOfDischarge }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Insurance *</label>
-                                            <p>{{ $data->insurance }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="input-group">
                                             <label>Education *</label>
-                                            <p>{{ $data->education }}</p>
+                                            <p>{{ $data->education}}</p>
                                         </div>
                                     </div>
-
-
-                                </div>
+                                    <div class="col-md-6">
+                                            <label>Sex *</label>
+                                            <p>{{ $data->gender}}</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                            <label>Phone</label>
+                                            <p>{{ $data->phone }}</p>
+                                    </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn next-step">Continue to next
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue to next
                                                 step</button></li>
                                     </ul>
                                 </div>
@@ -505,85 +490,72 @@
                                 <h4 class="text-center">Clinical Profile</h4>
                                 <div class="col-md-6">
                                         <label>Height *</label>
-                                        <p>{{ $data->height }} .Cm</p>
-
+                                        <p>{{$data->height }}/p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Weight *</label>
-                                                                                <p>{{ $data->weight }} .Kg</p>
-
+                                        <p>{{$data->weight }}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>BMI</label>
-                                                                           <p>{{ $data->bmi }}</p>
-
+                                        <label>BMI *</label>
+                                    <div class="input-group">
+                                        <input class="form-control" value="{{$data->bmi }}" type="text" id="bmi" name="bmi" placeholder="" readonly>
+                                        {{-- <span class="input-group-addon">.Kg/m2</span> --}}
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Systolic Blood Pressure  </label>
-                                        <p>{{ $data->sbp }} .mmHg</p>
-
+                                        <label>Heart Rate *</label>
+                                        <p>{{$data->hr }}</p>
+                                </div>
+                                
+                                
+                                <div class="col-md-6">
+                                        <label>Systolic Blood Pressure * </label>
+                                        <p>{{$data->sbp }}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Diastolic Blood Pressure</label>
-                                                                            <p>{{ $data->dbp }} .mmHg</p>
-
+                                        <label>Diastolic Blood Pressure *</label>
+                                        <p>{{$data->dbp }}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Heart Rate</label>
-                                                                           <p>{{ $data->hr }} .bpm</p>
-
+                                        <label>Dyspnoea on exertion *</label>
+                                        <p>{{ $data->dyspnoeaOnExertion}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Dyspnoea on exertion</label>
-                                                                           <p>{{ $data->dyspnoeaOnExertion }} .mmHg</p>
-
+                                        <label>Orthopnea *</label>
+                                        <p>{{ $data->orthopnea}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Orthopnea</label>
-                                                                           <p>{{ $data->orthopnea }}</p>
-
+                                        <label>Paroxysmal Nocturnal Dyspnoe *</label>
+                                        <p>{{ $data->pnd}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>PND</label>
-                                        <p>{{ $data->pnd }}</p>
-
+                                        <label>NYHA Class *</label>
+                                        <p>{{ $data->nyhaClass}}</p>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                        <label>Pulmonary rales *</label>
+                                        <p>{{ $data->pulmonaryRales}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Peripheral Oedema</label>
-                                        <p>{{ $data->peripheralOedema }}</p>
-
+                                        <label>Etiology *</label>
+                                        <p>{{ $data->etiology}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Pulmonary rales</label>
-                                        <p>{{ $data->pulmonaryRales }}</p>
-
+                                        <label>Peripheral Oedema *</label>
+                                        <p>{{ $data->peripheralOedema}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Jugular Venous Pressure</label>
-                                        <p>{{ $data->jvp }}</p>
-
-                                </div>
-                                <div class="col-md-6">
-                                        <label>AHA Staging</label>
-                                        <p>{{ $data->ahaStaging }}</p>
-
-                                </div>
-                                <div class="col-md-6">
-                                        <label>NYHA Class </label>
-                                        <p>{{ $data->nyhaClass }}</p>
-
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Etiology</label>
-                                        <p>{{ $data->etiology }}</p>
-
+                                        <label>Jugular Venous Pressure *</label>
+                                        <p>{{ $data->jvp}}</p>
                                 </div>
                                
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -591,497 +563,275 @@
                             <div class="tab-pane" role="tabpanel" id="step3">
                                 <h4 class="text-center">Risk Factor</h4>
                                 <div class="col-md-6">
-                                        <label>Hypertension</label>
-<p>{{ $data->hypertension }}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Diabetes or prediabetes</label>
-<p>{{ $data->diabetesorPrediabetes }}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Dislipidemia</label>
-<p>{{ $data->dislipidemia }}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Alcohol</label>
-<p>{{ $data->alcohol }}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Smoker</label>
-<p>{{ $data->smoker }}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>CKD</label>
-<p>{{ $data->ckd }}</p>
+                                        <label>Smoker *</label>
+                                        <p>{{ $data->smoker}}</p>
                                 </div>
                                 
                                 <div class="col-md-6">
-                                        <label>Atrial fibrillation</label>
-<p>{{ $data->atrialFibrillation }}</p>
+                                        <label>Diabetes or prediabetes *</label>
+                                        <p>{{ $data->diabetesorPrediabetes}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Bundle Branch Block</label>
-<p>{{ $data->bundleBranchBlock }}</p>
+                                        <label>Hypertension *</label>
+                                        <p>{{ $data->hypertension}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>History of CAD</label>
-<p>{{ $data->historyofCad }}</p>
+                                        <label>Dislipidemia *</label>
+                                        <p>{{ $data->dislipidemia}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>History of HF</label>
-<p>{{ $data->historyofHf }}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>History of PCI or CABG</label>
-<p>{{ $data->historyofPciorCabg }}</p>
-                                </div>
-
-                            </div>
-                            {{-- Ro thorax --}}
-                            <div class="tab-pane" role="tabpanel" id="step4">
-                                <h4 class="text-center">Ro thorax</h4>
-                                <div class="col-md-6">
-                                        <label>Ro thorax Value</label>
-<p>{{ $data->roThorax }}</p>
-
-                                </div>
-
-                            </div>
-                            {{-- Echocardiography --}}
-                            <div class="tab-pane" role="tabpanel" id="step5">
-                                <h4 class="text-center">Echocardiography</h4>
-                                <div class="col-md-6">
-                                        <label>EF</label>
-<p>{{ $data->ef }} %</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>TAPSE</label>
-<p>{{ $data->tapse }} .mm</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>EDV</label>
-                                    <p>{{ $data->edv }} .mL</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ESV</label>
-                                        <p>{{ $data->esv }} .mL</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>EDD</label>
-
-                                   <p>{{ $data->edd }} .mm</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ESD</label>
-
-                                    <p>{{ $data->esd }} .mm</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Sign.MR</label>
-                                    <p>{{ $data->signMr }}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>E/A</label>
-                                    <p>{{ $data->diastolicFunction }}</p>
-                                </div>
-
-                            </div>
-                            {{-- Blood Laboratory Test --}}
-                            <div class="tab-pane" role="tabpanel" id="step6">
-                                <h4 class="text-center">Blood Laboratory Test</h4>
-                                <div class="col-md-6">
-                                        <label>Hemoglobin</label>
-                                                                        <p>{{ $data->hemoglobin }} .gr/dL</p>
-
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Hematocrite</label>
-                                    <p>{{ $data->hematocrite }} %</p>
-
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Erythrocyte</label>
-                                    <p>{{ $data->erythrocyte }} .10^6/uL</p>
-
-                                </div>
-                                <div class="col-md-6">
-                                        <label>HbA1C</label>
-                                    <p>{{ $data->hbA1C }} gr/dL</p>
-
+                                        <label>Alcohol *</label>
+                                        <p>{{ $data->alcohol}}</p>
                                 </div>
                                 
                                 <div class="col-md-6">
-                                        <label>Fasting Blood Glucose</label>
-                                    <p>{{ $data->fastingBloodGlucose }} gr/dL</p>
-
+                                        <label>CKD *</label>
+                                        <p>{{ $data->ckd}}</p>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                        <label>Atrial fibrillation *</label>
+                                        <p>{{ $data->atrialFibrillation}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>2 Hours Post Prandial Blood Glucose</label>
-                                    <p>{{ $data->twoHoursPostPrandialBloodGlucose }} gr/dL</p>
-
+                                        <label>Bundle Branch Block *</label>
+                                        <p>{{ $data->bundleBranchBlock}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Natrium</label>
-                                    <p>{{ $data->natrium }} mEq/L</p>
-
+                                        <label>History of CAD *</label>
+                                        <p>{{ $data->historyofCad}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Kalium</label>
-                                    <p>{{ $data->kalium }} mEq/L</p>
-
+                                        <label>History of HF *</label>
+                                        <p>{{ $data->historyofHf}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Ureum</label>
-                                    <p>{{ $data->ureum }} gr/dL</p>
-
+                                        <label>History of PCI or CABG *</label>
+                                        <p>{{ $data->historyofPciorCabg}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>BUN</label>
-                                    <p>{{ $data->bun }} gr/dL</p>
-
+                                        <label>Valvular Heart Disease *</label>
+                                        <p>{{ $data->valvularHeartDiesease}}</p>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>Serum Creatinine (Scr)</label>
-                                    <p>{{ $data->serumCreatinine }} mg/dL</p>
-
-                                </div>
-                                <div class="col-md-6">
-                                        <label>GFR</label>
-                                    <p>{{ $data->gfr }} mL/min/1.73 m2</p>
-
-                                </div>
-                            
-                                <div class="col-md-6">
-                                        <label>NT-ProBNP</label>
-                                    <p>{{ $data->nt_ProBnp }} pg/mL</p>
-
-                                </div>
+                                
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                         {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
                                     </ul>
                                 </div>
                             </div>
-                            {{-- Medication --}}
-                            <div class="tab-pane" role="tabpanel" id="step7">
-                                <h4 class="text-center">Medication</h4>
+
+                            {{-- Echocardiography --}}
+                            <div class="tab-pane" role="tabpanel" id="step4">
+                                <h4 class="text-center">Echocardiography</h4>
+                                <div class="col-md-6">
+                                        <label>EF at first *</label>
+                                        <p>{{ $data->efAtFirst }}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Date of first LVEF Examination *</label>
+                                        <p>{{ $data->efAtFirstDate }}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Latest EF *</label>
+                                        <p>{{ $data->latestEf }}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Date of latest LVEF Examination *</label>
+                                        <p>{{ $data->latestEfDate }}</p>
+                                </div>
                                 
                                 <div class="col-md-6">
+                                        <label>EDV</label>
+                                        <p>{{ $data->edv }}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>ESV</label>
+                                        <p>{{ $data->esv }}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>TAPSE *</label>
+                                        <p>{{ $data->tapse }}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Sign.MR</label>
+                                        <p>{{ $data->signMr}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>LV mass index</label>
+                                        <p>{{ $data->lvMaxIndex }}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>E/e’ average</label>
+                                        <p>{{ $data->eeAverage }}</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
+                                        {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            {{-- Blood Laboratory Test --}}
+                            <div class="tab-pane" role="tabpanel" id="step5">
+                                <h4 class="text-center">Blood Laboratory Test</h4>
+                                <div class="col-md-6">
+                                        <label>Hemoglobin *</label>
+                                        <p>{{ $data->hemoglobin}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Hematocrite</label>
+                                        <p><{{ $data->hematocrite}}/p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Random Blood Glucose *</label>
+                                        <p>{{ $data->randomBloodGlucose}}</p>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                        <label>HbA1C</label>
+                                        <p>{{ $data->hbA1C}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Natrium</label>
+                                        <p>{{ $data->natrium}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Kalium *</label>
+                                        <p>{{ $data->kalium}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Ureum *</label>
+                                        <p>{{ $data->ureum}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>BUN</label>
+                                        <p>{{ $data->bun}}</p>
+                                   
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Serum Creatinine (Scr) *</label>
+                                        <p>{{ $data->serumCreatinine}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>GFR *</label>
+                                        <p>{{ $data->gfr}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>NT-ProBNP</label>
+                                        <p>{{ $data->nt_ProBnp}}</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
+                                        {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            {{-- Medication --}}
+                            <div class="tab-pane" role="tabpanel" id="step6">
+                                <h4 class="text-center">Medication</h4>
+                                <div class="col-md-6">
                                         <label>ACEi</label>
-                                    <p>{{ $data->acei }}</p>
-
+                                        <p>{{ $data->acei}}</p>
+                                    <div class="input-group">
+                                        <select class="form-control" name="acei" >
+                                                <option {{ $data->acei == 'None' ? 'selected' : ''}} value="None">None</option>
+                                                <option {{ $data->acei == 'Ramipril' ? 'selected' : ''}} value="Ramipril">Ramipril</option>
+                                                <option {{ $data->acei == 'Captopril' ? 'selected' : ''}} value="Captopril">Captopril</option>
+                                                <option {{ $data->acei == 'Lisinopril' ? 'selected' : ''}} value="Lisinopril">Lisinopril</option>
+                                                <option {{ $data->acei == 'Perindopril' ? 'selected' : ''}} value="Perindopril">Perindopril</option>
+                                                <option {{ $data->acei == 'Other' ? 'selected' : ''}} value="Other">Other</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>ACEi Dose</label>
-                                    <p>{{ $data->aceiDose }} mg/day</p>
-
+                                        <p>{{ $data->aceiDose}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>ACEi intolerance</label>
-                                    <p>{{ $data->aceiIntolerance }}</p>
-
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ARB</label>
-                                    <p>{{ $data->arb }}</p>
-
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ARB Dose</label>
-                                    <p>{{ $data->arbDose }} mg/day</p>
-
+                                        <p>{{ $data->aceiIntolerance}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>ARNI Dose</label>
-                                    <p>{{ $data->arniDose }} mg/day</p>
-
+                                        <p>{{ $data->arniDose}}</p>
                                 </div>
+                               
                                 
                                 <div class="col-md-6">
-                                        <label>Beta Blocker</label>
-                                    <p>{{ $data->betaBlocker }}</p>
-
+                                        <label>ARB</label>
+                                        <p>{{ $data->arb}}</p>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Beta Blocker Dose</label>
-                                    <p>{{ $data->betaBlockerDose }} mg/day</p>
-
+                                        <label>ARB Dose</label>
+                                        <p>{{ $data->arbDose}}</p>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>Beta Blocker Intolerance</label>
-                                    <p>{{ $data->betaBlockerIntolerance }}</p>
-
+                                 <div class="col-md-6">
+                                        <label>MRA Intolerance</label>
+                                        <p>{{ $data->mraIntolerance}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>MRA Dose</label>
-                                    <p>{{ $data->mraDose }} mg/day</p>
-
+                                        <p>{{ $data->mraDose}}</p>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>MRA Intolerance</label>
-                                    <p>{{ $data->mraIntolerance }}</p>
-
-                                </div>
-                               <div class="col-md-6">
-                                        <label>SGLT2i</label>
-                                    <p>{{ $data->sglt2i }}</p>
-
+                                
+                                 <div class="col-md-6">
+                                        <label>SGLT2i</label>                                        <p>{{ $data->mraDose}}</p>
+                                        <p>{{ $data->sglt2i}}</p>
                                     
                                 </div>
                                <div class="col-md-6">
                                         <label>SGLT2i Dose</label>
-                                    <p>{{ $data->sglt2iDose }} mg/day</p>
-
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Loop Diuretic</label>
-                                    <p>{{ $data->loopDiuretic }}</p>
-
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Loop Diuretic Dose</label>
-                                    <p>{{ $data->loopDiureticDose }} mg/day</p>
-
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Ivabradine Dose</label>
-                                    <p>{{ $data->ivabradineDose }} mg/day</p>
-
-                                </div>
-                                
-                                <div class="col-md-6">
-                                        <label>Insulin</label>
-                                    <p>{{ $data->insulin }}</p>
-
-                                </div>
-                               
-                                <div class="col-md-6">
-                                        <label>Devices</label>
-                                    <p>{{ $data->devices }}</p>
-
-                                </div>
-
-                                <div class="col-md-12">
-                                    <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
-                                        {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
-                                    </ul>
-                                </div>
-                            </div>
-                           
-                            {{-- Outcomes --}}
-                            <div class="tab-pane" role="tabpanel" id="step8">
-                                <h4 class="text-center">Outcomes</h4>
-                                <div class="col-md-6">
-                                        <label>Total Rehospitalization</label>
-                                    <p>{{ $data->totalRehospitalization }}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>All cause death</label>
-                                    <p>{{ $data->allCauseDeath }}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Cardiac related death</label>
-                                    <p>{{ $data->cardiacRelatedDeath }}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Date of death</label>
-                                    <p>{{ $data->dateofDeath }}</p>
-                                </div>
-                                <div class="col-md-12">
-                                        <label>Additional Notes</label>
-                                    <p>{{ $data->additional_notes }}</p>
-                                </div>
-                                <div class="col-md-12">
-                                    <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
-                                        <li><button type="button" class="default-btn next-step">Continue</button></li>
-                                        
-
-                                        {{-- <li><button type="button" onclick="finish()" type="submit" class="default-btn next-step">Finish</button></li> --}}
-                                    </ul>
-                                </div>
-                            </div>
-                            {{-- Mount Followup --}}
-                            <div class="tab-pane" role="tabpanel" id="step9">
-                                <h4 class="text-center">Month Followup</h4>
-                               <div class="all-info-container">
-                                        @foreach ( $monthfollowup as $row2 )
-                                        <div class="list-content">
-                                            <a href="#listone{!!$row2->id!!}" data-toggle="collapse" aria-expanded="false" aria-controls="listone">{{$row2->mount}}<i class="fa fa-chevron-down"></i></a>
-                                            <div class="collapse" id="listone{!!$row2->id!!}">
-                                                <div class="list-box">
-                                                    <div class="row">
-                                                        
-                                                         <div class="col-md-6">
-                                        <label>Patient</label>
-                                                            <p>{{$row2->name}}</p>
-                                </div>
-                                 <div class="col-md-6">
-                                        <label>Mount Followup</label>
-                                        <p>{{$row2->mount}}</p>
-
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Peripheral Oedema</label>
-                                                                           <p>{{$row2->peripheralOedema}}</p>
-
-                                </div>
-                                <div class="col-md-6">
-                                        <label>NYHA Class</label>
-                                                                                                                   <p>{{$row2->nyhaClass}}</p>
-
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Systolic Blood Pressure</label>
-                                    <p>{{$row2->sbp}} .mmHg</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Diastolic Blood Pressure</label>
-                                    <p>{{$row2->dbp}} .mmHg</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Heart rate</label>
-                                    <p>{{$row2->hr}} .bpm</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Echo EF</label>
-                                    <p>{{$row2->echoEf}} %</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Echo TAPSE</label>
-                                   <p>{{$row2->echoTapse}} .mm</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Echo EDV</label>
-                                    <p>{{$row2->echoEdv}} .ml</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Echo ESV</label>
-                                    <p>{{$row2->echoEsv}} .ml</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Echo EDD</label>
-                                    <p>{{$row2->echoEdd}} .mm</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Echo ESD</label>
-                                    <p>{{$row2->echoEsd}} .mm</p>
-                                </div>
-                                 <div class="col-md-6">
-                                        <label>Echo Sign.MR</label>
-                                       <p>{{$row2->echoSignMr}}</p>
-                                </div>
-                                 <div class="col-md-6">
-                                        <label>Echo Diastolic function</label>
-                                      <p>{{$row2->echoDiastolicFunction}}</p>
-                                </div>
-                                 <div class="col-md-6">
-                                        <label>ACEi</label>
-                                        <p>{{$row2->aceiDose}}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ACEi Dose</label>
-                                   <p>{{$row2->aceiDose}} .mg/day</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ACEi Intolerance</label>
-                                        <p>{{$row2->aceiIntolerance}}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ARB</label>
-                                       <p>{{$row2->arb}}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ARB Dose</label>
-                                    <p>{{$row2->arbDose}} .mg/day</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>ARNI Dose</label>
-                                   <p>{{$row2->arniDose}} .mg/day</p>
+                                        <p>{{ $data->sglt2iDose}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Beta Blocker</label>
-                                      <p>{{$row2->betaBlocker}}</p>
+                                        <p>{{ $data->betaBlocker}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Beta Blocker Dose</label>
-                                   <p>{{$row2->betaBlockerDose}} .mg/day</p>
+                                        <p>{{ $data->betaBlockerDose}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Beta Blocker Intolerance</label>
-                                       <p>{{$row2->betaBlockerIntolerance}}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>MRA Dose</label>
-                                   <p>{{$row2->mraDose}} .mg/day</p>
-                                </div>
-                                 <div class="col-md-6">
-                                        <label>MRA Intolerance</label>
-                                    <p>{{$row2->mraIntolerance}}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Beta Blocker Intolerance</label>
-                                       <p>{{$row2->betaBlockerIntolerance}}</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>SGLT2i Dose</label>
-                                   <p>{{$row2->sglt2i}} .mg/day</p>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Loop Diuretic Dose</label>
-                                    <p>{{$row2->loopDiureticDose}} .mg/day</p>
+                                        <p>{{ $data->betaBlockerIntolerance}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Ivabradine Dose</label>
-                                   <p>{{$row2->ivabradineDose}} .mg/day</p>
+                                        <p>{{ $data->ivabradineDose}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Devices</label>
+                                        <p>{{ $data->devices}}</p>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Loop Diuretic Dose</label>
+                                        <p>{{ $data->loopDiureticDose}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Insulin</label>
-                                    <p>{{$row2->insulin}}</p>
+                                        <p>{{ $data->insulin}}</p>
                                 </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                           @endforeach
-                               </div>
+                                <div class="col-md-6">
+                                        <label>Statin</label>
+                                        <p>{{ $data->statin}}</p>
+                                </div>
 
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
-                                        <li><button type="button" class="default-btn prev-step">Back</button></li>
-                                        {{-- <li><button type="button" class="default-btn next-step skip-btn">Skip</button></li> --}}
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
                                     </ul>
                                 </div>
                             </div>
-                           
                             <div class="clearfix"></div>
                             {{-- <input class="btn" type="button" onclick="review_data()" value="Preview Data"> --}}
 
-                        </div>
-
-                        <!-- Modal -->
-                        <div class="modal fade in" id="tesModal">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <!-- header-->
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal"><span>&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Preview Data</h4>
-                                    </div>
-                                    <!--body-->
-                                    <div class="modal-body">
-                                    </div>
-                                    <!--footer-->
-                                    <div class="modal-footer">
-                                        <input type="button" onclick="closeModal()" class="btn btn-danger"
-                                            data-dismiss="modal" value="Tutup">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                 </div>
             </div>
