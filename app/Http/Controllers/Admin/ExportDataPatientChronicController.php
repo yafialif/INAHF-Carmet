@@ -23,16 +23,16 @@ class ExportDataPatientChronicController extends Controller
 		$role_id = Auth::user()->role_id;
 		$menu = MonthFollowUp::get();
 		// if ($role_id >= 2) {
-		$patient = DB::table('patient')
-			->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
-			// ->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
-			// ->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
-			// ->join('chronicoutcomes', 'patient.id', '=', 'chronicoutcomes.patient_id')
-			// ->join('chronicrothorax', 'patient.id', '=', 'chronicrothorax.patient_id')
-			// ->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
-			// ->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
-			->where('patient.categorytreatment_id', 2)
-			->get();
+		// $patient = DB::table('patient')
+		// ->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
+		// ->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
+		// ->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
+		// ->join('chronicoutcomes', 'patient.id', '=', 'chronicoutcomes.patient_id')
+		// ->join('chronicrothorax', 'patient.id', '=', 'chronicrothorax.patient_id')
+		// ->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
+		// ->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
+		// ->where('patient.categorytreatment_id', 2)
+		// ->get();
 		// } else {
 		// 	$patient = DB::table('patient')
 		// 		->join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
@@ -50,6 +50,28 @@ class ExportDataPatientChronicController extends Controller
 		// 		->get();
 		// }
 		// return response()->json($patient);
+		if ($role_id >= 2) {
+
+			$patient = DB::table('patient')
+				->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
+				->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
+				->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
+				->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
+				->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
+				->where('patient.categorytreatment_id', 2)
+				->get();
+		} else {
+			$patient = DB::table('patient')
+				->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
+				->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
+				->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
+				->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
+				->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
+				// ->where('patient.categorytreatment_id', 2)
+				->get();
+		}
+
+		// $data = $patient[0];
 		return view('admin.exportdatapatientchronic.index', compact('patient'));
 	}
 }

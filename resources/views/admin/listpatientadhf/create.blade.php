@@ -598,7 +598,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>BMI *</label>
                                     <div class="input-group">
                                         <input class="form-control" type="text" id="bmi" name="bmi" placeholder="" readonly>
-                                        {{-- <span class="input-group-addon">.Kg/m2</span> --}}
+                                        <span class="input-group-addon">.Kg/m<sup>2</sup></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -1983,9 +1983,9 @@ var height = parseInt(document.getElementById('height').value) ;
 var weight = parseInt(document.getElementById('weight').value) ;
 var imt = parseInt((weight / (height * height) * 10000));
 var bmi;
-console.log("h"+height);
-console.log("w"+weight);
-console.log(imt);
+// console.log("h"+height);
+// console.log("w"+weight);
+// console.log(imt);
 
 if(sex == "Male"){
   switch(true){
@@ -2021,7 +2021,7 @@ else if(sex == "Female"){
   }
   
 }
-document.getElementById('bmi').value = imt+' Kg/m2';
+document.getElementById('bmi').value = imt;
 }
 function removelocal() {
         localStorage.removeItem("form_adhf");
