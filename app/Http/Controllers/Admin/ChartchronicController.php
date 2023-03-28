@@ -55,7 +55,7 @@ class ChartchronicController extends Controller
 			$datars = Patient::selectRaw('rumahsakit.name_of_rs,count(*) AS total')
 				->join('rumahsakit', 'patient.rs_id', '=', 'rumahsakit.id')
 				->where('patient.categorytreatment_id', 2)
-				->where('user_id', $user_id)
+				->where('patient.user_id', $user_id)
 				->groupBy('rumahsakit.name_of_rs')
 				->get();
 			$dataAge = Patient::selectRaw('age')
