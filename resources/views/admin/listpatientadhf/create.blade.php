@@ -2021,7 +2021,7 @@ else if(sex == "Female"){
   }
   
 }
-document.getElementById('bmi').value = imt;
+document.getElementById('bmi').value = parseFloat(imt).toFixed(2);
 }
 function removelocal() {
         localStorage.removeItem("form_adhf");

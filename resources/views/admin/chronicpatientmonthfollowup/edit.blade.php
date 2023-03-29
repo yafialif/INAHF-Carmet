@@ -1,6 +1,21 @@
 @extends('admin.layouts.master')
 @section('css')
 <style>
+     /* divider */
+    .divider{
+    height: 2px;
+    background: #e0e0e0;
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    z-index: 1;
+    }
+     .col-divider{
+        margin: 20px 0px 20px 0px;
+    }
     .input-group{
         width: 100%;
         padding-bottom: 20px;
@@ -405,7 +420,6 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
 <div id="notification" class="alert alert-success" role="alert">
 </div>
 
-
 <section class="signup-step-container">
     <div class="container">
         <div class="row d-flex justify-content-center">
@@ -418,9 +432,6 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                 <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab"
                                     aria-expanded="true"><span class="round-tab">1 </span> <i>Month Followup</i></a>
                             </li>
-                            
-
-
                         </ul>
                     </div>
                     {!! Form::open(array('route' => array('admin.chronicpatientmonthfollowup.update', $chronicpatientmonthfollowup->id) , 'id' => 'dataForm', 'class' => 'form-horizontal', 'method' => 'PATCH' )) !!}
@@ -429,133 +440,126 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                             <div class="tab-pane active" role="tabpanel" id="step1">
                                 <h4 class="text-center">Month Followup</h4>
                                 <div class="col-md-6">
-                                        <label>Patient</label>
+                                        <label>Name of patient</label>
+                                    <div class="input-group">
                                         {{-- <input class="form-control" value="{{ $chronicpatientmonthfollowup->patient_id }}"  type="number" readonly name="sbp" placeholder="" > --}}
-
-
+                                                {!! Form::select('patient_id', $patient, old('id'), array('class'=>'form-control')) !!}
+                                    </div>
                                 </div>
                                  <div class="col-md-6">
-                                        <label>Mount Followup</label>
-                                        {{-- <input class="form-control" value="{{ $chronicpatientmonthfollowup->monthfollowup_id }}"  type="number" name="sbp" placeholder="" > --}}
-
+                                        <label>Month Follow Up</label>
+                                    <div class="input-group">
+                                                {!! Form::select('monthfollowup_id', $monthfollowup, old('monthfollowup_id'), array('class'=>'form-control')) !!}
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Peripheral Oedema</label>
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $chronicpatientmonthfollowup->peripheralOedema == 'Yes' ? 'checked' : ''}} type="radio" name="peripheral_oedema" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $chronicpatientmonthfollowup->peripheralOedema == 'No' ? 'checked' : ''}} type="radio" name="peripheral_oedema" value="No">No</label>
-                                        </div>
+                                        <select class="form-control" name="peripheralOedema">
+                                            <option {{ $chronicpatientmonthfollowup->peripheralOedema == 'Yes' ? 'selected' : ''}} value="Yes">Yes</option>
+                                            <option {{ $chronicpatientmonthfollowup->peripheralOedema == 'No' ? 'selected' : ''}} value="No">No</option>
+                                        </select>
+                                      
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>NYHA Class</label>
+                                        <label>NYHA Class *</label>
                                         <div class="input-group">
-                                            <select class="form-control" name="nyhaClass">
-                                                <option {{ $chronicpatientmonthfollowup->nyhaClass == 'Class I' ? 'selected' : ''}}>Class I</option>
-                                                <option {{ $chronicpatientmonthfollowup->nyhaClass == 'Class II' ? 'selected' : ''}}>Class II</option>
-                                                <option {{ $chronicpatientmonthfollowup->nyhaClass == 'Class III' ? 'selected' : ''}}>Class III</option>
-                                                <option {{ $chronicpatientmonthfollowup->nyhaClass == 'Class IV' ? 'selected' : ''}}>Class IV</option>
+                                        <select class="form-control" name="nyhaClass" required>
+                                                <option {{ $chronicpatientmonthfollowup->nyhaClass == 'Class I' ? 'selected' : ''}} value="Class I">Class I</option>
+                                                <option {{ $chronicpatientmonthfollowup->nyhaClass == 'Class II' ? 'selected' : ''}} value="Class II">Class II</option>
+                                                <option {{ $chronicpatientmonthfollowup->nyhaClass == 'Class III' ? 'selected' : ''}} value="Class III">Class III</option>
+                                                <option {{ $chronicpatientmonthfollowup->nyhaClass == 'Class IV' ? 'selected' : ''}} value="Class IV">Class IV</option>
                                             </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Systolic Blood Pressure</label>
+                                        <label>Systolic Blood Pressure *</label>
                                     <div class="input-group">
-                                        <input class="form-control" value="{{ $chronicpatientmonthfollowup->sbp }}"  type="number" name="sbp" placeholder="" >
+                                            <input value="{{$chronicpatientmonthfollowup->sbp}}" id="sbp" class="form-control" type="text" name="sbp" placeholder="" required>
                                         <span class="input-group-addon">.mmHg</span>
                                         </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Diastolic Blood Pressure</label>
+                                        <label>Diastolic Blood Pressure *</label>
                                     <div class="input-group">
-                                        <input class="form-control" value="{{ $chronicpatientmonthfollowup->dbp }}"  type="number" name="dbp" placeholder="" >
+                                            <input id="dbp" value="{{$chronicpatientmonthfollowup->dbp}}" class="form-control" type="text" name="dbp" placeholder="" required>
                                         <span class="input-group-addon">.mmHg</span>
                                         </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Heart rate</label>
+                                        <label>Heart Rate *</label>
                                     <div class="input-group">
-                                        <input class="form-control" value="{{ $chronicpatientmonthfollowup->hr }}"  type="number" name="hr" placeholder="" >
+                                            <input id="hr" value="{{$chronicpatientmonthfollowup->hr}}" class="form-control" type="text" name="hr" placeholder="" required>
                                         <span class="input-group-addon">.bpm</span>
                                         </div>
                                 </div>
+                                <div class="col-md-12 col-divider">
+                                    <div class="divider"></div>
+                                </div>
                                 <div class="col-md-6">
-                                        <label>Echo EF</label>
+                                        <label>Is there echo evaluation during the last 6 month? </label>
                                     <div class="input-group">
-                                            <input value="{{ $chronicpatientmonthfollowup->echoEf }}" id="echoEf" class="form-control" type="text" name="echoEf" placeholder="" >
+                                        <select onchange="IfechoEvaluation()" class="form-control" name="echoEvaluation">
+                                            <option {{ $chronicpatientmonthfollowup->echoEvaluation == 'Yes' ? 'selected' : ''}} value="Yes">Yes</option>
+                                            <option {{ $chronicpatientmonthfollowup->echoEvaluation == 'No' ? 'selected' : ''}} value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                 <div id="echoEf" class="col-md-6">
+                                        <label>Echo LVEF</label>
+                                    <div class="input-group">
+                                            <input value="{{$chronicpatientmonthfollowup->echoEf}}" class="form-control" type="text" name="echoEf" placeholder="" >
                                         <span class="input-group-addon">%</span>
                                         </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div id="echoTapse" class="col-md-6">
                                         <label>Echo TAPSE</label>
                                     <div class="input-group">
-                                            <input  value="{{ $chronicpatientmonthfollowup->echoTapse }}" id="echoTapse" class="form-control" type="text" name="echoTapse" placeholder="" >
+                                            <input value="{{$chronicpatientmonthfollowup->echoTapse}}" class="form-control" type="text" name="echoTapse" placeholder="" >
                                         <span class="input-group-addon">.mm</span>
                                         </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div id="echoEdv" class="col-md-6">
                                         <label>Echo EDV</label>
                                     <div class="input-group">
-                                            <input value="{{ $chronicpatientmonthfollowup->echoEdv }}" id="echoEdv" class="form-control" type="text" name="echoEdv" placeholder="" >
+                                            <input value="{{$chronicpatientmonthfollowup->echoEdv}}" class="form-control" type="text" name="echoEdv" placeholder="" >
                                         <span class="input-group-addon">.ml</span>
                                         </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div id="echoEsv" class="col-md-6">
                                         <label>Echo ESV</label>
                                     <div class="input-group">
-                                            <input value="{{ $chronicpatientmonthfollowup->echoEsv }}" id="echoEsv" class="form-control" type="text" name="echoEsv" placeholder="" >
+                                            <input value="{{$chronicpatientmonthfollowup->echoEsv}}" class="form-control" type="text" name="echoEsv" placeholder="" >
                                         <span class="input-group-addon">.ml</span>
                                         </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>Echo EDD</label>
+                                <div id="lvMaxIndex" class="col-md-6">
+                                        <label>LV Mass Index</label>
                                     <div class="input-group">
-                                            <input id="" value="{{ $chronicpatientmonthfollowup->echoEdd }}" class="form-control" type="text" name="echoEdd" placeholder="" >
-                                        <span class="input-group-addon">.mm</span>
+                                            <input value="{{$chronicpatientmonthfollowup->lvMaxIndex}}" class="form-control" type="text" name="lvMaxIndex" placeholder="" >
+                                        <span class="input-group-addon">.gr/m<sup>2</sup></span>
                                         </div>
                                 </div>
-                                <div class="col-md-6">
-                                        <label>Echo ESD</label>
+                                <div id="ee" class="col-md-6">
+                                        <label>E/e' average</label>
                                     <div class="input-group">
-                                            <input id="echoEsd" value="{{ $chronicpatientmonthfollowup->echoEsd }}" class="form-control" type="text" name="echoEsd" placeholder="" >
-                                        <span class="input-group-addon">.mm</span>
+                                            <input value="{{$chronicpatientmonthfollowup->ee}}" class="form-control" type="text" name="ee" placeholder="" >
                                         </div>
                                 </div>
-                                 <div class="col-md-6">
+                                 <div id="signMr" class="col-md-6">
                                         <label>Echo Sign.MR</label>
                                         <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $chronicpatientmonthfollowup->echoSignMr == 'No' ? 'checked' : ''}} type="radio" name="echoSignMr" value="No">No</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $chronicpatientmonthfollowup->echoSignMr == 'Midle MR' ? 'checked' : ''}} type="radio" name="echoSignMr"
-                                                    value="Midle MR">Midle MR</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $chronicpatientmonthfollowup->echoSignMr == 'Moderate MR' ? 'checked' : ''}} type="radio" name="echoSignMr"
-                                                    value="Moderate MR">Moderate MR</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $chronicpatientmonthfollowup->echoSignMr == 'Severe MR' ? 'checked' : ''}} type="radio" name="echoSignMr"
-                                                    value="Severe MR">Severe MR</label>
-                                        </div>
+                                        <select class="form-control" name="echoSignMr">
+                                                <option {{ $chronicpatientmonthfollowup->echoSignMr == 'No' ? 'selected' : ''}} value="No">No</option>
+                                                <option {{ $chronicpatientmonthfollowup->echoSignMr == 'Mild' ? 'selected' : ''}} value="Mild">Mild</option>
+                                                <option {{ $chronicpatientmonthfollowup->echoSignMr == 'Moderate' ? 'selected' : ''}} value="Moderate">Moderate</option>
+                                                <option {{ $chronicpatientmonthfollowup->echoSignMr == 'Severe' ? 'selected' : ''}} value="Severe">Severe</option>
+                                            </select>
                                     </div>
                                 </div>
-                                 <div class="col-md-6">
-                                        <label>E/A</label>
-                                        <div class="input-group">
-                                            <input id="echoEsd" class="form-control" type="text" name="echoDiastolicFunction" placeholder="" >
-
-                                        {{-- <select class="form-control" name="echoDiastolicFunction">
-                                            <option {{ $chronicpatientmonthfollowup->echoDiastolicFunction == 'Normal' ? 'selected' : ''}} value="Normal">Normal</option>
-                                            <option {{ $chronicpatientmonthfollowup->echoDiastolicFunction == 'Pseudonormal' ? 'selected' : ''}} value="Pseudonormal">Pseudonormal</option>
-                                            <option {{ $chronicpatientmonthfollowup->echoDiastolicFunction == 'Relaxation disorder' ? 'selected' : ''}} value="Relaxation disorder">Relaxation disorder</option>
-                                            <option {{ $chronicpatientmonthfollowup->echoDiastolicFunction == 'Restrictive' ? 'selected' : ''}} value="Restrictive">Restrictive</option>
-                                        </select> --}}
-                                    </div>
+                                <div class="col-md-12 col-divider">
+                                    <div class="divider"></div>
                                 </div>
                                  <div class="col-md-6">
                                         <label>ACEi</label>
@@ -566,13 +570,14 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                                 <option {{ $chronicpatientmonthfollowup->acei == 'Captopril' ? 'selected' : ''}} value="Captopril">Captopril</option>
                                                 <option {{ $chronicpatientmonthfollowup->acei == 'Lisinopril' ? 'selected' : ''}} value="Lisinopril">Lisinopril</option>
                                                 <option {{ $chronicpatientmonthfollowup->acei == 'Perindopril' ? 'selected' : ''}} value="Perindopril">Perindopril</option>
+                                                <option {{ $chronicpatientmonthfollowup->acei == 'Other' ? 'selected' : ''}} value="Other">Other</option>
                                             </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>ACEi Dose</label>
                                     <div class="input-group">
-                                            <input id="aceiDose" value="{{ $chronicpatientmonthfollowup->aceiDose }}" class="form-control" type="text" name="aceiDose" placeholder="" >
+                                            <input value="{{ $chronicpatientmonthfollowup->aceiDose }}" id="aceiDose" class="form-control" type="text" name="aceiDose" placeholder="" >
                                         <span class="input-group-addon">.mg/day</span>
                                         </div>
                                 </div>
@@ -587,6 +592,13 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+                                        <label>ARNI Dose</label>
+                                    <div class="input-group">
+                                            <input value="{{ $chronicpatientmonthfollowup->arniDose }}" id="arniDose" class="form-control" type="text" name="arniDose" placeholder="" >
+                                        <span class="input-group-addon">.mg/day</span>
+                                        </div>
+                                </div>
+                                <div class="col-md-6">
                                         <label>ARB</label>
                                         <div class="input-group">
                                         <select class="form-control" name="arb">
@@ -594,20 +606,48 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                                 <option {{ $chronicpatientmonthfollowup->arb == 'Candesartan' ? 'selected' : ''}} value="Candesartan">Candesartan</option>
                                                 <option {{ $chronicpatientmonthfollowup->arb == 'Valsartan' ? 'selected' : ''}} value="Valsartan">Valsartan</option>
                                                 <option {{ $chronicpatientmonthfollowup->arb == 'Losartan' ? 'selected' : ''}} value="Losartan">Losartan</option>
+                                                <option {{ $chronicpatientmonthfollowup->arb == 'Other' ? 'selected' : ''}} value="Other">Other</option>
                                             </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>ARB Dose</label>
                                     <div class="input-group">
-                                            <input id="arbDose" class="form-control" type="text" value="{{ $chronicpatientmonthfollowup->arbDose }}" name="arbDose" placeholder="" >
+                                            <input value="{{ $chronicpatientmonthfollowup->arbDose }}" id="arbDose" class="form-control" type="text" name="arbDose" placeholder="" >
                                         <span class="input-group-addon">.mg/day</span>
                                         </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>ARNI Dose</label>
+                                        <label>MRA Intolerance</label>
+                                        <div class="input-group">
+                                        <select class="form-control" name="mraIntolerance">
+                                                <option {{ $chronicpatientmonthfollowup->mraIntolerance == 'None' ? 'selected' : ''}} value="None">None</option>
+                                                <option {{ $chronicpatientmonthfollowup->mraIntolerance == 'ginecomastia' ? 'selected' : ''}} value="ginecomastia">ginecomastia</option>
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>MRA Dose</label>
                                     <div class="input-group">
-                                            <input id="arniDose" value="{{ $chronicpatientmonthfollowup->arniDose }}" class="form-control" type="text" name="arniDose" placeholder="" >
+                                            <input value="{{ $chronicpatientmonthfollowup->mraDose }}" id="mraDose" class="form-control" type="text" name="mraDose" placeholder="" >
+                                        <span class="input-group-addon">.mg/day</span>
+                                        </div>
+                                </div>
+                                 <div class="col-md-6">
+                                        <label>SGLT2i</label>
+                                    <div class="input-group">
+                                        <select class="form-control" name="sglt2i" >
+                                                <option {{ $chronicpatientmonthfollowup->sglt2i == 'None' ? 'selected' : ''}} value="None">None</option>
+                                                <option {{ $chronicpatientmonthfollowup->sglt2i == 'Empagliflozin' ? 'selected' : ''}} value="Empagliflozin">Empagliflozin</option>
+                                                <option {{ $chronicpatientmonthfollowup->sglt2i == 'Dapagliflozin' ? 'selected' : ''}} value="Dapagliflozin">Dapagliflozin</option>
+                                        </select>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                        <label>SGLT2i Dose</label>
+                                    <div class="input-group">
+                                            <input value="{{ $chronicpatientmonthfollowup->sglt2iDose }}" id="sglt2iDose" class="form-control" type="text" name="sglt2iDose" placeholder="" >
                                         <span class="input-group-addon">.mg/day</span>
                                         </div>
                                 </div>
@@ -625,7 +665,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                 <div class="col-md-6">
                                         <label>Beta Blocker Dose</label>
                                     <div class="input-group">
-                                            <input id="betaBlockerDose" class="form-control" type="text" value="{{ $chronicpatientmonthfollowup->betaBlockerDose }}" name="betaBlockerDose" placeholder="" >
+                                            <input value="{{ $chronicpatientmonthfollowup->betaBlockerDose }}" id="betaBlockerDose" class="form-control" type="text" name="betaBlockerDose" placeholder="" >
                                         <span class="input-group-addon">.mg/day</span>
                                         </div>
                                 </div>
@@ -635,58 +675,38 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                         <select class="form-control" name="betaBlockerIntolerance">
                                                 <option {{ $chronicpatientmonthfollowup->betaBlockerIntolerance == 'None' ? 'selected' : ''}} value="None">None</option>
                                                 <option {{ $chronicpatientmonthfollowup->betaBlockerIntolerance == 'Bradycardia' ? 'selected' : ''}} value="Bradycardia">Bradycardia</option>
-                                                <option {{ $chronicpatientmonthfollowup->betaBlockerIntolerance == 'Hypotension' ? 'selected' : ''}} value="">Hypotension</option>
+                                                <option {{ $chronicpatientmonthfollowup->betaBlockerIntolerance == 'Hypotension' ? 'selected' : ''}} value="Hypotension">Hypotension</option>
                                                 <option {{ $chronicpatientmonthfollowup->betaBlockerIntolerance == 'AV Block' ? 'selected' : ''}} value="AV Block">AV Block</option>
                                                 <option {{ $chronicpatientmonthfollowup->betaBlockerIntolerance == 'ventricular dysfunction' ? 'selected' : ''}} value="ventricular dysfunction">ventricular dysfunction</option>
                                             </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>MRA Dose</label>
+                                        <label>Ivabradine Dose</label>
                                     <div class="input-group">
-                                            <input id="mraDose" class="form-control" type="text" value="{{ $chronicpatientmonthfollowup->mraDose }}" name="mraDose" placeholder="" >
+                                            <input value="{{ $chronicpatientmonthfollowup->ivabradineDose }}" id="ivabradineDose" class="form-control" type="text" name="ivabradineDose" placeholder="" >
                                         <span class="input-group-addon">.mg/day</span>
                                         </div>
                                 </div>
-                                 <div class="col-md-6">
-                                        <label>MRA Intolerance</label>
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $chronicpatientmonthfollowup->mraIntolerance == 'Yes' ? 'checked' : ''}} type="radio" name="mraIntolerance" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $chronicpatientmonthfollowup->mraIntolerance == 'No' ? 'checked' : ''}} type="radio" name="mraIntolerance" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-md-6">
-                                        <label>Beta Blocker Intolerance</label>
-                                        <div class="input-group">
-                                        <select class="form-control" name="sglt2i">
-                                                <option {{ $chronicpatientmonthfollowup->sglt2i == 'None' ? 'selected' : ''}} value="None">None</option>
-                                                <option {{ $chronicpatientmonthfollowup->sglt2i == 'Empagliflozin' ? 'selected' : ''}} value="Empagliflozin">Empagliflozin</option>
-                                                <option {{ $chronicpatientmonthfollowup->sglt2i == 'Dapagliflozin' ? 'selected' : ''}} value="Dapagliflozin">Dapagliflozin</option>
-                                            </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>SGLT2i Dose</label>
+                                        <label>Devices</label>
                                     <div class="input-group">
-                                            <input id="sglt2iDose" class="form-control" value="{{ $chronicpatientmonthfollowup->sglt2iDose }}" type="text" name="sglt2iDose" placeholder="" >
-                                        <span class="input-group-addon">.mg/day</span>
-                                        </div>
+                                        {{-- <input class="form-control" type="number" name="otherOAD" placeholder="">
+                                        <span class="input-group-addon">mg/day</span> --}}
+                                        <select class="form-control" name="devices" >
+                                                <option {{ $chronicpatientmonthfollowup->devices == 'PPM' ? 'selected' : ''}} value="PPM">PPM</option>
+                                                <option {{ $chronicpatientmonthfollowup->devices == 'ICD' ? 'selected' : ''}} value="ICD">ICD</option>
+                                                <option {{ $chronicpatientmonthfollowup->devices == 'CRTP' ? 'selected' : ''}} value="CRTP">CRTP</option>
+                                                <option {{ $chronicpatientmonthfollowup->devices == 'CRTD' ? 'selected' : ''}} value="CRTD">CRTD</option>
+                                                <option {{ $chronicpatientmonthfollowup->devices == 'CSP' ? 'selected' : ''}} value="CSP">CSP</option>
+                                                <option {{ $chronicpatientmonthfollowup->devices == 'None' ? 'selected' : ''}} value="None">None</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Loop Diuretic Dose</label>
                                     <div class="input-group">
-                                            <input id="loopDiureticDose" class="form-control" value="{{ $chronicpatientmonthfollowup->loopDiureticDose }}" type="text" name="loopDiureticDose" placeholder="" >
-                                        <span class="input-group-addon">.mg/day</span>
-                                        </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Ivabradine Dose</label>
-                                    <div class="input-group">
-                                            <input id="ivabradineDose" class="form-control" type="text" value="{{ $chronicpatientmonthfollowup->ivabradineDose }}" name="ivabradineDose" placeholder="" >
+                                            <input value="{{ $chronicpatientmonthfollowup->loopDiureticDose }}" id="loopDiureticDose" class="form-control" type="text" name="loopDiureticDose" placeholder="" >
                                         <span class="input-group-addon">.mg/day</span>
                                         </div>
                                 </div>
@@ -699,6 +719,69 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                         <div class="radio">
                                             <label><input {{ $chronicpatientmonthfollowup->insulin == 'No' ? 'checked' : ''}} type="radio" name="insulin" value="No">No</label>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Statin</label>
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input {{ $chronicpatientmonthfollowup->statin == 'Yes' ? 'checked' : ''}} type="radio" name="statin" value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input {{ $chronicpatientmonthfollowup->statin == 'No' ? 'checked' : ''}} type="radio" name="statin"
+                                                    value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-divider">
+                                    <div class="divider"></div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Rehospitalization *</label>
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input {{ $chronicpatientmonthfollowup->totalRehospitalization == 'Yes' ? 'checked' : ''}} type="radio" name="totalRehospitalization" value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input {{ $chronicpatientmonthfollowup->totalRehospitalization == 'No' ? 'checked' : ''}} type="radio" name="totalRehospitalization" value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>All cause death *</label>
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input {{ $chronicpatientmonthfollowup->allCauseDeath == 'Yes' ? 'checked' : ''}} type="radio" name="allCauseDeath"
+                                                    value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input {{ $chronicpatientmonthfollowup->allCauseDeath == 'No' ? 'checked' : ''}} type="radio" name="allCauseDeath" value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Cardiac related death *</label>
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input {{ $chronicpatientmonthfollowup->cardiacRelatedDeath == 'Yes' ? 'checked' : ''}} type="radio" name="cardiacRelatedDeath"
+                                                    value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input {{ $chronicpatientmonthfollowup->cardiacRelatedDeath == 'No' ? 'checked' : ''}} type="radio" name="cardiacRelatedDeath"
+                                                    value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Date of death</label>
+                                    <div class="input-group">
+                                        <input value="{{ $chronicpatientmonthfollowup->dateofDeath }}" class="form-control" type="date" name="dateofDeath" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                        <label>Additional Notes</label>
+                                    <div class="input-group">
+                                        <textarea value="{{ $chronicpatientmonthfollowup->additional_notes }}" class="form-control " id="editor2" name="additional_notes" cols="50" rows="10" id="detail"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -748,6 +831,27 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
     function finish(){
     document.getElementById("dataForm").submit();
 
+    }
+     function IfechoEvaluation(){
+        var echoEvaluation = $('[name="echoEvaluation"]').val();
+        if(echoEvaluation=="Yes"){
+            $("#echoEf").show();
+            $("#echoTapse").show();
+            $("#echoEdv").show();
+            $("#echoEsv").show();
+            $("#lvMaxIndex").show();
+            $("#ee").show();
+            $("#signMr").show();
+        }
+        else{
+             $("#echoEf").hide();
+             $("#echoTapse").hide();
+             $("#echoEdv").hide();
+             $("#echoEsv").hide();
+             $("#lvMaxIndex").hide();
+             $("#ee").hide();
+             $("#signMr").hide();
+        }
     }
     var data = localStorage.getItem("chroni_month");
     var internet_status;
@@ -1059,7 +1163,7 @@ function removelocal() {
 </script>
 <script>
     $(document).ready(function () {
-
+        IfechoEvaluation();
     });
 
 </script>

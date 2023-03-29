@@ -747,7 +747,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                     <div class="divider"></div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Total Rehospitalization *</label>
+                                        <label>Rehospitalization *</label>
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input type="radio" name="totalRehospitalization" value="Yes">Yes</label>

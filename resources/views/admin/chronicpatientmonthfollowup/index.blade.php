@@ -26,29 +26,35 @@
 <th>SBP</th>
 <th>DBP</th>
 <th>HR</th>
-<th>Echo EF</th>
+<th>Echo LVEF</th>
 <th>Echo TAPSE</th>
 <th>Echo EDV</th>
-<th>Echo Edd</th>
-<th>Echo ESD</th>
-<th>Echo Sign MR</th>
-<th>Echo Diastolic function</th>
+<th>Echo ESV</th>
+<th>Echo LV Mass Index</th>
+<th>E/e' average</th>
+<th>Echo Sign.MR</th>
 <th>ACEi</th>
 <th>ACEi Dose</th>
 <th>ACEi Intolerance</th>
+<th>ARNI Dose</th>
 <th>ARB</th>
 <th>ARB Dose</th>
-<th>ARNI Dose</th>
+<th>MRA Intolerance</th>
+<th>MRA Dose</th>
+<th>SGLT2i</th>
+<th>SGLT2i Dose</th>
 <th>Beta Blocker</th>
 <th>Beta Blocker Dose</th>
 <th>Beta Blocker Intolerance</th>
-<th>MRA Dose</th>
-<th>mraIntolerance</th>
-<th>SGLT2i</th>
-<th>SGLT2i Dose</th>
-<th>Loop Diuretic Dose</th>
 <th>Ivabradine Dose</th>
+<th>Devices</th>
+<th>Loop Diuretic Dose</th>
 <th>Insulin</th>
+<th>Statin</th>
+<th>Total Rehospitalization</th>
+<th>All cause death</th>
+<th>Cardiac related death</th>
+<th>Date of death</th>
 
                         <th>&nbsp;</th>
                     </tr>
@@ -86,26 +92,32 @@
 <td>{{ $row->echoEf }}</td>
 <td>{{ $row->echoTapse }}</td>
 <td>{{ $row->echoEdv }}</td>
-<td>{{ $row->echoEdd }}</td>
-<td>{{ $row->echoEsd }}</td>
+<td>{{ $row->echoEsv }}</td>
+<td>{{ $row->lvMaxIndex }}</td>
+<td>{{ $row->ee }}</td>
 <td>{{ $row->echoSignMr }}</td>
-<td>{{ $row->echoDiastolicFunction }}</td>
 <td>{{ $row->acei }}</td>
 <td>{{ $row->aceiDose }}</td>
 <td>{{ $row->aceiIntolerance }}</td>
+<td>{{ $row->arniDose }}</td>
 <td>{{ $row->arb }}</td>
 <td>{{ $row->arbDose }}</td>
-<td>{{ $row->arniDose }}</td>
+<td>{{ $row->mraIntolerance }}</td>
+<td>{{ $row->mraDose }}</td>
+<td>{{ $row->sglt2i }}</td>
+<td>{{ $row->sglt2iDose }}</td>
 <td>{{ $row->betaBlocker }}</td>
 <td>{{ $row->betaBlockerDose }}</td>
 <td>{{ $row->betaBlockerIntolerance }}</td>
-<td>{{ $row->mraDose }}</td>
-<td>{{ $row->mraIntolerance }}</td>
-<td>{{ $row->sglt2i }}</td>
-<td>{{ $row->sglt2iDose }}</td>
-<td>{{ $row->loopDiureticDose }}</td>
 <td>{{ $row->ivabradineDose }}</td>
+<td>{{ $row->devices }}</td>
+<td>{{ $row->loopDiureticDose }}</td>
 <td>{{ $row->insulin }}</td>
+<td>{{ $row->statin }}</td>
+<td>{{ $row->totalRehospitalization }}</td>
+<td>{{ $row->allCauseDeath }}</td>
+<td>{{ $row->cardiacRelatedDeath }}</td>
+<td>{{ $row->dateofDeath }}</td>
 
                             <td>
                                 {!! link_to_route(config('quickadmin.route').'.chronicpatientmonthfollowup.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}

@@ -1833,7 +1833,7 @@ var sex = Object.fromEntries(dataForm).gender;
 
 var height = parseInt(document.getElementById('height').value) ;
 var weight = parseInt(document.getElementById('weight').value) ;
-var imt = parseInt((weight / (height * height) * 10000));
+var imt = (weight / (height * height) * 10000);
 var bmi;
 // console.log("h"+height);
 // console.log("w"+weight);
@@ -1873,7 +1873,7 @@ else if(sex == "Female"){
   }
   
 }
-document.getElementById('bmi').value = imt;
+document.getElementById('bmi').value = parseFloat(imt).toFixed(2);
 }
 function removelocal() {
         localStorage.removeItem("form_adhf");
