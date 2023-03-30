@@ -632,59 +632,49 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="col-md-6">
                                         <label>Dyspnoea at rest *</label>
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->dyspnoea_at_rest == 'Yes' ? 'checked' : ''}} type="radio" name="dyspnoea_at_rest" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->dyspnoea_at_rest == 'No' ? 'checked' : ''}} type="radio" name="dyspnoea_at_rest" value="No">No</label>
-                                        </div>
+                                        <select class="form-control" name="dyspnoea_at_rest" required>
+                                            <option {{ $data->dyspnoea_at_rest == 'Yes' ? 'selected' : ''}}  value="Yes">Yes</option>
+                                            <option {{ $data->dyspnoea_at_rest == 'No' ? 'selected' : ''}}  value="No">No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Orthopnea *</label>
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->orthopnea == 'Yes' ? 'checked' : ''}} type="radio" name="orthopnea" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->orthopnea == 'No' ? 'checked' : ''}} type="radio" name="orthopnea" value="No">No</label>
-                                        </div>
+                                        <select class="form-control" name="orthopnea" required>
+                                            <option {{ $data->orthopnea == 'Yes' ? 'selected' : ''}} value="Yes">Yes</option>
+                                            <option {{ $data->orthopnea == 'No' ? 'selected' : ''}} value="No">No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>PND *</label>
 
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->pnd == 'Yes' ? 'checked' : ''}} type="radio" name="pnd" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->pnd == 'No' ? 'checked' : ''}} type="radio" name="pnd" value="No">No</label>
-                                        </div>
+                                         <select class="form-control" name="pnd" required>
+                                            <option {{ $data->pnd == 'Yes' ? 'selected' : ''}} value="Yes">Yes</option>
+                                            <option {{ $data->pnd == 'No' ? 'selected' : ''}} value="No">No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Peripheral Oedema *</label>
 
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->peripheral_oedema == 'Yes' ? 'checked' : ''}} type="radio" name="peripheral_oedema" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->peripheral_oedema == 'No' ? 'checked' : ''}} type="radio" name="peripheral_oedema" value="No">No</label>
-                                        </div>
+                                        <select class="form-control" name="peripheral_oedema" required>
+                                            <option {{ $data->peripheral_oedema == 'Yes' ? 'selected' : ''}} value="Yes">Yes</option>
+                                            <option {{ $data->peripheral_oedema == 'No' ? 'selected' : ''}} value="No">No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Pulmonary rales *</label>
 
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->pulmonary_rales == 'Yes' ? 'checked' : ''}} type="radio" name="pulmonary_rales" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->pulmonary_rales == 'No' ? 'checked' : ''}} type="radio" name="pulmonary_rales" value="No">No</label>
-                                        </div>
+                                         <select class="form-control" name="pulmonary_rales" required>
+                                            <option {{ $data->pulmonary_rales == 'Yes' ? 'selected' : ''}} value="Yes">Yes</option>
+                                            <option {{ $data->pulmonary_rales == 'No' ? 'selected' : ''}} value="No">No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -725,25 +715,20 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="col-md-6">
                                         <label>Respiratory failure *</label>
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->respiratory_failure == 'Yes' ? 'checked' : ''}} type="radio" name="respiratory_failure"
-                                                    value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->respiratory_failure == 'No' ? 'checked' : ''}} type="radio" name="respiratory_failure" value="No">No</label>
-                                        </div>
+                                        <select class="form-control" name="respiratory_failure" required>
+                                            <option {{ $data->respiratory_failure == 'Yes' ? 'selected' : ''}} value="Yes">Yes</option>
+                                            <option {{ $data->respiratory_failure == 'No' ? 'selected' : ''}} value="No">No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Cardiogenic shock *</label>
 
                                     <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->cardiogenic_shock == 'Yes' ? 'checked' : ''}} type="radio" name="cardiogenic_shock" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->cardiogenic_shock == 'No' ? 'checked' : ''}} type="radio" name="cardiogenic_shock" value="No">No</label>
-                                        </div>
+                                        <select class="form-control" name="cardiogenic_shock" required>
+                                            <option {{ $data->cardiogenic_shock == 'Yes' ? 'selected' : ''}} value="Yes">Yes</option>
+                                            <option {{ $data->cardiogenic_shock == 'No' ? 'selected' : ''}} value="No">No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 
@@ -1070,7 +1055,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                  <div class="col-md-6">
-                                        <label>LV max index</label>
+                                        <label>LV Mass Index</label>
                                     <div class="input-group">
                                         {{-- <select class="form-control" name="diastolic_function">
                                                 <option value="Normal">Normal</option>
@@ -1649,7 +1634,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>Additional Notes</label>
 
                                     <div class="input-group">
-                                        <textarea class="form-control " name="additional_notes" cols="50" rows="10" id="editor"></textarea>
+                                        <textarea class="form-control " name="additional_notes" cols="50" rows="10" id=""></textarea>
                                    
                                     </div>
                                 </div>
