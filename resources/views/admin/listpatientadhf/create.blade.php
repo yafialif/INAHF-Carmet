@@ -529,9 +529,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                                 placeholder="">
                                             </div>
                                     </div>
-                                    
-                                    
-                                    
                                     <div class="col-md-6">
                                             <label>Insurance *</label>
                                         <div class="input-group">
@@ -948,130 +945,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div> --}}
                                     </div>
                                 </div>
-                                {{-- <div class="col-md-6">
-                                        <label>Hypertensive Emergency</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="hypertension_emergency"
-                                                    value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="hypertension_emergency"
-                                                    value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Arrhythmia</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="arrhytmia" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="arrhytmia" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Acute Mechanical Cause</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="acute_nechanical_cause"
-                                                    value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="acute_nechanical_cause"
-                                                    value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Pulmonary Embolism</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="pulmonary_embolism" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="pulmonary_embolism" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Infections</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="infections" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="infections" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Cardiac Tamponade</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="tamponade" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="tamponade" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Worsening renal function</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="worseningRenalFunction" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="worseningRenalFunction" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Hyperglycemia</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="hyperglycemia" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="hyperglycemia" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Non compliance</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="nonCompliance" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="nonCompliance" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Unknown</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="unkenown" value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="unkenown" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div> --}}
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
@@ -1080,28 +953,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </ul>
                                 </div>
                             </div>
-                            {{-- Ro thorax --}}
-                            {{-- <div class="tab-pane" role="tabpanel" id="step5">
-                                <h4 class="text-center">Ro Thorax</h4>
-                                <div class="col-md-6">
-                                        <label>Ro thorax Value</label>
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input type="radio" name="ro_thorax" value="Normal Cardiac Size">Normal
-                                                Cardiac Size</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input type="radio" name="ro_thorax"value="Cardiomegaly">Cardiomegaly</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <ul class="list-inline pull-right">
-                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
-                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
-                                    </ul>
-                                </div>
-                            </div> --}}
                             {{-- Echocardiography --}}
                             <div class="tab-pane" role="tabpanel" id="step6">
                                 <h4 class="text-center">Echocardiography</h4>
@@ -1137,24 +988,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         
                                     </div>
                                 </div>
-                                {{-- <div class="col-md-6">
-                                        <label>EDD</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="edd" placeholder="">
-                                        <span class="input-group-addon">.mm</span>
-                                        
-                                    </div>
-                                </div> --}}
-                                {{-- <div class="col-md-6">
-                                        <label>ESD</label>
-
-                                    <div class="input-group">
-                                        <input class="form-control" type="number" name="esd" placeholder="">
-                                        <span class="input-group-addon">.mm</span>
-                                        
-                                    </div>
-                                </div> --}}
                                 <div class="col-md-6">
                                         <label>Sign.MR</label>
 
@@ -1177,19 +1010,6 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         {{-- <input class="form-control" type="text" name="sign_mr" placeholder=""> --}}
                                     </div>
                                 </div>
-                                {{-- <div class="col-md-6">
-                                        <label>E/A</label>
-
-                                    <div class="input-group"> --}}
-                                        {{-- <select class="form-control" name="diastolic_function">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Pseudonormal">Pseudonormal</option>
-                                                <option value="Relaxation Disorder">Relaxation Disorder</option>
-                                                <option value="Restrictive">Restrictive</option>
-                                            </select> --}}
-                                        {{-- <input class="form-control" type="number" name="diastolic_function" placeholder="">
-                                    </div>
-                                </div> --}}
                                 <div class="col-md-6">
                                         <label>LV Mass Index</label>
                                     <div class="input-group">

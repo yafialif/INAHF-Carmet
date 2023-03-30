@@ -17,8 +17,8 @@
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
-                        <th>day passed</th>
-                        <th>Name</th>
+<th>day passed</th>
+<th>Name</th>
 {{-- <th>Treatment Name</th> --}}
 <th>Mount Name</th>
 <th>Peripheral Oedema</th>

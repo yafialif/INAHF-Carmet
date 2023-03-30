@@ -492,7 +492,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                            <label>Phone *</label>
+                                            <label>Phone</label>
 
                                         <div class="input-group">
                                             <input class="form-control" type="number" value="{{ $data->phone }}" name="phone"
@@ -597,14 +597,14 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         {{-- <input onkeyup="countBmi()" id="weight" class="form-control" type="number" name="weight" placeholder=""> --}}
                                 </div>
                                 <div class="col-md-6">
-                                        <label>BMI</label>
+                                        <label>BMI *</label>
                                     <div class="input-group">
                                         <input class="form-control" type="text" id="bmi" value="{{ $data->bmi }}"  name="bmi" placeholder="" readonly>
                                         <span class="input-group-addon">.Kg/m<sup>2</sup></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Heart Rate</label>
+                                        <label>Heart Rate *</label>
                                     <div class="input-group">
                                         <input class="form-control" value="{{ $data->hr }}"  type="number" name="hr" placeholder="" >
                                         <span class="input-group-addon">.bpm</span>
@@ -612,7 +612,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Systolic Blood Pressure  </label>
+                                        <label>Systolic Blood Pressure *</label>
 
                                     <div class="input-group">
                                         <input class="form-control" value="{{ $data->sbp }}"  type="number" name="sbp" placeholder="" >
@@ -621,7 +621,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Diastolic Blood Pressure</label>
+                                        <label>Diastolic Blood Pressure *</label>
                                     <div class="input-group">
                                         <input class="form-control" value="{{ $data->dbp }}"  type="number" name="dbp" placeholder="" >
                                         <span class="input-group-addon">.mmHg</span>
@@ -630,7 +630,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 
                                 <div class="col-md-6">
-                                        <label>Dyspnoea at rest</label>
+                                        <label>Dyspnoea at rest *</label>
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input {{ $data->dyspnoea_at_rest == 'Yes' ? 'checked' : ''}} type="radio" name="dyspnoea_at_rest" value="Yes">Yes</label>
@@ -641,7 +641,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Orthopnea</label>
+                                        <label>Orthopnea *</label>
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input {{ $data->orthopnea == 'Yes' ? 'checked' : ''}} type="radio" name="orthopnea" value="Yes">Yes</label>
@@ -652,7 +652,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>PND</label>
+                                        <label>PND *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -664,7 +664,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Peripheral Oedema</label>
+                                        <label>Peripheral Oedema *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -676,7 +676,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Pulmonary rales</label>
+                                        <label>Pulmonary rales *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -688,7 +688,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Jugular Venous Pressure</label>
+                                        <label>Jugular Venous Pressure *</label>
 
                                     <div class="input-group">
                                         
@@ -701,7 +701,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                
                                 <div class="col-md-6">
-                                        <label>NYHA Class </label>
+                                        <label>NYHA Class *</label>
                                     <div class="input-group">
                                         <select class="form-control" name="nyha_class">
                                                 <option {{ $data->nyha_class == 'Class I' ? 'selected' : ''}}>Class I</option>
@@ -713,7 +713,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                  <div class="col-md-6">
-                                        <label>Type of acute HF </label>
+                                        <label>Type of acute HF *</label>
                                     <div class="input-group">
                                         <select class="form-control" name="type_of_acute_HF">
                                                 <option {{ $data->type_of_acute_HF == 'De Novo' ? 'selected' : ''}} value="De Novo">De Novo</option>
@@ -723,7 +723,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Respiratory failure</label>
+                                        <label>Respiratory failure *</label>
                                     <div class="input-group">
                                         <div class="radio">
                                             <label><input {{ $data->respiratory_failure == 'Yes' ? 'checked' : ''}} type="radio" name="respiratory_failure"
@@ -735,7 +735,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Cardiogenic shock</label>
+                                        <label>Cardiogenic shock *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -759,64 +759,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             <div class="tab-pane" role="tabpanel" id="step3">
                                 <h4 class="text-center">Risk Factor</h4>
                                 <div class="col-md-6">
-                                        <label>Hypertension</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->hypertension == 'Yes' ? 'checked' : ''}} type="radio" name="hypertension"
-                                                    value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->hypertension == 'No' ? 'checked' : ''}} type="radio" name="hypertension" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Diabetes or prediabetes</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->diabetes_or_prediabetes == 'No' ? 'checked' : ''}} type="radio" name="diabetes_or_prediabetes" value="No">No</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->diabetes_or_prediabetes == 'Prediabetes' ? 'checked' : ''}} type="radio" name="diabetes_or_prediabetes"
-                                                    value="Prediabetes">Prediabetes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->diabetes_or_prediabetes == 'Diabetes' ? 'checked' : ''}} type="radio" name="diabetes_or_prediabetes"
-                                                    value="Diabetes">Diabetes</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Dislipidemia</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->dislipidemia == 'Yes' ? 'checked' : ''}} type="radio" name="dislipidemia"
-                                                    value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->dislipidemia == 'No' ? 'checked' : ''}} type="radio" name="dislipidemia" value="No">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Alcohol</label>
-
-                                    <div class="input-group">
-                                        <div class="radio">
-                                            <label><input {{ $data->alcohol == 'Yes' ? 'checked' : ''}} type="radio" name="alcohol"
-                                                    value="Yes">Yes</label>
-                                        </div>
-                                        <div class="radio">
-                                            <label><input {{ $data->alcohol == 'Abstainers' ? 'checked' : ''}} type="radio" name="alcohol"
-                                                    value="Abstainers">Abstainers</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                        <label>Smoker</label>
+                                        <label>Smoker *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -834,7 +777,66 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>CKD</label>
+                                        <label>Diabetes or prediabetes *</label>
+
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input {{ $data->diabetes_or_prediabetes == 'No' ? 'checked' : ''}} type="radio" name="diabetes_or_prediabetes" value="No">No</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input {{ $data->diabetes_or_prediabetes == 'Prediabetes' ? 'checked' : ''}} type="radio" name="diabetes_or_prediabetes"
+                                                    value="Prediabetes">Prediabetes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input {{ $data->diabetes_or_prediabetes == 'Diabetes' ? 'checked' : ''}} type="radio" name="diabetes_or_prediabetes"
+                                                    value="Diabetes">Diabetes</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Hypertension *</label>
+
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input {{ $data->hypertension == 'Yes' ? 'checked' : ''}} type="radio" name="hypertension"
+                                                    value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input {{ $data->hypertension == 'No' ? 'checked' : ''}} type="radio" name="hypertension" value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                        <label>Dislipidemia *</label>
+
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input {{ $data->dislipidemia == 'Yes' ? 'checked' : ''}} type="radio" name="dislipidemia"
+                                                    value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input {{ $data->dislipidemia == 'No' ? 'checked' : ''}} type="radio" name="dislipidemia" value="No">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label>Alcohol *</label>
+
+                                    <div class="input-group">
+                                        <div class="radio">
+                                            <label><input {{ $data->alcohol == 'Yes' ? 'checked' : ''}} type="radio" name="alcohol"
+                                                    value="Yes">Yes</label>
+                                        </div>
+                                        <div class="radio">
+                                            <label><input {{ $data->alcohol == 'Abstainers' ? 'checked' : ''}} type="radio" name="alcohol"
+                                                    value="Abstainers">Abstainers</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                        <label>CKD *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -850,7 +852,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Valvular heart disease</label>
+                                        <label>Valvular heart disease *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -863,7 +865,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Atrial fibrillation</label>
+                                        <label>Atrial fibrillation *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -876,7 +878,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>History of HF</label>
+                                        <label>History of HF *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -889,7 +891,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>History of PCI or CABG</label>
+                                        <label>History of PCI or CABG *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -902,7 +904,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>History of heart valve surgery</label>
+                                        <label>History of heart valve surgery *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -915,7 +917,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>OMI or CAD</label>
+                                        <label>OMI or CAD *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -992,7 +994,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             <div class="tab-pane" role="tabpanel" id="step6">
                                 <h4 class="text-center">Echocardiography</h4>
                                 <div class="col-md-6">
-                                        <label>EF</label>
+                                        <label>EF *</label>
 
                                     <div class="input-group">
                                         <input  value="{{ $data->ef }}" class="form-control" type="number" name="ef" placeholder="">
@@ -1001,7 +1003,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>TAPSE</label>
+                                        <label>TAPSE *</label>
 
                                     <div class="input-group">
                                         <input value="{{ $data->tapse }}" class="form-control" type="number" name="tapse" placeholder="">
@@ -1104,7 +1106,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             <div class="tab-pane" role="tabpanel" id="step7">
                                 <h4 class="text-center">Blood Laboratory Test</h4>
                                 <div class="col-md-6">
-                                        <label>Hemoglobin</label>
+                                        <label>Hemoglobin *</label>
 
                                     <div class="input-group">
                                         <input value="{{ $data->hemoglobin}}" class="form-control" type="number" name="hemoglobin" placeholder="">
@@ -1113,7 +1115,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Hematocrite</label>
+                                        <label>Hematocrite *</label>
 
                                     <div class="input-group">
                                         <input value="{{ $data->hematocrite}}" class="form-control" type="number" name="hematocrite" placeholder="">
@@ -1131,7 +1133,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div> --}}
                                 <div class="col-md-6">
-                                        <label>Random Blood Glucose</label>
+                                        <label>Random Blood Glucose *</label>
 
                                     <div class="input-group">
                                         <input value="{{ $data->random_blood_glucose}}" class="form-control" type="number" name="random_blood_glucose"
@@ -1179,7 +1181,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Kalium</label>
+                                        <label>Kalium *</label>
 
                                     <div class="input-group">
                                         <input value="{{ $data->kalium}}" class="form-control" type="number" name="kalium" placeholder="">
@@ -1188,7 +1190,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Ureum</label>
+                                        <label>Ureum *</label>
 
                                     <div class="input-group">
                                         <input value="{{ $data->ureum}}" id="ureum" onkeyup="countBun()" class="form-control" type="number" name="ureum" placeholder="">
@@ -1206,7 +1208,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Serum Creatinine (Scr)</label>
+                                        <label>Serum Creatinine (Scr) *</label>
 
                                     <div class="input-group">
                                         <input value="{{ $data->serum_creatinine}}" onkeyup="countGfr()" id="scr" class="form-control" type="number" name="serum_creatinine"
@@ -1598,7 +1600,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             <div class="tab-pane" role="tabpanel" id="step11">
                                 <h4 class="text-center">Outcomes</h4>
                                 <div class="col-md-6">
-                                        <label>Inhospital Death</label>
+                                        <label>Inhospital Death *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -1610,7 +1612,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Vulnerable phase death</label>
+                                        <label>Mortality within 3 months *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
@@ -1623,7 +1625,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>Vulnerable phase rehospitalization</label>
+                                        <label>Rehospitalization within 3 months *</label>
 
                                     <div class="input-group">
                                         <div class="radio">
