@@ -83,7 +83,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                         array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
                         {!! link_to_route('admin.listpatientcronic.edit', trans('Edit'), 
                         array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
-                        {!! link_to_route('admin.chronicpatientmonthfollowup.addnew', trans('Add Followup Patient'), 
+                        {!! link_to_route('admin.chronicpatientmonthfollowup.addnew', trans('Add Patient Follow Up'), 
                         array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
                         {{-- {!! link_to_route('admin.listpatientadhf.edit', trans('Update'),
                         array($row->id), array('class' => 'btn btn-xs btn-info')) !!} --}}
