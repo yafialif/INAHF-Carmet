@@ -1353,7 +1353,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
     function countAge(){
         // var age = document.getElementById('age').value;
         var datebirth = document.getElementById('datebirth').value;
-        var dateadmission = document.getElementById('dateadmission').value;
+        var dateadmission = document.getElementById('dateOfClinicVisit').value;
         var today = new Date(dateadmission);
         var birthday = new Date(datebirth);
         var year = 0;
