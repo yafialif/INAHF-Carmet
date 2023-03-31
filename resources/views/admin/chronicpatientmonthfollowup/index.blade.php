@@ -51,7 +51,7 @@
 <th>Loop Diuretic Dose</th>
 <th>Insulin</th>
 <th>Statin</th>
-<th>Total Rehospitalization</th>
+<th>Rehospitalization</th>
 <th>All cause death</th>
 <th>Cardiac related death</th>
 <th>Date of death</th>
