@@ -1857,7 +1857,7 @@ function removelocal() {
         let text = localStorage.getItem("form_adhf");
         let obj = text.split(",");
         let text2 = localStorage.getItem("form_adhf_select");
-        let text3 = localStorage.getItem("form_adhf_textarea");
+        // let text3 = localStorage.getItem("form_adhf_textarea");
         let obj2 = text2.split(",");
         // var i = 0;
         for (i = 1; i < input.length; i++) {
@@ -1875,9 +1875,9 @@ function removelocal() {
             select[parseInt(i)].value=obj2[parseInt(i)];
 
         }
-        if(text3){
-        editor.setData( text3 );
-        }
+        // if(text3){
+        // editor.setData( text3 );
+        // }
         notification('Data retrived');
 
     }
@@ -1887,7 +1887,7 @@ function removelocal() {
         var select = document.getElementsByTagName("form")[1].getElementsByTagName("select");
         var data = Array();
         var data2 = Array();
-        var data3 = editor.getData();
+        // var data3 = editor.getData();
         // var i = 0;
         for (i = 0; i < input.length; i++) {
             //   console.log(input[parseInt(i)].name);
@@ -1906,7 +1906,7 @@ function removelocal() {
         }
         localStorage.setItem("form_adhf", data);
         localStorage.setItem("form_adhf_select", data2);
-        localStorage.setItem("form_adhf_textarea", data3);
+        // localStorage.setItem("form_adhf_textarea", data3);
         $("#getlocal").show();
         notification('data stored locally');
 
