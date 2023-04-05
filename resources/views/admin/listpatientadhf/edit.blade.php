@@ -513,7 +513,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                             <label>Age *</label>
 
                                         <div class="input-group">
-                                            <input id="age" class="form-control" type="text" value="{{ $data->age }}" name="age" placeholder="" readonly required>
+                                            <input id="age" onchange="countGfr()" class="form-control" type="text" value="{{ $data->age }}" name="age" placeholder="" readonly required>
                                         
                                         </div>
                                     </div>
@@ -563,10 +563,10 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                         <div class="input-group">
                                             <div class="radio">
-                                                <label><input id="sex"  {{ $data->gender == 'Male' ? 'checked' : ''}} onchange="countBmi()" type="radio" name="gender" value="Male" required>Male</label>
+                                                <label><input id="sex"  {{ $data->gender == 'Male' ? 'checked' : ''}} onchange="countBmi(); countGfr();" type="radio" name="gender" value="Male" required>Male</label>
                                             </div>
                                             <div class="radio">
-                                                <label><input id="sex" {{ $data->gender == 'Female' ? 'checked' : ''}} onchange="countBmi()" type="radio" name="gender" value="Female" required>Female</label>
+                                                <label><input id="sex" {{ $data->gender == 'Female' ? 'checked' : ''}} onchange="countBmi(); countGfr();" type="radio" name="gender" value="Female" required>Female</label>
                                             </div>
                                         </div>
                                     </div>

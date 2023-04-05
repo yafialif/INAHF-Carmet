@@ -477,7 +477,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     <div class="col-md-6">
                                         <label>Age *</label>
                                         <div class="input-group">
-                                            <input id="age" class="form-control" type="text" value="{{ $data->age }}" name="age" placeholder="" readonly required>
+                                            <input id="age"  onchange="countGfr()" class="form-control" type="text" value="{{ $data->age }}" name="age" placeholder="" readonly required>
                                         <span class="input-group-addon">Year old</span>
                                         </div>
                                     </div>
@@ -525,10 +525,10 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                         <div class="input-group">
                                             <div class="radio">
-                                                <label><input {{ $data->gender == 'Male' ? 'checked' : ''}} id="sex" onchange="countBmi()" type="radio" name="gender" value="Male" required>Male</label>
+                                                <label><input {{ $data->gender == 'Male' ? 'checked' : ''}} id="sex" onchange="countBmi(); countGfr();" type="radio" name="gender" value="Male" required>Male</label>
                                             </div>
                                             <div class="radio">
-                                                <label><input {{ $data->gender == 'Female' ? 'checked' : ''}} id="sex" onchange="countBmi()" type="radio" name="gender" value="Female" required>Female</label>
+                                                <label><input {{ $data->gender == 'Female' ? 'checked' : ''}} id="sex" onchange="countBmi(); countGfr();" type="radio" name="gender" value="Female" required>Female</label>
                                             </div>
                                         </div>
                                     </div>
@@ -1601,6 +1601,11 @@ function removelocal() {
     function prevTab(elem) {
         $(elem).prev().find('a[data-toggle="tab"]').click();
     }
+    function countBun(){
+    var ureum = document.getElementById('ureum').value;
+    var bun = parseInt(ureum)/2.1;
+    document.getElementById('bun').value=bun.toFixed(2);
+}
 function yearOfAdmission(){
         const year = new Date().getFullYear();
         // console.log(date);

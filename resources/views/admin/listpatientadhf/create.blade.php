@@ -510,7 +510,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     <div class="col-md-6">
                                             <label>Age *</label>
                                         <div class="input-group">
-                                            <input id="age" class="form-control" type="text" name="age" placeholder="" readonly required>
+                                            <input id="age" onchange="countGfr()" class="form-control" type="text" name="age" placeholder="" readonly required>
                                         <span class="input-group-addon">Year old</span>
                                         
                                         </div>
@@ -558,10 +558,10 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                         <div class="input-group">
                                             <div class="radio">
-                                                <label><input id="sex" onchange="countBmi()" type="radio" name="gender" value="Male" required>Male</label>
+                                                <label><input id="sex" onchange="countBmi(); countGfr();" type="radio" name="gender" value="Male" required>Male</label>
                                             </div>
                                             <div class="radio">
-                                                <label><input id="sex" onchange="countBmi()" type="radio" name="gender" value="Female" required>Female</label>
+                                                <label><input id="sex" onchange="countBmi(); countGfr();" type="radio" name="gender" value="Female" required>Female</label>
                                             </div>
                                         </div>
                                     </div>

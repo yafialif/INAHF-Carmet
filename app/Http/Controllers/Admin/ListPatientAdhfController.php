@@ -507,4 +507,15 @@ class ListPatientAdhfController extends Controller
 		// return response()->json($id);
 		return redirect()->route('admin.listpatientadhf.index');
 	}
+	public function massDelete(Request $request)
+	{
+		if ($request->get('toDelete') != 'mass') {
+			$toDelete = json_decode($request->get('toDelete'));
+			Patient::destroy($toDelete);
+		} else {
+			Patient::whereNotNull('id')->delete();
+		}
+
+		return redirect()->route(config('quickadmin.route') . '.patient.index');
+	}
 }
