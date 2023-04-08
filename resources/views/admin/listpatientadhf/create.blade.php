@@ -526,7 +526,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                             <label>Date of discharge *</label>
                                         <div class="input-group">
                                             <input class="form-control" type="date" name="dateOfDischarge"
-                                                placeholder="">
+                                                placeholder="" required>
                                             </div>
                                     </div>
                                     <div class="col-md-6">
@@ -1161,7 +1161,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>GFR</label>
+                                        <label>GFR *</label>
 
                                     <div class="input-group">
                                         <input id="gfr" class="form-control" type="number" name="gfr" placeholder="" readonly>
