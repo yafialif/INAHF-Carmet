@@ -42,7 +42,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                     <th>Education</th>
                     <th>Date of Discharge</th>
                     <th>Progress</th>
-                    <th>Note</th>
+                    {{-- <th>Note</th> --}}
                     <th>Action</th>
                 </tr>
             </thead>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Patient;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 
 
 class ChartchronicController extends Controller
@@ -35,7 +35,7 @@ class ChartchronicController extends Controller
 				->where('patient.categorytreatment_id', 2)
 				->groupBy('rumahsakit.name_of_rs')
 				->get();
-			$dataAge = Patient::selectRaw('age')
+			$dataAge = Patient::selectRaw(DB::raw('age AS umur,( select count(age) FROM `patient`WHERE patient.age = umur ) AS jumlah'))
 				->where('patient.categorytreatment_id', 2)
 				->get();
 			$dataInsurance = Patient::selectRaw('insurance , count(*) AS total')
@@ -58,7 +58,7 @@ class ChartchronicController extends Controller
 				->where('patient.user_id', $user_id)
 				->groupBy('rumahsakit.name_of_rs')
 				->get();
-			$dataAge = Patient::selectRaw('age')
+			$dataAge = Patient::selectRaw(DB::raw('age AS umur,( select count(age) FROM `patient`WHERE patient.age = umur ) AS jumlah'))
 				->where('patient.categorytreatment_id', 2)
 				->where('user_id', $user_id)
 				->get();

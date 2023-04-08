@@ -107,11 +107,11 @@ new Chart(
     {
       type: 'line',
       data: {
-        labels: age.map(row => row.age),
+        labels: age.map(row => row.jumlah),
         datasets: [
           {
             label: 'age',
-            data: age.map(row => row.age),
+            data: age.map(row => row.umur),
             // borderColor: '#FF6384',
             // backgroundColor: [
             //             '#ff6384','#36a2eb'
