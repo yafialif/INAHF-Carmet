@@ -553,7 +553,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                         <div class="input-group">
                                             <input class="form-control" type="number" name="phone"
-                                                placeholder="6280000000" required>
+                                                placeholder="6280000000">
                                             </div>
                                     </div>
                                 <div class="col-md-12">

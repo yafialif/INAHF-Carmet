@@ -132,12 +132,18 @@ class ListPatientCronicController extends Controller
 		$patient->rs_id = $request->rs_id;
 		$patient->nik = $request->nik;
 		$patient->name = $request->name;
-		$patient->dateOfBirth = $request->dateOfBirth;
+		if ($request->dateOfBirth) {
+			$patient->dateOfBirth = $request->dateOfBirth;
+		}
+
 		$patient->age = $request->age;
 		$patient->gender = $request->gender;
 		$patient->phone = $request->phone;
 		$patient->yearOfAdmission = $request->yearOfAdmission;
-		$patient->dateOfClinicVisit = $request->dateOfClinicVisit;
+		if ($request->dateOfClinicVisit) {
+			$patient->dateOfClinicVisit = $request->dateOfClinicVisit;
+		}
+
 		$patient->insurance = $request->insurance;
 		$patient->education = $request->education;
 		// if ($request->dateOfDischarge) {
@@ -190,9 +196,14 @@ class ListPatientCronicController extends Controller
 		$Echocardiography->patient_id = $patient->id;
 		$Echocardiography->categorytreatment_id = $categorytreatment_id;
 		$Echocardiography->efAtFirst = $request->efAtFirst;
-		$Echocardiography->efAtFirstDate = $request->efAtFirstDate;
+		if ($request->efAtFirstDate) {
+			$Echocardiography->efAtFirstDate = $request->efAtFirstDate;
+		}
+
 		$Echocardiography->latestEf = $request->latestEf;
-		$Echocardiography->latestEfDate = $request->latestEfDate;
+		if ($request->latestEfDate) {
+			$Echocardiography->latestEfDate = $request->latestEfDate;
+		}
 		$Echocardiography->tapse = $request->tapse;
 		$Echocardiography->edv = $request->edv;
 		$Echocardiography->esv = $request->esv;
