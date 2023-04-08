@@ -1105,6 +1105,10 @@
                                         <p>{{ $data->dateofDeath }}</p>
                                     </div>
                                 </div>
+                                 <div class="col-md-12">
+                                        <label>Additional Notes</label>
+                                        <p>{{ $data->additional_notes }}</p>
+                                </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" class="default-btn prev-step">Back</button></li>

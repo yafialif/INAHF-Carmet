@@ -42,6 +42,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                     <th>Education</th>
                     <th>Date of Discharge</th>
                     <th>Progress</th>
+                    <th>Note</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -68,6 +69,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                     @else
                     <td>{{ $row->percent }} %</td>
                     @endif
+                    {{-- <td>{{ $row->additional_notes }}</td> --}}
                     <td>
                         {!! link_to_route('admin.listpatientadhf.show', trans('View'),
                         array($row->id), array('class' => 'btn btn-xs btn-info')) !!}

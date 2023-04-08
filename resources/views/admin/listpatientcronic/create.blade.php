@@ -1049,7 +1049,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                        <label>GFR *</label>
+                                        <label>GFR</label>
                                     <div class="input-group">
                                         <input id="gfr" class="form-control" type="number" name="gfr" placeholder="" readonly>
                                         <span class="input-group-addon">mL/min/1.73 m2</span>

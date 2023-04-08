@@ -42,12 +42,14 @@ class ListPatientAdhfController extends Controller
 		$menu = MonthFollowUp::get();
 		if ($role_id <= 2) {
 			$patients = Patient::with("user")
-				->where('categorytreatment_id', 1)
+				// ->join('adhfoutcomes', 'patient.id', '=', 'adhfoutcomes.patient_id')
+				->where('patient.categorytreatment_id', 1)
 				->get();
 		} else {
 			$patients = Patient::with("user")
-				->where('user_id', $user_id)
-				->where('categorytreatment_id', 1)
+				// ->join('adhfoutcomes', 'patient.id', '=', 'adhfoutcomes.patient_id')
+				->where('patient.user_id', $user_id)
+				->where('patient.categorytreatment_id', 1)
 				->get();
 		}
 		$patient = array();
@@ -95,6 +97,7 @@ class ListPatientAdhfController extends Controller
 				'updated_at' => $value->updated_at,
 				'user' => $value->user,
 				'percent' => $persentasi,
+				// 'additional_notes' => $value->additional_notes,
 
 			));
 		}
