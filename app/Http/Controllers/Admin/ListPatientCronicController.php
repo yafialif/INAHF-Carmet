@@ -399,4 +399,20 @@ class ListPatientCronicController extends Controller
 
 		return redirect()->route('admin.listpatientcronic.index');
 	}
+	public function massDelete(Request $request)
+	{
+		if ($request->get('toDelete') != 'mass') {
+			$toDelete = json_decode($request->get('toDelete'));
+			$patient = Patient::destroy($toDelete);
+			$clinical = ChronicClinicalProfile::where('patient_id', $toDelete)->delete();
+			CronicRiskFactors::where('patient_id', $toDelete)->delete();
+			ChronicEchocardiography::where('patient_id', $toDelete)->delete();
+			ChronicBloodLaboratoryTest::where('patient_id', $toDelete)->delete();
+			ChronicMedication::where('patient_id', $toDelete)->delete();
+		} else {
+			$patient =  Patient::whereNotNull('id')->delete();
+		}
+		// return $clinical;
+		return redirect()->route('admin.listpatientcronic.index');
+	}
 }

@@ -104,7 +104,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                 </button>
             </div>
         </div>
-        {!! Form::open(['route' => config('quickadmin.route').'.patient.massDelete', 'method' => 'post', 'id' =>
+        {!! Form::open(['route' => config('quickadmin.route').'.listpatientcronic.massDelete', 'method' => 'post', 'id' =>
         'massDelete']) !!}
         <input type="hidden" id="send" name="toDelete">
         {!! Form::close() !!}

@@ -514,11 +514,20 @@ class ListPatientAdhfController extends Controller
 	{
 		if ($request->get('toDelete') != 'mass') {
 			$toDelete = json_decode($request->get('toDelete'));
-			Patient::destroy($toDelete);
+			$patient = Patient::destroy($toDelete);
+			$clinical = ClinicalProfile::where('user_id', $toDelete)->delete();
+			AdhfRiskFactors::where('patient_id', $toDelete)->delete();
+			AdhfEtiology::where('patient_id', $toDelete)->delete();
+			AdhfEchocardiography::where('patient_id', $toDelete)->delete();
+			AdhfBloodLaboratoryTest::where('patient_id', $toDelete)->delete();
+			AdhfBloodGasAnalysis::where('patient_id', $toDelete)->delete();
+			AdhfMedication::where('patient_id', $toDelete)->delete();
+			AdhfHospitalization::where('patient_id', $toDelete)->delete();
+			AdhfOutcomes::where('patient_id', $toDelete)->delete();
 		} else {
-			Patient::whereNotNull('id')->delete();
+			$patient =  Patient::whereNotNull('id')->delete();
 		}
-
-		return redirect()->route(config('quickadmin.route') . '.patient.index');
+		// return $clinical;
+		return redirect()->route('admin.listpatientadhf.index');
 	}
 }
