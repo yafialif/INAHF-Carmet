@@ -1770,7 +1770,7 @@ function countBun(){
             }
             else if(scr> 0.9){
             A = 0.9;
-            B = 1.2;
+            B = -1.2;
             }
             console.log(sex);
             gfr = 142*Math.pow((scr/A),B)*Math.pow(0.9938,age);
