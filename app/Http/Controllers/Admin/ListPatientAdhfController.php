@@ -127,173 +127,183 @@ class ListPatientAdhfController extends Controller
 	{
 		$user_id = Auth::user()->id;
 		$categorytreatment_id = 1;
+		$jumlah_input_terisi = 0;
+		$total_data = 0;
 		// Patient
-		$patient = new Patient();
-		$patient->user_id = $user_id;
-		$patient->categorytreatment_id = $categorytreatment_id;
-		$patient->rs_id = $request->rs_id;
-		$patient->nik = $request->nik;
-		$patient->name = $request->name;
-		if ($request->dateOfBirth) {
-			$patient->dateOfBirth = $request->dateOfBirth;
+		// $result = json_encode($request);
+		// $data = json_decode($result, true);
+		$data = $request->all();
+		foreach ($data as $key => $value) {
+			// Memeriksa apakah input tidak kosong
+			if (!empty($value)) {
+				$jumlah_input_terisi++;
+			}
+			$total_data++;
+			// echo $key;
 		}
-		$patient->age = $request->age;
-		$patient->gender = $request->gender;
-		$patient->phone = $request->phone;
-		if ($request->dateOfAdmission) {
-			$patient->dateOfAdmission = $request->dateOfAdmission;
-		}
-		$patient->insurance = $request->insurance;
-		$patient->education = $request->education;
-		if ($request->dateOfDischarge) {
-			$patient->dateOfDischarge = $request->dateOfDischarge;
-		}
-		// else {
-		// 	$patient->dateOfDischarge = date("0000-00-00");
+		$persentase_terisi = round(($jumlah_input_terisi / $total_data) * 100);
+
+		return response()->json($persentase_terisi);
+
+		// $patient = new Patient();
+		// $patient->user_id = $user_id;
+		// $patient->categorytreatment_id = $categorytreatment_id;
+		// $patient->rs_id = $request->rs_id;
+		// $patient->nik = $request->nik;
+		// $patient->name = $request->name;
+		// if ($request->dateOfBirth) {
+		// 	$patient->dateOfBirth = $request->dateOfBirth;
 		// }
-		$patient->save();
+		// $patient->age = $request->age;
+		// $patient->gender = $request->gender;
+		// $patient->phone = $request->phone;
+		// if ($request->dateOfAdmission) {
+		// 	$patient->dateOfAdmission = $request->dateOfAdmission;
+		// }
+		// $patient->insurance = $request->insurance;
+		// $patient->education = $request->education;
+		// if ($request->dateOfDischarge) {
+		// 	$patient->dateOfDischarge = $request->dateOfDischarge;
+		// }
+
+		// $patient->save();
 
 		// Clinical Profile
-		$clinicalProfile = new ClinicalProfile();
-		$clinicalProfile->user_id = $patient->id;
-		$clinicalProfile->categorytreatment_id = $categorytreatment_id;
-		$clinicalProfile->height = $request->height;
-		$clinicalProfile->weight = $request->weight;
-		$clinicalProfile->bmi = $request->bmi;
-		$clinicalProfile->sbp = $request->sbp;
-		$clinicalProfile->dbp = $request->dbp;
-		$clinicalProfile->hr = $request->hr;
-		$clinicalProfile->dyspnoea_at_rest = $request->dyspnoea_at_rest;
-		$clinicalProfile->orthopnea = $request->orthopnea;
-		$clinicalProfile->pnd = $request->pnd;
-		$clinicalProfile->peripheral_oedema = $request->peripheral_oedema;
-		$clinicalProfile->pulmonary_rales = $request->pulmonary_rales;
-		$clinicalProfile->jvp = $request->jvp;
-		$clinicalProfile->type_of_acute_HF = $request->type_of_acute_HF;
-		$clinicalProfile->nyha_class = $request->nyha_class;
-		$clinicalProfile->cardiogenic_shock = $request->cardiogenic_shock;
-		$clinicalProfile->respiratory_failure = $request->respiratory_failure;
-		$clinicalProfile->save();
+		// $clinicalProfile = new ClinicalProfile();
+		// $clinicalProfile->user_id = $patient->id;
+		// $clinicalProfile->categorytreatment_id = $categorytreatment_id;
+		// $clinicalProfile->height = $request->height;
+		// $clinicalProfile->weight = $request->weight;
+		// $clinicalProfile->bmi = $request->bmi;
+		// $clinicalProfile->sbp = $request->sbp;
+		// $clinicalProfile->dbp = $request->dbp;
+		// $clinicalProfile->hr = $request->hr;
+		// $clinicalProfile->dyspnoea_at_rest = $request->dyspnoea_at_rest;
+		// $clinicalProfile->orthopnea = $request->orthopnea;
+		// $clinicalProfile->pnd = $request->pnd;
+		// $clinicalProfile->peripheral_oedema = $request->peripheral_oedema;
+		// $clinicalProfile->pulmonary_rales = $request->pulmonary_rales;
+		// $clinicalProfile->jvp = $request->jvp;
+		// $clinicalProfile->type_of_acute_HF = $request->type_of_acute_HF;
+		// $clinicalProfile->nyha_class = $request->nyha_class;
+		// $clinicalProfile->cardiogenic_shock = $request->cardiogenic_shock;
+		// $clinicalProfile->respiratory_failure = $request->respiratory_failure;
+		// $clinicalProfile->save();
 
 		// Risk Factor
-		$riskFactor = new AdhfRiskFactors();
-		$riskFactor->patient_id = $patient->id;
-		$riskFactor->categorytreatment_id = $categorytreatment_id;
-		$riskFactor->hypertension = $request->hypertension;
-		$riskFactor->diabetes_or_prediabetes = $request->diabetes_or_prediabetes;
-		$riskFactor->dislipidemia = $request->dislipidemia;
-		$riskFactor->alcohol = $request->alcohol;
-		$riskFactor->smoker = $request->smoker;
-		$riskFactor->ckd = $request->ckd;
-		$riskFactor->valvular_heart_disease = $request->valvular_heart_disease;
-		$riskFactor->atrial_fibrillation = $request->atrial_fibrillation;
-		$riskFactor->history_of_hf = $request->history_of_hf;
-		$riskFactor->history_of_pci_or_cabg = $request->history_of_pci_or_cabg;
-		$riskFactor->historyof_heart_valve_surgery = $request->historyof_heart_valve_surgery;
-		$riskFactor->omi_or_cad = $request->omi_or_cad;
-		$riskFactor->save();
+		// $riskFactor = new AdhfRiskFactors();
+		// $riskFactor->patient_id = $patient->id;
+		// $riskFactor->categorytreatment_id = $categorytreatment_id;
+		// $riskFactor->hypertension = $request->hypertension;
+		// $riskFactor->diabetes_or_prediabetes = $request->diabetes_or_prediabetes;
+		// $riskFactor->dislipidemia = $request->dislipidemia;
+		// $riskFactor->alcohol = $request->alcohol;
+		// $riskFactor->smoker = $request->smoker;
+		// $riskFactor->ckd = $request->ckd;
+		// $riskFactor->valvular_heart_disease = $request->valvular_heart_disease;
+		// $riskFactor->atrial_fibrillation = $request->atrial_fibrillation;
+		// $riskFactor->history_of_hf = $request->history_of_hf;
+		// $riskFactor->history_of_pci_or_cabg = $request->history_of_pci_or_cabg;
+		// $riskFactor->historyof_heart_valve_surgery = $request->historyof_heart_valve_surgery;
+		// $riskFactor->omi_or_cad = $request->omi_or_cad;
+		// $riskFactor->save();
 
 		// Etiology
-		$Etiology = new AdhfEtiology();
-		$Etiology->patient_id = $patient->id;
-		$Etiology->categorytreatment_id =  $categorytreatment_id;
-		$Etiology->precipitating_factors = $request->precipitating_factors;
-		$Etiology->save();
+		// $Etiology = new AdhfEtiology();
+		// $Etiology->patient_id = $patient->id;
+		// $Etiology->categorytreatment_id =  $categorytreatment_id;
+		// $Etiology->precipitating_factors = $request->precipitating_factors;
+		// $Etiology->save();
 
 		// Echocardiography
-		$Echocardiography = new AdhfEchocardiography();
-		$Echocardiography->patient_id = $patient->id;
-		$Echocardiography->categorytreatment_id = $categorytreatment_id;
-		$Echocardiography->ef = $request->ef;
-		$Echocardiography->tapse = $request->tapse;
-		$Echocardiography->edv = $request->edv;
-		$Echocardiography->esv = $request->esv;
-		$Echocardiography->sign_mr = $request->sign_mr;
-		$Echocardiography->lv = $request->lv;
-		$Echocardiography->ee = $request->ee;
-		$Echocardiography->save();
+		// $Echocardiography = new AdhfEchocardiography();
+		// $Echocardiography->patient_id = $patient->id;
+		// $Echocardiography->categorytreatment_id = $categorytreatment_id;
+		// $Echocardiography->ef = $request->ef;
+		// $Echocardiography->tapse = $request->tapse;
+		// $Echocardiography->edv = $request->edv;
+		// $Echocardiography->esv = $request->esv;
+		// $Echocardiography->sign_mr = $request->sign_mr;
+		// $Echocardiography->lv = $request->lv;
+		// $Echocardiography->ee = $request->ee;
+		// $Echocardiography->save();
 
 		// Blood Laboratory Test
-		$BloodLaboratoryTest = new AdhfBloodLaboratoryTest();
-		$BloodLaboratoryTest->patient_id = $patient->id;
-		$BloodLaboratoryTest->categorytreatment_id = $categorytreatment_id;
-		$BloodLaboratoryTest->hemoglobin = $request->hemoglobin;
-		$BloodLaboratoryTest->hematocrite = $request->hematocrite;
-		$BloodLaboratoryTest->random_blood_glucose = $request->random_blood_glucose;
-		$BloodLaboratoryTest->natrium = $request->natrium;
-		$BloodLaboratoryTest->kalium = $request->kalium;
-		$BloodLaboratoryTest->ureum = $request->ureum;
-		$BloodLaboratoryTest->bun = $request->bun;
-		$BloodLaboratoryTest->serum_creatinine = $request->serum_creatinine;
-		$BloodLaboratoryTest->serum_iron = $request->serum_iron;
-		$BloodLaboratoryTest->hba1c = $request->hba1c;
-		$BloodLaboratoryTest->gfr = $request->gfr;
-		$BloodLaboratoryTest->NT_ProBNP = $request->NT_ProBNP;
-		$BloodLaboratoryTest->save();
+		// $BloodLaboratoryTest = new AdhfBloodLaboratoryTest();
+		// $BloodLaboratoryTest->patient_id = $patient->id;
+		// $BloodLaboratoryTest->categorytreatment_id = $categorytreatment_id;
+		// $BloodLaboratoryTest->hemoglobin = $request->hemoglobin;
+		// $BloodLaboratoryTest->hematocrite = $request->hematocrite;
+		// $BloodLaboratoryTest->random_blood_glucose = $request->random_blood_glucose;
+		// $BloodLaboratoryTest->natrium = $request->natrium;
+		// $BloodLaboratoryTest->kalium = $request->kalium;
+		// $BloodLaboratoryTest->ureum = $request->ureum;
+		// $BloodLaboratoryTest->bun = $request->bun;
+		// $BloodLaboratoryTest->serum_creatinine = $request->serum_creatinine;
+		// $BloodLaboratoryTest->serum_iron = $request->serum_iron;
+		// $BloodLaboratoryTest->hba1c = $request->hba1c;
+		// $BloodLaboratoryTest->gfr = $request->gfr;
+		// $BloodLaboratoryTest->NT_ProBNP = $request->NT_ProBNP;
+		// $BloodLaboratoryTest->save();
 
 		// Blood Gas Analysis
-		$BloodGasAnalysis = new AdhfBloodGasAnalysis();
-		$BloodGasAnalysis->patient_id = $patient->id;
-		$BloodGasAnalysis->categorytreatment_id = $categorytreatment_id;
-		$BloodGasAnalysis->pH = $request->pH;
-		$BloodGasAnalysis->pco2 = $request->pco2;
-		$BloodGasAnalysis->hco3 = $request->hco3;
-		$BloodGasAnalysis->po2 = $request->po2;
-		$BloodGasAnalysis->lactate = $request->lactate;
-		$BloodGasAnalysis->be = $request->be;
-		$BloodGasAnalysis->save();
+		// $BloodGasAnalysis = new AdhfBloodGasAnalysis();
+		// $BloodGasAnalysis->patient_id = $patient->id;
+		// $BloodGasAnalysis->categorytreatment_id = $categorytreatment_id;
+		// $BloodGasAnalysis->pH = $request->pH;
+		// $BloodGasAnalysis->pco2 = $request->pco2;
+		// $BloodGasAnalysis->hco3 = $request->hco3;
+		// $BloodGasAnalysis->po2 = $request->po2;
+		// $BloodGasAnalysis->lactate = $request->lactate;
+		// $BloodGasAnalysis->be = $request->be;
+		// $BloodGasAnalysis->save();
 
 		// Medication
-		$medication = new AdhfMedication();
-		$medication->patient_id = $patient->id;
-		$medication->categorytreatment_id = $categorytreatment_id;
-		$medication->acei = $request->acei;
-		$medication->aceiDoseatPredischarge = $request->aceiDoseatPredischarge;
-		$medication->arb = $request->arb;
-		$medication->arbDoseatPredischarge = $request->arbDoseatPredischarge;
-		$medication->arniDoseatPredischarge = $request->arniDoseatPredischarge;
-		$medication->mraDoseatPredischarge = $request->mraDoseatPredischarge;
-		$medication->BetaBlocker = $request->BetaBlocker;
-		$medication->BetaBlockerDoseatPredischarge = $request->BetaBlockerDoseatPredischarge;
-		$medication->LoopDiureticDoseatPredischarge = $request->LoopDiureticDoseatPredischarge;
-		$medication->sglt2i = $request->sglt2i;
-		$medication->ivabradineDoseatPredischarge = $request->ivabradineDoseatPredischarge;
-		$medication->Tolvaptan = $request->Tolvaptan;
-		$medication->insulinDose = $request->insulinDose;
-		$medication->inotropic = $request->inotropic;
-		$medication->vasoconstrictor = $request->vasoconstrictor;
-		$medication->statin = $request->statin;
-		$medication->save();
+		// $medication = new AdhfMedication();
+		// $medication->patient_id = $patient->id;
+		// $medication->categorytreatment_id = $categorytreatment_id;
+		// $medication->acei = $request->acei;
+		// $medication->aceiDoseatPredischarge = $request->aceiDoseatPredischarge;
+		// $medication->arb = $request->arb;
+		// $medication->arbDoseatPredischarge = $request->arbDoseatPredischarge;
+		// $medication->arniDoseatPredischarge = $request->arniDoseatPredischarge;
+		// $medication->mraDoseatPredischarge = $request->mraDoseatPredischarge;
+		// $medication->BetaBlocker = $request->BetaBlocker;
+		// $medication->BetaBlockerDoseatPredischarge = $request->BetaBlockerDoseatPredischarge;
+		// $medication->LoopDiureticDoseatPredischarge = $request->LoopDiureticDoseatPredischarge;
+		// $medication->sglt2i = $request->sglt2i;
+		// $medication->ivabradineDoseatPredischarge = $request->ivabradineDoseatPredischarge;
+		// $medication->Tolvaptan = $request->Tolvaptan;
+		// $medication->insulinDose = $request->insulinDose;
+		// $medication->inotropic = $request->inotropic;
+		// $medication->vasoconstrictor = $request->vasoconstrictor;
+		// $medication->statin = $request->statin;
+		// $medication->save();
 
 		// Hospitalization
-		$hospitalization = new AdhfHospitalization();
-		$hospitalization->patient_id = $patient->id;
-		$hospitalization->categorytreatment_id = $categorytreatment_id;
-		$hospitalization->iccu = $request->iccu;
-		$hospitalization->ward = $request->ward;
-		$hospitalization->totalLoS = $request->totalLoS;
-		$hospitalization->hospitalizationCost = $request->hospitalizationCost;
-		$hospitalization->save();
+		// $hospitalization = new AdhfHospitalization();
+		// $hospitalization->patient_id = $patient->id;
+		// $hospitalization->categorytreatment_id = $categorytreatment_id;
+		// $hospitalization->iccu = $request->iccu;
+		// $hospitalization->ward = $request->ward;
+		// $hospitalization->totalLoS = $request->totalLoS;
+		// $hospitalization->hospitalizationCost = $request->hospitalizationCost;
+		// $hospitalization->save();
 
 		// Outcomes
-		$Outcomes = new AdhfOutcomes();
-		$Outcomes->patient_id = $patient->id;
-		$Outcomes->categorytreatment_id = $categorytreatment_id;
-		$Outcomes->inhospitalDeath = $request->inhospitalDeath;
-		$Outcomes->vulnerablePhaseDeath = $request->vulnerablePhaseDeath;
-		$Outcomes->vulnerablePhaseRehospitalization = $request->vulnerablePhaseRehospitalization;
-		// $Outcomes->dateofDeath = $request->dateofDeath;
-		if ($request->dateofDeath) {
-			$Outcomes->dateofDeath = $request->dateofDeath;
-		}
-		// else {
-		// $Outcomes->dateofDeath = date("0000-00-00");
+		// $Outcomes = new AdhfOutcomes();
+		// $Outcomes->patient_id = $patient->id;
+		// $Outcomes->categorytreatment_id = $categorytreatment_id;
+		// $Outcomes->inhospitalDeath = $request->inhospitalDeath;
+		// $Outcomes->vulnerablePhaseDeath = $request->vulnerablePhaseDeath;
+		// $Outcomes->vulnerablePhaseRehospitalization = $request->vulnerablePhaseRehospitalization;
+		// if ($request->dateofDeath) {
+		// 	$Outcomes->dateofDeath = $request->dateofDeath;
 		// }
-		$Outcomes->additional_notes = $request->additional_notes;
-		$Outcomes->save();
+		// $Outcomes->additional_notes = $request->additional_notes;
+		// $Outcomes->save();
 
-		// return response()->json($request);
-		return redirect()->route('admin.listpatientadhf.index');
+		// return redirect()->route('admin.listpatientadhf.index');
 	}
 
 	public function show($id)

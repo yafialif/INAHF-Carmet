@@ -12,10 +12,6 @@ use Carbon\Carbon;
 class Patient extends Model
 {
 
-
-
-
-
     protected $table    = 'patient';
 
     protected $fillable = [
@@ -34,6 +30,7 @@ class Patient extends Model
         'dateOfDischarge',
         'yearOfAdmission',
         'dateOfClinicVisit',
+        'percent',
     ];
 
 
@@ -52,6 +49,28 @@ class Patient extends Model
     public function treatment()
     {
         return $this->hasOne('App\CategoryTreatment', 'id', 'categorytreatment_id');
+    }
+
+    public function chronicclinicalprofile()
+    {
+        return $this->hasOne(ChronicClinicalProfile::class, 'patient_id');
+    }
+
+    public function cronicriskfactors()
+    {
+        return $this->hasOne(CronicRiskFactors::class, 'patient_id');
+    }
+    public function chronicechocardiography()
+    {
+        return $this->hasOne(chronicechocardiography::class, 'patient_id');
+    }
+    public function chronicbloodlaboratorytest()
+    {
+        return $this->hasOne(chronicbloodlaboratorytest::class, 'patient_id');
+    }
+    public function chronicmedication()
+    {
+        return $this->hasOne(chronicmedication::class, 'patient_id');
     }
 
 

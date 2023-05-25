@@ -39,7 +39,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                     <th>Date of Clinic Visit</th>
                     <th>Insurance</th>
                     <th>Education</th>
-                    {{-- <th>Date of Discharge</th> --}}
+                    <th>Aditional Notes</th>
                     <th>Progress</th>
                     <th>Month Follow Up</th>
                     <th>Action</th>
@@ -52,8 +52,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                     <td>
                         {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
                     </td>
-                    <td>{{ isset($row->user->name) ? $row->user->name : '' }}</td>
-                    <td>{{ isset($row->categorytreatment) ? $row->categorytreatment : '' }}</td>
+                    <td>{!! $row->user['name'] !!}</td>
+                    {{-- <td>{!! $row->user['name'] !!}</td> --}}
+                    <td>I-TREAT HF (Chronic)</td>
                     <td>{{ $row->nik }}</td>
                     <td>{{ $row->name }}</td>
                     <td>{{ $row->dateOfBirth }}</td>
@@ -63,6 +64,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                     <td>{{ $row->dateOfClinicVisit }}</td>
                     <td>{{ $row->insurance }}</td>
                     <td>{{ $row->education }}</td>
+                    <td>{{ $row->additional_notes }}</td>
                     {{-- <td style="color: red;">{{ $row->dateOfDischarge }}</td> --}}
                     @if($row->percent < 98)
                     <td style="color: red;" >{{ $row->percent }} %</td>

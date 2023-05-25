@@ -838,13 +838,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Ureum</label>
-                                        <p>{{ $data->ureum }} gr/dL</p>
+                                        <p>{{ $data->ureum }} mg/dL</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>BUN</label>
-                                        <p>{{ $data->bun }} gr/dL</p>
+                                        <p>{{ $data->bun }} mg/dL</p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

@@ -118,7 +118,7 @@
     }
 
     .wizard .nav-tabs>li {
-        width: 16%;
+        width: 13%;
     }
 
     .wizard li:after {
@@ -437,17 +437,21 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             </li>
                             
                             <li role="presentation" class="">
-                                <a href="#step4" data-toggle="tab" aria-controls="step6" role="tab"><span
+                                <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab"><span
                                         class="round-tab">4</span> <i>Echocardiography</i></a>
                             </li>
                             <li role="presentation" class="">
-                                <a href="#step5" data-toggle="tab" aria-controls="step7" role="tab"><span
+                                <a href="#step5" data-toggle="tab" aria-controls="step5" role="tab"><span
                                         class="round-tab">5</span> <i>Blood Laboratory Test</i></a>
                             </li>
                            
                             <li role="presentation" class="">
-                                <a href="#step6" data-toggle="tab" aria-controls="step8" role="tab"><span
+                                <a href="#step6" data-toggle="tab" aria-controls="step6" role="tab"><span
                                         class="round-tab">6</span> <i>Medication</i></a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#step7" data-toggle="tab" aria-controls="step7" role="tab"><span
+                                        class="round-tab">7</span> <i>Additional Notes</i></a>
                             </li>
                         </ul>
                     </div>
@@ -1030,14 +1034,14 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>Ureum *</label>
                                     <div class="input-group">
                                         <input onkeyup="countBun()" id="ureum" class="form-control" type="number" name="ureum" placeholder="" required>
-                                        <span class="input-group-addon">gr/dL</span>
+                                        <span class="input-group-addon">mg/dL</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>BUN</label>
                                     <div class="input-group">
                                         <input class="form-control" type="number" id="bun" name="bun" placeholder="" readonly>
-                                        <span class="input-group-addon">gr/dL</span>
+                                        <span class="input-group-addon">mg/dL</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -1274,7 +1278,25 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
-                                        <li><button type="button" onclick="finish()" type="submit" class="default-btn next-step">Finish</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tab-pane" role="tabpanel" id="step7">
+                                <h4 class="text-center">Additional Notes</h4>
+                                
+                                <div class="col-md-12">
+                                        <label>Additional Notes</label>
+
+                                    <div class="input-group">
+                                        <textarea class="form-control " id="editor" name="additional_notes" cols="50" rows="10" id="detail"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="finish()" class="default-btn next-step">Finish</button></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1678,7 +1700,7 @@ function removelocal() {
 function yearOfAdmission(){
         const year = new Date().getFullYear();
         // console.log(date);
-        for(var i=2000; i<= year; i++){
+        for(var i=2000; i<= 2026; i++){
         var x = "<option>" + i + "</option>";
         document.getElementById("yearOfAdmission").innerHTML += x;
         }

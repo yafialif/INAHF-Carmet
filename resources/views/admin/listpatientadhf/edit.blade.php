@@ -1179,7 +1179,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     <div class="input-group">
                                         <input value="{{ $data->ureum}}" id="ureum" onkeyup="countBun()" class="form-control" type="number" name="ureum" placeholder="">
-                                        <span class="input-group-addon">gr/dL</span>
+                                        <span class="input-group-addon">mg/dL</span>
 
                                     </div>
                                 </div>
@@ -1188,7 +1188,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     <div class="input-group">
                                         <input value="{{ $data->bun}}" id="bun" class="form-control" type="number" name="bun" placeholder="" readonly>
-                                        <span class="input-group-addon">gr/dL</span>
+                                        <span class="input-group-addon">mg/dL</span>
 
                                     </div>
                                 </div>
@@ -1539,7 +1539,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="col-md-6">
                                         <label>ICCU</label>
                                     <div class="input-group">
-                                        <input value="{{ $data->iccu}}" class="form-control" type="number" name="iccu" placeholder="">
+                                        <input value="{{ $data->iccu}}" onkeyup="count_stay()" class="form-control" type="number" name="iccu" placeholder="">
                                         <span class="input-group-addon">days</span>
                                     
                                     </div>
@@ -1548,7 +1548,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>Ward</label>
 
                                     <div class="input-group">
-                                        <input value="{{ $data->ward}}" class="form-control" type="number" name="ward" placeholder="">
+                                        <input value="{{ $data->ward}}" onkeyup="count_stay()" class="form-control" type="number" name="ward" placeholder="">
                                         <span class="input-group-addon">days</span>
                                     
                                     </div>
@@ -1695,6 +1695,11 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                  
                 </script>
 <script>
+     function count_stay(){
+        var iccu = document.getElementsByName("iccu")[0].value;
+        var ward = document.getElementsByName("ward")[0].value;
+        document.getElementsByName("totalLoS")[0].value= parseInt(iccu) +parseInt(ward);
+    }
     function finish(){
     document.getElementById("dataForm").submit();
 

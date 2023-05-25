@@ -1012,14 +1012,14 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>Ureum *</label>
                                     <div class="input-group">
                                         <input value="{{ $data->ureum}}" onkeyup="countBun()" id="ureum" class="form-control" type="number" name="ureum" placeholder="" required>
-                                        <span class="input-group-addon">gr/dL</span>
+                                        <span class="input-group-addon">mg/dL</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>BUN</label>
                                     <div class="input-group">
                                         <input value="{{ $data->bun}}" class="form-control" type="number" id="bun" name="bun" placeholder="" readonly>
-                                        <span class="input-group-addon">gr/dL</span>
+                                        <span class="input-group-addon">mg/dL</span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -1609,7 +1609,7 @@ function removelocal() {
 function yearOfAdmission(){
         const year = new Date().getFullYear();
         // console.log(date);
-        for(var i=2000; i<= year; i++){
+        for(var i=2000; i<= 2026; i++){
         if(i == {{ $data->yearOfAdmission }}){
             var x = "<option selected>" + i + "</option>";
         }

@@ -1135,7 +1135,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     <div class="input-group">
                                         <input class="form-control" id="ureum" onkeyup="countBun()" type="number" name="ureum" placeholder="" required>
-                                        <span class="input-group-addon">gr/dL</span>
+                                        <span class="input-group-addon">mg/dL</span>
 
                                     </div>
                                 </div>
@@ -1144,7 +1144,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
 
                                     <div class="input-group">
                                         <input class="form-control" type="number" id="bun" name="bun" placeholder="" readonly>
-                                        <span class="input-group-addon">gr/dL</span>
+                                        <span class="input-group-addon">mg/dL</span>
 
                                     </div>
                                 </div>
@@ -1489,7 +1489,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>ICCU</label>
 
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="iccu" placeholder="">
+                                        <input class="form-control" onkeyup="count_stay()" type="number" name="iccu" placeholder="">
                                         <span class="input-group-addon">days</span>
                                     
                                     </div>
@@ -1498,7 +1498,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>Ward</label>
 
                                     <div class="input-group">
-                                        <input class="form-control" type="number" name="ward" placeholder="">
+                                        <input class="form-control" onkeyup="count_stay()" type="number" name="ward" placeholder="">
                                         <span class="input-group-addon">days</span>
                                     
                                     </div>
@@ -1641,6 +1641,11 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
     //     } );
 </script>
 <script>
+    function count_stay(){
+        var iccu = document.getElementsByName("iccu")[0].value;
+        var ward = document.getElementsByName("ward")[0].value;
+        document.getElementsByName("totalLoS")[0].value= parseInt(iccu) +parseInt(ward);
+    }
     function finish(){
         var input = document.getElementsByTagName("form")[1].getElementsByTagName("input")
         var data = Array();

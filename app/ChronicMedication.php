@@ -37,7 +37,8 @@ class ChronicMedication extends Model
         'ivabradineDose',
         'statin',
         'insulin',
-        'devices'
+        'devices',
+        'additional_notes'
     ];
 
 

@@ -40,66 +40,54 @@ class ListPatientCronicController extends Controller
 		$role_id = Auth::user()->role_id;
 		$menu = MonthFollowUp::get();
 		if ($role_id <= 2) {
-			$patients = Patient::with("user")
-				->where('categorytreatment_id', 2)
-				->get();
-		} else {
-			$patients = Patient::with("user")
-				->where('user_id', $user_id)
-				->where('categorytreatment_id', 2)
-				->get();
-		}
-		$patient = array();
-		// $patientFollowup = DB::table('chronicpatientmonthfollowup')
-		// 	->select('mount')
-		// 	->join('monthfollowup', 'monthfollowup.id', '=', 'chronicpatientmonthfollowup.monthfollowup_id')
-		// 	->where('chronicpatientmonthfollowup.patient_id', 13)
-		// 	->get();
-		// $FollowupToString = implode(" ", $patientFollowup);
-
-		foreach ($patients as $key => $value) {
-			$percentage = DB::table('patient')
+			$patients = Patient::with(['user', 'chronicclinicalprofile', 'cronicriskfactors', 'chronicechocardiography', 'chronicechocardiography', 'chronicbloodlaboratorytest', 'chronicmedication'])
 				->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
 				->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
-				// ->join('chronicrothorax', 'patient.id', '=', 'chronicrothorax.patient_id')
 				->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
 				->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
 				->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
-				// ->join('chronicoutcomes', 'patient.id', '=', 'chronicoutcomes.patient_id')
-				->where('patient.id', $value->id)
+				->where('patient.categorytreatment_id', 2)
 				->get();
-			$data = $percentage[0];
+		} else {
 
-			foreach ($data as $object) {
-				$array_data[] = $object;
-				if (!empty($object)) {
-					$arrays[] = $object;
-				} else {
-					$arraysnull[] = $object;
+			$patients = Patient::with(['user', 'chronicclinicalprofile', 'cronicriskfactors', 'chronicechocardiography', 'chronicechocardiography', 'chronicbloodlaboratorytest', 'chronicmedication'])
+				->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
+				->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
+				->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
+				->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
+				->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
+				->where('patient.user_id', $user_id)
+				->where('patient.categorytreatment_id', 2)
+				->get();
+		}
+
+
+		$patient2 = json_decode($patients, true); // Mengubah data JSON menjadi array asosiatif
+
+		$excludedFields = ['created_at', 'updated_at', 'dateOfAdmission']; // Daftar field yang ingin dikecualikan
+
+		foreach ($patient2 as &$row) {
+			$totalFields = count($row) - count($excludedFields); // Total jumlah field yang dihitung
+
+			$filledFields = 0; // Jumlah field yang terisi
+
+			foreach ($row as $field => $value) {
+				if (!in_array($field, $excludedFields) && !empty($value)) {
+					$filledFields++;
 				}
 			}
-			$persentasi = round(count($arrays) / (count($array_data) - 2) * 100);
-			array_push($patient, (object) array(
-				'id' => $value->id,
-				'user_id' => $value->user_id,
-				'categorytreatment' => $value->treatment->treatmentName,
-				'nik' => $value->nik,
-				'name' => $value->name,
-				'dateOfBirth' => $value->dateOfBirth,
-				'age' => $value->age,
-				'gender' => $value->gender,
-				'phone' => $value->phone,
-				'dateOfClinicVisit' => $value->dateOfClinicVisit,
-				'insurance' => $value->insurance,
-				'education' => $value->education,
-				'created_at' => $value->created_at,
-				'updated_at' => $value->updated_at,
-				'user' => $value->user,
-				'percent' => $persentasi,
-			));
+			$percentage = ($filledFields / $totalFields) * 100; // Menghitung persentase data yang terisi
+			$row['percent'] = round($percentage); // Menambahkan hasil persentase ke dalam array data
 		}
+
+		$patient = array();
+
 		$monthfollowupdata = ChronicPatientMonthFollowUp::select('chronicpatientmonthfollowup.id', 'patient_id', 'monthfollowup_id', 'mount')
 			->join('monthfollowup', 'monthfollowup_id', '=', 'monthfollowup.id')->get();
+		// return response()->json($monthfollowupdata);
+		for ($i = 0; $i < count($patient2); $i++) {
+			array_push($patient, (object) $patient2[$i]);
+		}
 		// return response()->json($monthfollowupdata);
 
 		return view('admin.listpatientcronic.index', compact('patient', 'monthfollowupdata'));
@@ -251,6 +239,7 @@ class ListPatientCronicController extends Controller
 		$medication->statin = $request->statin;
 		$medication->insulin = $request->insulin;
 		$medication->devices = $request->devices;
+		$medication->additional_notes = $request->additional_notes;
 		$medication->save();
 
 		return redirect()->route('admin.listpatientcronic.index');
