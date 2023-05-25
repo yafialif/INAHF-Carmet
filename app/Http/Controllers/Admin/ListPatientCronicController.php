@@ -384,6 +384,7 @@ class ListPatientCronicController extends Controller
 			'statin' => $request->statin,
 			'insulin' => $request->insulin,
 			'devices' => $request->devices,
+			'additional_notes' => $request->additional_notes,
 		));
 
 		return redirect()->route('admin.listpatientcronic.index');
