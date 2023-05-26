@@ -80,6 +80,7 @@ class ListPatientAdhfController extends Controller
 				'adhfhospitalization'
 
 			])
+				->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
 				->join('adhfechocardiography', 'patient.id', '=', 'adhfechocardiography.patient_id')
 				->join('adhfbloodgasanalysis', 'patient.id', '=', 'adhfbloodgasanalysis.patient_id')
@@ -87,7 +88,6 @@ class ListPatientAdhfController extends Controller
 				->join('adhfmedication', 'patient.id', '=', 'adhfmedication.patient_id')
 				->join('adhfoutcomes', 'patient.id', '=', 'adhfoutcomes.patient_id')
 				->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
-				->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->where('patient.user_id', $user_id)
 				->where('patient.categorytreatment_id', 1)
 				->get();
