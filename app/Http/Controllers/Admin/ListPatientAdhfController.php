@@ -68,16 +68,17 @@ class ListPatientAdhfController extends Controller
 				->get();
 		} else {
 
-			$patients = Patient::with([
+			$patients = Patient::select(DB::raw('patient.*', 'clinicalprofile.user_id As patient_id'))->with([
 				'user',
+				'clinicalprofile',
 				'adhfbloodlaboratorytest',
 				'adhfechocardiography',
 				'adhfbloodgasanalysis',
 				'adhfetiology',
 				'adhfmedication',
 				'adhfoutcomes',
-				'adhfhospitalization',
-				'clinicalprofile'
+				'adhfhospitalization'
+
 			])
 				->join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
 				->join('adhfechocardiography', 'patient.id', '=', 'adhfechocardiography.patient_id')
