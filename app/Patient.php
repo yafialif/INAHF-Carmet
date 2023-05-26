@@ -81,6 +81,7 @@ class Patient extends Model
     {
         return $this->hasOne(adhfetiology::class, 'patient_id');
     }
+
     public function clinicalprofile()
     {
         return $this->hasOne(clinicalprofile::class, 'user_id');
