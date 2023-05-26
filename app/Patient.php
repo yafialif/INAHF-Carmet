@@ -51,6 +51,43 @@ class Patient extends Model
         return $this->hasOne('App\CategoryTreatment', 'id', 'categorytreatment_id');
     }
 
+    // Adhf
+
+    public function adhfbloodlaboratorytest()
+    {
+        return $this->hasOne(adhfbloodlaboratorytest::class, 'patient_id');
+    }
+    public function adhfechocardiography()
+    {
+        return $this->hasOne(adhfechocardiography::class, 'patient_id');
+    }
+    public function adhfbloodgasanalysis()
+    {
+        return $this->hasOne(adhfbloodgasanalysis::class, 'patient_id');
+    }
+    public function adhfmedication()
+    {
+        return $this->hasOne(adhfmedication::class, 'patient_id');
+    }
+    public function adhfoutcomes()
+    {
+        return $this->hasOne(adhfoutcomes::class, 'patient_id');
+    }
+    public function adhfhospitalization()
+    {
+        return $this->hasOne(adhfhospitalization::class, 'patient_id');
+    }
+    public function adhfetiology()
+    {
+        return $this->hasOne(adhfetiology::class, 'patient_id');
+    }
+    public function clinicalprofile()
+    {
+        return $this->hasOne(clinicalprofile::class, 'user_id');
+    }
+
+
+    // Chronic
     public function chronicclinicalprofile()
     {
         return $this->hasOne(ChronicClinicalProfile::class, 'patient_id');
