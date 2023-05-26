@@ -41,10 +41,9 @@ class ListPatientAdhfController extends Controller
 		$role_id = Auth::user()->role_id;
 		$menu = MonthFollowUp::get();
 		if ($role_id <= 2) {
-
 			$patients = Patient::select(DB::raw('patient.*', 'clinicalprofile.user_id As patient_id'))->with([
 				'user',
-				'clinicalprofile',
+				// 'clinicalprofile',
 				'adhfbloodlaboratorytest',
 				'adhfechocardiography',
 				'adhfbloodgasanalysis',
@@ -52,7 +51,6 @@ class ListPatientAdhfController extends Controller
 				'adhfmedication',
 				'adhfoutcomes',
 				'adhfhospitalization'
-
 			])
 				->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
@@ -62,7 +60,6 @@ class ListPatientAdhfController extends Controller
 				->join('adhfmedication', 'patient.id', '=', 'adhfmedication.patient_id')
 				->join('adhfoutcomes', 'patient.id', '=', 'adhfoutcomes.patient_id')
 				->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
-
 				// ->where('patient.user_id', $user_id)
 				->where('patient.categorytreatment_id', 1)
 				->get();
