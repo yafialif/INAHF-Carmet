@@ -5,6 +5,25 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Laraveldaily\Quickadmin\Observers\UserActionsObserver;
 
+use App\AdhfBloodGasAnalysis;
+use App\AdhfBloodLaboratoryTest;
+use App\AdhfEchocardiography;
+use App\AdhfEtiology;
+use App\AdhfHospitalization;
+use App\AdhfMedication;
+use App\AdhfOutcomes;
+use App\ClinicalProfile;
+
+use App\ChronicClinicalProfile;
+use App\CronicRiskFactors;
+use App\ChronicRoThorax;
+use App\ChronicEchocardiography;
+use App\ChronicBloodLaboratoryTest;
+use App\ChronicMedication;
+use App\MonthFollowUp;
+use App\ChronicOutcomes;
+use App\ChronicPatientFollowup;
+
 use Carbon\Carbon;
 
 

@@ -43,7 +43,7 @@ class ListPatientAdhfController extends Controller
 		if ($role_id <= 2) {
 			$patients = Patient::select(DB::raw('patient.*', 'clinicalprofile.user_id As patient_id'))->with([
 				'user',
-				// 'clinicalprofile',
+				'clinicalprofile',
 				'adhfbloodlaboratorytest',
 				'adhfechocardiography',
 				'adhfbloodgasanalysis',
