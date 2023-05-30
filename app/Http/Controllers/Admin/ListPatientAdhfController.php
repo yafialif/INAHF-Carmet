@@ -40,6 +40,7 @@ class ListPatientAdhfController extends Controller
 		$user_id = Auth::user()->id;
 		$role_id = Auth::user()->role_id;
 		$menu = MonthFollowUp::get();
+
 		if ($role_id <= 2) {
 			$patients = Patient::select(DB::raw('patient.*', 'clinicalprofile.user_id As patient_id'))->with([
 				'user',
@@ -138,23 +139,7 @@ class ListPatientAdhfController extends Controller
 	{
 		$user_id = Auth::user()->id;
 		$categorytreatment_id = 1;
-		$jumlah_input_terisi = 0;
-		$total_data = 0;
-		// Patient
-		// $result = json_encode($request);
-		// $data = json_decode($result, true);
-		$data = $request->all();
-		foreach ($data as $key => $value) {
-			// Memeriksa apakah input tidak kosong
-			if (!empty($value)) {
-				$jumlah_input_terisi++;
-			}
-			$total_data++;
-			// echo $key;
-		}
-		$persentase_terisi = round(($jumlah_input_terisi / $total_data) * 100);
 
-		return response()->json($persentase_terisi);
 
 		$patient = new Patient();
 		$patient->user_id = $user_id;
