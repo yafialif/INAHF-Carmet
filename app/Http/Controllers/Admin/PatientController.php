@@ -28,9 +28,26 @@ class PatientController extends Controller
 	 */
 	public function index(Request $request)
 	{
+
 		$patient = Patient::with("user")->get();
 
+		// $data = $patients->map(function ($patient) {
+		// 	if (empty($patient->dateOfAdmission)) {
+		// 		$patient->dateOfAdmission = '-';
+		// 	} else {
+		// 		$patient->dateOfAdmission = date('d-m-Y', strtotime($patient->dateOfAdmission));
+		// 	}
+		// 	if (empty($patient->dateOfDischarge)) {
+		// 		$patient->dateOfDischarge = '-';
+		// 	} else {
+		// 		$patient->dateOfDischarge = date('d-m-Y', strtotime($patient->dateOfDischarge));
+		// 	}
+		// 	return $patient;
+		// });
+		// $jsonData = $data->toJson();
+		// return response()->json($jsonData);
 		return view('admin.patient.index', compact('patient'));
+
 		// return json_encode($patient);
 	}
 

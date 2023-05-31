@@ -282,48 +282,48 @@ class ListPatientCronicController extends Controller
 
 	public function show($id)
 	{
-		// $patient =
-		// 	Patient::select(
-		// 		'patient.id AS id',
-		// 		'patient.user_id',
-		// 		'patient.categorytreatment_id',
-		// 		'patient.rs_id',
-		// 		'patient.nik',
-		// 		'patient.name',
-		// 		'patient.dateOfBirth',
-		// 		'patient.age',
-		// 		'patient.gender',
-		// 		'patient.phone',
-		// 		'patient.dateOfAdmission',
-		// 		'patient.insurance',
-		// 		'patient.education',
-		// 		'patient.dateOfDischarge',
-		// 		'patient.yearOfAdmission',
-		// 		'patient.dateOfClinicVisit'
-		// 	)->with([
-		// 		// 'user',
-		// 		'chronicclinicalprofile',
-		// 		'cronicriskfactors',
-		// 		'chronicechocardiography',
-		// 		'chronicbloodlaboratorytest',
-		// 		'chronicmedication'
-		// 	])
-		// 	->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
-		// 	->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
-		// 	->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
-		// 	->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
-		// 	->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
-		// 	->where('patient.id', $id)
-		// 	->where('patient.categorytreatment_id', 2)
-		// 	->get();
-		$patient = DB::table('patient')
+		$patient =
+			Patient::select(
+				'patient.id AS id',
+				'patient.user_id',
+				'patient.categorytreatment_id',
+				'patient.rs_id',
+				'patient.nik',
+				'patient.name',
+				'patient.dateOfBirth',
+				'patient.age',
+				'patient.gender',
+				'patient.phone',
+				'patient.dateOfAdmission',
+				'patient.insurance',
+				'patient.education',
+				'patient.dateOfDischarge',
+				'patient.yearOfAdmission',
+				'patient.dateOfClinicVisit'
+			)->with([
+				// 'user',
+				'chronicclinicalprofile',
+				'cronicriskfactors',
+				'chronicechocardiography',
+				'chronicbloodlaboratorytest',
+				'chronicmedication'
+			])
 			->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
 			->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
 			->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
 			->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
 			->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
 			->where('patient.id', $id)
+			->where('patient.categorytreatment_id', 2)
 			->get();
+		// $patient = DB::table('patient')
+		// 	->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
+		// 	->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
+		// 	->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
+		// 	->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
+		// 	->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
+		// 	->where('patient.id', $id)
+		// 	->get();
 		$data = $patient[0];
 		$monthfollowup = ChronicPatientMonthFollowUp::where('patient_id', $id)
 			->join('patient', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')

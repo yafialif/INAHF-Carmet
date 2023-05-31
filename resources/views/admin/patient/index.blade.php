@@ -20,10 +20,10 @@
 <th>Age</th>
 <th>Gender</th>
 <th>Phone</th>
-<th>Date of Admission</th>
+{{-- <th>Date of Admission</th> --}}
 <th>Insurance</th>
 <th>Education</th>
-<th>Date of Discharge</th>
+{{-- <th>Date of Discharge</th> --}}
 
                         {{-- <th>Action</th> --}}
                     </tr>
@@ -40,16 +40,22 @@
 <td>{{ $row->age }}</td>
 <td>{{ $row->gender }}</td>
 <td>{{ $row->phone }}</td>
-<td>{{ $row->dateOfAdmission }}</td>
+{{-- <td>{{ $row->dateOfAdmission }}</td> --}}
 <td>{{ $row->insurance }}</td>
 <td>{{ $row->education }}</td>
-<td style="color: red;">{{ $row->dateOfDischarge }}</td>
+<?php
+// $date = date($row->dateOfAdmission);
+// if(){
+
+// };
+
+?>
+{{-- <td style="color: red;">{{ $row->dateOfDischarge }}</td> --}}
                             {{-- <td>
                                 {!! link_to_route(config('quickadmin.route').'.patient.edit', trans('View Detail'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!} --}}
                                 {{-- {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array(config('quickadmin.route').'.patient.destroy', $row->id))) !!}
                                 {!! Form::submit(trans('quickadmin::templates.templates-view_index-delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                                 {!! Form::close() !!} --}}
-                                
                             {{-- </td> --}}
                         </tr>
                     @endforeach

@@ -164,7 +164,6 @@ class ListPatientAdhfController extends Controller
 
 		$patient->save();
 
-		// Clinical Profile
 		$clinicalProfile = new ClinicalProfile();
 		$clinicalProfile->user_id = $patient->id;
 		$clinicalProfile->categorytreatment_id = $categorytreatment_id;
@@ -186,7 +185,6 @@ class ListPatientAdhfController extends Controller
 		$clinicalProfile->respiratory_failure = $request->respiratory_failure;
 		$clinicalProfile->save();
 
-		// Risk Factor
 		$riskFactor = new AdhfRiskFactors();
 		$riskFactor->patient_id = $patient->id;
 		$riskFactor->categorytreatment_id = $categorytreatment_id;
@@ -204,14 +202,12 @@ class ListPatientAdhfController extends Controller
 		$riskFactor->omi_or_cad = $request->omi_or_cad;
 		$riskFactor->save();
 
-		// Etiology
 		$Etiology = new AdhfEtiology();
 		$Etiology->patient_id = $patient->id;
 		$Etiology->categorytreatment_id =  $categorytreatment_id;
 		$Etiology->precipitating_factors = $request->precipitating_factors;
 		$Etiology->save();
 
-		// Echocardiography
 		$Echocardiography = new AdhfEchocardiography();
 		$Echocardiography->patient_id = $patient->id;
 		$Echocardiography->categorytreatment_id = $categorytreatment_id;
@@ -224,7 +220,6 @@ class ListPatientAdhfController extends Controller
 		$Echocardiography->ee = $request->ee;
 		$Echocardiography->save();
 
-		// Blood Laboratory Test
 		$BloodLaboratoryTest = new AdhfBloodLaboratoryTest();
 		$BloodLaboratoryTest->patient_id = $patient->id;
 		$BloodLaboratoryTest->categorytreatment_id = $categorytreatment_id;
@@ -242,7 +237,6 @@ class ListPatientAdhfController extends Controller
 		$BloodLaboratoryTest->NT_ProBNP = $request->NT_ProBNP;
 		$BloodLaboratoryTest->save();
 
-		// Blood Gas Analysis
 		$BloodGasAnalysis = new AdhfBloodGasAnalysis();
 		$BloodGasAnalysis->patient_id = $patient->id;
 		$BloodGasAnalysis->categorytreatment_id = $categorytreatment_id;
@@ -254,7 +248,6 @@ class ListPatientAdhfController extends Controller
 		$BloodGasAnalysis->be = $request->be;
 		$BloodGasAnalysis->save();
 
-		// Medication
 		$medication = new AdhfMedication();
 		$medication->patient_id = $patient->id;
 		$medication->categorytreatment_id = $categorytreatment_id;
@@ -266,6 +259,7 @@ class ListPatientAdhfController extends Controller
 		$medication->mraDoseatPredischarge = $request->mraDoseatPredischarge;
 		$medication->BetaBlocker = $request->BetaBlocker;
 		$medication->BetaBlockerDoseatPredischarge = $request->BetaBlockerDoseatPredischarge;
+		$medication->LoopDiureticDoseatAdmission = $request->LoopDiureticDoseatAdmission;
 		$medication->LoopDiureticDoseatPredischarge = $request->LoopDiureticDoseatPredischarge;
 		$medication->sglt2i = $request->sglt2i;
 		$medication->ivabradineDoseatPredischarge = $request->ivabradineDoseatPredischarge;
@@ -276,7 +270,6 @@ class ListPatientAdhfController extends Controller
 		$medication->statin = $request->statin;
 		$medication->save();
 
-		// Hospitalization
 		$hospitalization = new AdhfHospitalization();
 		$hospitalization->patient_id = $patient->id;
 		$hospitalization->categorytreatment_id = $categorytreatment_id;
@@ -286,7 +279,6 @@ class ListPatientAdhfController extends Controller
 		$hospitalization->hospitalizationCost = $request->hospitalizationCost;
 		$hospitalization->save();
 
-		// Outcomes
 		$Outcomes = new AdhfOutcomes();
 		$Outcomes->patient_id = $patient->id;
 		$Outcomes->categorytreatment_id = $categorytreatment_id;
@@ -298,7 +290,7 @@ class ListPatientAdhfController extends Controller
 		}
 		$Outcomes->additional_notes = $request->additional_notes;
 		$Outcomes->save();
-
+		// return $request;
 		return redirect()->route('admin.listpatientadhf.index');
 	}
 
@@ -481,7 +473,7 @@ class ListPatientAdhfController extends Controller
 			'BetaBlocker' => $request->BetaBlocker,
 			// 'BetaBlockerDoseatAdmission' => $request->BetaBlockerDoseatAdmission,
 			'BetaBlockerDoseatPredischarge' => $request->BetaBlockerDoseatPredischarge,
-			// 'LoopDiureticDoseatAdmission' => $request->LoopDiureticDoseatAdmission,
+			'LoopDiureticDoseatAdmission' => $request->LoopDiureticDoseatAdmission,
 			'LoopDiureticDoseatPredischarge' => $request->LoopDiureticDoseatPredischarge,
 			'sglt2i' => $request->sglt2i,
 			// 'sglt2iDoseatAdmission' => $request->sglt2iDoseatAdmission,

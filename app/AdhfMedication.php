@@ -41,7 +41,7 @@ class AdhfMedication extends Model
         'BetaBlocker',
         //   'BetaBlockerDoseatAdmission',
         'BetaBlockerDoseatPredischarge',
-        //   'LoopDiureticDoseatAdmission',
+        'LoopDiureticDoseatAdmission',
         'LoopDiureticDoseatPredischarge',
         'sglt2i',
         //   'sglt2iDoseatAdmission',

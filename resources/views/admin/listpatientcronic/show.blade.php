@@ -494,65 +494,65 @@
                                 <h4 class="text-center">Clinical Profile</h4>
                                 <div class="col-md-6">
                                         <label>Height *</label>
-                                        <p>{{$data->height }}/p>
+                                        <p>{{$data->chronicclinicalprofile['height'] }}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Weight *</label>
-                                        <p>{{$data->weight }}</p>
+                                        <p>{{$data->chronicclinicalprofile['weight'] }}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>BMI *</label>
                                     <div class="input-group">
-                                        <input class="form-control" value="{{$data->bmi }}" type="text" id="bmi" name="bmi" placeholder="" readonly>
+                                        <p>{{$data->chronicclinicalprofile['bmi'] }}</p>
                                         {{-- <span class="input-group-addon">.Kg/m2</span> --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Heart Rate *</label>
-                                        <p>{{$data->hr }}</p>
+                                        <p>{{$data->chronicclinicalprofile['hr'] }}</p>
                                 </div>
                                 
                                 
                                 <div class="col-md-6">
                                         <label>Systolic Blood Pressure * </label>
-                                        <p>{{$data->sbp }}</p>
+                                        <p>{{$data->chronicclinicalprofile['sbp'] }}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Diastolic Blood Pressure *</label>
-                                        <p>{{$data->dbp }}</p>
+                                        <p>{{$data->chronicclinicalprofile['dbp'] }}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Dyspnoea on exertion *</label>
-                                        <p>{{ $data->dyspnoeaOnExertion}}</p>
+                                        <p>{{ $data->chronicclinicalprofile['dyspnoeaOnExertion']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Orthopnea *</label>
-                                        <p>{{ $data->orthopnea}}</p>
+                                        <p>{{ $data->chronicclinicalprofile['orthopnea']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Paroxysmal Nocturnal Dyspnoe *</label>
-                                        <p>{{ $data->pnd}}</p>
+                                        <p>{{ $data->chronicclinicalprofile['pnd']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>NYHA Class *</label>
-                                        <p>{{ $data->nyhaClass}}</p>
+                                        <p>{{ $data->chronicclinicalprofile['nyhaClass']}}</p>
                                 </div>
                                 
                                 <div class="col-md-6">
                                         <label>Pulmonary rales *</label>
-                                        <p>{{ $data->pulmonaryRales}}</p>
+                                        <p>{{ $data->chronicclinicalprofile['pulmonaryRales']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Etiology *</label>
-                                        <p>{{ $data->etiology}}</p>
+                                        <p>{{ $data->chronicclinicalprofile['etiology']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Peripheral Oedema *</label>
-                                        <p>{{ $data->peripheralOedema}}</p>
+                                        <p>{{ $data->chronicclinicalprofile['peripheralOedema']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Jugular Venous Pressure *</label>
-                                        <p>{{ $data->jvp}}</p>
+                                        <p>{{ $data->chronicclinicalprofile['jvp']}}</p>
                                 </div>
                                
                                 <div class="col-md-12">
@@ -568,54 +568,54 @@
                                 <h4 class="text-center">Risk Factor</h4>
                                 <div class="col-md-6">
                                         <label>Smoker *</label>
-                                        <p>{{ $data->smoker}}</p>
+                                        <p>{{ $data->cronicriskfactors['smoker']}}</p>
                                 </div>
                                 
                                 <div class="col-md-6">
                                         <label>Diabetes or prediabetes *</label>
-                                        <p>{{ $data->diabetesorPrediabetes}}</p>
+                                        <p>{{ $data->cronicriskfactors['diabetesorPrediabetes']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Hypertension *</label>
-                                        <p>{{ $data->hypertension}}</p>
+                                        <p>{{ $data->cronicriskfactors['hypertension']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Dislipidemia *</label>
-                                        <p>{{ $data->dislipidemia}}</p>
+                                        <p>{{ $data->cronicriskfactors['dislipidemia']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Alcohol *</label>
-                                        <p>{{ $data->alcohol}}</p>
+                                        <p>{{ $data->cronicriskfactors['alcohol']}}</p>
                                 </div>
                                 
                                 <div class="col-md-6">
                                         <label>CKD *</label>
-                                        <p>{{ $data->ckd}}</p>
+                                        <p>{{ $data->cronicriskfactors['ckd']}}</p>
                                 </div>
                                 
                                 <div class="col-md-6">
                                         <label>Atrial fibrillation *</label>
-                                        <p>{{ $data->atrialFibrillation}}</p>
+                                        <p>{{ $data->cronicriskfactors['atrialFibrillation']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Bundle Branch Block *</label>
-                                        <p>{{ $data->bundleBranchBlock}}</p>
+                                        <p>{{ $data->cronicriskfactors['bundleBranchBlock']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>History of CAD *</label>
-                                        <p>{{ $data->historyofCad}}</p>
+                                        <p>{{ $data->cronicriskfactors['historyofCad']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>History of HF *</label>
-                                        <p>{{ $data->historyofHf}}</p>
+                                        <p>{{ $data->cronicriskfactors['historyofHf']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>History of PCI or CABG *</label>
-                                        <p>{{ $data->historyofPciorCabg}}</p>
+                                        <p>{{ $data->cronicriskfactors['historyofPciorCabg']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Valvular Heart Disease *</label>
-                                        <p>{{ $data->valvularHeartDiesease}}</p>
+                                        <p>{{ $data->cronicriskfactors['valvularHeartDiesease']}}</p>
                                 </div>
                                 
                                 <div class="col-md-12">
@@ -632,44 +632,44 @@
                                 <h4 class="text-center">Echocardiography</h4>
                                 <div class="col-md-6">
                                         <label>EF at first *</label>
-                                        <p>{{ $data->efAtFirst }}</p>
+                                        <p>{{ $data->chronicechocardiography['efAtFirst'] }}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Date of first LVEF Examination *</label>
-                                        <p>{{ $data->efAtFirstDate }}</p>
+                                        <p>{{ $data->chronicechocardiography['efAtFirstDate'] }}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Latest EF *</label>
-                                        <p>{{ $data->latestEf }}</p>
+                                        <p>{{ $data->chronicechocardiography['latestEf'] }}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Date of latest LVEF Examination *</label>
-                                        <p>{{ $data->latestEfDate }}</p>
+                                        <p>{{ $data->chronicechocardiography['latestEfDate'] }}</p>
                                 </div>
                                 
                                 <div class="col-md-6">
                                         <label>EDV</label>
-                                        <p>{{ $data->edv }}</p>
+                                        <p>{{ $data->chronicechocardiography['edv'] }}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>ESV</label>
-                                        <p>{{ $data->esv }}</p>
+                                        <p>{{ $data->chronicechocardiography['esv'] }}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>TAPSE *</label>
-                                        <p>{{ $data->tapse }}</p>
+                                        <p>{{ $data->chronicechocardiography['tapse'] }}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Sign.MR</label>
-                                        <p>{{ $data->signMr}}</p>
+                                        <p>{{ $data->chronicechocardiography['signMr']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>LV mass index</label>
-                                        <p>{{ $data->lvMaxIndex }}</p>
+                                        <p>{{ $data->chronicechocardiography['lvMaxIndex'] }}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>E/e’ average</label>
-                                        <p>{{ $data->eeAverage }}</p>
+                                        <p>{{ $data->chronicechocardiography['eeAverage'] }}</p>
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
@@ -684,49 +684,49 @@
                                 <h4 class="text-center">Blood Laboratory Test</h4>
                                 <div class="col-md-6">
                                         <label>Hemoglobin *</label>
-                                        <p>{{ $data->hemoglobin}}</p>
+                                        <p>{{ $data->chronicbloodlaboratorytest['hemoglobin']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Hematocrite</label>
-                                        <p><{{ $data->hematocrite}}/p>
+                                        <p>{{ $data->chronicbloodlaboratorytest['hematocrite']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Random Blood Glucose *</label>
-                                        <p>{{ $data->randomBloodGlucose}}</p>
+                                        <p>{{ $data->chronicbloodlaboratorytest['randomBloodGlucose']}}</p>
                                 </div>
                                 
                                 <div class="col-md-6">
                                         <label>HbA1C</label>
-                                        <p>{{ $data->hbA1C}}</p>
+                                        <p>{{ $data->chronicbloodlaboratorytest['hbA1C']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Natrium</label>
-                                        <p>{{ $data->natrium}}</p>
+                                        <p>{{ $data->chronicbloodlaboratorytest['natrium']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Kalium *</label>
-                                        <p>{{ $data->kalium}}</p>
+                                        <p>{{ $data->chronicbloodlaboratorytest['kalium']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Ureum *</label>
-                                        <p>{{ $data->ureum}}</p>
+                                        <p>{{ $data->chronicbloodlaboratorytest['ureum']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>BUN</label>
-                                        <p>{{ $data->bun}}</p>
+                                        <p>{{ $data->chronicbloodlaboratorytest['bun']}}</p>
                                    
                                 </div>
                                 <div class="col-md-6">
                                         <label>Serum Creatinine (Scr) *</label>
-                                        <p>{{ $data->serumCreatinine}}</p>
+                                        <p>{{ $data->chronicbloodlaboratorytest['serumCreatinine']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>GFR *</label>
-                                        <p>{{ $data->gfr}}</p>
+                                        <p>{{ $data->chronicbloodlaboratorytest['gfr']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>NT-ProBNP</label>
-                                        <p>{{ $data->nt_ProBnp}}</p>
+                                        <p>{{ $data->chronicbloodlaboratorytest['nt_ProBnp']}}</p>
                                 </div>
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
@@ -742,89 +742,80 @@
                                 <h4 class="text-center">Medication</h4>
                                 <div class="col-md-6">
                                         <label>ACEi</label>
-                                        <p>{{ $data->acei}}</p>
-                                    <div class="input-group">
-                                        <select class="form-control" name="acei" >
-                                                <option {{ $data->acei == 'None' ? 'selected' : ''}} value="None">None</option>
-                                                <option {{ $data->acei == 'Ramipril' ? 'selected' : ''}} value="Ramipril">Ramipril</option>
-                                                <option {{ $data->acei == 'Captopril' ? 'selected' : ''}} value="Captopril">Captopril</option>
-                                                <option {{ $data->acei == 'Lisinopril' ? 'selected' : ''}} value="Lisinopril">Lisinopril</option>
-                                                <option {{ $data->acei == 'Perindopril' ? 'selected' : ''}} value="Perindopril">Perindopril</option>
-                                                <option {{ $data->acei == 'Other' ? 'selected' : ''}} value="Other">Other</option>
-                                        </select>
-                                    </div>
+                                        <p>{{ $data->chronicmedication['acei']}}</p>
+                                   
                                 </div>
                                 <div class="col-md-6">
                                         <label>ACEi Dose</label>
-                                        <p>{{ $data->aceiDose}}</p>
+                                        <p>{{ $data->chronicmedication['aceiDose']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>ACEi intolerance</label>
-                                        <p>{{ $data->aceiIntolerance}}</p>
+                                        <p>{{ $data->chronicmedication['aceiIntolerance']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>ARNI Dose</label>
-                                        <p>{{ $data->arniDose}}</p>
+                                        <p>{{ $data->chronicmedication['arniDose']}}</p>
                                 </div>
                                
                                 
                                 <div class="col-md-6">
                                         <label>ARB</label>
-                                        <p>{{ $data->arb}}</p>
+                                        <p>{{ $data->chronicmedication['arb']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>ARB Dose</label>
-                                        <p>{{ $data->arbDose}}</p>
+                                        <p>{{ $data->chronicmedication['arbDose']}}</p>
                                 </div>
                                  <div class="col-md-6">
                                         <label>MRA Intolerance</label>
-                                        <p>{{ $data->mraIntolerance}}</p>
+                                        <p>{{ $data->chronicmedication['mraIntolerance']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>MRA Dose</label>
-                                        <p>{{ $data->mraDose}}</p>
+                                        <p>{{ $data->chronicmedication['mraDose']}}</p>
                                 </div>
                                 
                                  <div class="col-md-6">
                                         <label>SGLT2i</label>                                        <p>{{ $data->mraDose}}</p>
-                                        <p>{{ $data->sglt2i}}</p>
+                                        <p>{{ $data->chronicmedication['sglt2i']}}</p>
                                     
                                 </div>
                                <div class="col-md-6">
                                         <label>SGLT2i Dose</label>
-                                        <p>{{ $data->sglt2iDose}}</p>
+                                        <p>{{ $data->chronicmedication['sglt2iDose']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Beta Blocker</label>
-                                        <p>{{ $data->betaBlocker}}</p>
+                                        <p>{{ $data->chronicmedication['betaBlocker']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Beta Blocker Dose</label>
-                                        <p>{{ $data->betaBlockerDose}}</p>
+                                        <p>{{ $data->chronicmedication['betaBlockerDose']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Beta Blocker Intolerance</label>
-                                        <p>{{ $data->betaBlockerIntolerance}}</p>
+                                        <p>{{ $data->chronicmedication['betaBlockerIntolerance']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Ivabradine Dose</label>
-                                        <p>{{ $data->ivabradineDose}}</p>
+                                        <p>{{ $data->chronicmedication['ivabradineDose']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Devices</label>
-                                        <p>{{ $data->devices}}</p>
+                                        <p>{{ $data->chronicmedication['devices']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Loop Diuretic Dose</label>
-                                        <p>{{ $data->loopDiureticDose}}</p>
+                                        <p>{{ $data->chronicmedication['loopDiureticDose']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Insulin</label>
-                                        <p>{{ $data->insulin}}</p>
+                                        <p>{{ $data->chronicmedication['insulin']}}</p>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Statin</label>
-                                        <p>{{ $data->statin}}</p>
+                                        <p>{{ $data->chronicmedication['statin']}}</p>
                                 </div>
 
                                 <div class="col-md-12">
@@ -842,7 +833,7 @@
                                         <label>Additional Notes</label>
 
                                     <div class="input-group">
-                                        <p>{{ $data->additional_notes}}</p>
+                                        <p>{{ $data->chronicmedication['additional_notes']}}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
