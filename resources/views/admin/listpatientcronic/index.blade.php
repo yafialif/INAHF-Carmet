@@ -64,7 +64,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                     <td>{{ $row->dateOfClinicVisit }}</td>
                     <td>{{ $row->insurance }}</td>
                     <td>{{ $row->education }}</td>
-                    <td>{{ $row->additional_notes }}</td>
+                    <td>{{ $row->chronicmedication['additional_notes'] }}</td>
                     {{-- <td style="color: red;">{{ $row->dateOfDischarge }}</td> --}}
                     @if($row->percent < 98)
                     <td style="color: red;" >{{ $row->percent }} %</td>

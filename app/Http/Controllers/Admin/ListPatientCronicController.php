@@ -23,6 +23,7 @@ use Laraveldaily\Quickadmin\Models\Menu;
 use Illuminate\Http\Request;
 use convertObjectClass;
 use Illuminate\Support\Facades\DB;
+use phpDocumentor\Reflection\Types\Integer;
 
 class ListPatientCronicController extends Controller
 {
@@ -40,7 +41,24 @@ class ListPatientCronicController extends Controller
 		$role_id = Auth::user()->role_id;
 		$menu = MonthFollowUp::get();
 		if ($role_id <= 2) {
-			$patients = Patient::with(['user', 'chronicclinicalprofile', 'cronicriskfactors', 'chronicechocardiography', 'chronicechocardiography', 'chronicbloodlaboratorytest', 'chronicmedication'])
+			$patients = Patient::select(
+				'patient.id AS id',
+				'patient.user_id',
+				'patient.categorytreatment_id',
+				'patient.rs_id',
+				'patient.nik',
+				'patient.name',
+				'patient.dateOfBirth',
+				'patient.age',
+				'patient.gender',
+				'patient.phone',
+				'patient.dateOfAdmission',
+				'patient.insurance',
+				'patient.education',
+				'patient.dateOfDischarge',
+				'patient.yearOfAdmission',
+				'patient.dateOfClinicVisit'
+			)->with(['user', 'chronicclinicalprofile', 'cronicriskfactors', 'chronicechocardiography', 'chronicechocardiography', 'chronicbloodlaboratorytest', 'chronicmedication'])
 				->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
 				->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
 				->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
@@ -50,7 +68,24 @@ class ListPatientCronicController extends Controller
 				->get();
 		} else {
 
-			$patients = Patient::with(['user', 'chronicclinicalprofile', 'cronicriskfactors', 'chronicechocardiography', 'chronicechocardiography', 'chronicbloodlaboratorytest', 'chronicmedication'])
+			$patients = Patient::select(
+				'patient.id AS id',
+				'patient.user_id',
+				'patient.categorytreatment_id',
+				'patient.rs_id',
+				'patient.nik',
+				'patient.name',
+				'patient.dateOfBirth',
+				'patient.age',
+				'patient.gender',
+				'patient.phone',
+				'patient.dateOfAdmission',
+				'patient.insurance',
+				'patient.education',
+				'patient.dateOfDischarge',
+				'patient.yearOfAdmission',
+				'patient.dateOfClinicVisit'
+			)->with(['user', 'chronicclinicalprofile', 'cronicriskfactors', 'chronicechocardiography', 'chronicechocardiography', 'chronicbloodlaboratorytest', 'chronicmedication'])
 				->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
 				->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
 				->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
@@ -88,7 +123,7 @@ class ListPatientCronicController extends Controller
 		for ($i = 0; $i < count($patient2); $i++) {
 			array_push($patient, (object) $patient2[$i]);
 		}
-		// return response()->json($monthfollowupdata);
+		// return response()->json($patients);
 
 		return view('admin.listpatientcronic.index', compact('patient', 'monthfollowupdata'));
 	}
@@ -247,6 +282,40 @@ class ListPatientCronicController extends Controller
 
 	public function show($id)
 	{
+		// $patient =
+		// 	Patient::select(
+		// 		'patient.id AS id',
+		// 		'patient.user_id',
+		// 		'patient.categorytreatment_id',
+		// 		'patient.rs_id',
+		// 		'patient.nik',
+		// 		'patient.name',
+		// 		'patient.dateOfBirth',
+		// 		'patient.age',
+		// 		'patient.gender',
+		// 		'patient.phone',
+		// 		'patient.dateOfAdmission',
+		// 		'patient.insurance',
+		// 		'patient.education',
+		// 		'patient.dateOfDischarge',
+		// 		'patient.yearOfAdmission',
+		// 		'patient.dateOfClinicVisit'
+		// 	)->with([
+		// 		// 'user',
+		// 		'chronicclinicalprofile',
+		// 		'cronicriskfactors',
+		// 		'chronicechocardiography',
+		// 		'chronicbloodlaboratorytest',
+		// 		'chronicmedication'
+		// 	])
+		// 	->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
+		// 	->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
+		// 	->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
+		// 	->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
+		// 	->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
+		// 	->where('patient.id', $id)
+		// 	->where('patient.categorytreatment_id', 2)
+		// 	->get();
 		$patient = DB::table('patient')
 			->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
 			->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
@@ -260,7 +329,7 @@ class ListPatientCronicController extends Controller
 			->join('patient', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
 			->join('monthfollowup', 'monthfollowup.id', '=', 'chronicpatientmonthfollowup.monthfollowup_id')
 			->get();
-		// return response()->json($monthfollowup);
+		// return response()->json($data);
 		return view('admin.listpatientcronic.show', compact('data', 'monthfollowup'));
 	}
 	public function edit($id)

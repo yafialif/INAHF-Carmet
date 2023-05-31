@@ -34,6 +34,7 @@ class Patient extends Model
     protected $table    = 'patient';
 
     protected $fillable = [
+        'id',
         'user_id',
         'categorytreatment_id',
         'rs_id',
