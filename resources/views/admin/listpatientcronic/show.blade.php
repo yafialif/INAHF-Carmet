@@ -114,7 +114,7 @@
     }
 
     .wizard .nav-tabs>li {
-        width: 16%;
+        width: 14%;
     }
 
     .wizard li:after {
@@ -390,7 +390,7 @@
                     <div class="wizard-inner">
                         <div class="connecting-line"></div>
                         <ul class="nav nav-tabs" role="tablist">
-                             <li role="presentation" class="active">
+                            <li role="presentation" class="active">
                                 <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab"
                                     aria-expanded="true"><span class="round-tab">1 </span> <i>Patient Identity</i></a>
                             </li>
@@ -404,17 +404,21 @@
                             </li>
                             
                             <li role="presentation" class="">
-                                <a href="#step4" data-toggle="tab" aria-controls="step6" role="tab"><span
+                                <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab"><span
                                         class="round-tab">4</span> <i>Echocardiography</i></a>
                             </li>
                             <li role="presentation" class="">
-                                <a href="#step5" data-toggle="tab" aria-controls="step7" role="tab"><span
+                                <a href="#step5" data-toggle="tab" aria-controls="step5" role="tab"><span
                                         class="round-tab">5</span> <i>Blood Laboratory Test</i></a>
                             </li>
                            
                             <li role="presentation" class="">
-                                <a href="#step6" data-toggle="tab" aria-controls="step8" role="tab"><span
+                                <a href="#step6" data-toggle="tab" aria-controls="step6" role="tab"><span
                                         class="round-tab">6</span> <i>Medication</i></a>
+                            </li>
+                            <li role="presentation" class="">
+                                <a href="#step7" data-toggle="tab" aria-controls="step7" role="tab"><span
+                                        class="round-tab">7</span> <i>Additional Notes</i></a>
                             </li>
 
                         </ul>
@@ -826,6 +830,25 @@
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tab-pane" role="tabpanel" id="step7">
+                                <h4 class="text-center">Additional Notes</h4>
+                                
+                                <div class="col-md-12">
+                                        <label>Additional Notes</label>
+
+                                    <div class="input-group">
+                                        <p>{{ $data->additional_notes}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <ul class="list-inline pull-right">
+                                        <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
+                                        <li><button type="button" onclick="finish()" class="default-btn next-step">Finish</button></li>
                                     </ul>
                                 </div>
                             </div>

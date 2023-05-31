@@ -118,7 +118,7 @@
     }
 
     .wizard .nav-tabs>li {
-        width: 16%;
+        width: 14%;
     }
 
     .wizard li:after {
@@ -1252,7 +1252,9 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="col-md-12">
                                     <ul class="list-inline pull-right">
                                         <li><button type="button" onclick="prev()" class="default-btn prev-step">Back</button></li>
-                                        <li><button type="button" onclick="finish()" type="submit" class="default-btn next-step">Finish</button></li>
+                                        <li><button type="button" onclick="next()" class="default-btn next-step">Continue</button></li>
+                                        
+                                        {{-- <li><button type="button" onclick="finish()" type="submit" class="default-btn next-step">Finish</button></li> --}}
                                     </ul>
                                 </div>
                             </div>
@@ -1263,7 +1265,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                         <label>Additional Notes</label>
 
                                     <div class="input-group">
-                                        <textarea class="form-control " id="editor" name="additional_notes" cols="50" rows="10" id="detail"></textarea>
+                                        <textarea class="form-control " id="editor" name="additional_notes" cols="50" rows="10" id="detail">{{ $data->additional_notes}}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
