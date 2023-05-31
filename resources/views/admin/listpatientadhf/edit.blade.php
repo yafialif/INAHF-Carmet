@@ -1632,10 +1632,8 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 </div>
                                 <div class="col-md-12">
                                         <label>Additional Notes</label>
-
                                     <div class="input-group">
-                                        <textarea class="form-control " name="additional_notes" cols="50" rows="10" id=""></textarea>
-                                   
+                                        <textarea class="form-control " name="additional_notes" cols="50" rows="10" id="">{{ $data->additional_notes}}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -1647,9 +1645,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                             </div>
                             <div class="clearfix"></div>
                             {{-- <input class="btn" type="button" onclick="review_data()" value="Preview Data"> --}}
-
                         </div>
-
                         <!-- Modal -->
                         <div class="modal fade in" id="tesModal">
                             <div class="modal-dialog">
