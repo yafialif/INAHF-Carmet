@@ -43,22 +43,14 @@ class ListPatientCronicController extends Controller
 		if ($role_id <= 2) {
 			$patients = Patient::select(
 				'patient.id AS id',
-				'patient.user_id',
-				'patient.categorytreatment_id',
-				'patient.rs_id',
-				'patient.nik',
-				'patient.name',
-				'patient.dateOfBirth',
-				'patient.age',
-				'patient.gender',
-				'patient.phone',
-				'patient.dateOfAdmission',
-				'patient.insurance',
-				'patient.education',
-				'patient.dateOfDischarge',
-				'patient.yearOfAdmission',
-				'patient.dateOfClinicVisit'
-			)->with(['user', 'chronicclinicalprofile', 'cronicriskfactors', 'chronicechocardiography', 'chronicechocardiography', 'chronicbloodlaboratorytest', 'chronicmedication'])
+				'patient.*',
+				'chronicclinicalprofile.*',
+				'cronicriskfactors.*',
+				'chronicechocardiography.*',
+				'chronicbloodlaboratorytest.*',
+				'chronicmedication.*'
+			)
+				->with(['user'])
 				->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
 				->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
 				->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
@@ -69,24 +61,16 @@ class ListPatientCronicController extends Controller
 		} else {
 
 			$patients = Patient::select(
-				'patient.id AS id',
-				'patient.user_id',
-				'patient.categorytreatment_id',
-				'patient.rs_id',
-				'patient.nik',
-				'patient.name',
-				'patient.dateOfBirth',
-				'patient.age',
-				'patient.gender',
-				'patient.phone',
-				'patient.dateOfAdmission',
-				'patient.insurance',
-				'patient.education',
-				'patient.dateOfDischarge',
-				'patient.yearOfAdmission',
-				'patient.dateOfClinicVisit'
-			)->with(['user', 'chronicclinicalprofile', 'cronicriskfactors', 'chronicechocardiography', 'chronicechocardiography', 'chronicbloodlaboratorytest', 'chronicmedication'])
-				->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
+				'patient.id AS patient_id',
+				'patient.*',
+				'chronicclinicalprofile.*',
+				'cronicriskfactors.*',
+				'chronicechocardiography.*',
+				'chronicbloodlaboratorytest.*',
+				'chronicmedication.*'
+			)
+				->with(['user'])
+				// ->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
 				->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
 				->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
 				->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
@@ -99,20 +83,31 @@ class ListPatientCronicController extends Controller
 
 		$patient2 = json_decode($patients, true); // Mengubah data JSON menjadi array asosiatif
 
-		$excludedFields = ['created_at', 'updated_at', 'dateOfAdmission']; // Daftar field yang ingin dikecualikan
+		$excludedFields = ['created_at', 'updated_at', 'dateOfAdmission', 'email_verified_at', '']; // Daftar field yang ingin dikecualikan
 
 		foreach ($patient2 as &$row) {
 			$totalFields = count($row) - count($excludedFields); // Total jumlah field yang dihitung
-
 			$filledFields = 0; // Jumlah field yang terisi
-
+			$nullFields = 0;
+			$foreach_c = 0;
+			$bmi = 0;
 			foreach ($row as $field => $value) {
 				if (!in_array($field, $excludedFields) && !empty($value)) {
 					$filledFields++;
+				} else {
+					$nullFields++;
 				}
 			}
+			// $data_isi = $totalFields - $nullFields;
 			$percentage = ($filledFields / $totalFields) * 100; // Menghitung persentase data yang terisi
-			$row['percent'] = round($percentage); // Menambahkan hasil persentase ke dalam array data
+			$row['percent'] = round($percentage);
+			$row['totalFields'] = round($totalFields);
+			$row['nullFields'] = round($nullFields);
+			$row['filledFields'] = round($filledFields);
+			$row['foreach_c'] = round($foreach_c);
+			$row['sample'] = $bmi;
+
+			// Menambahkan hasil persentase ke dalam array data
 		}
 
 		$patient = array();
@@ -123,7 +118,7 @@ class ListPatientCronicController extends Controller
 		for ($i = 0; $i < count($patient2); $i++) {
 			array_push($patient, (object) $patient2[$i]);
 		}
-		// return response()->json($patients);
+		// return response()->json($patient2);
 
 		return view('admin.listpatientcronic.index', compact('patient', 'monthfollowupdata'));
 	}

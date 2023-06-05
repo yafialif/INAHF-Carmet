@@ -50,7 +50,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                 @foreach ($patient as $row)
                 <tr>
                     <td>
-                        {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
+                        {!! Form::checkbox('del-'.$row->patient_id,1,false,['class' => 'single','data-id'=> $row->patient_id]) !!}
                     </td>
                     <td>{!! $row->user['name'] !!}</td>
                     {{-- <td>{!! $row->user['name'] !!}</td> --}}
@@ -64,7 +64,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                     <td>{{ $row->dateOfClinicVisit }}</td>
                     <td>{{ $row->insurance }}</td>
                     <td>{{ $row->education }}</td>
-                    <td>{{ $row->chronicmedication['additional_notes'] }}</td>
+                    <td>{{ $row->additional_notes }}</td>
                     {{-- <td style="color: red;">{{ $row->dateOfDischarge }}</td> --}}
                     @if($row->percent < 98)
                     <td style="color: red;" >{{ $row->percent }} %</td>
@@ -82,11 +82,11 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                     </td>
                     <td>
                         {!! link_to_route('admin.listpatientcronic.show', trans('View'),
-                        array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
+                        array($row->patient_id), array('class' => 'btn btn-xs btn-info')) !!}
                         {!! link_to_route('admin.listpatientcronic.edit', trans('Edit'), 
-                        array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
+                        array($row->patient_id), array('class' => 'btn btn-xs btn-info')) !!}
                         {!! link_to_route('admin.chronicpatientmonthfollowup.addnew', trans('Add Patient Follow Up'), 
-                        array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
+                        array($row->patient_id), array('class' => 'btn btn-xs btn-info')) !!}
                         {{-- {!! link_to_route('admin.listpatientadhf.edit', trans('Update'),
                         array($row->id), array('class' => 'btn btn-xs btn-info')) !!} --}}
                         {{-- {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array(config('quickadmin.route').'.patient.destroy', $row->id))) !!}

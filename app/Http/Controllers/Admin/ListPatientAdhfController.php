@@ -92,7 +92,7 @@ class ListPatientAdhfController extends Controller
 		}
 		$patient2 = json_decode($patients, true); // Mengubah data JSON menjadi array asosiatif
 
-		$excludedFields = ['created_at', 'updated_at', 'dateOfAdmission']; // Daftar field yang ingin dikecualikan
+		$excludedFields = ['created_at', 'updated_at', 'dateOfAdmission', 'yearOfAdmission', 'email_verified_at']; // Daftar field yang ingin dikecualikan
 
 		foreach ($patient2 as &$row) {
 			$totalFields = count($row) - count($excludedFields); // Total jumlah field yang dihitung
@@ -114,7 +114,7 @@ class ListPatientAdhfController extends Controller
 		for ($i = 0; $i < count($patient2); $i++) {
 			array_push($patient, (object) $patient2[$i]);
 		}
-		// return response()->json($patient);
+		// return response()->json($patient2);
 		return view('admin.listpatientadhf.index', compact('patient'));
 	}
 
