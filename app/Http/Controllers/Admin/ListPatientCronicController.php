@@ -70,7 +70,7 @@ class ListPatientCronicController extends Controller
 				'chronicmedication.*'
 			)
 				->with(['user'])
-				// ->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
+				->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
 				->join('cronicriskfactors', 'patient.id', '=', 'cronicriskfactors.patient_id')
 				->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
 				->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
