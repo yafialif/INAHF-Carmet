@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/listpatientcronic/{id}/show', [ListPatientCronicController::class, 'show'])->name('admin.listpatientcronic.show');
     Route::get('/admin/listpatientadhf/test', [ListPatientAdhfController::class, 'test'])->name('admin.listpatientadhf.test');
     Route::get('/admin/chronicpatientmonthfollowup/{id}/create', [ChronicPatientMonthFollowUpController::class, 'addnew'])->name('admin.chronicpatientmonthfollowup.addnew');
+    Route::get('/admin/chronicpatientmonthfollowup/{id}/edit/{id_patient}', [ChronicPatientMonthFollowUpController::class, 'edit'])->name('admin.chronicpatientmonthfollowup.edit_mounthfollowup');
     Route::get('/admin/generatetoken', [ApiTokenController::class, 'update']);
     Route::post('/admin/listpatientadhf', [ListPatientAdhfController::class, 'update']);
 

@@ -82,7 +82,7 @@ class ChronicPatientMonthFollowUpController extends Controller
 	 *
 	 * @param CreateChronicPatientMonthFollowUpRequest|Request $request
 	 */
-	public function store(CreateChronicPatientMonthFollowUpRequest $request)
+	public function store(Request $request)
 	{
 
 		// ChronicPatientMonthFollowUp::create($request->all());
@@ -132,14 +132,14 @@ class ChronicPatientMonthFollowUpController extends Controller
 	 * @param  int  $id
 	 * @return \Illuminate\View\View
 	 */
-	public function edit($id)
+	public function edit($id, $id_patient)
 	{
 		$chronicpatientmonthfollowup = ChronicPatientMonthFollowUp::find($id);
-		$patient = Patient::pluck("name", "id")->prepend('Please select', 0);
-		$categorytreatment = CategoryTreatment::pluck("treatmentName", "id")->prepend('Please select', 0);
-		$monthfollowup = MonthFollowUp::pluck("mount", "id")->prepend('Please select', 0);
-
-		return view('admin.chronicpatientmonthfollowup.edit', compact('chronicpatientmonthfollowup', "patient", "categorytreatment", "monthfollowup"));
+		$patient = Patient::find($id_patient);
+		// $categorytreatment = CategoryTreatment::pluck("treatmentName", "id")->prepend('Please select', 0);
+		$monthfollowup = MonthFollowUp::get();
+		// return response()->json($monthfollowup);
+		return view('admin.chronicpatientmonthfollowup.edit', compact('chronicpatientmonthfollowup', "patient", "monthfollowup"));
 	}
 
 	/**

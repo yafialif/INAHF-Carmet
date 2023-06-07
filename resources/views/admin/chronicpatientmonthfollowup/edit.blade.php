@@ -442,14 +442,27 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                 <div class="col-md-6">
                                         <label>Name of patient</label>
                                     <div class="input-group">
-                                        {{-- <input class="form-control" value="{{ $chronicpatientmonthfollowup->patient_id }}"  type="number" readonly name="sbp" placeholder="" > --}}
-                                                {!! Form::select('patient_id', $patient, old('id'), array('class'=>'form-control')) !!}
+                                        <select class="form-control"  name="patient_id" id="">
+                                            <option value="{{ $patient->id }}" value="{{ $patient->name }}" selected>{{ $patient->name }}</option>
+                                        </select>
+                                        {{-- <input class="form-control" value="{{ $chronicpatientmonthfollowup->patient_id }}" title="" type="number" readonly name="sbp" placeholder="" > --}}
+                                                {{-- {!! Form::select('patient_id', $patient, old('id'), array('class'=>'form-control')) !!} --}}
+                                                
+                                                
                                     </div>
                                 </div>
                                  <div class="col-md-6">
                                         <label>Month Follow Up</label>
                                     <div class="input-group">
-                                                {!! Form::select('monthfollowup_id', $monthfollowup, old('monthfollowup_id'), array('class'=>'form-control')) !!}
+                                        <select class="form-control"  name="monthfollowup_id" id="monthfollowup_id">
+                                            @foreach ($monthfollowup as $row)
+                                                @if ($row->id == $chronicpatientmonthfollowup->monthfollowup_id)
+                                            <option value="{{ $row->id }}" value="{{ $row->mount }}" selected>{{ $row->mount }}</option>
+                                                    
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                                {{-- {!! Form::select('monthfollowup_id', $monthfollowup, old('monthfollowup_id'), array('class'=>'form-control')) !!} --}}
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -465,7 +478,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                 <div class="col-md-6">
                                         <label>NYHA Class *</label>
                                         <div class="input-group">
-                                        <select class="form-control" name="nyhaClass" required>
+                                        <select class="form-control" name="nyhaClass"  >
                                                 <option {{ $chronicpatientmonthfollowup->nyhaClass == 'Class I' ? 'selected' : ''}} value="Class I">Class I</option>
                                                 <option {{ $chronicpatientmonthfollowup->nyhaClass == 'Class II' ? 'selected' : ''}} value="Class II">Class II</option>
                                                 <option {{ $chronicpatientmonthfollowup->nyhaClass == 'Class III' ? 'selected' : ''}} value="Class III">Class III</option>
@@ -476,21 +489,21 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                 <div class="col-md-6">
                                         <label>Systolic Blood Pressure *</label>
                                     <div class="input-group">
-                                            <input value="{{$chronicpatientmonthfollowup->sbp}}" id="sbp" class="form-control" type="text" name="sbp" placeholder="" required>
+                                            <input value="{{$chronicpatientmonthfollowup->sbp}}" id="sbp" class="form-control" type="text" name="sbp" placeholder=""  >
                                         <span class="input-group-addon">.mmHg</span>
                                         </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Diastolic Blood Pressure *</label>
                                     <div class="input-group">
-                                            <input id="dbp" value="{{$chronicpatientmonthfollowup->dbp}}" class="form-control" type="text" name="dbp" placeholder="" required>
+                                            <input id="dbp" value="{{$chronicpatientmonthfollowup->dbp}}" class="form-control" type="text" name="dbp" placeholder=""  >
                                         <span class="input-group-addon">.mmHg</span>
                                         </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Heart Rate *</label>
                                     <div class="input-group">
-                                            <input id="hr" value="{{$chronicpatientmonthfollowup->hr}}" class="form-control" type="text" name="hr" placeholder="" required>
+                                            <input id="hr" value="{{$chronicpatientmonthfollowup->hr}}" class="form-control" type="text" name="hr" placeholder=""  >
                                         <span class="input-group-addon">.bpm</span>
                                         </div>
                                 </div>

@@ -75,8 +75,8 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                          @foreach ($monthfollowupdata as $row2)
                             @if ($row->patient_id == $row2->patient_id)
                                 |{!! $row2->mount !!}
-                                 {!! link_to_route('admin.chronicpatientmonthfollowup.edit', trans('Edit'), 
-                        array($row2->id), array('class' => 'btn btn-xs btn-info')) !!}
+                                 {!! link_to_route('admin.chronicpatientmonthfollowup.edit_mounthfollowup', trans('Edit'), 
+                        array($row2->id,$row2->patient_id), array('class' => 'btn btn-xs btn-info')) !!}
                             @endif
                         @endforeach
                     </td>

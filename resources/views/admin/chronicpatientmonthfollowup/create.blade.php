@@ -469,7 +469,7 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                 <div class="col-md-6">
                                         <label>NYHA Class *</label>
                                         <div class="input-group">
-                                        <select class="form-control" name="nyhaClass" required>
+                                        <select class="form-control" name="nyhaClass"  >
                                                 <option value="Class I">Class I</option>
                                                 <option value="Class II">Class II</option>
                                                 <option value="Class III">Class III</option>
@@ -480,21 +480,21 @@ I-TREAT HF &#40 Indonesian Trial and Study About Heart Failure &#41 Chronic Proj
                                 <div class="col-md-6">
                                         <label>Systolic Blood Pressure *</label>
                                     <div class="input-group">
-                                            <input id="sbp" class="form-control" type="text" name="sbp" placeholder="" required>
+                                            <input id="sbp" class="form-control" type="text" name="sbp" placeholder=""  >
                                         <span class="input-group-addon">.mmHg</span>
                                         </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Diastolic Blood Pressure *</label>
                                     <div class="input-group">
-                                            <input id="dbp" class="form-control" type="text" name="dbp" placeholder="" required>
+                                            <input id="dbp" class="form-control" type="text" name="dbp" placeholder=""  >
                                         <span class="input-group-addon">.mmHg</span>
                                         </div>
                                 </div>
                                 <div class="col-md-6">
                                         <label>Heart Rate *</label>
                                     <div class="input-group">
-                                            <input id="hr" class="form-control" type="text" name="hr" placeholder="" required>
+                                            <input id="hr" class="form-control" type="text" name="hr" placeholder=""  >
                                         <span class="input-group-addon">.bpm</span>
                                         </div>
                                 </div>
