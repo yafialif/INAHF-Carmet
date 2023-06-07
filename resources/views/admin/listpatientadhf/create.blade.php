@@ -935,6 +935,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                                 <option value="Worsening renal function">Worsening renal function</option>
                                                 <option value="Hyperglycemia">Hyperglycemia</option>
                                                 <option value="Non compliance">Non compliance</option>
+                                                <option value="Infection">Infection</option>
                                                 <option value="Unknown">Unknown</option>
                                         </select>
                                         {{-- <div class="radio">

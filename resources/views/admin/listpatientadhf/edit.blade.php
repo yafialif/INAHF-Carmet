@@ -939,6 +939,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                                 <option {{ $data->precipitating_factors == 'Worsening renal function' ? 'selected' : ''}} value="Worsening renal function">Worsening renal function</option>
                                                 <option {{ $data->precipitating_factors == 'Hyperglycemia' ? 'selected' : ''}} value="Hyperglycemia">Hyperglycemia</option>
                                                 <option {{ $data->precipitating_factors == 'Non compliance' ? 'selected' : ''}} value="Non compliance">Non compliance</option>
+                                                <option {{ $data->precipitating_factors == 'Infection' ? 'selected' : ''}} value="Infection">Infection</option>
                                                 <option {{ $data->precipitating_factors == 'Unknown' ? 'selected' : ''}} value="Unknown">Unknown</option>
                                         </select>
                                       
