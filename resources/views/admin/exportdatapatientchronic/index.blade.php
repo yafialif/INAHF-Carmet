@@ -15,7 +15,7 @@
                 <thead>
                     <tr>
                         {{-- Patient Identity --}}
-                        <td>id</td>
+                        <td>No</td>
                         {{-- <td>user_id</td>
                         <td>categorytreatment id</td> --}}
                         <td>nik</td>
@@ -103,10 +103,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $id=1; ?>
                     @foreach ($patient as $row)
                     <tr>
                         {{-- Patient Identity --}}
-                        <td>{{ $row->id }}</td>
+                        <td><?php echo $id; $id++; ?></td>
                         {{-- <td>{{ $row->user_id }}</td>
                         <td>{{ $row->categorytreatment_id }}</td> --}}
                         <td>{{ $row->nik }}</td>
