@@ -436,7 +436,7 @@ class ListPatientCronicController extends Controller
 			'arb' => $request->arb,
 			'arbDose' => $request->arbDose,
 			'arniDose' => $request->arniDose,
-			'BetaBlocker' => $request->BetaBlocker,
+			'betaBlocker' => $request->betaBlocker,
 			'betaBlockerDose' => $request->betaBlockerDose,
 			'betaBlockerIntolerance' => $request->betaBlockerIntolerance,
 			'mraDose' => $request->mraDose,
