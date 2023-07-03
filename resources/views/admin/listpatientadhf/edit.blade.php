@@ -1394,7 +1394,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                                 <div class="col-md-6">
                                         <label>Beta Blocker</label>
                                     <div class="input-group">
-                                        <select class="form-control" name="arb" >
+                                        <select class="form-control" name="BetaBlocker" >
                                                 <option {{ $data->BetaBlocker == 'None' ? 'selected' : ''}} value="None">None</option>
                                                 <option {{ $data->BetaBlocker == 'Bisoprolol' ? 'selected' : ''}} value="Bisoprolol">Bisoprolol</option>
                                                 <option {{ $data->BetaBlocker == 'Carvedilol' ? 'selected' : ''}} value="Carvedilol">Carvedilol</option>
