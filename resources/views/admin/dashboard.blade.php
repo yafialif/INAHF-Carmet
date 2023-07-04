@@ -7,6 +7,11 @@
         {!! $data->message !!} <a style="color: red;" href="{{ Route('admin.timefollowuppatient.index') }}">View Detail</a>
     </div>  
     @endif
+    @if ($data2->swal == true)
+     <div id="savelocal" class="alert alert-info" role="alert">
+        {!! $data2->message !!} <a style="color: red;" href="{{ Route('admin.adhffollowup.index') }}">View Detail</a>
+    </div>  
+    @endif
 
     <div class="portlet box green">
         <div class="portlet-title">
@@ -43,10 +48,7 @@
 	</div>
 
     {{-- {{ trans('quickadmin::admin.dashboard-title') }} --}}
-
-
 @endsection
-
 @section('javascript')
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @if ($data->swal == true)
@@ -54,7 +56,5 @@
     <script>
         swal("{!! $data->message !!}");
     </script>
-        
     @endif
-    
 @endsection

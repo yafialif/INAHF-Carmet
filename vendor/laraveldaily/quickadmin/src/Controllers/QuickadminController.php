@@ -77,9 +77,37 @@ class QuickadminController extends Controller
                 'message' => '',
             );
         }
+
+        if ($role_id <= 2) {
+            $patient = Patient::where('categorytreatment_id', '=', 1)
+                ->get();
+        } else {
+            $patient = Patient::where('categorytreatment_id', '=', 1)
+                ->where('user_id', '=', $id_user)
+                ->get();
+        }
+        $threeMonthsAgo = date('Y-m-d', strtotime('-3 months'));
+        $adhf_followup = [];
+        foreach ($patient as $patient) {
+            if ($patient['dateOfAdmission'] < $threeMonthsAgo) {
+                array_push($adhf_followup, $patient->name);
+            }
+        }
+        if (count($adhf_followup) >= 1) {
+            $swal2 = array(
+                'swal' => true,
+                'message' => 'Pasien atas nama ' . implode(", ", $adhf_followup) . ' sudah waktunya pemeriksaan berikutnya',
+            );
+        } else {
+            $swal2 = array(
+                'swal' => false,
+                'message' => '',
+            );
+        }
         // print_r($swal);
         $data = json_decode(json_encode($swal), false);
+        $data2 = json_decode(json_encode($swal2), false);
         // return response()->json($data);
-        return view('admin.dashboard', compact('data'));
+        return view('admin.dashboard', compact('data', 'data2'));
     }
 }
