@@ -18,6 +18,7 @@
                     <th>Gender</th>
                     <th>Date of Admission</th>
                     <th>Insurance</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +31,18 @@
                     <td>{{ $row->gender }}</td>
                     <td>{{ $row->dateOfAdmission }}</td>
                     <td>{{ $row->insurance }}</td>
+                    <td>
+                        {!! link_to_route('admin.listpatientadhf.show', trans('View'),
+                        array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
+                        {!! link_to_route('admin.listpatientadhf.edit', trans('Edit'), 
+                        array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
+                        {{-- {!! link_to_route('admin.listpatientadhf.edit', trans('Update'),
+                        array($row->id), array('class' => 'btn btn-xs btn-info')) !!} --}}
+                        {{-- {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array(config('quickadmin.route').'.patient.destroy', $row->id))) !!}
+                                {!! Form::submit(trans('quickadmin::templates.templates-view_index-delete'), array('class' => 'btn btn-xs btn-danger')) !!}
+                                {!! Form::close() !!} --}}
+
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
