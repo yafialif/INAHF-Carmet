@@ -90,7 +90,9 @@ class QuickadminController extends Controller
         $adhf_followup = [];
         foreach ($patient as $patient) {
             if ($patient['dateOfAdmission'] < $threeMonthsAgo) {
-                array_push($adhf_followup, $patient->name);
+                if ($patient['created_at'] == $patient['updated_at']) {
+                    array_push($adhf_followup, $patient->name);
+                }
             }
         }
         if (count($adhf_followup) >= 1) {
