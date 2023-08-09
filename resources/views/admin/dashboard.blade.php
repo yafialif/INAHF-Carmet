@@ -4,11 +4,13 @@
     @if ($data->swal == true)
 
      <div id="savelocal" class="alert alert-info" role="alert">
+        <h2>Patient Followup Chronic</h2>
         {!! $data->message !!} <a style="color: red;" href="{{ Route('admin.timefollowuppatient.index') }}">View Detail</a>
     </div>  
     @endif
     @if ($data2->swal == true)
      <div id="savelocal" class="alert alert-info" role="alert">
+        <h2>Patient Followup ADHF</h2>
         {!! $data2->message !!} <a style="color: red;" href="{{ Route('admin.adhffollowup.index') }}">View Detail</a>
     </div>  
     @endif
