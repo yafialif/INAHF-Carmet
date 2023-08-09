@@ -80,9 +80,13 @@ class QuickadminController extends Controller
 
         if ($role_id <= 2) {
             $patient = Patient::where('categorytreatment_id', '=', 1)
+                ->where('categorytreatment_id', '=', 1)
+                ->where('updated_at', '<>', 'created_at')
                 ->get();
         } else {
             $patient = Patient::where('categorytreatment_id', '=', 1)
+                ->where('categorytreatment_id', '=', 1)
+                ->where('updated_at', '<>', 'created_at')
                 ->where('user_id', '=', $id_user)
                 ->get();
         }
@@ -90,9 +94,9 @@ class QuickadminController extends Controller
         $adhf_followup = [];
         foreach ($patient as $patient) {
             if ($patient['dateOfAdmission'] < $threeMonthsAgo) {
-                if ($patient['created_at'] == $patient['updated_at']) {
-                    array_push($adhf_followup, $patient->name);
-                }
+                // if ($patient['created_at'] == $patient['updated_at']) {
+                array_push($adhf_followup, $patient->name);
+                // }
             }
         }
         if (count($adhf_followup) >= 1) {
