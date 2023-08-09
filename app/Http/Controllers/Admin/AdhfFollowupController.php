@@ -28,17 +28,15 @@ class AdhfFollowupController extends Controller
 		} else {
 			$patient = Patient::with('user', 'clinicalprofile',)
 				->where('categorytreatment_id', '=', 1)
-				->whereRaw('updated_at <> created_at')
+				->where('updated_at', '<>', 'created_at')
 				->where('user_id', '=', $user_id)
 				->get();
 		}
 		$threeMonthsAgo = date('Y-m-d', strtotime('-3 months'));
 		$data = [];
 		foreach ($patient as $patient) {
-			$timestamp1 = strtotime($patient['created_at']); // Contoh timestamp 1
-			$timestamp2 = strtotime($patient['updated_at']);
 			if ($patient['dateOfAdmission'] < $threeMonthsAgo) {
-				if ($timestamp1 == $timestamp2) {
+				if ($patient['created_at'] == $patient['updated_at']) {
 					array_push($data, $patient);
 				}
 			}
