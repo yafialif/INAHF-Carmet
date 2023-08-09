@@ -28,11 +28,13 @@ class QuickadminController extends Controller
         if ($role_id <= 2) {
             $patient = Patient::select('user_id', 'name', 'dateOfClinicVisit')
                 ->where('categorytreatment_id', '=', 2)
+                ->whereRaw('TIMESTAMPDIFF(HOUR, created_at, updated_at) < 1')
                 ->get();
         } else {
             $patient = Patient::select('user_id', 'name', 'dateOfClinicVisit')
                 ->where('user_id', '=', $id_user)
                 ->where('categorytreatment_id', '=', 2)
+                ->whereRaw('TIMESTAMPDIFF(HOUR, created_at, updated_at) < 1')
                 ->get();
         }
         if (count($patient) == 0) {
