@@ -36,9 +36,9 @@ class AdhfFollowupController extends Controller
 		$data = [];
 		foreach ($patient as $patient) {
 			if ($patient['dateOfAdmission'] < $threeMonthsAgo) {
-				if ($patient['created_at'] == $patient['updated_at']) {
-					array_push($data, $patient);
-				}
+				// if ($patient['created_at'] == $patient['updated_at']) {
+				array_push($data, $patient);
+				// }
 			}
 		}
 		// return response()->json($data);
