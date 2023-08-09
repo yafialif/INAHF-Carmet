@@ -56,7 +56,7 @@
     @if ($data->swal == true)
 
     <script>
-        swal("{!! $data->message !!}");
+        // swal("{!! $data->message !!}");
     </script>
     @endif
 @endsection
