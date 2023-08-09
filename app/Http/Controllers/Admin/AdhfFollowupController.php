@@ -28,7 +28,7 @@ class AdhfFollowupController extends Controller
 		} else {
 			$patient = Patient::with('user', 'clinicalprofile',)
 				->where('categorytreatment_id', '=', 1)
-				->whereRaw('updated_at <> created_at')
+				->whereRaw('TIMESTAMPDIFF(HOUR, created_at, updated_at) < 1')
 				->where('user_id', '=', $user_id)
 				->get();
 		}
