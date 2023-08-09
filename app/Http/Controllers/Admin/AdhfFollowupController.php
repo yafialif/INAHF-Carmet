@@ -23,7 +23,7 @@ class AdhfFollowupController extends Controller
 		if ($role_id <= 2) {
 			$patient = Patient::with('user', 'clinicalprofile',)
 				->where('categorytreatment_id', '=', 1)
-				->where('updated_at', '<>', 'created_at')
+				->whereRaw('updated_at <> created_at')
 				->get();
 		} else {
 			$patient = Patient::with('user', 'clinicalprofile',)
