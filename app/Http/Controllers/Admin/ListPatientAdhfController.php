@@ -356,6 +356,7 @@ class ListPatientAdhfController extends Controller
 			'gender' => $request->gender,
 			'phone' => $request->phone,
 			'dateOfAdmission' => $request->dateOfAdmission,
+			'dateOfDischarge' => $request->dateOfDischarge,
 			'insurance' => $request->insurance,
 			'education' => $request->education,
 		));
