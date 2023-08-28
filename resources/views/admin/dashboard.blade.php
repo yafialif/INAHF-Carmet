@@ -1,19 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('content')
-    @if ($data->swal == true)
-
-     <div id="savelocal" class="alert alert-info" role="alert">
-        <h2>Patient Followup Chronic</h2>
-        {!! $data->message !!} <a style="color: red;" href="{{ Route('admin.timefollowuppatient.index') }}">View Detail</a>
-    </div>  
-    @endif
-    @if ($data2->swal == true)
-     <div id="savelocal" class="alert alert-info" role="alert">
-        <h2>Patient Followup ADHF</h2>
-        {!! $data2->message !!} <a style="color: red;" href="{{ Route('admin.adhffollowup.index') }}">View Detail</a>
-    </div>  
-    @endif
+   
 
     <div class="portlet box green">
         <div class="portlet-title">
@@ -50,6 +38,19 @@
 	</div>
 
     {{-- {{ trans('quickadmin::admin.dashboard-title') }} --}}
+     @if ($data->swal == true)
+
+     <div id="savelocal" class="alert alert-info" role="alert">
+        <h2>Patient Followup Chronic</h2>
+        {!! $data->message !!} <a style="color: red;" href="{{ Route('admin.timefollowuppatient.index') }}">View Detail</a>
+    </div>  
+    @endif
+    @if ($data2->swal == true)
+     <div id="savelocal" class="alert alert-info" role="alert">
+        <h2>Patient Followup ADHF</h2>
+        {!! $data2->message !!} <a style="color: red;" href="{{ Route('admin.adhffollowup.index') }}">View Detail</a>
+    </div>  
+    @endif
 @endsection
 @section('javascript')
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
