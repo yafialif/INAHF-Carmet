@@ -25,6 +25,7 @@ class QuickadminController extends Controller
         // $id_user = 6;
         $data_followup = array();
         $role_id = Auth::user()->role_id;
+        //  Chronic
         if ($role_id <= 2) {
             $patient = Patient::select('user_id', 'name', 'dateOfClinicVisit')
                 ->where('categorytreatment_id', '=', 2)
@@ -79,6 +80,8 @@ class QuickadminController extends Controller
                 'message' => '',
             );
         }
+
+        // ADHF
 
         if ($role_id <= 2) {
             $patient = Patient::where('categorytreatment_id', '=', 1)
