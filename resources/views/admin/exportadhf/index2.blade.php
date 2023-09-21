@@ -228,7 +228,7 @@
                         <td>{!! $row->additional_notes !!}</td> --}}
                         {{-- <td>{{ $row->deleted_at }}</td> --}}
                     </tr>
-                    @endforeach
+                    {{-- @endforeach --}}
                 </tbody>
 
             </table>
