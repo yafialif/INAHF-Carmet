@@ -67,7 +67,8 @@ class ExportDataPatientChronicController extends Controller
 				->join('chronicechocardiography', 'patient.id', '=', 'chronicechocardiography.patient_id')
 				->join('chronicbloodlaboratorytest', 'patient.id', '=', 'chronicbloodlaboratorytest.patient_id')
 				->join('chronicmedication', 'patient.id', '=', 'chronicmedication.patient_id')
-				// ->where('patient.categorytreatment_id', 2)
+				->where('patient.user_id', $user_id)
+				->where('patient.categorytreatment_id', 2)
 				->get();
 		}
 
