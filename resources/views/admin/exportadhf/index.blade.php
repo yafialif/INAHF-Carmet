@@ -63,17 +63,17 @@
                         <td>historyof heart valve surgery</td>
                         <td>omi or cad</td>
                         {{-- Etiology --}}
-                        {{-- <td>Precipitating Factors</td> --}}
+                        <td>Precipitating Factors</td>
                         
 
                         {{-- Echocardiography --}}
-                        {{-- <td>ef</td>
+                        <td>ef</td>
                         <td>tapse</td>
                         <td>edv</td>
                         <td>esv</td>
                         <td>sign mr</td>
                         <td>LV max index</td>
-                        <td>E/e' average</td> --}}
+                        <td>E/e' average</td>
                         {{-- Blood Laboratory Test --}}
                         {{-- <td>hemoglobin</td>
                         <td>hematocrite</td>
@@ -170,15 +170,15 @@
                         <td>{{ $row->historyof_heart_valve_surgery }}</td>
                         <td>{{ $row->omi_or_cad }}</td>
                         {{-- Precipitating Factors --}}
-                        {{-- <td>{{ $row->precipitating_factors }}</td> --}}
+                        <td>{{ $row->precipitating_factors }}</td>
                         {{-- Echocardiography --}}
-                        {{-- <td>{{ $row->ef }}</td>
+                        <td>{{ $row->ef }}</td>
                         <td>{{ $row->tapse }}</td>
                         <td>{{ $row->edv }}</td>
                         <td>{{ $row->esv }}</td>
                         <td>{{ $row->sign_mr }}</td>
                         <td>{{ $row->lv }}</td>
-                        <td>{{ $row->ee }}</td> --}}
+                        <td>{{ $row->ee }}</td>
                         {{-- Blood Laboratory Test --}}
                         {{-- <td>{{ $row->hemoglobin }}</td>
                         <td>{{ $row->hematocrite }}</td>
