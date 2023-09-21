@@ -63,7 +63,7 @@
                         <td>historyof heart valve surgery</td>
                         <td>omi or cad</td>
                         {{-- Etiology --}}
-                        <td>Precipitating Factors</td>
+                        {{-- <td>Precipitating Factors</td> --}}
                         
 
                         {{-- Echocardiography --}}
@@ -170,7 +170,7 @@
                         <td>{{ $row->historyof_heart_valve_surgery }}</td>
                         <td>{{ $row->omi_or_cad }}</td>
                         {{-- Precipitating Factors --}}
-                        <td>{{ $row->precipitating_factors }}</td>
+                        {{-- <td>{{ $row->precipitating_factors }}</td> --}}
                         {{-- Echocardiography --}}
                         {{-- <td>{{ $row->ef }}</td>
                         <td>{{ $row->tapse }}</td>
