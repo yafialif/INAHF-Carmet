@@ -50,7 +50,7 @@ class ExportDataPatientChronicController extends Controller
 		// 		->get();
 		// }
 		// return response()->json($patient);
-		if ($role_id >= 2) {
+		if ($role_id <= 2) {
 
 			$patient = DB::table('patient')
 				->join('chronicclinicalprofile', 'patient.id', '=', 'chronicclinicalprofile.patient_id')
