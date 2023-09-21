@@ -16,7 +16,7 @@
                     <tr>
                         {{-- Patient Identity --}}
 
-                        <td>id</td>
+                        {{-- <td>id</td>
                         <td>categorytreatment</td>
                         <td>name</td>
                         <td>nik</td>
@@ -27,7 +27,7 @@
                         <td>dateOfDischarge</td>
                         <td>insurance</td>
                         <td>education</td>
-                        <td>gender</td>
+                        <td>gender</td> --}}
 
                         {{-- Clinical Profile --}}
 
@@ -127,7 +127,7 @@
                     @foreach ($patient as $row)
                     <tr>
                         {{-- Patient Identity --}}
-                        <td>{{ $row->id }}</td>
+                        {{-- <td>{{ $row->id }}</td>
                         <td>ADHF Project</td>
                         <td>{{ $row->name }}</td>
                         <td>{{ $row->nik }}</td>
@@ -138,7 +138,7 @@
                         <td>{{ $row->dateOfDischarge }}</td>
                         <td>{{ $row->insurance }}</td>
                         <td>{{ $row->education }}</td>
-                        <td>{{ $row->gender }}</td>
+                        <td>{{ $row->gender }}</td> --}}
                         {{-- Clinical Profile --}}
                         {{-- <td>{{ $row->height }}</td>
                         <td>{{ $row->weight }}</td>
