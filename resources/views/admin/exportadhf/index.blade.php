@@ -31,7 +31,7 @@
 
                         {{-- Clinical Profile --}}
 
-                        {{-- <td>height</td>
+                        <td>height</td>
                         <td>weight</td>
                         <td>bmi</td>
                         <td>Heart Rate</td>
@@ -46,10 +46,10 @@
                         <td>NYHA Class</td>
                         <td>type of acute HF</td>
                         <td>respiratory failure</td>
-                        <td>cardiogenic shock</td> --}}
+                        <td>cardiogenic shock</td>
 
                         {{-- risk Factor --}}
-{{-- 
+
                         <td>hypertension</td>
                         <td>diabetes or prediabetes</td>
                         <td>dislipidemia</td>
@@ -61,9 +61,9 @@
                         <td>history of hf</td>
                         <td>history of pci or cabg</td>
                         <td>historyof heart valve surgery</td>
-                        <td>omi or cad</td> --}}
+                        <td>omi or cad</td>
                         {{-- Etiology --}}
-                        {{-- <td>Precipitating Factors</td> --}}
+                        <td>Precipitating Factors</td>
                         
 
                         {{-- Echocardiography --}}
@@ -170,7 +170,7 @@
                         <td>{{ $row->historyof_heart_valve_surgery }}</td>
                         <td>{{ $row->omi_or_cad }}</td>
                         {{-- Precipitating Factors --}}
-                        {{-- <td>{{ $row->precipitating_factors }}</td> --}}
+                        <td>{{ $row->precipitating_factors }}</td>
                         {{-- Echocardiography --}}
                         {{-- <td>{{ $row->ef }}</td>
                         <td>{{ $row->tapse }}</td>
