@@ -75,7 +75,7 @@
                         <td>LV max index</td>
                         <td>E/e' average</td>
                         {{-- Blood Laboratory Test --}}
-                        {{-- <td>hemoglobin</td>
+                        <td>hemoglobin</td>
                         <td>hematocrite</td>
                         <td>random blood glucose</td>
                         <td>HbA1C</td>
@@ -86,17 +86,17 @@
                         <td>serum creatinine</td>
                         <td>gfr</td>
                         <td>Serum Iron</td>
-                        <td>NT-ProBNP</td> --}}
+                        <td>NT-ProBNP</td>
                         {{-- Blood Gas Analysis --}}
-                        {{-- <td>pH</td>
+                        <td>pH</td>
                         <td>pco2</td>
                         <td>hco3</td>
                         <td>po2</td>
                         <td>lactate</td>
-                        <td>be</td> --}}
+                        <td>be</td>
                         {{-- Medication --}}
                        
-                        {{-- <td>acei</td>
+                        <td>acei</td>
                         <td>aceiDoseatPredischarge</td>
                         <td>arb</td>
                         <td>arbDoseatPredischarge</td>
@@ -110,7 +110,7 @@
                         <td>Tolvaptan</td>
                         <td>Statin</td>
                         <td>Inotropic</td>
-                        <td>Vasoconstrictor</td> --}}
+                        <td>Vasoconstrictor</td>
                         {{-- Hospitalization --}}
                         {{-- <td>iccu</td>
                         <td>ward</td>
@@ -180,7 +180,7 @@
                         <td>{{ $row->lv }}</td>
                         <td>{{ $row->ee }}</td>
                         {{-- Blood Laboratory Test --}}
-                        {{-- <td>{{ $row->hemoglobin }}</td>
+                        <td>{{ $row->hemoglobin }}</td>
                         <td>{{ $row->hematocrite }}</td>
                         <td>{{ $row->random_blood_glucose }}</td>
                         <td>{{ $row->hba1c }}</td>
@@ -191,16 +191,16 @@
                         <td>{{ $row->serum_creatinine }}</td>
                         <td>{{ $row->gfr }}</td>
                         <td>{{ $row->serum_iron }}</td>
-                        <td>{{ $row->NT_ProBNP }}</td> --}}
+                        <td>{{ $row->NT_ProBNP }}</td>
                         {{-- Blood Gas Analysis --}}
-                        {{-- <td>{{ $row->pH }}</td>
+                        <td>{{ $row->pH }}</td>
                         <td>{{ $row->pco2 }}</td>
                         <td>{{ $row->hco3 }}</td>
                         <td>{{ $row->po2 }}</td>
                         <td>{{ $row->lactate }}</td>
-                        <td>{{ $row->be }}</td> --}}
+                        <td>{{ $row->be }}</td>
                         {{-- Medication --}}
-                        {{-- <td>{{ $row->acei }}</td>
+                        <td>{{ $row->acei }}</td>
                         <td>{{ $row->aceiDoseatPredischarge }}</td>
                         <td>{{ $row->arb }}</td>
                         <td>{{ $row->arbDoseatPredischarge }}</td>
@@ -214,7 +214,7 @@
                         <td>{{ $row->Tolvaptan }}</td>
                         <td>{{ $row->statin }}</td>
                         <td>{{ $row->inotropic }}</td>
-                        <td>{{ $row->vasoconstrictor }}</td> --}}
+                        <td>{{ $row->vasoconstrictor }}</td>
                         {{-- Hospitalization --}}
                         {{-- <td>{{ $row->iccu }}</td>
                         <td>{{ $row->ward }}</td>
