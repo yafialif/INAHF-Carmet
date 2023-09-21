@@ -140,7 +140,7 @@
                         <td>{{ $row->education }}</td>
                         <td>{{ $row->gender }}</td>
                         {{-- Clinical Profile --}}
-                        {{-- <td>{{ $row->height }}</td>
+                        <td>{{ $row->height }}</td>
                         <td>{{ $row->weight }}</td>
                         <td>{{ $row->bmi }}</td>
                         <td>{{ $row->hr }}</td>
@@ -155,9 +155,9 @@
                         <td>{{ $row->nyha_class }}</td>
                         <td>{{ $row->type_of_acute_HF }}</td>
                         <td>{{ $row->respiratory_failure }}</td>
-                        <td>{{ $row->cardiogenic_shock }}</td> --}}
+                        <td>{{ $row->cardiogenic_shock }}</td>
                         {{-- risk Factor --}}
-                        {{-- <td>{{ $row->hypertension }}</td>
+                        <td>{{ $row->hypertension }}</td>
                         <td>{{ $row->diabetes_or_prediabetes }}</td>
                         <td>{{ $row->dislipidemia }}</td>
                         <td>{{ $row->alcohol }}</td>
@@ -168,7 +168,7 @@
                         <td>{{ $row->history_of_hf }}</td>
                         <td>{{ $row->history_of_pci_or_cabg }}</td>
                         <td>{{ $row->historyof_heart_valve_surgery }}</td>
-                        <td>{{ $row->omi_or_cad }}</td> --}}
+                        <td>{{ $row->omi_or_cad }}</td>
                         {{-- Precipitating Factors --}}
                         {{-- <td>{{ $row->precipitating_factors }}</td> --}}
                         {{-- Echocardiography --}}
