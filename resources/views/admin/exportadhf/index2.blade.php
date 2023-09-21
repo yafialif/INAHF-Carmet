@@ -124,7 +124,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($patient as $row)
+                    {{-- @foreach ($patient as $row) --}}
                     <tr>
                         {{-- Patient Identity --}}
                         {{-- <td>{{ $row->id }}</td>
