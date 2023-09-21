@@ -9,7 +9,7 @@
     <div class="portlet-body">
 
         {{-- {{ trans('quickadmin::templates.templates-customView_index-welcome_custom_view') }} --}}
-        {{-- @if (count($patient)) --}}
+        @if (count($patient))
         <div class="table-responsive">
             <table class="table table-striped table-hover table-responsive datatable" id="datatable">
                 <thead>
@@ -235,7 +235,7 @@
         </div>
     </div>
 </div>
-{{-- @else
+@else
 {{ trans('quickadmin::templates.templates-view_index-no_entries_found') }}
-@endif --}}
+@endif
 @endsection
