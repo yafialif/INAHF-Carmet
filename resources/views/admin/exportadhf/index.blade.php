@@ -31,7 +31,7 @@
 
                         {{-- Clinical Profile --}}
 
-                        {{-- <td>height</td>
+                        <td>height</td>
                         <td>weight</td>
                         <td>bmi</td>
                         <td>Heart Rate</td>
@@ -46,7 +46,7 @@
                         <td>NYHA Class</td>
                         <td>type of acute HF</td>
                         <td>respiratory failure</td>
-                        <td>cardiogenic shock</td> --}}
+                        <td>cardiogenic shock</td>
 
                         {{-- risk Factor --}}
 
@@ -140,7 +140,7 @@
                         <td>{{ $row->education }}</td>
                         <td>{{ $row->gender }}</td>
                         {{-- Clinical Profile --}}
-                        {{-- <td>{{ $row->height }}</td>
+                        <td>{{ $row->height }}</td>
                         <td>{{ $row->weight }}</td>
                         <td>{{ $row->bmi }}</td>
                         <td>{{ $row->hr }}</td>
@@ -155,7 +155,7 @@
                         <td>{{ $row->nyha_class }}</td>
                         <td>{{ $row->type_of_acute_HF }}</td>
                         <td>{{ $row->respiratory_failure }}</td>
-                        <td>{{ $row->cardiogenic_shock }}</td> --}}
+                        <td>{{ $row->cardiogenic_shock }}</td>
                         {{-- risk Factor --}}
                         {{-- <td>{{ $row->hypertension }}</td>
                         <td>{{ $row->diabetes_or_prediabetes }}</td>
