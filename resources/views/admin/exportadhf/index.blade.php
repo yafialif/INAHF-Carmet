@@ -181,7 +181,7 @@
                         <td>{{ $row->lv }}</td>
                         <td>{{ $row->ee }}</td>
                         {{-- Blood Laboratory Test --}}
-                        <td>{{ $row->hemoglobin }}</td>
+                        {{-- <td>{{ $row->hemoglobin }}</td>
                         <td>{{ $row->hematocrite }}</td>
                         <td>{{ $row->random_blood_glucose }}</td>
                         <td>{{ $row->hba1c }}</td>
@@ -192,7 +192,7 @@
                         <td>{{ $row->serum_creatinine }}</td>
                         <td>{{ $row->gfr }}</td>
                         <td>{{ $row->serum_iron }}</td>
-                        <td>{{ $row->NT_ProBNP }}</td>
+                        <td>{{ $row->NT_ProBNP }}</td> --}}
                         {{-- Blood Gas Analysis --}}
                         <td>{{ $row->pH }}</td>
                         <td>{{ $row->pco2 }}</td>
