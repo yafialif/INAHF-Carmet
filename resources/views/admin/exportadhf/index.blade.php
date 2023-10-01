@@ -15,7 +15,7 @@
                 <thead>
                     <tr>
                         {{-- Patient Identity --}}
-
+                        <td>No</td>
                         <td>id</td>
                         <td>categorytreatment</td>
                         <td>name</td>
@@ -127,6 +127,7 @@
                     @foreach ($patient as $row)
                     <tr>
                         {{-- Patient Identity --}}
+                        <td><?php $no = 1; echo $no; $no++ ?></td>
                         <td>{{ $row->id }}</td>
                         <td>ADHF Project</td>
                         <td>{{ $row->name }}</td>
