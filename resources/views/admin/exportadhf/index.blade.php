@@ -113,7 +113,7 @@
                         <td>Inotropic</td>
                         <td>Vasoconstrictor</td>
                         {{-- Hospitalization --}}
-                        {{-- <td>iccu</td>
+                        <td>iccu</td>
                         <td>ward</td>
                         <td>totalLoS</td>
                         <td>hospitalizationCost</td>
@@ -121,7 +121,7 @@
                         <td>vulnerablePhaseDeath</td>
                         <td>vulnerablePhaseRehospitalization</td>
                         <td>dateofDeath</td>
-                        <td>additional notes</td> --}}
+                        <td>additional notes</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -218,16 +218,16 @@
                         <td>{{ $row->inotropic }}</td>
                         <td>{{ $row->vasoconstrictor }}</td>
                         {{-- Hospitalization --}}
-                        {{-- <td>{{ $row->iccu }}</td>
+                        <td>{{ $row->iccu }}</td>
                         <td>{{ $row->ward }}</td>
                         <td>{{ $row->totalLoS }}</td>
-                        <td>{{ $row->hospitalizationCost }}</td> --}}
+                        <td>{{ $row->hospitalizationCost }}</td>
                         {{-- Outcomes --}}
-                        {{-- <td>{{ $row->inhospitalDeath }}</td>
+                        <td>{{ $row->inhospitalDeath }}</td>
                         <td>{{ $row->vulnerablePhaseDeath }}</td>
                         <td>{{ $row->vulnerablePhaseRehospitalization }}</td>
                         <td>{{ $row->dateofDeath }}</td>
-                        <td>{!! $row->additional_notes !!}</td> --}}
+                        <td>{!! $row->additional_notes !!}</td>
                         {{-- <td>{{ $row->deleted_at }}</td> --}}
                     </tr>
                     @endforeach
