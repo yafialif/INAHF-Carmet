@@ -97,7 +97,7 @@
                         <td>be</td>
                         {{-- Medication --}}
                        
-                        {{-- <td>acei</td>
+                        <td>acei</td>
                         <td>aceiDoseatPredischarge</td>
                         <td>arb</td>
                         <td>arbDoseatPredischarge</td>
@@ -111,7 +111,7 @@
                         <td>Tolvaptan</td>
                         <td>Statin</td>
                         <td>Inotropic</td>
-                        <td>Vasoconstrictor</td> --}}
+                        <td>Vasoconstrictor</td>
                         {{-- Hospitalization --}}
                         {{-- <td>iccu</td>
                         <td>ward</td>
@@ -202,7 +202,7 @@
                         <td>{{ $row->lactate }}</td>
                         <td>{{ $row->be }}</td>
                         {{-- Medication --}}
-                        {{-- <td>{{ $row->acei }}</td>
+                        <td>{{ $row->acei }}</td>
                         <td>{{ $row->aceiDoseatPredischarge }}</td>
                         <td>{{ $row->arb }}</td>
                         <td>{{ $row->arbDoseatPredischarge }}</td>
@@ -216,7 +216,7 @@
                         <td>{{ $row->Tolvaptan }}</td>
                         <td>{{ $row->statin }}</td>
                         <td>{{ $row->inotropic }}</td>
-                        <td>{{ $row->vasoconstrictor }}</td> --}}
+                        <td>{{ $row->vasoconstrictor }}</td>
                         {{-- Hospitalization --}}
                         {{-- <td>{{ $row->iccu }}</td>
                         <td>{{ $row->ward }}</td>
