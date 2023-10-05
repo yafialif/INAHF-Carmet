@@ -223,11 +223,11 @@
                         <td>{{ $row->totalLoS }}</td>
                         <td>{{ $row->hospitalizationCost }}</td>
                         {{-- Outcomes --}}
-                        <td>{{ $row->inhospitalDeath }}</td>
+                        {{-- <td>{{ $row->inhospitalDeath }}</td>
                         <td>{{ $row->vulnerablePhaseDeath }}</td>
                         <td>{{ $row->vulnerablePhaseRehospitalization }}</td>
                         <td>{{ $row->dateofDeath }}</td>
-                        <td>{!! $row->additional_notes !!}</td>
+                        <td>{!! $row->additional_notes !!}</td> --}}
                         {{-- <td>{{ $row->deleted_at }}</td> --}}
                     </tr>
                     @endforeach
