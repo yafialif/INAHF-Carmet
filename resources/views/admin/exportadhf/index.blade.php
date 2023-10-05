@@ -11,8 +11,8 @@
         {{-- {{ trans('quickadmin::templates.templates-customView_index-welcome_custom_view') }} --}}
         @if (count($patient))
         <div class="table-responsive">
-            {{-- <table class="table table-striped table-hover table-responsive datatable" id="datatable"> --}}
-            <table class="table table-striped table-hover table-responsive " id="">
+            <table class="table table-striped table-hover table-responsive datatable" id="datatable">
+            {{-- <table class="table table-striped table-hover table-responsive " id=""> --}}
                 <thead>
                     <tr>
                         {{-- Patient Identity --}}
