@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\ListPatientAdhfController;
 use App\Http\Controllers\Admin\ListPatientCronicController;
 use App\Http\Controllers\Admin\ManageDokterController;
 use App\Http\Controllers\Admin\ChronicPatientMonthFollowUpController;
+use App\Http\Controllers\Admin\ExportAdhfController;
 use App\Http\Controllers\ApiTokenController;
 use App\Http\Controllers\GenerateDbandSeederController;
 use Illuminate\Support\Facades\Route;
@@ -34,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/chronicpatientmonthfollowup/{id}/edit/{id_patient}', [ChronicPatientMonthFollowUpController::class, 'edit'])->name('admin.chronicpatientmonthfollowup.edit_mounthfollowup');
     Route::get('/admin/generatetoken', [ApiTokenController::class, 'update']);
     Route::post('/admin/listpatientadhf', [ListPatientAdhfController::class, 'update']);
+    Route::get('/admin/exportadhf2', [ExportAdhfController::class, 'data2']);
 
     // Route::resource('/admin/managedokter', ManageDokterController::class);
 });
