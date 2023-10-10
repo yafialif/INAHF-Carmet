@@ -10,7 +10,7 @@
 
       <h1> Coba Feature</h1>
     </div>
-</div>
+</div>  
 {{-- @else
 {{ trans('quickadmin::templates.templates-view_index-no_entries_found') }}
 @endif --}}
