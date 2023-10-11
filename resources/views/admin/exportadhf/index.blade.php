@@ -17,7 +17,7 @@
                     <tr>
                         {{-- Patient Identity --}}
                         <td>No</td>
-                        <td>id</td>
+                        {{-- <td>id</td> --}}
                         <td>categorytreatment</td>
                         <td>name</td>
                         <td>nik</td>
@@ -125,11 +125,12 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $no = 1; ?>
                     @foreach ($patient as $row)
                     <tr>
                         {{-- Patient Identity --}}
-                        <td><?php $no = 1; echo $no; $no++ ?></td>
-                        <td>{{ $row->id }}</td>
+                        <td><?php echo $no; ?></td>
+                        {{-- <td>{{ $row->id }}</td> --}}
                         <td>ADHF Project</td>
                         <td>{{ $row->name }}</td>
                         <td>{{ $row->nik }}</td>
@@ -230,6 +231,7 @@
                         <td>{!! $row->additional_notes !!}</td>
                         {{-- <td>{{ $row->deleted_at }}</td> --}}
                     </tr>
+                    <?php $no++ ?>
                     @endforeach
                 </tbody>
 
