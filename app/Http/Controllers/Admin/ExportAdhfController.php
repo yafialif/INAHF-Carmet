@@ -31,11 +31,11 @@ class ExportAdhfController extends Controller
 				->join('adhfmedication', 'patient.id', '=', 'adhfmedication.patient_id')
 				->join('adhfoutcomes', 'patient.id', '=', 'adhfoutcomes.patient_id')
 				->join('adhfriskfactors', 'patient.id', '=', 'adhfriskfactors.patient_id')
-				// ->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
-				// ->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
+				->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
+				->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				// ->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id') Hapus
 				->where('patient.categorytreatment_id', 1)
-				->get();
+				->paginate(200);
 		} else {
 			$patient = DB::table('patient')
 				->join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
@@ -46,16 +46,16 @@ class ExportAdhfController extends Controller
 				->join('adhfoutcomes', 'patient.id', '=', 'adhfoutcomes.patient_id')
 				->join('adhfriskfactors', 'patient.id', '=', 'adhfriskfactors.patient_id')
 				// ->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id') Hapus
-				// ->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
-				// ->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
+				->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
+				->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->where('patient.user_id', $user_id)
 				->where('patient.categorytreatment_id', 1)
-				->get();
+				->paginate(200);
 		}
 
 		// return response()->json($patient);
-		// return view('admin.exportadhf.index', compact('patient'));
-		return view('admin.exportadhf.index2');
+		return view('admin.exportadhf.index', compact('patient'));
+		// return view('admin.exportadhf.index2');
 	}
 
 	public function data2()
@@ -76,7 +76,9 @@ class ExportAdhfController extends Controller
 				->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				// ->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id') Hapus
 				->where('patient.categorytreatment_id', 1)
-				->get();
+				->paginate(20);
+			// $patient_count = DB::table('patient')->where('patient.categorytreatment_id', 1)
+
 		} else {
 			$patient = DB::table('patient')
 				->join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
