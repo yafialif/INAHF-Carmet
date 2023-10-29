@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\MonthFollowUp;
+use App\Patient;
 
 class ExportAdhfController extends Controller
 {
@@ -64,8 +65,7 @@ class ExportAdhfController extends Controller
 		$role_id = Auth::user()->role_id;
 		// $menu = MonthFollowUp::get();
 		if ($role_id <= 2) {
-			$patient = DB::table('patient')
-				->LeftJoin('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
+			$patient = Patient::join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
 				->join('adhfechocardiography', 'patient.id', '=', 'adhfechocardiography.patient_id')
 				->join('adhfbloodgasanalysis', 'patient.id', '=', 'adhfbloodgasanalysis.patient_id')
@@ -78,7 +78,7 @@ class ExportAdhfController extends Controller
 				->where('patient.categorytreatment_id', 1)
 				->paginate(200);
 
-			$patient2 = DB::table('patient')
+			$patient2 = Patient::table('patient')
 				->RightJoin('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->where('patient.categorytreatment_id', 1)
 				->paginate(200);
