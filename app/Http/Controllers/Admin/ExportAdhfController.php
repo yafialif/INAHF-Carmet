@@ -79,6 +79,13 @@ class ExportAdhfController extends Controller
 				->paginate(200);
 
 			$patient2 = Patient::RightJoin('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
+				->join('adhfechocardiography', 'patient.id', '=', 'adhfechocardiography.patient_id')
+				->join('adhfbloodgasanalysis', 'patient.id', '=', 'adhfbloodgasanalysis.patient_id')
+				->join('adhfetiology', 'patient.id', '=', 'adhfetiology.patient_id')
+				->join('adhfmedication', 'patient.id', '=', 'adhfmedication.patient_id')
+				->join('adhfoutcomes', 'patient.id', '=', 'adhfoutcomes.patient_id')
+				->join('adhfriskfactors', 'patient.id', '=', 'adhfriskfactors.patient_id')
+				->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
 				->where('patient.categorytreatment_id', 1)
 				->paginate(200);
 			// $patient_count = DB::table('patient')->where('patient.categorytreatment_id', 1)
