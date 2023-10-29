@@ -101,26 +101,6 @@ class ExportAdhfController extends Controller
 				->get();
 		}
 
-		$array1 = json_decode($patient, true);
-		$array2 = json_decode($patient2, true);
-
-		// Objek untuk menampung hasil gabungan
-		$hasilGabungan = [];
-
-		// Perulangan melalui $array1
-		foreach ($array1 as $item1) {
-			// Periksa apakah ada item dengan ID yang sama di $array2
-			foreach ($array2 as $item2) {
-				if ($item1['id'] === $item2['id']) {
-					// Gabungkan item berdasarkan ID
-					$gabungan = array_merge($item1, $item2);
-					$hasilGabungan[] = $gabungan;
-				}
-			}
-		}
-
-		// Ubah hasil gabungan kembali ke JSON
-		$jsonHasilGabungan = json_encode($hasilGabungan);
 
 		return response()->json($patient);
 		// return view('admin.exportadhf.coba', compact('patient', 'patient2'));
