@@ -102,7 +102,7 @@ class ExportAdhfController extends Controller
 		}
 
 
-		return response()->json($patient);
+		return response()->json($patient2);
 		// return view('admin.exportadhf.coba', compact('patient', 'patient2'));
 		// return view('admin.exportadhf.index2');
 	}
