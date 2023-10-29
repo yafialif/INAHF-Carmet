@@ -74,7 +74,7 @@ class ExportAdhfController extends Controller
 				->join('adhfoutcomes', 'patient.id', '=', 'adhfoutcomes.patient_id')
 				->join('adhfriskfactors', 'patient.id', '=', 'adhfriskfactors.patient_id')
 				->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
-				// ->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id') Hapus
+				->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id')
 				->where('patient.categorytreatment_id', 1)
 				->paginate(200);
 			// $patient_count = DB::table('patient')->where('patient.categorytreatment_id', 1)
@@ -90,7 +90,7 @@ class ExportAdhfController extends Controller
 				->join('adhfriskfactors', 'patient.id', '=', 'adhfriskfactors.patient_id')
 				// ->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id') Hapus
 				->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
-				// ->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
+				->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->where('patient.user_id', $user_id)
 				->where('patient.categorytreatment_id', 1)
 				->get();
