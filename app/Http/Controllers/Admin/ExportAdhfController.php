@@ -65,20 +65,20 @@ class ExportAdhfController extends Controller
 		$role_id = Auth::user()->role_id;
 		// $menu = MonthFollowUp::get();
 		if ($role_id <= 2) {
-			$patient = Patient::join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
-				// ->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
-				->join('adhfechocardiography', 'patient.id', '=', 'adhfechocardiography.patient_id')
-				->join('adhfbloodgasanalysis', 'patient.id', '=', 'adhfbloodgasanalysis.patient_id')
-				->join('adhfetiology', 'patient.id', '=', 'adhfetiology.patient_id')
-				->join('adhfmedication', 'patient.id', '=', 'adhfmedication.patient_id')
-				->join('adhfoutcomes', 'patient.id', '=', 'adhfoutcomes.patient_id')
-				->join('adhfriskfactors', 'patient.id', '=', 'adhfriskfactors.patient_id')
-				->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
-				// ->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id')
-				->where('patient.categorytreatment_id', 1)
-				->paginate(200);
+			// $patient = Patient::join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
+			// 	->join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
+			// 	->join('adhfechocardiography', 'patient.id', '=', 'adhfechocardiography.patient_id')
+			// 	->join('adhfbloodgasanalysis', 'patient.id', '=', 'adhfbloodgasanalysis.patient_id')
+			// 	->join('adhfetiology', 'patient.id', '=', 'adhfetiology.patient_id')
+			// 	->join('adhfmedication', 'patient.id', '=', 'adhfmedication.patient_id')
+			// 	->join('adhfoutcomes', 'patient.id', '=', 'adhfoutcomes.patient_id')
+			// 	->join('adhfriskfactors', 'patient.id', '=', 'adhfriskfactors.patient_id')
+			// 	->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
+			// 	->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id')
+			// 	->where('patient.categorytreatment_id', 1)
+			// 	->paginate(200);
 
-			$patient2 = Patient::RightJoin('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
+			$patient = Patient::RightJoin('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->join('adhfechocardiography', 'patient.id', '=', 'adhfechocardiography.patient_id')
 				->join('adhfbloodgasanalysis', 'patient.id', '=', 'adhfbloodgasanalysis.patient_id')
 				->join('adhfetiology', 'patient.id', '=', 'adhfetiology.patient_id')
@@ -108,8 +108,8 @@ class ExportAdhfController extends Controller
 		}
 
 
-		return response()->json($patient2);
-		// return view('admin.exportadhf.coba', compact('patient', 'patient2'));
+		// return response()->json($patient2);
+		return view('admin.exportadhf.index', compact('patient'));
 		// return view('admin.exportadhf.index2');
 	}
 }
