@@ -78,8 +78,7 @@ class ExportAdhfController extends Controller
 				->where('patient.categorytreatment_id', 1)
 				->paginate(200);
 
-			$patient2 = Patient::table('patient')
-				->RightJoin('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
+			$patient2 = Patient::RightJoin('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->where('patient.categorytreatment_id', 1)
 				->paginate(200);
 			// $patient_count = DB::table('patient')->where('patient.categorytreatment_id', 1)
@@ -102,7 +101,7 @@ class ExportAdhfController extends Controller
 		}
 
 
-		return response()->json($patient);
+		return response()->json($patient2);
 		// return view('admin.exportadhf.coba', compact('patient', 'patient2'));
 		// return view('admin.exportadhf.index2');
 	}
