@@ -65,7 +65,7 @@ class ExportAdhfController extends Controller
 		// $menu = MonthFollowUp::get();
 		if ($role_id <= 2) {
 			$patient = DB::table('patient')
-				->Join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
+				// ->Join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
 				->join('adhfechocardiography', 'patient.id', '=', 'adhfechocardiography.patient_id')
 				->join('adhfbloodgasanalysis', 'patient.id', '=', 'adhfbloodgasanalysis.patient_id')
