@@ -65,7 +65,7 @@ class ExportAdhfController extends Controller
 		// $menu = MonthFollowUp::get();
 		if ($role_id <= 2) {
 			$patient = DB::table('patient')
-				->rightJoin('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
+				// ->rightJoin('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
 				->join('adhfechocardiography', 'patient.id', '=', 'adhfechocardiography.patient_id')
 				->join('adhfbloodgasanalysis', 'patient.id', '=', 'adhfbloodgasanalysis.patient_id')
@@ -75,6 +75,11 @@ class ExportAdhfController extends Controller
 				->join('adhfriskfactors', 'patient.id', '=', 'adhfriskfactors.patient_id')
 				->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
 				// ->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id')
+				->where('patient.categorytreatment_id', 1)
+				->paginate(200);
+
+			$patient2 = DB::table('patient')
+				->Join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->where('patient.categorytreatment_id', 1)
 				->paginate(200);
 			// $patient_count = DB::table('patient')->where('patient.categorytreatment_id', 1)
@@ -90,14 +95,14 @@ class ExportAdhfController extends Controller
 				->join('adhfriskfactors', 'patient.id', '=', 'adhfriskfactors.patient_id')
 				// ->join('adhfrothorax', 'patient.id', '=', 'adhfrothorax.patient_id') Hapus
 				->join('adhfhospitalization', 'patient.id', '=', 'adhfhospitalization.patient_id')
-				->rightJoin('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
+				// ->rightJoin('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->where('patient.user_id', $user_id)
 				->where('patient.categorytreatment_id', 1)
 				->get();
 		}
 
-		// return response()->json($patient);
-		return view('admin.exportadhf.coba', compact('patient'));
+		return response()->json($patient2);
+		// return view('admin.exportadhf.coba', compact('patient'));
 		// return view('admin.exportadhf.index2');
 	}
 }
