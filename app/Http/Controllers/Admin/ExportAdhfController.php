@@ -65,7 +65,7 @@ class ExportAdhfController extends Controller
 		// $menu = MonthFollowUp::get();
 		if ($role_id <= 2) {
 			$patient = DB::table('patient')
-				// ->Join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
+				->LeftJoin('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->join('adhfbloodlaboratorytest', 'patient.id', '=', 'adhfbloodlaboratorytest.patient_id')
 				->join('adhfechocardiography', 'patient.id', '=', 'adhfechocardiography.patient_id')
 				->join('adhfbloodgasanalysis', 'patient.id', '=', 'adhfbloodgasanalysis.patient_id')
@@ -79,7 +79,7 @@ class ExportAdhfController extends Controller
 				->paginate(200);
 
 			$patient2 = DB::table('patient')
-				->Join('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
+				->RightJoin('clinicalprofile', 'patient.id', '=', 'clinicalprofile.user_id')
 				->where('patient.categorytreatment_id', 1)
 				->paginate(200);
 			// $patient_count = DB::table('patient')->where('patient.categorytreatment_id', 1)
@@ -102,7 +102,7 @@ class ExportAdhfController extends Controller
 		}
 
 
-		return response()->json($patient2);
+		return response()->json($patient);
 		// return view('admin.exportadhf.coba', compact('patient', 'patient2'));
 		// return view('admin.exportadhf.index2');
 	}
