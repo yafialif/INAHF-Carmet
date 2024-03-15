@@ -149,15 +149,15 @@ class PatientController extends Controller
 	 *
 	 * @return mixed
 	 */
-	public function massDelete(Request $request)
-	{
-		if ($request->get('toDelete') != 'mass') {
-			$toDelete = json_decode($request->get('toDelete'));
-			Patient::destroy($toDelete);
-		} else {
-			Patient::whereNotNull('id')->delete();
-		}
+	// public function massDelete(Request $request)
+	// {
+	// 	if ($request->get('toDelete') != 'mass') {
+	// 		$toDelete = json_decode($request->get('toDelete'));
+	// 		Patient::destroy($toDelete);
+	// 	} else {
+	// 		Patient::whereNotNull('id')->delete();
+	// 	}
 
-		return redirect()->route(config('quickadmin.route') . '.patient.index');
-	}
+	// 	return redirect()->route(config('quickadmin.route') . '.patient.index');
+	// }
 }
