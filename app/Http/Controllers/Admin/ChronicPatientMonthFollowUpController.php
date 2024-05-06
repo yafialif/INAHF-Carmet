@@ -97,8 +97,8 @@ class ChronicPatientMonthFollowUpController extends Controller
 			array_push($data, $MonthFollowUp);
 		}
 
-		return response()->json($data);
-		// return view('admin.chronicpatientmonthfollowup.index', compact('chronicpatientmonthfollowup'));
+		// return response()->json($data);
+		return view('admin.chronicpatientmonthfollowup.index', compact('chronicpatientmonthfollowup'));
 	}
 
 	/**
