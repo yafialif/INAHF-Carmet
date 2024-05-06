@@ -3,7 +3,7 @@
 @section('content')
 
 {{-- <p>{!! link_to_route(config('quickadmin.route').'.chronicpatientmonthfollowup.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p> --}}
-@if ($chronicpatientmonthfollowup->count())
+{{-- @if ($chronicpatientmonthfollowup->count()) --}}
     <div class="portlet box green">
         <div class="portlet-title">
             <div class="caption">{{ trans('quickadmin::templates.templates-view_index-list') }}</div>
@@ -13,10 +13,10 @@
 
             <table class="table table-striped table-hover table-responsive datatable" id="datatable">
                 <thead>
-                    <tr>
+                    {{-- <tr>
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
-                        </th>
+                        </th> --}}
 {{-- <th>day passed</th> --}}
 {{-- <th>Name</th> --}}
 {{-- <th>Treatment Name</th> --}}
@@ -56,15 +56,15 @@
 <th>Cardiac related death</th> --}}
 {{-- <th>Date of death</th> --}}
 
-                        <th>&nbsp;</th>
-                    </tr>
+                        {{-- <th>&nbsp;</th>
+                    </tr> --}}
                 </thead>
 
                 <tbody>
-                    @foreach ($chronicpatientmonthfollowup as $row)
+                    {{-- @foreach ($chronicpatientmonthfollowup as $row) --}}
                         <tr>
                             <td>
-                                {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
+                                {{-- {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!} --}}
                             </td>
                             <?php
                             // $datenow =  date("Y-m-d H:i:s");
@@ -82,7 +82,7 @@
 
                             @endif --}}
                             
-                            <td>{{ $row->name }}</td>
+                            {{-- <td>{{ $row->name }}</td> --}}
 {{-- <td>{{ isset($row->categorytreatment->treatmentName) ? $row->categorytreatment->treatmentName : '' }}</td> --}}
 {{-- <td>{{ $row->mount }}</td>
 <td>{{ $row->peripheralOedema }}</td>
@@ -120,14 +120,14 @@
 <td>{{ $row->cardiacRelatedDeath }}</td>
 <td>{{ $row->dateofDeath }}</td> --}}
 
-                            <td>
+                            {{-- <td>
                                 {!! link_to_route(config('quickadmin.route').'.chronicpatientmonthfollowup.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
                                 {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array(config('quickadmin.route').'.chronicpatientmonthfollowup.destroy', $row->id))) !!}
                                 {!! Form::submit(trans('quickadmin::templates.templates-view_index-delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                                 {!! Form::close() !!}
-                            </td>
-                        </tr>
-                    @endforeach
+                            </td> --}}
+                        {{-- </tr>
+                    @endforeach --}}
                 </tbody>
             </table>
         </div>
