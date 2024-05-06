@@ -17,10 +17,10 @@
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
-<th>day passed</th>
-<th>Name</th>
+{{-- <th>day passed</th> --}}
+{{-- <th>Name</th> --}}
 {{-- <th>Treatment Name</th> --}}
-<th>Mount Name</th>
+{{-- <th>Mount Name</th>
 <th>Peripheral Oedema</th>
 <th>nyhaClass</th>
 <th>SBP</th>
@@ -53,8 +53,8 @@
 <th>Statin</th>
 <th>Rehospitalization</th>
 <th>All cause death</th>
-<th>Cardiac related death</th>
-<th>Date of death</th>
+<th>Cardiac related death</th> --}}
+{{-- <th>Date of death</th> --}}
 
                         <th>&nbsp;</th>
                     </tr>
@@ -67,23 +67,24 @@
                                 {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
                             </td>
                             <?php
-                            $datenow =  date("Y-m-d H:i:s");
-                            $selisih = abs(strtotime($datenow) - strtotime($row->created_at));
-                            $jumlahHari = floor($selisih / (60 * 60 * 24));
+                            // $datenow =  date("Y-m-d H:i:s");
+                            // $selisih = abs(strtotime($datenow) - strtotime($row->created_at));
+                            // $jumlahHari = floor($selisih / (60 * 60 * 24));
+                            
                             // $interval = $date1->diff($date2);
                             // $jumlahBulan = ($interval->y * 12) + $interval->m;
 
                             ?>
-                            @if ($jumlahHari >= 130)
+                            {{-- @if ($jumlahHari >= 130)
                             <td style="color: red;">{{ $jumlahHari }}</td>
                                 @else
                             <td>{{ $jumlahHari }}</td>
 
-                            @endif
+                            @endif --}}
                             
                             <td>{{ $row->name }}</td>
 {{-- <td>{{ isset($row->categorytreatment->treatmentName) ? $row->categorytreatment->treatmentName : '' }}</td> --}}
-<td>{{ $row->mount }}</td>
+{{-- <td>{{ $row->mount }}</td>
 <td>{{ $row->peripheralOedema }}</td>
 <td>{{ $row->nyhaClass }}</td>
 <td>{{ $row->sbp }}</td>
@@ -117,7 +118,7 @@
 <td>{{ $row->totalRehospitalization }}</td>
 <td>{{ $row->allCauseDeath }}</td>
 <td>{{ $row->cardiacRelatedDeath }}</td>
-<td>{{ $row->dateofDeath }}</td>
+<td>{{ $row->dateofDeath }}</td> --}}
 
                             <td>
                                 {!! link_to_route(config('quickadmin.route').'.chronicpatientmonthfollowup.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
