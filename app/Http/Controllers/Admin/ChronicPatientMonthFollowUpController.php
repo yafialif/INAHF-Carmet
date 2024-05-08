@@ -29,19 +29,19 @@ class ChronicPatientMonthFollowUpController extends Controller
 	public function index(Request $request)
 	{
 		// $user_id = 5;
-		// $user_id = Auth::user()->id;
-		// $role_id = Auth::user()->role_id;
-		// if ($role_id <= 2) {
-		// 	$chronicpatientmonthfollowup = ChronicPatientMonthFollowUp::join('patient', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
-		// 		->join('monthfollowup', 'monthfollowup.id', '=', 'chronicpatientmonthfollowup.monthfollowup_id')
-		// 		// ->where('patient.user_id', '=', $user_id)
-		// 		->get();
-		// } else {
-		// 	$chronicpatientmonthfollowup = ChronicPatientMonthFollowUp::join('patient', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
-		// 		->join('monthfollowup', 'monthfollowup.id', '=', 'chronicpatientmonthfollowup.monthfollowup_id')
-		// 		->where('patient.user_id', '=', $user_id)
-		// 		->get();
-		// }
+		$user_id = Auth::user()->id;
+		$role_id = Auth::user()->role_id;
+		if ($role_id <= 2) {
+			$chronicpatientmonthfollowup = ChronicPatientMonthFollowUp::join('patient', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
+				->join('monthfollowup', 'monthfollowup.id', '=', 'chronicpatientmonthfollowup.monthfollowup_id')
+				// ->where('patient.user_id', '=', $user_id)
+				->get();
+		} else {
+			$chronicpatientmonthfollowup = ChronicPatientMonthFollowUp::join('patient', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
+				->join('monthfollowup', 'monthfollowup.id', '=', 'chronicpatientmonthfollowup.monthfollowup_id')
+				->where('patient.user_id', '=', $user_id)
+				->get();
+		}
 
 		$datenow =  date("Y-m-d H:i:s");
 		$id_user = Auth::user()->id;
@@ -69,36 +69,36 @@ class ChronicPatientMonthFollowUpController extends Controller
 				->orderBy('chronicpatientmonthfollowup.id', 'desc')->limit(1)
 				->get();
 
-			// if (count($MonthFollowUp) >= 1) {
-			// 	$patient2 = Patient::join('chronicpatientmonthfollowup', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
-			// 		->join('monthfollowup', 'monthfollowup.id', '=', 'chronicpatientmonthfollowup.monthfollowup_id')
-			// 		->where('patient.user_id', '=', $key->id)
-			// 		->where('patient.categorytreatment_id', '=', 2)
-			// 		->whereRaw('TIMESTAMPDIFF(HOUR, patient.created_at, patient.updated_at) < 1')
-			// 		->get();
-			// 	$selisih = abs(strtotime($datenow) - strtotime($MonthFollowUp[0]->MonthFollowUpDate));
-			// 	$jumlahHari = floor($selisih / (60 * 60 * 24));
-			// 	if ($jumlahHari >= 130) {
-			// 		array_push($data, $patient2);
-			// 	}
-			// } else {
-			// 	$patient2 = Patient::join('chronicpatientmonthfollowup', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
-			// 		->join('monthfollowup', 'monthfollowup.id', '=', 'chronicpatientmonthfollowup.monthfollowup_id')
-			// 		->where('patient.user_id', '=', $key->id)
-			// 		->where('patient.categorytreatment_id', '=', 2)
-			// 		->whereRaw('TIMESTAMPDIFF(HOUR, patient.created_at, patient.updated_at) < 1')
-			// 		->get();
-			// 	$selisih = abs(strtotime($datenow) - strtotime($patient[0]->dateOfClinicVisit));
-			// 	$jumlahHari = floor($selisih / (60 * 60 * 24));
-			// 	if ($jumlahHari >= 130) {
-			// 		array_push($data, $patient2);
-			// 	}
-			// }
+			if (count($MonthFollowUp) >= 1) {
+				$patient2 = Patient::join('chronicpatientmonthfollowup', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
+					->join('monthfollowup', 'monthfollowup.id', '=', 'chronicpatientmonthfollowup.monthfollowup_id')
+					->where('patient.user_id', '=', $key->id)
+					->where('patient.categorytreatment_id', '=', 2)
+					->whereRaw('TIMESTAMPDIFF(HOUR, patient.created_at, patient.updated_at) < 1')
+					->get();
+				$selisih = abs(strtotime($datenow) - strtotime($MonthFollowUp[0]->MonthFollowUpDate));
+				$jumlahHari = floor($selisih / (60 * 60 * 24));
+				if ($jumlahHari >= 130) {
+					array_push($data, $patient2);
+				}
+			} else {
+				$patient2 = Patient::join('chronicpatientmonthfollowup', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
+					->join('monthfollowup', 'monthfollowup.id', '=', 'chronicpatientmonthfollowup.monthfollowup_id')
+					->where('patient.user_id', '=', $key->id)
+					->where('patient.categorytreatment_id', '=', 2)
+					->whereRaw('TIMESTAMPDIFF(HOUR, patient.created_at, patient.updated_at) < 1')
+					->get();
+				$selisih = abs(strtotime($datenow) - strtotime($patient[0]->dateOfClinicVisit));
+				$jumlahHari = floor($selisih / (60 * 60 * 24));
+				if ($jumlahHari >= 130) {
+					array_push($data, $patient2);
+				}
+			}
 			array_push($data, $MonthFollowUp);
 		}
 
 		// return response()->json($data);
-		return view('admin.chronicpatientmonthfollowup.index2', compact('chronicpatientmonthfollowup'));
+		return view('admin.chronicpatientmonthfollowup.index', compact('chronicpatientmonthfollowup'));
 	}
 
 	/**
