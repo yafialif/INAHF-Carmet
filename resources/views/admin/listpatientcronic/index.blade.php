@@ -50,7 +50,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
                 @foreach ($patient as $row)
                 <tr>
                     <td>
-                        {!! Form::checkbox('del-'.$row->patient_id,1,false,['class' => 'single','data-id'=> $row->patient_id]) !!}
+                        {{-- {!! Form::checkbox('del-'.$row->patient_id,1,false,['class' => 'single','data-id'=> $row->patient_id]) !!} --}}
                     </td>
                     <td>{!! $row->user['name'] !!}</td>
                     {{-- <td>{!! $row->user['name'] !!}</td> --}}
