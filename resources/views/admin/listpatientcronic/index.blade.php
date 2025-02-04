@@ -26,7 +26,7 @@ I-TREAT HF (Indonesian Trial and Registry About Heart Failure)
             <thead>
                 <tr>
                     <th>
-                        {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
+                        {{-- {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!} --}}
                     </th>
                     <th>Dokter</th>
                     <th>Project</th>
