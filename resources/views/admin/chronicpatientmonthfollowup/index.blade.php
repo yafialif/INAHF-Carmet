@@ -15,8 +15,9 @@
                 <thead>
                     <tr>
                         <th>
-                            {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
+                            {{-- <!--{!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}--> --}}
                         </th>
+<!--<th>Data ID</th>-->
 <th>day passed</th>
 <th>Name</th>
 {{-- <th>Treatment Name</th> --}}
@@ -64,8 +65,9 @@
                     @foreach ($chronicpatientmonthfollowup as $row)
                         <tr>
                             <td>
-                                {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
+                                {!! Form::checkbox('del-'.$row->chronic_id,1,false,['class' => 'single','data-id'=> $row->chronic_id]) !!}
                             </td>
+                            <!--<td>{{ $row->chronic_id }}</td>-->
                             <?php
                             $datenow =  date("Y-m-d H:i:s");
                             $selisih = abs(strtotime($datenow) - strtotime($row->created_at));
@@ -120,8 +122,8 @@
 <td>{{ $row->dateofDeath }}</td>
 
                             <td>
-                                {!! link_to_route(config('quickadmin.route').'.chronicpatientmonthfollowup.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
-                                {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array(config('quickadmin.route').'.chronicpatientmonthfollowup.destroy', $row->id))) !!}
+                                {!! link_to_route('admin.chronicpatientmonthfollowup.edit_mounthfollowup', trans('quickadmin::templates.templates-view_index-edit'), ['id' => $row->chronic_id, 'id_patient' => $row->patient_id], ['class' => 'btn btn-xs btn-info']) !!}
+                                {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array(config('quickadmin.route').'.chronicpatientmonthfollowup.destroy', $row->chronic_id))) !!}
                                 {!! Form::submit(trans('quickadmin::templates.templates-view_index-delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                                 {!! Form::close() !!}
                             </td>

@@ -35,11 +35,22 @@ class ChronicPatientMonthFollowUpController extends Controller
 			$chronicpatientmonthfollowup = ChronicPatientMonthFollowUp::join('patient', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
 				->join('monthfollowup', 'monthfollowup.id', '=', 'chronicpatientmonthfollowup.monthfollowup_id')
 				// ->where('patient.user_id', '=', $user_id)
+				->select([
+					'chronicpatientmonthfollowup.id AS chronic_id', // Menampilkan ID dari chronicpatientmonthfollowup
+					'chronicpatientmonthfollowup.*',  // Semua kolom dari tabel utama
+					'patient.*',                      // Semua kolom dari tabel patient
+					'monthfollowup.*'                 // Semua kolom dari tabel monthfollowup
+				])
 				->get();
 		} else {
 			$chronicpatientmonthfollowup = ChronicPatientMonthFollowUp::join('patient', 'patient.id', '=', 'chronicpatientmonthfollowup.patient_id')
 				->join('monthfollowup', 'monthfollowup.id', '=', 'chronicpatientmonthfollowup.monthfollowup_id')
-				->where('patient.user_id', '=', $user_id)
+				->where('patient.user_id', '=', $user_id)->select([
+					'chronicpatientmonthfollowup.id AS chronic_id', // Menampilkan ID dari chronicpatientmonthfollowup
+					'chronicpatientmonthfollowup.*',  // Semua kolom dari tabel utama
+					'patient.*',                      // Semua kolom dari tabel patient
+					'monthfollowup.*'                 // Semua kolom dari tabel monthfollowup
+				])
 				->get();
 		}
 

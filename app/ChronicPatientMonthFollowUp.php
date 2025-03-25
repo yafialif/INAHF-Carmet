@@ -18,6 +18,7 @@ class ChronicPatientMonthFollowUp extends Model
     protected $table    = 'chronicpatientmonthfollowup';
 
     protected $fillable = [
+        'id',
         'patient_id',
         'categorytreatment_id',
         'monthfollowup_id',
